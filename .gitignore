@@ -1,0 +1,39 @@
+# Datos subidos por usuarios
+Datos/*.xlsx
+Datos/*.xlsm
+!Datos/.htaccess
+
+# Logs
+logs/*.log
+!logs/.htaccess
+
+# Composer
+/vendor/
+
+# Configuración local
+config/database.php
+.env
+
+# Backups
+*.backup
+*_backup_*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporal
+tmp/
+temp/
+*.tmp
+
+# PHP
+*.cache

@@ -1,0 +1,107 @@
+[
+    {
+        "code6": "102301",
+        "name": "HOSPITAL SAN JUAN DE DIOS",
+        "type": "HOSPITAL",
+        "hasAmbulance": true,
+        "comuna": "SANTIAGO"
+    },
+    {
+        "code6": "102100",
+        "name": "CESFAM LOS ANDES",
+        "type": "CESFAM",
+        "hasAmbulance": false,
+        "comuna": "LOS ANDES"
+    },
+    {
+        "code6": "100001",
+        "name": "HOSPITAL REGIONAL DE CONCEPCION",
+        "type": "HOSPITAL",
+        "hasAmbulance": true,
+        "comuna": "CONCEPCION"
+    },
+    {
+        "code6": "200001",
+        "name": "POSTA RURAL EL QUIISCO",
+        "type": "POSTA",
+        "hasAmbulance": false,
+        "comuna": "EL QUISCO"
+    },
+    {
+        "code6": "105001",
+        "name": "SAPU RECOLETA",
+        "type": "SAPU",
+        "hasAmbulance": true,
+        "comuna": "RECOLETA"
+    },
+    {
+        "code6": "123456",
+        "name": "COSAM PROVIDENCIA",
+        "type": "COSAM",
+        "hasAmbulance": false,
+        "comuna": "PROVIDENCIA"
+    },
+    {
+        "code6": "654321",
+        "name": "CECOSF LA FLORIDA",
+        "type": "CECOSF",
+        "hasAmbulance": false,
+        "comuna": "LA FLORIDA"
+    },
+    {
+        "code6": "987654",
+        "name": "HOSPITAL DEL SALVADOR",
+        "type": "HOSPITAL",
+        "hasAmbulance": true,
+        "comuna": "PROVIDENCIA"
+    },
+    {
+        "code6": "112233",
+        "name": "CESFAM MAIPU",
+        "type": "CESFAM",
+        "hasAmbulance": false,
+        "comuna": "MAIPU"
+    },
+    {
+        "code6": "445566",
+        "name": "SAR PUDAHUEL",
+        "type": "SAR",
+        "hasAmbulance": true,
+        "comuna": "PUDAHUEL"
+    },
+    {
+        "code6": "778899",
+        "name": "SUR LAS REJAS",
+        "type": "SUR",
+        "hasAmbulance": false,
+        "comuna": "ESTACION CENTRAL"
+    },
+    {
+        "code6": "665544",
+        "name": "PRAIS SANTIAGO",
+        "type": "PRAIS",
+        "hasAmbulance": false,
+        "comuna": "SANTIAGO"
+    },
+    {
+        "code6": "332211",
+        "name": "UAPO INDEPENDENCIA",
+        "type": "UAPO",
+        "hasAmbulance": false,
+        "comuna": "INDEPENDENCIA"
+    },
+    {
+        "code6": "998877",
+        "name": "HOSPITAL BARROS LUCO",
+        "type": "HOSPITAL",
+        "hasAmbulance": true,
+        "comuna": "SAN MIGUEL"
+    },
+    {
+        "code6": "554433",
+        "name": "CRS MAIPU",
+        "type": "CRS",
+        "hasAmbulance": false,
+        "comuna": "MAIPU"
+    }
+]

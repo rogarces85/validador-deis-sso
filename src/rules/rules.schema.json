@@ -1,0 +1,102 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "REM Validation Rules",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "string",
+                "description": "Unique identifier for the rule (e.g., 'A01-R001')"
+            },
+            "description": {
+                "type": "string",
+                "description": "Human-readable description of what the rule validates"
+            },
+            "severity": {
+                "type": "string",
+                "enum": [
+                    "ERROR",
+                    "WARNING",
+                    "INFO"
+                ],
+                "default": "ERROR"
+            },
+            "appliesTo": {
+                "type": "object",
+                "properties": {
+                    "series": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "A",
+                                "BS",
+                                "BM",
+                                "D",
+                                "P",
+                                "AX",
+                                "ANEXO"
+                            ]
+                        },
+                        "minItems": 1
+                    },
+                    "estabTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "Posta",
+                                "CESFAM",
+                                "Hospital",
+                                "CECOSF",
+                                "PSR",
+                                "SAPU",
+                                "SAR",
+                                "SUR"
+                            ]
+                        }
+                    },
+                    "requires": {
+                        "type": "object",
+                        "properties": {
+                            "hasAmbulance": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "series"
+                ]
+            },
+            "assert": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "test": {
+                            "type": "string",
+                            "description": "Expression to evaluate. References formatted as Sheet!Cell (e.g., A03!L20). Supports arithmetic (+-*/), comparison (==,!=,>,<,>=,<=), and functions (SUM, UPPER, IF)."
+                        },
+                        "messageTemplate": {
+                            "type": "string",
+                            "description": "Error message template. variables: {expected}, {actual}, {sheet}, {cell}"
+                        }
+                    },
+                    "required": [
+                        "test",
+                        "messageTemplate"
+                    ]
+                },
+                "minItems": 1
+            }
+        },
+        "required": [
+            "id",
+            "description",
+            "appliesTo",
+            "assert"
+        ]
+    }
+}

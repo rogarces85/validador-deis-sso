@@ -1,0 +1,201 @@
+[
+    {
+        "id": "A-R001",
+        "description": "Total columns must match sum of components (Male + Female)",
+        "severity": "ERROR",
+        "appliesTo": {
+            "series": [
+                "A"
+            ]
+        },
+        "assert": [
+            {
+                "test": "A01!C03 == A01!C01 + A01!C02",
+                "messageTemplate": "Total in C03 does not match sum of C01 (Male) and C02 (Female)."
+            }
+        ]
+    },
+    {
+        "id": "A-R002",
+        "description": "Ensure positive values for consultations",
+        "severity": "WARNING",
+        "appliesTo": {
+            "series": [
+                "A"
+            ]
+        },
+        "assert": [
+            {
+                "test": "A01!C01 >= 0",
+                "messageTemplate": "Negative value found in C01."
+            }
+        ]
+    },
+    {
+        "id": "A-R003",
+        "description": "Check if pregnant women count is reasonable (less than total population)",
+        "severity": "INFO",
+        "appliesTo": {
+            "series": [
+                "A"
+            ],
+            "estabTypes": [
+                "CESFAM"
+            ]
+        },
+        "assert": [
+            {
+                "test": "A03!D10 < 5000",
+                "messageTemplate": "High number of pregnant women reported (>5000)."
+            }
+        ]
+    },
+    {
+        "id": "A-R004",
+        "description": "Cross-sheet validation: Totals in A01 must match A02",
+        "severity": "ERROR",
+        "appliesTo": {
+            "series": [
+                "A"
+            ]
+        },
+        "assert": [
+            {
+                "test": "A01!C03 == A02!C10",
+                "messageTemplate": "Mismatch between A01 Total (C03) and A02 Total (C10)."
+            }
+        ]
+    },
+    {
+        "id": "A-R005",
+        "description": "Ambulance usage requires ambulance resource",
+        "severity": "ERROR",
+        "appliesTo": {
+            "series": [
+                "A"
+            ],
+            "requires": {
+                "hasAmbulance": false
+            }
+        },
+        "assert": [
+            {
+                "test": "A20!Z01 == 0",
+                "messageTemplate": "Ambulance runs reported (A20!Z01) but establishment has no ambulance."
+            }
+        ]
+    },
+    {
+        "id": "A-R006",
+        "description": "Text validation for Supervisor Name",
+        "severity": "WARNING",
+        "appliesTo": {
+            "series": [
+                "A"
+            ]
+        },
+        "assert": [
+            {
+                "test": "UPPER(A01!A01) != 'UNKNOWN'",
+                "messageTemplate": "Supervisor name should not be UNKNOWN."
+            }
+        ]
+    },
+    {
+        "id": "AX-R001",
+        "description": "Anexo must have valid Region Code",
+        "severity": "ERROR",
+        "appliesTo": {
+            "series": [
+                "AX",
+                "ANEXO"
+            ]
+        },
+        "assert": [
+            {
+                "test": "AX01!B05 > 0",
+                "messageTemplate": "Region code must be positive."
+            }
+        ]
+    },
+    {
+        "id": "AX-R002",
+        "description": "Population check",
+        "severity": "WARNING",
+        "appliesTo": {
+            "series": [
+                "AX"
+            ]
+        },
+        "assert": [
+            {
+                "test": "AX01!C20 < 1000000",
+                "messageTemplate": "Population reported depends on commune size check."
+            }
+        ]
+    },
+    {
+        "id": "AX-R003",
+        "description": "Conditional validation using IF",
+        "severity": "INFO",
+        "appliesTo": {
+            "series": [
+                "AX"
+            ]
+        },
+        "assert": [
+            {
+                "test": "IF(AX01!D05 > 100, AX01!E05 > 0, TRUE)",
+                "messageTemplate": "If D05 > 100, then E05 must be non-zero."
+            }
+        ]
+    },
+    {
+        "id": "AX-R004",
+        "description": "Data completeness",
+        "severity": "ERROR",
+        "appliesTo": {
+            "series": [
+                "AX"
+            ]
+        },
+        "assert": [
+            {
+                "test": "SUM(AX02!A01:AX02!A05) > 0",
+                "messageTemplate": "No data reported in range A01:A05."
+            }
+        ]
+    },
+    {
+        "id": "AX-R005",
+        "description": "Check specific cell content",
+        "severity": "ERROR",
+        "appliesTo": {
+            "series": [
+                "AX"
+            ]
+        },
+        "assert": [
+            {
+                "test": "UPPER(AX01!A01) == 'VALID'",
+                "messageTemplate": "Status cell AX01!A01 must be 'VALID'."
+            }
+        ]
+    },
+    {
+        "id": "AX-R006",
+        "description": "Comparison with fixed threshold",
+        "severity": "ERROR",
+        "appliesTo": {
+            "series": [
+                "AX"
+            ]
+        },
+        "assert": [
+            {
+                "test": "AX05!F10 <= 100",
+                "messageTemplate": "Percentage cannot exceed 100."
+            }
+        ]
+    }
+]

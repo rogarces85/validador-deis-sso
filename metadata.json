@@ -1,0 +1,5 @@
+{
+  "name": "Validador DEIS SSO 2026 - React Edition",
+  "description": "Plataforma avanzada para la validación de archivos REM (Resumen Estadístico Mensual) del Servicio de Salud Osorno, con motor de reglas y análisis en tiempo real.",
+  "requestFramePermissions": []
+}

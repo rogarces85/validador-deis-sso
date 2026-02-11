@@ -1,82 +1,15 @@
 
-import { Establishment, ValidationRule, Severity } from './types';
+import { Establishment, EstablishmentType, Severity, ValidationRule } from './types';
+import catalogData from './data/establishments.catalog.json';
 
-export const ESTABLECIMIENTOS: Establishment[] = [
-  { codigo: "123000", nombre: "DEMO", comuna: "10301", tipo: "Otro" },
-  { codigo: "123010", nombre: "Direccion Servicio Salud Osorno", comuna: "10301", tipo: "DIRECCION" },
-  { codigo: "123011", nombre: "PRAIS", comuna: "10301", tipo: "OTROS" },
-  { codigo: "123012", nombre: "Clinica Dental Movil (Osorno)", comuna: "10301", tipo: "MOVIL" },
-  { codigo: "123030", nombre: "Departamento de Atencion Integral Funcionarios", comuna: "10301", tipo: "OTROS" },
-  { codigo: "123100", nombre: "Hospital Base San Jose de Osorno", comuna: "10301", tipo: "HOSPITAL" },
-  { codigo: "123101", nombre: "Hospital de Puranque Dr. Juan Hepp Dubiau", comuna: "10303", tipo: "HOSPITAL" },
-  { codigo: "123102", nombre: "Hospital de Rio Negro", comuna: "10305", tipo: "HOSPITAL" },
-  { codigo: "123103", nombre: "Hospital de Puerto Octay", comuna: "10302", tipo: "HOSPITAL" },
-  { codigo: "123104", nombre: "Hospital Futa Sruka Lawenche Kunko Mapu Mo", comuna: "10306", tipo: "HOSPITAL" },
-  { codigo: "123105", nombre: "Hospital Pu Mulen Quilacahuin", comuna: "10307", tipo: "HOSPITAL" },
-  { codigo: "123203", nombre: "Clinica Alemana Osorno", comuna: "10301", tipo: "PRIVADA" },
-  { codigo: "123207", nombre: "Centro de Rehabilitación de Minusválidos", comuna: "10303", tipo: "OTROS" },
-  { codigo: "123300", nombre: "Centro de Salud Familiar Dr. Pedro Jauregui", comuna: "10301", tipo: "CESFAM" },
-  { codigo: "123301", nombre: "Centro de Salud Familiar Dr. Marcelo Lopetegui Adams", comuna: "10301", tipo: "CESFAM" },
-  { codigo: "123302", nombre: "Centro de Salud Familiar Ovejeria", comuna: "10301", tipo: "CESFAM" },
-  { codigo: "123303", nombre: "Centro de Salud Familiar Rahue Alto", comuna: "10301", tipo: "CESFAM" },
-  { codigo: "123304", nombre: "Centro de Salud Familiar Entre Lagos", comuna: "10304", tipo: "CESFAM" },
-  { codigo: "123305", nombre: "Centro de Salud Familiar San Pablo", comuna: "10307", tipo: "CESFAM" },
-  { codigo: "123306", nombre: "Centro de Salud Familiar Pampa Alegre", comuna: "10301", tipo: "CESFAM" },
-  { codigo: "123307", nombre: "Centro de Salud Familiar Purranque", comuna: "10303", tipo: "CESFAM" },
-  { codigo: "123309", nombre: "Centro de Salud Familiar Practicante Pablo Araya", comuna: "10305", tipo: "CESFAM" },
-  { codigo: "123310", nombre: "Centro de Salud Familiar Quinto Centenario", comuna: "10301", tipo: "CESFAM" },
-  { codigo: "123311", nombre: "Centro de Salud Familiar Bahia Mansa", comuna: "10306", tipo: "CESFAM" },
-  { codigo: "123312", nombre: "Centro de Salud Familiar Puaucho", comuna: "10306", tipo: "CESFAM" },
-  { codigo: "123402", nombre: "Posta de Salud Rural Cuinco", comuna: "10306", tipo: "POSTA" },
-  { codigo: "123404", nombre: "Posta de Salud Rural Pichi Damas", comuna: "10301", tipo: "POSTA" },
-  { codigo: "123406", nombre: "Posta de Salud Rural Puyehue", comuna: "10304", tipo: "POSTA" },
-  { codigo: "123407", nombre: "Posta de Salud Rural Desague Rupanco", comuna: "10304", tipo: "POSTA" },
-  { codigo: "123408", nombre: "Posta de Salud Rural Ñadi Pichi-Damas", comuna: "10304", tipo: "POSTA" },
-  { codigo: "123410", nombre: "Posta de Salud Rural Tres Esteros", comuna: "10305", tipo: "POSTA" },
-  { codigo: "123411", nombre: "Centro Comunitario de Salud Familiar Corte Alto", comuna: "10303", tipo: "CECOSF" },
-  { codigo: "123412", nombre: "Posta de Salud Rural Crucero ( Purranque)", comuna: "10303", tipo: "POSTA" },
-  { codigo: "123413", nombre: "Posta de Salud Rural Coligual", comuna: "10303", tipo: "POSTA" },
-  { codigo: "123414", nombre: "Posta de Salud Rural Hueyusca", comuna: "10303", tipo: "POSTA" },
-  { codigo: "123415", nombre: "Posta de Salud Rural Concordia", comuna: "10303", tipo: "POSTA" },
-  { codigo: "123416", nombre: "Posta de Salud Rural Colonia Ponce", comuna: "10303", tipo: "POSTA" },
-  { codigo: "123417", nombre: "Posta de Salud Rural La Naranja", comuna: "10303", tipo: "POSTA" },
-  { codigo: "123419", nombre: "Posta de Salud Rural San Pedro de Purranque", comuna: "10303", tipo: "POSTA" },
-  { codigo: "123420", nombre: "Posta de Salud Rural Collihuinco", comuna: "10303", tipo: "POSTA" },
-  { codigo: "123422", nombre: "Posta de Salud Rural Rupanco", comuna: "10302", tipo: "POSTA" },
-  { codigo: "123424", nombre: "Posta de Salud Rural Piedras Negras", comuna: "10302", tipo: "POSTA" },
-  { codigo: "123425", nombre: "Posta de Salud Rural Cancura", comuna: "10301", tipo: "POSTA" },
-  { codigo: "123426", nombre: "Posta de Salud Rural Pellinada", comuna: "10302", tipo: "POSTA" },
-  { codigo: "123427", nombre: "Posta de Salud Rural La Calo", comuna: "10302", tipo: "POSTA" },
-  { codigo: "123428", nombre: "Posta de Salud Rural Coihueco (Puerto Octay)", comuna: "10302", tipo: "POSTA" },
-  { codigo: "123430", nombre: "Posta de Salud Rural Purrehuin", comuna: "10306", tipo: "POSTA" },
-  { codigo: "123431", nombre: "Posta de Salud Rural Aleucapi", comuna: "10306", tipo: "POSTA" },
-  { codigo: "123432", nombre: "Posta de Salud Rural La Poza", comuna: "10307", tipo: "POSTA" },
-  { codigo: "123434", nombre: "Posta de Salud Rural Huilma", comuna: "10305", tipo: "POSTA" },
-  { codigo: "123435", nombre: "Posta de Salud Rural Pucopio", comuna: "10307", tipo: "POSTA" },
-  { codigo: "123436", nombre: "Posta de Salud Rural Chanco ( San Pablo )", comuna: "10307", tipo: "POSTA" },
-  { codigo: "123437", nombre: "Posta de Salud Rural Currimahuida", comuna: "10307", tipo: "POSTA" },
-  { codigo: "123700", nombre: "Centro Comunitario de Salud Familiar Murrinumo", comuna: "10301", tipo: "CECOSF" },
-  { codigo: "123701", nombre: "Centro Comunitario de Salud Familiar Manuel Rodriguez", comuna: "10301", tipo: "CECOSF" },
-  { codigo: "123705", nombre: "Centro Comunitario de Salud Familiar El Encanto", comuna: "10304", tipo: "CECOSF" },
-  { codigo: "123709", nombre: "Centro Comunitario de Salud Familiar Riachuelo", comuna: "10305", tipo: "CECOSF" },
-  { codigo: "123800", nombre: "SAPU Dr. Pedro Jauregui", comuna: "10301", tipo: "SAPU" },
-  { codigo: "123801", nombre: "SAPU Rahue Alto", comuna: "10301", tipo: "SAPU" },
-  { codigo: "200085", nombre: "SAPU Dr. Marcelo Lopetegui Adams", comuna: "10301", tipo: "SAPU" },
-  { codigo: "200209", nombre: "COSAM Rahue", comuna: "10301", tipo: "SALUD_MENTAL" },
-  { codigo: "200248", nombre: "CDR de Adultos Mayores con Demencia", comuna: "10301", tipo: "OTROS" },
-  { codigo: "200445", nombre: "COSAM Oriente", comuna: "10301", tipo: "SALUD_MENTAL" },
-  { codigo: "200455", nombre: "Centro Comunitario de Salud Familiar Barrio Estacion", comuna: "10303", tipo: "CECOSF" },
-  { codigo: "200477", nombre: "Unidad de Memoria AYEKAN", comuna: "10301", tipo: "OTROS" },
-  { codigo: "200490", nombre: "Posta de Salud Rural Chamilco", comuna: "10306", tipo: "POSTA" },
-  { codigo: "200539", nombre: "Centro Referencia Diagnostico Medico Osorno", comuna: "10301", tipo: "OTROS" },
-  { codigo: "200747", nombre: "SAPU Entre Lagos", comuna: "10304", tipo: "SAPU" },
-  { codigo: "200748", nombre: "SUR San Pablo", comuna: "10307", tipo: "SUR" },
-  { codigo: "200749", nombre: "SUR Bahia Mansa", comuna: "10306", tipo: "SUR" },
-  { codigo: "200750", nombre: "SUR Puaucho", comuna: "10306", tipo: "SUR" },
-  { codigo: "201055", nombre: "Terapeutica Peulla Ambulatoria", comuna: "10301", tipo: "OTROS" },
-  { codigo: "201056", nombre: "Terapeutica Peulla Residencial", comuna: "10301", tipo: "OTROS" },
-  { codigo: "201483", nombre: "Centro Comunitario de Salud Familiar Las Cascadas", comuna: "10302", tipo: "CECOSF" },
-];
+// ─── Establecimientos desde catálogo JSON ──────────────────
+
+export const ESTABLECIMIENTOS: Establishment[] = catalogData.establecimientos.map((e) => ({
+    ...e,
+    tipo: e.tipo as EstablishmentType,
+}));
+
+// ─── Reglas de ejemplo (subset para desarrollo) ───────────
 
 export const RAW_RULES: any = {
     "A01": [
@@ -100,11 +33,11 @@ export const RAW_RULES: any = {
     ]
 };
 
-export const SAMPLE_RULES: ValidationRule[] = Object.keys(RAW_RULES).flatMap(serie => 
+export const SAMPLE_RULES: ValidationRule[] = Object.keys(RAW_RULES).flatMap(serie =>
     RAW_RULES[serie].map((r: any) => ({ ...r, serie, severidad: r.severidad as Severity }))
 );
 
 export const MONTH_NAMES = [
-  'ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
-  'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'
+    'ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
+    'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'
 ];

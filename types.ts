@@ -6,11 +6,31 @@ export enum Severity {
   INDICADOR = 'INDICADOR'
 }
 
+export type EstablishmentType =
+  | 'HOSPITAL' | 'CESFAM' | 'POSTA' | 'CECOSF'
+  | 'SAPU' | 'SUR' | 'COSAM' | 'SALUD_MENTAL'
+  | 'DIRECCION' | 'MOVIL' | 'PRIVADA' | 'OTROS';
+
+export const VALID_ESTABLISHMENT_TYPES: readonly EstablishmentType[] = [
+  'HOSPITAL', 'CESFAM', 'POSTA', 'CECOSF',
+  'SAPU', 'SUR', 'COSAM', 'SALUD_MENTAL',
+  'DIRECCION', 'MOVIL', 'PRIVADA', 'OTROS'
+] as const;
+
 export interface Establishment {
-  codigo: string;
-  nombre: string;
-  tipo: string;
-  comuna?: string;
+  codigo: string;           // 6 dígitos, zero-padded
+  nombre: string;           // Nombre oficial normalizado
+  tipo: EstablishmentType;  // Tipo de establecimiento
+  comuna: string;           // Código comuna 5 dígitos
+  activo: boolean;          // Si reporta REM actualmente
+}
+
+export interface EstablishmentCatalog {
+  version: string;
+  generadoEl: string;           // ISO date
+  servicioDeSalud: string;
+  totalEstablecimientos: number;
+  establecimientos: Establishment[];
 }
 
 export interface ValidationRule {

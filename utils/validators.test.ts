@@ -38,7 +38,7 @@ describe('matchEstablishment', () => {
     it('should return establishment for valid code', () => {
         const result = matchEstablishment('123100');
         expect(result).toBeDefined();
-        expect(result?.nombre).toBe('Hospital Base San Jose de Osorno');
+        expect(result?.nombre).toBe('Hospital Base San José de Osorno');
     });
 
     it('should return null for unknown code', () => {

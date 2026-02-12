@@ -1,68 +1,1010 @@
-[
-    {
-        "id": "R001",
-        "tipo": "CONSISTENCIA",
-        "rem_sheet": "A01",
-        "expresion_1": "A01!A1",
-        "operador": ">",
-        "expresion_2": 0,
-        "severidad": "REVISAR",
-        "mensaje": "El valor de la celda A1 debe ser mayor a 0",
-        "serie": "A"
-    },
-    {
-        "id": "R002",
-        "tipo": "CALIDAD",
-        "rem_sheet": "A01",
-        "expresion_1": "A01!B10",
-        "operador": "==",
-        "expresion_2": 100,
-        "severidad": "ERROR",
-        "mensaje": "El total en B10 debe ser exactamente 100",
-        "serie": "A"
-    },
-    {
-        "id": "R003",
-        "tipo": "CONSISTENCIA",
-        "rem_sheet": "A02",
-        "expresion_1": "SUM(A02!C1, A02!C2, A02!C3)",
-        "operador": "==",
-        "expresion_2": "A02!C4",
-        "severidad": "ERROR",
-        "mensaje": "La suma de C1, C2 y C3 debe ser igual a C4 en la hoja A02",
-        "serie": "A"
-    },
-    {
-        "id": "R004",
-        "tipo": "INDICADOR",
-        "rem_sheet": "A03",
-        "expresion_1": "A03!D5",
-        "operador": "<=",
-        "expresion_2": 50,
-        "severidad": "INDICADOR",
-        "mensaje": "Indicador: El valor en D5 es menor o igual a 50",
-        "serie": "A"
-    },
-    {
-        "id": "A-004",
-        "descripcion": "Validar que el total de consultas (A01) sea mayor o igual a 0",
-        "severidad": "ERROR",
-        "serie": "A",
-        "rem_sheet": "A",
-        "expresion_1": "A01!C10",
-        "operador": ">=",
-        "expresion_2": 0,
-        "mensaje": "Sección A: El valor en C10 debe ser no negativo (>= 0)"
-    },
-    {
-        "id": "D-001",
-        "descripcion": "Verificar existencia de datos en hoja D",
-        "severidad": "WARNING",
-        "serie": "D",
-        "rem_sheet": "D",
-        "expresion_1": "D!C5",
-        "operador": "!=",
-        "expresion_2": null,
-        "mensaje": "Se espera que la hoja D tenga datos en C5 si se carga la serie D"
+{
+    "validaciones": {
+        "A01": [
+            {
+                "id": "VAL01",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "F11",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 10 a 14 años, celda F11"
+            },
+            {
+                "id": "VAL01",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "F12",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 10 a 14 años, celda F12"
+            },
+            {
+                "id": "VAL02",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "M11",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda M11"
+            },
+            {
+                "id": "VAL02",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "M12",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda M12"
+            },
+            {
+                "id": "VAL02",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "N11",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda N11"
+            },
+            {
+                "id": "VAL02",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "N12",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda N12"
+            },
+            {
+                "id": "VAL03",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "N13",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Control Prenatal en mujeres de 50 a 54 años, celda N13"
+            },
+            {
+                "id": "VAL03",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "N14",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Control Prenatal en mujeres de 50 a 54 años, celda N14"
+            },
+            {
+                "id": "VAL04",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "N15",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Control Post Parto y Post Aborto en mujeres de 50 a 54 años, celda N15"
+            },
+            {
+                "id": "VAL04",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "N16",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Control Post Parto y Post Aborto en mujeres de 50 a 54 años, celda N16"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "O31",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda O31"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "O32",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda O32"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "P31",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda P31"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "P32",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda P32"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "Q31",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda Q31"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "Q32",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda Q32"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "R31",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda R31"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "R32",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda R32"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "S31",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda S31"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "S32",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda S32"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "T31",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda T31"
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "T32",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda T32"
+            },
+            {
+                "id": "VAL06",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "A05!C89",
+                "operador": "==",
+                "expresion_2": "SUM(C19:C26, F36:F38)",
+                "severidad": "ERROR",
+                "mensaje": "Controles de salud sexual y Reproductiva, la Suma de Puérpera con recién Nacidos  10 Días hasta 28 Días,  celdas C19 a C26 y Controles de salud sexual y Reproductiva, Menor de 1 Mes, celdas  F36 a F38  deben ser igual a la Sección E REM05, Ingresos a control de salud recién Nacidos, Total menores de 28 Días,  celda C89"
+            },
+            {
+                "id": "VAL07",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "C74",
+                "operador": "<=",
+                "expresion_2": "T36:T38",
+                "severidad": "ERROR",
+                "mensaje": "Controles de Salud según Ciclo Vital, 10 a 14 años (T36 a T38) debe ser mayor o igual a Control de Salud Integral de Adolescente (C74)."
+            },
+            {
+                "id": "VAL08",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "F74",
+                "operador": "<=",
+                "expresion_2": "U36:U38",
+                "severidad": "ERROR",
+                "mensaje": "Controles de Salud según Ciclo Vital, 10 a 14 años (U36 a U38) debe ser mayor o igual a Control de Salud Integral de Adolescente (F74)."
+            },
+            {
+                "id": "VAL09",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "F36",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "Controles de Salud según Ciclo Vital, celda F36, no debería ser registrado por el médico salvo excepciones"
+            },
+            {
+                "id": "VAL10",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "A03!L20 + A03!M20",
+                "operador": "==",
+                "expresion_2": "O36:O37",
+                "severidad": "OBSERVAR",
+                "mensaje": "La suma de Escala de Desarrollo Psicomotor (REM03!L20+M20) debe ser menor o igual a Controles de Salud (A01!O36:O37) para 18-23 meses."
+            },
+            {
+                "id": "VAL11",
+                "tipo": "CELDA",
+                "rem_sheet": "A01",
+                "expresion_1": "A03!N20 + A03!O20",
+                "operador": "==",
+                "expresion_2": "P36:P37",
+                "severidad": "OBSERVAR",
+                "mensaje": "La suma de Escala de Desarrollo Psicomotor (REM03!N20+O20) debe ser menor o igual a Controles de Salud (A01!P36:P37) para 24-47 meses."
+            }
+        ],
+        "A02": [
+            {
+                "id": "VAL04",
+                "tipo": "CELDA",
+                "rem_sheet": "A02",
+                "expresion_1": "B11",
+                "operador": "==",
+                "expresion_2": "B21",
+                "severidad": "ERROR",
+                "mensaje": "REM02, ERROR sección A o B: El total de EMP Realizados por Profesional (B11) debe ser igual al total de los EMP según Resultado del Estado Nutricional (B21)."
+            },
+            {
+                "id": "VAL05",
+                "tipo": "CELDA",
+                "rem_sheet": "A02",
+                "expresion_1": "C11",
+                "operador": "==",
+                "expresion_2": "C21",
+                "severidad": "ERROR",
+                "mensaje": "REM02, ERROR sección A o B: El total de EMP Realizados por Profesional a Hombres (C11) debe ser igual al total de los EMP según Resultado del Estado Nutricional a Hombres (C21)."
+            },
+            {
+                "id": "VAL06",
+                "tipo": "CELDA",
+                "rem_sheet": "A02",
+                "expresion_1": "B17",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM02, ERROR sección A: EMP realizado por Profesional (B17) debe corresponder solo a Postas. Si el valor es > 0, es un error de digitación en centros que no son Postas.",
+                "aplicar_a": [
+                    "123104",
+                    "123105",
+                    "123000",
+                    "123000"
+                ]
+            },
+            {
+                "id": "VAL07",
+                "tipo": "CELDA",
+                "rem_sheet": "A02",
+                "expresion_1": "A03!C108 + A03!C110",
+                "operador": "==",
+                "expresion_2": "B11",
+                "severidad": "ERROR",
+                "mensaje": "REM02, ERROR, sección A: EMP Realizados por Profesional, Total (B11) debe ser igual al N° de Audit (EMP\/EMPAM), Sección D.1 (SUMA(C108 + C110)) del REMA03.",
+                "rem_sheet_ext": "A03"
+            },
+            {
+                "id": "VAL08",
+                "tipo": "CELDA",
+                "rem_sheet": "A02",
+                "expresion_1": "A03!C113",
+                "operador": "==",
+                "expresion_2": "E11 + F11",
+                "severidad": "ERROR",
+                "mensaje": "REM02, ERROR, sección A: EMP Realizados por Profesional, Total (E11 + F11) debe ser igual al N° de Craff (EMP) (C113) del REMA03.",
+                "rem_sheet_ext": "A03"
+            }
+        ],
+        "A03": [
+            {
+                "id": "VAL09",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C20",
+                "operador": "==",
+                "expresion_2": "C21:C36",
+                "severidad": "ERROR",
+                "mensaje": "ERROR sección A.2: El total de Resultados de la Aplicación de escala de evaluación del desarrollo psicomotor (C20) debe ser igual al detalle de evaluaciones del test de desarrollo Psicomotor (C21:C36)."
+            },
+            {
+                "id": "VAL10",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C13",
+                "operador": "==",
+                "expresion_2": "C14:C15",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR sección A1: La Aplicación y resultados de Pauta Breve (C13) debe ser igual a la sumatoria de los Resultados de la Aplicación de Pauta Breve (C14 y C15)."
+            },
+            {
+                "id": "VAL11",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C54",
+                "operador": "==",
+                "expresion_2": "C55:C57",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR sección A4: Los Resultados de la Aplicación de Protocolo Neurosensorial (C54) debe ser igual a la sumatoria de los Resultados de la Aplicación de Protocolo Neurosensorial (C55:C57)."
+            },
+            {
+                "id": "VAL12",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C22",
+                "operador": "==",
+                "expresion_2": "B46",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR sección A2 o A3: Resultados de la aplicación de escala de evaluación del desarrollo Psicomotor (C22) deben ser igual a Niños y Niñas con rezago, Déficit y otra vulnerabilidad (B46)."
+            },
+            {
+                "id": "VAL13",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C23",
+                "operador": "==",
+                "expresion_2": "B47",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR sección A2 o A3: Resultados de la aplicación de escala de evaluación del desarrollo Psicomotor (C23) deben ser igual a Niños y Niñas con rezago, Déficit y otra vulnerabilidad (B47)."
+            },
+            {
+                "id": "VAL14",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C24",
+                "operador": "==",
+                "expresion_2": "B48",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR sección A2 o A3: Resultados de la aplicación de escala de evaluación del desarrollo Psicomotor (C24) deben ser igual a Niños y Niñas con rezago, Déficit y otra vulnerabilidad (B48)."
+            },
+            {
+                "id": "VAL15",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "B86",
+                "operador": "==",
+                "expresion_2": "A05!C11",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR, Sección B.2 o REM05 sección A: La Aplicación de Escala de Riesgo Psicosocial abreviada a gestantes (B86) debe ser igual a Total Gestantes Ingresadas en el REM05 (A05!C11)."
+            },
+            {
+                "id": "VAL16",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C92",
+                "operador": "<=",
+                "expresion_2": "A01!(H36:H37)",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR sección B3 o REM03 sección B: Evaluación de Edimburgo a los 2 Meses (C92) debe ser menor igual a los Controles de Salud según Ciclo vital del REM01 (A01!H36+H37)."
+            },
+            {
+                "id": "VAL17",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C93",
+                "operador": "<=",
+                "expresion_2": "A01!(L36:L37)",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR sección B3 o REM03 sección B: Evaluación de Edimburgo a los 6 Meses (C93) debe ser menor igual a los Controles de Salud según Ciclo vital del REM01 (A01!L36+L37)."
+            },
+            {
+                "id": "VAL18",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C97",
+                "operador": "==",
+                "expresion_2": "A01!(T36:U38)",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR sección C o REM01 sección B: Total estado Nutricional del Adolescente (C97) debe ser igual a Controles de salud según ciclo Vital, REM01, de 10 a 19 años (A01!T36:U38)."
+            },
+            {
+                "id": "VAL19",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C108:C114",
+                "operador": "==",
+                "expresion_2": "C115:C117",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR sección D.1: La Suma del N° Aplicaciones Audit y Craff (C108 a C114) debe ser Igual a los resultados de la evaluación (C115 a C117)."
+            },
+            {
+                "id": "VAL20",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C213",
+                "operador": "==",
+                "expresion_2": "C214+C215",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR sección E: El total de aplicaciones Pauta de riesgo Biopsicosocial (C213) debe ser Igual a la Suma Con Riesgo y Sin Riesgo (C214 y C215)."
+            },
+            {
+                "id": "VAL21",
+                "tipo": "CELDA",
+                "rem_sheet": "A03",
+                "expresion_1": "C61:C66",
+                "operador": "==",
+                "expresion_2": "C67",
+                "severidad": "ERROR",
+                "mensaje": "REM03, ERROR sección A,5: La suma de los tipos de alimentación de niños y niñas controlados (C61 a C66) deben ser igual al Total de Niños y Niñas Controlados (C67)."
+            }
+        ],
+        "A04": [
+            {
+                "id": "VAL22",
+                "tipo": "CELDA",
+                "rem_sheet": "A04",
+                "expresion_1": "B39:B41",
+                "operador": "==",
+                "expresion_2": "B135:B137",
+                "severidad": "ERROR",
+                "mensaje": "REM04, ERROR Sección B: El total de Consultas por Nutricionistas (B39 a B41) debe ser igual a Clasificación de consulta Nutricional por grupo de edad (B135 a B137)."
+            },
+            {
+                "id": "VAL23",
+                "tipo": "CELDA",
+                "rem_sheet": "A04",
+                "expresion_1": "C141:C143",
+                "operador": "==",
+                "expresion_2": "C146:C149",
+                "severidad": "ERROR",
+                "mensaje": "REM04, ERROR, sección L: Consultas de lactancia en menores controlados por Nutricionista (C141:C143) debe ser igual a las consultas por lactancia (C146:C149)."
+            },
+            {
+                "id": "VAL24",
+                "tipo": "CELDA",
+                "rem_sheet": "A04",
+                "expresion_1": "C114+D114",
+                "operador": "==",
+                "expresion_2": "E114+F114",
+                "severidad": "ERROR",
+                "mensaje": "REM04, ERROR, sección I.1: Despacho de Recetas de pacientes Ambulatorios, despacho Total y Parcial de la fila 114 (C114+D114) debe ser igual a E114 + F114."
+            },
+            {
+                "id": "VAL25",
+                "tipo": "CELDA",
+                "rem_sheet": "A04",
+                "expresion_1": "C115+D115",
+                "operador": "==",
+                "expresion_2": "E115+F115",
+                "severidad": "ERROR",
+                "mensaje": "REM04, ERROR, sección I.1: Despacho de Recetas de pacientes Ambulatorios, despacho Total y Parcial de la fila 115 (C115+D115) debe ser igual a E115 + F115."
+            },
+            {
+                "id": "VAL26",
+                "tipo": "CELDA",
+                "rem_sheet": "A04",
+                "expresion_1": "C116+D116",
+                "operador": "==",
+                "expresion_2": "E116+F116",
+                "severidad": "ERROR",
+                "mensaje": "REM04, ERROR, sección I.1: Despacho de Recetas de pacientes Ambulatorios, despacho Total y Parcial de la fila 116 (C116+D116) debe ser igual a E116 + F116."
+            },
+            {
+                "id": "VAL27",
+                "tipo": "CELDA",
+                "rem_sheet": "A04",
+                "expresion_1": "M114",
+                "operador": ">=",
+                "expresion_2": "L114",
+                "severidad": "ERROR",
+                "mensaje": "REM04, ERROR, sección I.1: Despacho de Recetas, Recetas Despachadas COMPLETAS (M114) debe ser MAYOR a Despacho Completo y Oportuno (L114)."
+            }
+        ],
+        "A05": [
+            {
+                "id": "VAL28",
+                "tipo": "CELDA",
+                "rem_sheet": "A05",
+                "expresion_1": "L11:N14",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "OBSERVAR",
+                "mensaje": "REM05, OBSERVAR sección A: Ingresos de Gestantes a Programa Prenatal. Celdas L11:N14 (edades extremas 45 a 55 años y más) deben ser corroboradas por profesional a cargo."
+            },
+            {
+                "id": "VAL29",
+                "tipo": "CELDA",
+                "rem_sheet": "A05",
+                "expresion_1": "C119",
+                "operador": "<=",
+                "expresion_2": "C120:C127",
+                "severidad": "ERROR",
+                "mensaje": "REM05, ERROR sección H: Ingresos al PSCV (C119) debe ser menor o igual a la suma del desglose del Programa de Salud Cardiovascular (C120 a C127)."
+            },
+            {
+                "id": "VAL30",
+                "tipo": "CELDA",
+                "rem_sheet": "A05",
+                "expresion_1": "AF146:AM150",
+                "operador": ">",
+                "expresion_2": "C162",
+                "severidad": "ERROR",
+                "mensaje": "REM05, ERROR, sección J: Ingresos y Egresos a programa de pacientes con dependencia Leve, Moderada y Severa (AF146:AM150) debe ser MAYOR a Ingreso al programa A.M según condición de dependencia (C162)."
+            },
+            {
+                "id": "VAL31",
+                "tipo": "CELDA",
+                "rem_sheet": "A05",
+                "expresion_1": "C193",
+                "operador": "==",
+                "expresion_2": "C204",
+                "severidad": "REVISAR",
+                "mensaje": "REM05, REVISAR sección N: Ingresos al programa de Salud Mental (C193) deben ser Igual al Número personas que posee uno o más trastornos Mentales (C204)."
+            },
+            {
+                "id": "VAL32",
+                "tipo": "CELDA",
+                "rem_sheet": "A05",
+                "expresion_1": "C204",
+                "operador": "<=",
+                "expresion_2": "C205:C241",
+                "severidad": "ERROR",
+                "mensaje": "REM05, ERROR sección N: Personas con Diagnostico de Trastornos Mentales (C204) deben ser menor o igual a la suma de Diagnósticos de Trastornos Mentales (C205 a C241)."
+            },
+            {
+                "id": "VAL33",
+                "tipo": "CELDA",
+                "rem_sheet": "A05",
+                "expresion_1": "C329:E339",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "REM05, REVISAR sección R: El Ingreso y Egreso a Programa de VIH\/SIDA (C329 a E339) corresponde solo al HBSJO (Error si centro no es HBSJO)."
+            },
+            {
+                "id": "VAL34",
+                "tipo": "CELDA",
+                "rem_sheet": "A05",
+                "expresion_1": "C344:E346",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "REM05, REVISAR sección S: El Ingreso y Egreso por Comercio Sexual (C344 a E346) corresponde solo al HBSJO (Error si centro no es HBSJO)."
+            }
+        ],
+        "A06": [
+            {
+                "id": "VAL35",
+                "tipo": "CELDA",
+                "rem_sheet": "A06",
+                "expresion_1": "D16+D17",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "REM08, ERROR sección A: Las Consultas y Controles de Odontología general (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos."
+            }
+        ],
+        "A08": [
+            {
+                "id": "VAL36",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "E12:AL15",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección A.1: Las Atenciones Realizadas en UEH de Hospital de Alta Complejidad (E12 a AL15) corresponde solo a HBSJO y HPU.",
+                "aplicar_a": [
+                    "123100",
+                    "123101",
+                    "123000"
+                ]
+            },
+            {
+                "id": "VAL37",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "B12",
+                "operador": "==",
+                "expresion_2": "B67",
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección A.1: Atenciones Realizadas en UEH de Hospital de Alta Complejidad (B12) debe ser igual a Categorizaciones de Pacientes (B67)."
+            },
+            {
+                "id": "VAL38",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "C61:AL66",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección B: Categorizaciones de Pacientes (C61 a AL66) corresponde solo a Hospitales alta, Mediana, baja Complejidad, SAPU y SUR.",
+                "aplicar_a": [
+                    "123000",
+                    "123100",
+                    "123101",
+                    "123102",
+                    "123103",
+                    "123104",
+                    "123105",
+                    "123800",
+                    "123801",
+                    "200085",
+                    "200747",
+                    "200748",
+                    "200749",
+                    "200750"
+                ]
+            },
+            {
+                "id": "VAL39",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "B13+B14",
+                "operador": "==",
+                "expresion_2": "B78",
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección A.1: Atenciones Realizadas U. Urgencias (B13+B14) debe ser igual a Categorizaciones de Pacientes Obstétrica (B78)."
+            },
+            {
+                "id": "VAL40",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "E31:AL36",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección A.3: Atenciones Realizadas en UEH Por Hospitales de BAJA Complejidad (E31 a AL36) Corresponde solo a Hospitales De Baja Complejidad.",
+                "aplicar_a": [
+                    "123000",
+                    "123102",
+                    "123103",
+                    "123104",
+                    "123105"
+                ]
+            },
+            {
+                "id": "VAL41",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "B31",
+                "operador": "==",
+                "expresion_2": "B67",
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección A.3: Atenciones Realizadas en UEH de Hospital de Alta Complejidad (B31) debe ser igual a Categorizaciones de Pacientes (B67)."
+            },
+            {
+                "id": "VAL42",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "C169:F170",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección L: Traslados Primarios (C169:F170) solo corresponde registrar a SAMU.",
+                "aplicar_a": [
+                    "123010"
+                ]
+            },
+            {
+                "id": "VAL43",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "C171:F171",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección L: Traslados Primarios (C171:F171) solo corresponde registrar a los siguientes Establecimientos (Nota: Los establecimientos específicos deben ser definidos e incluidos aquí).",
+                "aplicar_a": [
+                    "12300",
+                    "123102",
+                    "123101",
+                    "123104",
+                    "123105",
+                    "123311",
+                    "200747",
+                    "200748",
+                    "200749",
+                    "200750"
+                ]
+            },
+            {
+                "id": "VAL44",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "C172:F174",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección L: Traslados Primarios (C172:F174) deben registrar todos los establecimientos (Error si no tienen registros)."
+            },
+            {
+                "id": "VAL45",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "E178:E183",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección M: Traslados Secundario (E178:E183) deben registrar todos los establecimientos que cuenten con ambulancias a excepción de SAMU (Error si no hay registros).",
+                "establecimientos_excluidos": [
+                    "123010"
+                ]
+            },
+            {
+                "id": "VAL46",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "C161+D161",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección J: Llamados de Urgencias a centro Regulador (C161 y D161) no debería contener registros (Debe ser cero)."
+            },
+            {
+                "id": "VAL47",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "B13",
+                "operador": ">=",
+                "expresion_2": "AS13",
+                "severidad": "ERROR",
+                "mensaje": "REM08, ERROR sección A.1: Atenciones Realizadas (B13) debe ser mayor o igual a la Demanda (AS13)."
+            }
+        ],
+        "A09": [
+            {
+                "id": "VAL48",
+                "tipo": "CELDA",
+                "rem_sheet": "A09",
+                "expresion_1": "D16+D17",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "REM08, ERROR sección A: Las Consultas y Controles de Odontología general en Nivel Primario y Secundario de Salud (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos.",
+                "aplicar_a": [
+                    "123000",
+                    "123100",
+                    "123101",
+                    "123102"
+                ]
+            }
+        ],
+        "A11": [
+            {
+                "id": "VAL49",
+                "tipo": "CELDA",
+                "rem_sheet": "A11",
+                "expresion_1": "B13:C30",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM11, ERROR sección A.1: Examen VDRL Por Grupo de Usuarios (B13 a C30). Esta sección solo le corresponde a HBSJO.",
+                "aplicar_a": [
+                    "123000",
+                    "123100"
+                ]
+            },
+            {
+                "id": "VAL50",
+                "tipo": "CELDA",
+                "rem_sheet": "A11",
+                "expresion_1": "C144:P148",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM11, ERROR sección B.1: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Lab. Que Procesan (C144 a P148) le corresponde solo a HBSJO.",
+                "aplicar_a": [
+                    "123000",
+                    "123100"
+                ]
+            },
+            {
+                "id": "VAL51",
+                "tipo": "CELDA",
+                "rem_sheet": "A11",
+                "expresion_1": "C152:P156",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM11, ERROR sección B.2: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Compras Servicio (C152 a P156) le corresponde solo a HBSJO.",
+                "aplicar_a": [
+                    "123000",
+                    "123100"
+                ]
+            },
+            {
+                "id": "VAL52",
+                "tipo": "CELDA",
+                "rem_sheet": "A11",
+                "expresion_1": "C161:D183",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM11, ERROR sección C1: Exámenes de VIH por Grupos de Usuarios (C161 a D183). Esta sección solo le corresponde a HBSJO.",
+                "aplicar_a": [
+                    "123000",
+                    "123100"
+                ]
+            }
+        ],
+        "A19a": [
+            {
+                "id": "VAL53",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C129:C148",
+                "operador": "==",
+                "expresion_2": "O129:O148",
+                "severidad": "ERROR",
+                "mensaje": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C129:C148), se debe registrar el TOTAL PARTICIPANTES (O129:O148). Se verifica que ambas sumatorias sean iguales."
+            }
+        ],
+        "A19b": [
+            {
+                "id": "VAL54",
+                "tipo": "CELDA",
+                "rem_sheet": "A19b",
+                "expresion_1": "B11",
+                "operador": "==",
+                "expresion_2": "E11:I11",
+                "severidad": "OBSERVAR",
+                "mensaje": "REM19b, OBSERVAR sección A: Atención Oficinas de Informaciones. El número de reclamos (B11) debe ser igual a la suma de las respuestas (E11 a I11) para asegurar consistencia."
+            }
+        ],
+        "A27": [
+            {
+                "id": "VAL56",
+                "tipo": "CELDA",
+                "rem_sheet": "A27",
+                "expresion_1": "D53",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "REM27, REVISAR sección A: Personas que Ingresan a Educación Grupal (D53). Si existen datos en el total de la sección, se debe revisar que existan datos en Sección B: Actividades de Educación para la Salud personal (D98)."
+            },
+            {
+                "id": "VAL57",
+                "tipo": "CELDA",
+                "rem_sheet": "A27",
+                "expresion_1": "D23",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "REM27, REVISAR sección A: Personas que Ingresan a Educación Grupal. Si existe información en celda D23, se debe revisar la desagregación para Gestantes (Y23 a AA23)."
+            }
+        ],
+        "A28": [
+            {
+                "id": "VAL58",
+                "tipo": "CELDA",
+                "rem_sheet": "A28",
+                "expresion_1": "B13",
+                "operador": "<=",
+                "expresion_2": "B61",
+                "severidad": "ERROR",
+                "mensaje": "REM28, ERROR sección A.1: Ingresos al programa de Rehabilitación Integral (B13) debe ser igual o Menor a la suma total de Sección A.2: Evaluación Inicial (B61)."
+            },
+            {
+                "id": "VAL59",
+                "tipo": "CELDA",
+                "rem_sheet": "A28",
+                "expresion_1": "B13",
+                "operador": ">=",
+                "expresion_2": "B14",
+                "severidad": "ERROR",
+                "mensaje": "REM28, ERROR sección A.1: Ingresos y Egresos al programa de Rehabilitación Integral (B13) debe ser mayor o igual a Ingresos (B14)."
+            },
+            {
+                "id": "VAL60",
+                "tipo": "CELDA",
+                "rem_sheet": "A28",
+                "expresion_1": "B13",
+                "operador": ">=",
+                "expresion_2": "B15",
+                "severidad": "ERROR",
+                "mensaje": "REM28, ERROR sección A.1: Ingresos y Egresos al programa de Rehabilitación Integral (B13) debe ser mayor o igual a Ingresos (B15)."
+            },
+            {
+                "id": "VAL61",
+                "tipo": "CELDA",
+                "rem_sheet": "A28",
+                "expresion_1": "B29",
+                "operador": "<=",
+                "expresion_2": "B30:B52",
+                "severidad": "ERROR",
+                "mensaje": "REM28, ERROR sección A.2: Total Ingresos Personas (B29) debe ser menor o igual a la suma de las desagregaciones por condición Física (B30 a B52)."
+            },
+            {
+                "id": "VAL62",
+                "tipo": "CELDA",
+                "rem_sheet": "A28",
+                "expresion_1": "B149",
+                "operador": "<=",
+                "expresion_2": "B150:B177",
+                "severidad": "ERROR",
+                "mensaje": "REM28, ERROR sección B.1: El Total de Ingresos (B149) debe ser menor o igual a la sumatoria de ingresos a rehabilitación (B150 a B177)."
+            },
+            {
+                "id": "VAL63",
+                "tipo": "CELDA",
+                "rem_sheet": "A28",
+                "expresion_1": "AM150:AM178",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "REM28, REVISAR sección B.1: Ingresos y Egresos al Prog. de Rehabilitación Integral. Se debe registrar solo en “Tipo de atención Abierta” (AM150:AM178). Se activa si existen registros."
+            }
+        ],
+        "A29": [
+            {
+                "id": "VAL64",
+                "tipo": "CELDA",
+                "rem_sheet": "A29",
+                "expresion_1": "O12:P12",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM29, ERROR sección A: Interconsultas de Oftalmología\/UAPO. Los datos se deben registrar en M12:N12 y NO debe haber registros en O12:P12."
+            },
+            {
+                "id": "VAL65",
+                "tipo": "CELDA",
+                "rem_sheet": "A29",
+                "expresion_1": "M13:N13",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM29, ERROR sección A: Interconsultas de Otorrinolaringología\/UAPO. Los datos se deben registrar en O13:P13 y NO debe haber registros en M13:N13."
+            }
+        ],
+        "A30": [
+            {
+                "id": "VAL66",
+                "tipo": "CELDA",
+                "rem_sheet": "A30",
+                "expresion_1": "B11:Z99",
+                "operador": "==",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM30R, ERROR: Atención y Orientación de Salud a Distancia. No debe existir registro en este REM. La suma de todas las celdas de registro debe ser cero."
+            }
+        ]
     }
-]
+}

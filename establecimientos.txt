@@ -10,6 +10,7 @@
         "123104" => ["nombre" => "Hospital Futa Sruka Lawenche Kunko Mapu Mo", "comuna" => "10306", "tipo" => "HOSPITAL"],
         "123105" => ["nombre" => "Hospital Pu Mulen Quilacahuin", "comuna" => "10307", "tipo" => "HOSPITAL"],
         "123203" => ["nombre" => "Clinica Alemana Osorno", "comuna" => "10301", "tipo" => "PRIVADA"],
+        "123207" => ["nombre" => "centro de Rehabilitacion ", "comuna" => "10303", "tipo" => "OTROS"],
         "123300" => ["nombre" => "Centro de Salud Familiar Dr. Pedro Jauregui", "comuna" => "10301", "tipo" => "CESFAM"],
         "123301" => ["nombre" => "Centro de Salud Familiar Dr. Marcelo Lopetegui Adams", "comuna" => "10301", "tipo" => "CESFAM"],
         "123302" => ["nombre" => "Centro de Salud Familiar Ovejeria", "comuna" => "10301", "tipo" => "CESFAM"],

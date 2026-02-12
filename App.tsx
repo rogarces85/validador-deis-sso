@@ -153,13 +153,14 @@ const App: React.FC = () => {
             </div>
 
             <RulesSummary
-              results={state.results}
-              metadata={state.metadata!}
+              findings={state.results}
+              meta={state.metadata}
+              establishment={state.establishment}
             />
 
             <FindingsTable
-              results={state.results}
-              onViewFinding={(f) => setSelectedFinding(f)}
+              findings={state.results}
+              onSelectFinding={(f) => setSelectedFinding(f)}
             />
           </div>
         )}

@@ -5,7 +5,7 @@ interface FileDropzoneProps {
     isLoading: boolean;
 }
 
-const FILE_PATTERN = /^\d{6}_REM_[A-Z]_[A-Z]+_\d{4}\.(xlsx|xlsm)$/i;
+const FILE_PATTERN = /^(\d{6})([A-Z0-9]{1})(\d{2})\.(xlsx|xlsm)$/i;
 
 type FileNameStatus = 'idle' | 'valid' | 'invalid';
 
@@ -70,8 +70,8 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
                 onDrop={handleDrop}
                 onClick={() => !isLoading && inputRef.current?.click()}
                 className={`relative border-2 border-dashed rounded-2xl p-10 md:p-14 transition-all duration-300 flex flex-col items-center justify-center text-center cursor-pointer select-none ${isDragging
-                        ? 'border-blue-500 bg-blue-50/80 scale-[1.01] shadow-xl shadow-blue-100'
-                        : 'border-slate-300 bg-white hover:border-blue-400 hover:bg-blue-50/30'
+                    ? 'border-blue-500 bg-blue-50/80 scale-[1.01] shadow-xl shadow-blue-100'
+                    : 'border-slate-300 bg-white hover:border-blue-400 hover:bg-blue-50/30'
                     } ${isLoading ? 'opacity-50 pointer-events-none' : ''}`}
             >
                 {/* Icon */}
@@ -123,10 +123,10 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
             {/* File name validation card */}
             {selectedFile && (
                 <div className={`mt-4 rounded-xl border p-4 flex items-center gap-4 transition-all animate-in slide-in-from-bottom-4 duration-300 ${nameStatus === 'valid'
-                        ? 'bg-emerald-50 border-emerald-200'
-                        : nameStatus === 'invalid'
-                            ? 'bg-amber-50 border-amber-200'
-                            : 'bg-slate-50 border-slate-200'
+                    ? 'bg-emerald-50 border-emerald-200'
+                    : nameStatus === 'invalid'
+                        ? 'bg-amber-50 border-amber-200'
+                        : 'bg-slate-50 border-slate-200'
                     }`}>
                     {/* Status icon */}
                     <div className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center ${nameStatus === 'valid' ? 'bg-emerald-500 text-white' : 'bg-amber-500 text-white'
@@ -147,8 +147,8 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
                         <p className="text-sm font-bold text-slate-900 truncate">{selectedFile.name}</p>
                         <p className={`text-xs mt-0.5 ${nameStatus === 'valid' ? 'text-emerald-600' : 'text-amber-600'}`}>
                             {nameStatus === 'valid'
-                                ? 'Nombre válido: Código_REM_Serie_Mes_Año.ext'
-                                : 'El nombre no sigue el patrón esperado: NNNNNN_REM_X_MES_AÑO.xlsx'}
+                                ? 'Nombre válido: [Código][Serie][Mes].xlsx'
+                                : 'Formato esperado: 123456A01.xlsx'}
                         </p>
                         <p className="text-xs text-slate-400 mt-0.5">
                             {(selectedFile.size / 1024).toFixed(1)} KB
@@ -176,7 +176,7 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
 
             {/* Format hint */}
             <p className="text-center text-xs text-slate-400 mt-4">
-                Formato esperado: <code className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-500 font-mono text-[11px]">NNNNNN_REM_X_MES_AÑO.xlsx</code>
+                Formato esperado: <code className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-500 font-mono text-[11px]">123100A02.xlsx</code>
             </p>
         </div>
     );

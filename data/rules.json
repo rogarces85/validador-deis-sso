@@ -42,5 +42,27 @@
         "severidad": "INDICADOR",
         "mensaje": "Indicador: El valor en D5 es menor o igual a 50",
         "serie": "A"
+    },
+    {
+        "id": "A-004",
+        "descripcion": "Validar que el total de consultas (A01) sea mayor o igual a 0",
+        "severidad": "ERROR",
+        "serie": "A",
+        "rem_sheet": "A",
+        "expresion_1": "A01!C10",
+        "operador": ">=",
+        "expresion_2": 0,
+        "mensaje": "Sección A: El valor en C10 debe ser no negativo (>= 0)"
+    },
+    {
+        "id": "D-001",
+        "descripcion": "Verificar existencia de datos en hoja D",
+        "severidad": "WARNING",
+        "serie": "D",
+        "rem_sheet": "D",
+        "expresion_1": "D!C5",
+        "operador": "!=",
+        "expresion_2": null,
+        "mensaje": "Se espera que la hoja D tenga datos en C5 si se carga la serie D"
     }
 ]

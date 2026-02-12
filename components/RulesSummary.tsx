@@ -1,10 +1,10 @@
-import React from 'react';
-import { Severity } from '../types';
-import { MockFinding, getSeveritySummary, MockWorkbookMeta } from '../data/mockData';
+import React, { useMemo } from 'react';
+import { Severity, ValidationResult, FileMetadata, Establishment } from '../types';
 
 interface RulesSummaryProps {
-    findings: MockFinding[];
-    meta: MockWorkbookMeta;
+    findings: ValidationResult[];
+    meta: FileMetadata | null;
+    establishment: Establishment | null;
 }
 
 const SEVERITY_CONFIG: Record<Severity, { label: string; color: string; bg: string; border: string; icon: string }> = {
@@ -38,12 +38,65 @@ const SEVERITY_CONFIG: Record<Severity, { label: string; color: string; bg: stri
     },
 };
 
-const RulesSummary: React.FC<RulesSummaryProps> = ({ findings, meta }) => {
-    const summary = getSeveritySummary(findings);
+const RulesSummary: React.FC<RulesSummaryProps> = ({ findings, meta, establishment }) => {
+    const summary = useMemo(() => {
+        const counts = {
+            [Severity.ERROR]: 0,
+            [Severity.REVISAR]: 0,
+            [Severity.OBSERVAR]: 0,
+            [Severity.INDICADOR]: 0,
+            passed: 0,
+            failed: 0,
+            total: findings.length
+        };
+
+        findings.forEach(f => {
+            if (f.resultado) {
+                counts.passed++;
+            } else {
+                counts.failed++;
+                // Only count severity for failed rules? Usually yes, passed rules don't "add" to error severity counts.
+                // But for indicators, maybe they are passed but still counted?
+                // Let's assume we count severity regardless of pass/fail for now, OR only failed ones.
+                // Re-reading mock logic: getSeveritySummary counts ALL.
+                // Actually typical validation summaries count failures by severity.
+                // But findings might include 'passed' checks.
+                // Let's count failures by severity.
+                if (f.severidad) {
+                    counts[f.severidad] = (counts[f.severidad] || 0) + 1;
+                }
+            }
+        });
+
+        // CORRECTION: The mock logic likely counted failures. Let's stick to counting failures for severity break down.
+        // Wait, if I filter by passed/failed in the table, the breakdown should match.
+        // Let's count ALL for now, or just failures.
+        // "Errores" usually implies failure. "Revisar" implies warning/failure.
+        // So I will count ONLY failures for the severity cards.
+
+        // Reset counts to 0 and recalculate properly
+        counts[Severity.ERROR] = 0;
+        counts[Severity.REVISAR] = 0;
+        counts[Severity.OBSERVAR] = 0;
+        counts[Severity.INDICADOR] = 0;
+
+        findings.forEach(f => {
+            if (!f.resultado) {
+                if (f.severidad) counts[f.severidad]++;
+            }
+        });
+
+        return counts;
+
+    }, [findings]);
+
+    if (!meta) return null;
 
     const passRate = summary.total > 0
-        ? Math.round((summary.byStatus.passed / summary.total) * 100)
+        ? Math.round((summary.passed / summary.total) * 100)
         : 0;
+
+    const uniqueSheets = [...new Set(findings.map(f => f.rem_sheet || 'N/A'))];
 
     return (
         <div className="space-y-6">
@@ -57,13 +110,13 @@ const RulesSummary: React.FC<RulesSummaryProps> = ({ findings, meta }) => {
                             </svg>
                         </div>
                         <div>
-                            <h2 className="text-xl font-extrabold text-slate-900">{meta.fileName}</h2>
+                            <h2 className="text-xl font-extrabold text-slate-900">{meta.nombreOriginal}</h2>
                             <div className="flex flex-wrap gap-2 mt-1">
-                                <span className="px-2 py-0.5 bg-blue-50 text-blue-700 text-[11px] font-bold rounded uppercase">Serie {meta.series}</span>
-                                <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[11px] font-bold rounded uppercase">{meta.month}</span>
-                                <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[11px] font-bold rounded uppercase">{meta.establishmentCode}</span>
+                                <span className="px-2 py-0.5 bg-blue-50 text-blue-700 text-[11px] font-bold rounded uppercase">Serie {meta.serieRem}</span>
+                                <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[11px] font-bold rounded uppercase">{meta.mes} {meta.periodo || '2026'}</span>
+                                <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[11px] font-bold rounded uppercase">{meta.codigoEstablecimiento}</span>
                             </div>
-                            <p className="text-sm text-slate-500 mt-1">{meta.establishment}</p>
+                            <p className="text-sm text-slate-500 mt-1">{establishment?.nombre || 'Establecimiento desconocido'}</p>
                         </div>
                     </div>
 
@@ -93,7 +146,7 @@ const RulesSummary: React.FC<RulesSummaryProps> = ({ findings, meta }) => {
                         <div>
                             <p className="text-xs text-slate-400 font-semibold uppercase">Tasa de Aprobación</p>
                             <p className="text-sm text-slate-600">
-                                <span className="font-bold text-emerald-600">{summary.byStatus.passed}</span> de{' '}
+                                <span className="font-bold text-emerald-600">{summary.passed}</span> de{' '}
                                 <span className="font-bold">{summary.total}</span> reglas
                             </p>
                         </div>
@@ -105,7 +158,7 @@ const RulesSummary: React.FC<RulesSummaryProps> = ({ findings, meta }) => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {Object.values(Severity).map(sev => {
                     const config = SEVERITY_CONFIG[sev];
-                    const count = summary.bySeverity[sev];
+                    const count = summary[sev];
                     return (
                         <div
                             key={sev}
@@ -123,9 +176,9 @@ const RulesSummary: React.FC<RulesSummaryProps> = ({ findings, meta }) => {
 
             {/* Meta info bar */}
             <div className="flex flex-wrap gap-6 text-xs text-slate-400 font-medium px-1">
-                <span>Hojas procesadas: <strong className="text-slate-600">{meta.sheetsProcessed.join(', ')}</strong></span>
-                <span>Celdas analizadas: <strong className="text-slate-600">{meta.totalCells.toLocaleString()}</strong></span>
-                <span>Reglas aplicadas: <strong className="text-slate-600">{meta.totalRulesApplied}</strong></span>
+                <span>Hojas procesadas: <strong className="text-slate-600">{uniqueSheets.join(', ') || 'N/A'}</strong></span>
+                <span>Reglas aplicadas: <strong className="text-slate-600">{findings.length}</strong></span>
+                <span>Tamaño: <strong className="text-slate-600">{meta.tamano ? (meta.tamano / 1024).toFixed(1) + ' KB' : 'N/A'}</strong></span>
             </div>
         </div>
     );

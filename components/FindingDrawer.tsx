@@ -1,134 +1,161 @@
-import React, { useEffect } from 'react';
-import { MockFinding } from '../data/mockData';
+import React from 'react';
+import { ValidationResult } from '../types';
 import { SeverityBadge } from './SeverityChips';
 
 interface FindingDrawerProps {
-    finding: MockFinding | null;
+    finding: ValidationResult | null;
     onClose: () => void;
 }
 
 const FindingDrawer: React.FC<FindingDrawerProps> = ({ finding, onClose }) => {
-    // Close on Escape
-    useEffect(() => {
-        const handler = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') onClose();
-        };
-        document.addEventListener('keydown', handler);
-        return () => document.removeEventListener('keydown', handler);
-    }, [onClose]);
-
     if (!finding) return null;
 
-    return (
-        <>
-            {/* Backdrop */}
-            <div
-                className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[60] transition-opacity"
-                onClick={onClose}
-            />
+    const copyToClipboard = () => {
+        const text = `
+Regla: ${finding.ruleId}
+Severidad: ${finding.severidad}
+Descripción: ${finding.descripcion}
+Hoja: ${finding.rem_sheet || 'N/A'}
+Celda: ${finding.cell || 'N/A'}
+Valor Actual: ${finding.valorActual}
+Valor Esperado: ${finding.valorEsperado}
+Mensaje: ${finding.mensaje || ''}
+Eviencia: ${finding.evidence || ''}
+        `.trim();
+        navigator.clipboard.writeText(text);
+        // Could show a toast here
+    };
 
-            {/* Drawer panel */}
-            <div className="fixed right-0 top-0 bottom-0 w-full max-w-lg bg-white z-[70] shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
-                {/* Header */}
-                <div className="p-6 border-b border-slate-200 flex items-start justify-between gap-4">
-                    <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-3 mb-2">
-                            <SeverityBadge severity={finding.severity} />
-                            <span className={`text-xs font-bold px-2 py-0.5 rounded ${finding.passed ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'}`}>
-                                {finding.passed ? 'APROBADO' : 'FALLIDO'}
+    return (
+        <div className="fixed inset-y-0 right-0 w-full md:w-[480px] bg-white shadow-2xl transform transition-transform z-50 overflow-y-auto border-l border-slate-200">
+            <div className="p-6">
+                <div className="flex items-start justify-between mb-8">
+                    <div>
+                        <h2 className="text-2xl font-bold text-slate-900 mb-2">Detalle del Hallazgo</h2>
+                        <div className="flex items-center gap-2">
+                            <span className="text-sm font-mono text-slate-400 bg-slate-50 px-2 py-1 rounded border border-slate-100">
+                                {finding.ruleId}
                             </span>
+                            {finding.cell && (
+                                <span className="text-sm font-mono text-slate-500 font-bold">
+                                    {finding.cell}
+                                </span>
+                            )}
                         </div>
-                        <h2 className="text-xl font-bold text-slate-900 leading-tight">{finding.description}</h2>
-                        <p className="text-sm text-slate-400 font-mono mt-1">{finding.ruleId}</p>
                     </div>
                     <button
                         onClick={onClose}
-                        className="p-2 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition-colors shrink-0"
+                        className="p-2 -mr-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
 
-                {/* Body */}
-                <div className="flex-1 overflow-y-auto p-6 space-y-6">
-                    {/* Location info */}
-                    <section>
-                        <h4 className="text-xs font-bold uppercase text-slate-400 tracking-wider mb-3">Ubicación</h4>
-                        <div className="grid grid-cols-2 gap-3">
-                            <div className="bg-slate-50 rounded-xl p-3 border border-slate-100">
-                                <p className="text-[11px] text-slate-400 font-semibold uppercase">Hoja</p>
-                                <p className="text-sm font-bold text-slate-900 mt-0.5">{finding.sheet}</p>
+                <div className="space-y-8">
+                    {/* Status & Severity */}
+                    <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                        <div className="flex-1">
+                            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1.5">Estado</span>
+                            {finding.resultado ? (
+                                <span className="inline-flex items-center gap-1.5 text-emerald-600 font-bold text-sm bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-100">
+                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    APROBADO
+                                </span>
+                            ) : (
+                                <span className="inline-flex items-center gap-1.5 text-red-600 font-bold text-sm bg-red-50 px-2.5 py-1 rounded-lg border border-red-100">
+                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                    </svg>
+                                    FALLIDOS
+                                </span>
+                            )}
+                        </div>
+                        <div className="w-px h-10 bg-slate-200" />
+                        <div className="flex-1">
+                            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1.5">Severidad</span>
+                            <SeverityBadge severity={finding.severidad} />
+                        </div>
+                    </div>
+
+                    {/* Description */}
+                    <div>
+                        <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">Descripción</h3>
+                        <p className="text-slate-700 leading-relaxed bg-white p-0">
+                            {finding.descripcion}
+                        </p>
+                    </div>
+
+                    {/* Technical Details */}
+                    <div>
+                        <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3">Detalles Técnicos</h3>
+                        <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 space-y-4 font-mono text-sm">
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span className="text-xs text-slate-400 font-bold uppercase block mb-1">Hoja REM</span>
+                                    <span className="text-slate-800 font-semibold">{finding.rem_sheet || 'N/A'}</span>
+                                </div>
+                                <div>
+                                    <span className="text-xs text-slate-400 font-bold uppercase block mb-1">Celda / Rango</span>
+                                    <span className="text-slate-800 font-semibold">{finding.cell || 'No especificado'}</span>
+                                </div>
                             </div>
-                            <div className="bg-slate-50 rounded-xl p-3 border border-slate-100">
-                                <p className="text-[11px] text-slate-400 font-semibold uppercase">Celda</p>
-                                <p className="text-sm font-bold text-slate-900 font-mono mt-0.5">{finding.cell}</p>
+                            <div className="pt-4 border-t border-slate-200 grid grid-cols-2 gap-4">
+                                <div>
+                                    <span className="text-xs text-slate-400 font-bold uppercase block mb-1">Valor Encontrado</span>
+                                    <span className="text-red-600 font-bold bg-white px-2 py-1 rounded border border-red-100 inline-block min-w-[3rem] text-center">
+                                        {String(finding.valorActual)}
+                                    </span>
+                                </div>
+                                <div>
+                                    <span className="text-xs text-slate-400 font-bold uppercase block mb-1">Valor Esperado</span>
+                                    <span className="text-emerald-600 font-bold bg-white px-2 py-1 rounded border border-emerald-100 inline-block min-w-[3rem] text-center">
+                                        {String(finding.valorEsperado)}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
 
-                    {/* Values */}
-                    <section>
-                        <h4 className="text-xs font-bold uppercase text-slate-400 tracking-wider mb-3">Valores</h4>
-                        <div className="grid grid-cols-2 gap-3">
-                            <div className={`rounded-xl p-4 border ${finding.passed ? 'bg-emerald-50 border-emerald-200' : 'bg-red-50 border-red-200'}`}>
-                                <p className="text-[11px] font-semibold uppercase text-slate-500">Valor Actual</p>
-                                <p className={`text-2xl font-black mt-1 font-mono ${finding.passed ? 'text-emerald-700' : 'text-red-700'}`}>
-                                    {String(finding.actualValue)}
-                                </p>
-                            </div>
-                            <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
-                                <p className="text-[11px] font-semibold uppercase text-slate-500">Esperado</p>
-                                <p className="text-2xl font-black text-slate-900 mt-1 font-mono">
-                                    {String(finding.expectedValue)}
-                                </p>
+                    {/* Message / Error */}
+                    {(finding.mensaje || finding.evidence) && (
+                        <div>
+                            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">Mensaje del Sistema</h3>
+                            <div className="bg-blue-50 text-blue-800 p-4 rounded-xl text-sm leading-relaxed border border-blue-100">
+                                {finding.mensaje && <p className="mb-2">{finding.mensaje}</p>}
+                                {finding.evidence && (
+                                    <p className="mt-2 text-xs font-mono text-blue-600 pt-2 border-t border-blue-200">
+                                        Evidencia: {finding.evidence}
+                                    </p>
+                                )}
                             </div>
                         </div>
-                    </section>
-
-                    {/* Message */}
-                    <section>
-                        <h4 className="text-xs font-bold uppercase text-slate-400 tracking-wider mb-3">Mensaje de Regla</h4>
-                        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-                            <p className="text-sm text-amber-900 leading-relaxed">{finding.message}</p>
-                        </div>
-                    </section>
-
-                    {/* Evidence */}
-                    {finding.evidence && (
-                        <section>
-                            <h4 className="text-xs font-bold uppercase text-slate-400 tracking-wider mb-3">Evidencia / Detalle</h4>
-                            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-                                <p className="text-sm text-blue-900 leading-relaxed">{finding.evidence}</p>
-                            </div>
-                        </section>
                     )}
                 </div>
 
-                {/* Footer */}
-                <div className="p-4 border-t border-slate-200 bg-slate-50 flex gap-3 justify-end">
+                {/* Footer Actions */}
+                <div className="mt-12 pt-6 border-t border-slate-100 flex gap-3">
                     <button
-                        onClick={() => {
-                            const text = `[${finding.ruleId}] ${finding.severity} | ${finding.sheet}:${finding.cell}\n${finding.description}\n${finding.message}\nActual: ${finding.actualValue} | Esperado: ${finding.expectedValue}`;
-                            navigator.clipboard.writeText(text);
-                        }}
-                        className="px-4 py-2 text-sm font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-2"
+                        onClick={copyToClipboard}
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-all active:scale-95"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                         </svg>
-                        Copiar
+                        Copiar Detalles
                     </button>
                     <button
                         onClick={onClose}
-                        className="px-5 py-2 text-sm font-bold text-white bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors"
+                        className="px-4 py-2.5 bg-slate-100 text-slate-600 rounded-xl font-bold hover:bg-slate-200 transition-all active:scale-95"
                     >
                         Cerrar
                     </button>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

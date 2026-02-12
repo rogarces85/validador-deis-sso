@@ -1,11 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { Severity } from '../types';
-import { MockFinding } from '../data/mockData';
+import { Severity, ValidationResult } from '../types';
 import { SeverityBadge } from './SeverityChips';
 
 interface FindingsTableProps {
-    findings: MockFinding[];
-    onSelectFinding: (finding: MockFinding) => void;
+    findings: ValidationResult[];
+    onSelectFinding: (finding: ValidationResult) => void;
 }
 
 const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding }) => {
@@ -14,20 +13,21 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
     const [searchTerm, setSearchTerm] = useState('');
     const [statusFilter, setStatusFilter] = useState<'ALL' | 'PASS' | 'FAIL'>('ALL');
 
-    const sheets = useMemo(() => [...new Set(findings.map(f => f.sheet))], [findings]);
+    const sheets = useMemo(() => [...new Set(findings.map(f => f.rem_sheet || 'N/A'))], [findings]);
 
     const filteredFindings = useMemo(() => {
         return findings.filter(f => {
-            if (severityFilter !== 'ALL' && f.severity !== severityFilter) return false;
-            if (sheetFilter !== 'ALL' && f.sheet !== sheetFilter) return false;
-            if (statusFilter === 'PASS' && !f.passed) return false;
-            if (statusFilter === 'FAIL' && f.passed) return false;
+            if (severityFilter !== 'ALL' && f.severidad !== severityFilter) return false;
+            if (sheetFilter !== 'ALL' && (f.rem_sheet || 'N/A') !== sheetFilter) return false;
+            // resultado: true = passed, false = failed
+            if (statusFilter === 'PASS' && !f.resultado) return false;
+            if (statusFilter === 'FAIL' && f.resultado) return false;
             if (searchTerm) {
                 const term = searchTerm.toLowerCase();
                 return (
-                    f.description.toLowerCase().includes(term) ||
+                    f.descripcion.toLowerCase().includes(term) ||
                     f.ruleId.toLowerCase().includes(term) ||
-                    f.message.toLowerCase().includes(term)
+                    (f.mensaje || '').toLowerCase().includes(term)
                 );
             }
             return true;
@@ -80,8 +80,8 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                             key={sev}
                             onClick={() => setSeverityFilter(sev)}
                             className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${severityFilter === sev
-                                    ? 'bg-slate-900 text-white'
-                                    : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                                ? 'bg-slate-900 text-white'
+                                : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                                 }`}
                         >
                             {sev === 'ALL' ? 'Todas' : sev}
@@ -111,8 +111,8 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                             key={opt.key}
                             onClick={() => setStatusFilter(opt.key)}
                             className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${statusFilter === opt.key
-                                    ? 'bg-slate-900 text-white'
-                                    : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                                ? 'bg-slate-900 text-white'
+                                : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                                 }`}
                         >
                             {opt.label}
@@ -143,7 +143,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                 className="hover:bg-blue-50/50 cursor-pointer transition-colors group"
                             >
                                 <td className="px-6 py-4">
-                                    {finding.passed ? (
+                                    {finding.resultado ? (
                                         <span className="inline-flex items-center gap-1.5 text-emerald-600 font-bold text-xs">
                                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -160,22 +160,22 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                     )}
                                 </td>
                                 <td className="px-6 py-4">
-                                    <p className="text-sm font-semibold text-slate-900 leading-tight">{finding.description}</p>
-                                    <p className="text-[11px] text-slate-400 font-mono mt-0.5">{finding.ruleId} · {finding.cell}</p>
+                                    <p className="text-sm font-semibold text-slate-900 leading-tight">{finding.descripcion}</p>
+                                    <p className="text-[11px] text-slate-400 font-mono mt-0.5">{finding.ruleId} {finding.cell ? `· ${finding.cell}` : ''}</p>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <span className="px-2 py-1 bg-slate-100 text-slate-600 text-[11px] font-bold rounded uppercase">{finding.sheet}</span>
+                                    <span className="px-2 py-1 bg-slate-100 text-slate-600 text-[11px] font-bold rounded uppercase">{finding.rem_sheet || 'N/A'}</span>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <SeverityBadge severity={finding.severity} />
+                                    <SeverityBadge severity={finding.severidad} />
                                 </td>
                                 <td className="px-6 py-4">
                                     <span className="text-sm font-mono text-slate-700 font-semibold bg-slate-50 px-2 py-1 rounded border border-slate-100">
-                                        {String(finding.actualValue)}
+                                        {String(finding.valorActual)}
                                     </span>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <span className="text-xs font-mono text-slate-400">{String(finding.expectedValue)}</span>
+                                    <span className="text-xs font-mono text-slate-400">{String(finding.valorEsperado)}</span>
                                 </td>
                                 <td className="px-6 py-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-slate-300 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">

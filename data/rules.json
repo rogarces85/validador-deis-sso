@@ -1,0 +1,46 @@
+[
+    {
+        "id": "R001",
+        "tipo": "CONSISTENCIA",
+        "rem_sheet": "A01",
+        "expresion_1": "A01!A1",
+        "operador": ">",
+        "expresion_2": 0,
+        "severidad": "REVISAR",
+        "mensaje": "El valor de la celda A1 debe ser mayor a 0",
+        "serie": "A"
+    },
+    {
+        "id": "R002",
+        "tipo": "CALIDAD",
+        "rem_sheet": "A01",
+        "expresion_1": "A01!B10",
+        "operador": "==",
+        "expresion_2": 100,
+        "severidad": "ERROR",
+        "mensaje": "El total en B10 debe ser exactamente 100",
+        "serie": "A"
+    },
+    {
+        "id": "R003",
+        "tipo": "CONSISTENCIA",
+        "rem_sheet": "A02",
+        "expresion_1": "SUM(A02!C1, A02!C2, A02!C3)",
+        "operador": "==",
+        "expresion_2": "A02!C4",
+        "severidad": "ERROR",
+        "mensaje": "La suma de C1, C2 y C3 debe ser igual a C4 en la hoja A02",
+        "serie": "A"
+    },
+    {
+        "id": "R004",
+        "tipo": "INDICADOR",
+        "rem_sheet": "A03",
+        "expresion_1": "A03!D5",
+        "operador": "<=",
+        "expresion_2": 50,
+        "severidad": "INDICADOR",
+        "mensaje": "Indicador: El valor en D5 es menor o igual a 50",
+        "serie": "A"
+    }
+]

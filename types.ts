@@ -48,6 +48,7 @@ export interface ValidationRule {
 }
 
 export interface ValidationResult {
+  id: string; // generated
   ruleId: string;
   descripcion: string;
   severidad: Severity;
@@ -56,6 +57,8 @@ export interface ValidationResult {
   valorEsperado: any;
   mensaje?: string;
   rem_sheet?: string;
+  cell?: string;
+  evidence?: string;
 }
 
 export interface FileMetadata {
@@ -64,6 +67,9 @@ export interface FileMetadata {
   mes: string;
   extension: string;
   nombreOriginal: string;
+  tamano?: number;
+  periodo?: string; // Año
+  sheets?: string[];
 }
 
 export interface AppState {

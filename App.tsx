@@ -1,44 +1,47 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopBar from './components/TopBar';
 import FileDropzone from './components/FileDropzone';
 import RulesSummary from './components/RulesSummary';
 import FindingsTable from './components/FindingsTable';
 import FindingDrawer from './components/FindingDrawer';
 import ExportPanel from './components/ExportPanel';
-import { mockFindings, mockWorkbookMeta, MockFinding } from './data/mockData';
+import { useValidationPipeline } from './hooks/useValidationPipeline';
+import { ValidationResult } from './types';
 
 type Page = 'home' | 'results';
 type AppStatus = 'idle' | 'loading' | 'success' | 'error';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
-  const [status, setStatus] = useState<AppStatus>('idle');
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [selectedFinding, setSelectedFinding] = useState<MockFinding | null>(null);
+  const [selectedFinding, setSelectedFinding] = useState<ValidationResult | null>(null);
 
-  const handleFileAccepted = useCallback((_file: File) => {
-    setStatus('loading');
-    setErrorMessage(null);
+  const { state, validateFile, resetState } = useValidationPipeline();
 
-    // Simulated processing delay (mock - no SheetJS)
-    setTimeout(() => {
-      // Simulate success 90% of the time
-      if (Math.random() > 0.1) {
-        setStatus('success');
-        setCurrentPage('results');
-      } else {
-        setStatus('error');
-        setErrorMessage('Error simulado: No se pudo leer la estructura del archivo. Verifique que sea un REM válido.');
-      }
-    }, 2000);
-  }, []);
+  // Derive status from hook state
+  const status: AppStatus = state.isValidating
+    ? 'loading'
+    : state.error
+      ? 'error'
+      : state.file && !state.isValidating
+        ? 'success'
+        : 'idle';
 
-  const handleReset = useCallback(() => {
-    setStatus('idle');
+  // Side effect to switch page on success
+  useEffect(() => {
+    if (status === 'success') {
+      setCurrentPage('results');
+    }
+  }, [status]);
+
+  const handleFileAccepted = (file: File) => {
+    validateFile(file);
+  };
+
+  const handleReset = () => {
+    resetState();
     setCurrentPage('home');
-    setErrorMessage(null);
     setSelectedFinding(null);
-  }, []);
+  };
 
   const hasResults = status === 'success';
 
@@ -84,7 +87,7 @@ const App: React.FC = () => {
                     </svg>
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Error de Procesamiento</h3>
-                  <p className="text-slate-500 mb-6">{errorMessage}</p>
+                  <p className="text-slate-500 mb-6">{state.error}</p>
                   <button
                     onClick={handleReset}
                     className="px-8 py-3 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg inline-flex items-center gap-2"
@@ -167,16 +170,24 @@ const App: React.FC = () => {
             </button>
 
             {/* Summary */}
-            <RulesSummary findings={mockFindings} meta={mockWorkbookMeta} />
+            <RulesSummary
+              findings={state.results}
+              meta={state.metadata}
+              establishment={state.establishment}
+            />
 
             {/* Findings Table */}
             <FindingsTable
-              findings={mockFindings}
+              findings={state.results}
               onSelectFinding={setSelectedFinding}
             />
 
             {/* Export Panel */}
-            <ExportPanel findings={mockFindings} meta={mockWorkbookMeta} />
+            <ExportPanel
+              findings={state.results}
+              meta={state.metadata}
+              establishment={state.establishment}
+            />
           </div>
         )}
       </main>
@@ -210,40 +221,7 @@ const App: React.FC = () => {
         onClose={() => setSelectedFinding(null)}
       />
 
-      {/* Print styles */}
-      <style>{`
-        @media print {
-          .no-print { display: none !important; }
-        }
-        @keyframes slide-in-from-right {
-          from { transform: translateX(100%); }
-          to { transform: translateX(0); }
-        }
-        @keyframes slide-in-from-bottom-4 {
-          from { transform: translateY(1rem); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes zoom-in-95 {
-          from { transform: scale(0.95); opacity: 0; }
-          to { transform: scale(1); opacity: 1; }
-        }
-        .animate-in {
-          animation-fill-mode: both;
-        }
-        .fade-in { animation-name: fade-in; }
-        .slide-in-from-bottom-4 { animation-name: slide-in-from-bottom-4; }
-        .slide-in-from-bottom-6 { animation-name: slide-in-from-bottom-4; }
-        .slide-in-from-right { animation-name: slide-in-from-right; }
-        .zoom-in-95 { animation-name: zoom-in-95; }
-        @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        .duration-200 { animation-duration: 200ms; }
-        .duration-300 { animation-duration: 300ms; }
-        .duration-500 { animation-duration: 500ms; }
-        .duration-700 { animation-duration: 700ms; }
-      `}</style>
+
     </div>
   );
 };

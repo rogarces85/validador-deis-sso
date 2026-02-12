@@ -30,7 +30,8 @@ export class RuleEngineService {
           resultado: false,
           valorActual: 'Error',
           valorEsperado: rule.expresion_2,
-          mensaje: `Falla técnica: ${e instanceof Error ? e.message : 'Desconocido'}`
+          mensaje: `Falla técnica: ${e instanceof Error ? e.message : 'Desconocido'}`,
+          id: crypto.randomUUID()
         });
       }
     }
@@ -64,7 +65,10 @@ export class RuleEngineService {
       resultado: passed,
       valorActual: val1, // Retornamos el valor real (exacto) para el reporte
       valorEsperado: `${rule.operador} ${val2}`,
-      rem_sheet: rule.rem_sheet
+      rem_sheet: rule.rem_sheet,
+      id: crypto.randomUUID(),
+      cell: (typeof rule.expresion_1 === 'string' && !rule.expresion_1.includes('SUM') && !rule.expresion_1.includes('+') && !rule.expresion_1.includes(':')) ? rule.expresion_1 : undefined,
+      evidence: `Evaluado: ${JSON.stringify(v1)}. Comparado con: ${rule.operador} ${JSON.stringify(v2)}.`
     };
   }
 

@@ -1,29 +1,31 @@
 import React, { useState } from 'react';
-import { MockFinding, MockWorkbookMeta } from '../data/mockData';
+import { ValidationResult, FileMetadata, Establishment } from '../types';
 
 interface ExportPanelProps {
-    findings: MockFinding[];
-    meta: MockWorkbookMeta;
+    findings: ValidationResult[];
+    meta: FileMetadata | null;
+    establishment: Establishment | null;
 }
 
-const ExportPanel: React.FC<ExportPanelProps> = ({ findings, meta }) => {
+const ExportPanel: React.FC<ExportPanelProps> = ({ findings, meta, establishment }) => {
     const [copied, setCopied] = useState(false);
 
+    if (!meta) return null;
+
     const buildSummaryText = () => {
-        const failed = findings.filter(f => !f.passed);
+        const failed = findings.filter(f => !f.resultado);
         const lines = [
             `=== Resumen Validación REM ===`,
-            `Archivo: ${meta.fileName}`,
-            `Establecimiento: ${meta.establishment} (${meta.establishmentCode})`,
-            `Serie: ${meta.series} | Mes: ${meta.month} | Año: ${meta.year}`,
-            `Hojas: ${meta.sheetsProcessed.join(', ')}`,
+            `Archivo: ${meta.nombreOriginal}`,
+            `Establecimiento: ${establishment?.nombre || 'Desconocido'} (${meta.codigoEstablecimiento})`,
+            `Serie: ${meta.serieRem} | Mes: ${meta.mes} | Año: ${meta.periodo || 2026}`,
             ``,
             `Total hallazgos: ${findings.length}`,
-            `Aprobados: ${findings.filter(f => f.passed).length}`,
+            `Aprobados: ${findings.filter(f => f.resultado).length}`,
             `Fallidos: ${failed.length}`,
             ``,
             `--- Hallazgos fallidos ---`,
-            ...failed.map(f => `[${f.severity}] ${f.ruleId} | ${f.sheet}:${f.cell} — ${f.description} (Actual: ${f.actualValue}, Esperado: ${f.expectedValue})`),
+            ...failed.map(f => `[${f.severidad}] ${f.ruleId} | ${f.rem_sheet || ''}:${f.cell || ''} — ${f.descripcion} (Actual: ${f.valorActual}, Esperado: ${f.valorEsperado})`),
         ];
         return lines.join('\n');
     };
@@ -37,11 +39,12 @@ const ExportPanel: React.FC<ExportPanelProps> = ({ findings, meta }) => {
     const handleExportJSON = () => {
         const data = {
             meta,
+            establishment,
             findings,
             exportedAt: new Date().toISOString(),
         };
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-        downloadBlob(blob, `validacion_${meta.establishmentCode}_${meta.month}_${meta.year}.json`);
+        downloadBlob(blob, `validacion_${meta.codigoEstablecimiento}_${meta.mes}_${meta.periodo || '2026'}.json`);
     };
 
     const handleExportCSV = () => {
@@ -49,17 +52,17 @@ const ExportPanel: React.FC<ExportPanelProps> = ({ findings, meta }) => {
         const rows = findings.map(f => [
             f.id,
             f.ruleId,
-            f.severity,
-            f.sheet,
-            f.cell,
-            `"${f.description.replace(/"/g, '""')}"`,
-            String(f.actualValue),
-            String(f.expectedValue),
-            f.passed ? 'APROBADO' : 'FALLIDO',
+            f.severidad,
+            f.rem_sheet || '',
+            f.cell || '',
+            `"${f.descripcion.replace(/"/g, '""')}"`,
+            String(f.valorActual),
+            String(f.valorEsperado),
+            f.resultado ? 'APROBADO' : 'FALLIDO',
         ]);
         const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
         const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-        downloadBlob(blob, `validacion_${meta.establishmentCode}_${meta.month}_${meta.year}.csv`);
+        downloadBlob(blob, `validacion_${meta.codigoEstablecimiento}_${meta.mes}_${meta.periodo || '2026'}.csv`);
     };
 
     const downloadBlob = (blob: Blob, filename: string) => {
@@ -118,8 +121,8 @@ const ExportPanel: React.FC<ExportPanelProps> = ({ findings, meta }) => {
                 <button
                     onClick={handleCopySummary}
                     className={`inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold border rounded-xl transition-all shadow-sm ${copied
-                            ? 'bg-emerald-600 text-white border-emerald-600'
-                            : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
+                        ? 'bg-emerald-600 text-white border-emerald-600'
+                        : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
                         }`}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -62,12 +62,16 @@ export const useValidationPipeline = () => {
 
             // 4. Run Rules
             const ruleEngine = new RuleEngineService();
-            // Filter rules by series?
-            const applicableRules = rules.filter(r => r.serie === metadata.serieRem);
 
-            // If no rules for serie, maybe run all or mock for now.
-            // Let's run all if none match, just to show something.
-            const rulesToRun = applicableRules.length > 0 ? applicableRules : rules;
+            // Flatten rules from new JSON structure
+            // @ts-ignore
+            const allRules = Object.values(rulesData.validaciones || {}).flat() as ValidationRule[];
+
+            // Filter by series (using rem_sheet prefix as proxy for series)
+            const applicableRules = allRules.filter(r => r.rem_sheet.startsWith(metadata.serieRem));
+
+            // Run rules
+            const rulesToRun = applicableRules.length > 0 ? applicableRules : [];
 
             const results = await ruleEngine.evaluate(rulesToRun, metadata);
 

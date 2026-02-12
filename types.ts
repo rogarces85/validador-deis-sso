@@ -42,7 +42,8 @@ export interface ValidationRule {
   expresion_2: any;
   severidad: Severity;
   mensaje: string;
-  serie: string;
+  serie?: string;
+  rem_sheet_ext?: string;
   aplicar_a?: string[];
   establecimientos_excluidos?: string[];
 }

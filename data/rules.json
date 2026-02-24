@@ -277,7 +277,7 @@
                 "rem_sheet": "A01",
                 "expresion_1": "A03!N20 + A03!O20",
                 "operador": "==",
-                "expresion_2": "P36:P37",
+                "expresion_2": "A01!P36 + A01!P37",
                 "severidad": "OBSERVAR",
                 "mensaje": "La suma de Escala de Desarrollo Psicomotor (REM03!N20+O20) debe ser menor o igual a Controles de Salud (A01!P36:P37) para 24-47 meses."
             }

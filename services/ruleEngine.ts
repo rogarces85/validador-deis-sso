@@ -82,14 +82,13 @@ export class RuleEngineService {
     if (trimmed.startsWith('SUM(')) {
       const inner = trimmed.substring(4, trimmed.length - 1);
       const parts = inner.split(',').map(p => p.trim());
-      // En sumatorias sí forzamos null a 0
       return parts.reduce((acc, part) => {
         const val = this.resolveExpression(part, defaultSheet);
         return acc + (typeof val === 'number' ? val : 0);
       }, 0);
     }
 
-    // Manejar A+B (ej: A03!L20 + A03!M20)
+    // Manejar A+B (ej: A03!L20 + A03!M20, C114+D114)
     if (trimmed.includes('+')) {
       const parts = trimmed.split('+').map(p => p.trim());
       return parts.reduce((acc, part) => {
@@ -98,24 +97,24 @@ export class RuleEngineService {
       }, 0);
     }
 
-    // Manejar Rangos (ej: C21:C36)
-    if (trimmed.includes(':')) {
-      let sheet = defaultSheet;
-      let range = trimmed;
-      if (trimmed.includes('!')) {
-        [sheet, range] = trimmed.split('!');
-      }
-      return this.excel.getRangeSum(sheet, range);
-    }
-
-    // Manejar Celdas Individuales (ej: F11 o A05!C89)
+    // Extraer hoja si tiene referencia cross-sheet (ej: A01!P36, A01!(H36:H37))
     let sheet = defaultSheet;
-    let cell = trimmed;
+    let ref = trimmed;
     if (trimmed.includes('!')) {
-      [sheet, cell] = trimmed.split('!');
+      const bangIdx = trimmed.indexOf('!');
+      sheet = trimmed.substring(0, bangIdx);
+      ref = trimmed.substring(bangIdx + 1);
     }
 
-    // Retorna el valor exacto (number, string o null)
-    return this.excel.getCellValue(sheet, cell);
+    // Limpiar paréntesis (ej: "(H36:H37)" → "H36:H37")
+    ref = ref.replace(/[()]/g, '');
+
+    // Manejar Rangos (ej: C21:C36, H36:H37)
+    if (ref.includes(':')) {
+      return this.excel.getRangeSum(sheet, ref);
+    }
+
+    // Celda Individual (ej: F11, C89)
+    return this.excel.getCellValue(sheet, ref);
   }
 }

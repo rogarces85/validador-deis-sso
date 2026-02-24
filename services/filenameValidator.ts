@@ -9,9 +9,9 @@ export interface FilenameValidationResult {
 
 export class FilenameValidatorService {
     // Regex format: [IDESTABLECIMIENTO][SERIE][MES].(xlsx|xlsm)
-    // Ejemplo: 123100A02.xlsx
-    // Grupos: 1: Codigo (6 digitos), 2: Serie (1 caracter, letra o numero), 3: Mes (2 digitos)
-    private static readonly REGEX_FORMAT = /^(\d{6})([A-Z0-9]{1})(\d{2})\.(xlsx|xlsm)$/i;
+    // Ejemplo: 123100A02.xlsx, 123100BM01.xlsx
+    // Grupos: 1: Codigo (6 digitos), 2: Serie (1-2 letras: A, P, D, BM, BS), 3: Mes (2 digitos)
+    private static readonly REGEX_FORMAT = /^(\d{6})([A-Z]{1,2})(\d{2})\.(xlsx|xlsm)$/i;
 
     public validate(filename: string): FilenameValidationResult {
         const errors: string[] = [];
@@ -29,7 +29,7 @@ export class FilenameValidatorService {
         } else {
             return {
                 isValid: false,
-                errors: ['Formato de nombre inválido. Esperado: [Codigo6][Serie1][Mes2].xlsx (Ej: 123100A02.xlsx)']
+                errors: ['Formato de nombre inválido. Esperado: [Codigo6][Serie1-2][Mes2].xlsx (Ej: 123100A02.xlsx, 123100BM01.xlsx)']
             };
         }
 

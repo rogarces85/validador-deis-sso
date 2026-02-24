@@ -1,11 +1,11 @@
 
-import * as XLSX from 'xlsx';
+import XLSX from 'xlsx-js-style';
 
 export class ExcelReaderService {
   private static instance: ExcelReaderService;
   private workbook: XLSX.WorkBook | null = null;
 
-  private constructor() {}
+  private constructor() { }
 
   public static getInstance(): ExcelReaderService {
     if (!ExcelReaderService.instance) {
@@ -43,7 +43,7 @@ export class ExcelReaderService {
     if (!this.workbook) return 0;
     const sheet = this.workbook.Sheets[sheetName];
     if (!sheet) return 0;
-    
+
     const range = XLSX.utils.decode_range(rangeRef);
     let sum = 0;
     for (let R = range.s.r; R <= range.e.r; ++R) {

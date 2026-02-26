@@ -9,14 +9,15 @@ export class RuleEngineService {
     const results: ValidationResult[] = [];
 
     for (const rule of rules) {
-      // 1. Filtrar por establecimientos incluidos (si existe la lista)
-      if (rule.aplicar_a && !rule.aplicar_a.includes(metadata.codigoEstablecimiento)) {
-        continue;
+      // js-set-map-lookups: O(1) Set lookups instead of O(n) .includes()
+      if (rule.aplicar_a) {
+        const allowedSet = new Set(rule.aplicar_a);
+        if (!allowedSet.has(metadata.codigoEstablecimiento)) continue;
       }
 
-      // 2. Filtrar por establecimientos excluidos (si existe la lista)
-      if (rule.establecimientos_excluidos && rule.establecimientos_excluidos.includes(metadata.codigoEstablecimiento)) {
-        continue;
+      if (rule.establecimientos_excluidos) {
+        const excludedSet = new Set(rule.establecimientos_excluidos);
+        if (excludedSet.has(metadata.codigoEstablecimiento)) continue;
       }
 
       try {

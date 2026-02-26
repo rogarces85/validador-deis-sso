@@ -56,6 +56,19 @@ export class ExportService {
     const wb = XLSX.utils.book_new();
 
     // ─── 1. Hoja Resumen ────────────────────────────────
+    // js-combine-iterations: single pass instead of 4 separate .filter() calls
+    let totalPassed = 0;
+    let totalFailed = 0;
+    let criticalErrors = 0;
+    for (const r of results) {
+      if (r.resultado) {
+        totalPassed++;
+      } else {
+        totalFailed++;
+        if (r.severidad === 'ERROR') criticalErrors++;
+      }
+    }
+
     const summaryData = [
       ['RESUMEN DE VALIDACIÓN'],
       [''],
@@ -68,9 +81,9 @@ export class ExportService {
       [''],
       ['ESTADÍSTICAS'],
       ['Total Reglas:', results.length],
-      ['Exitosas:', results.filter(r => r.resultado).length],
-      ['Fallidas:', results.filter(r => !r.resultado).length],
-      ['Errores Críticos:', results.filter(r => !r.resultado && r.severidad === 'ERROR').length],
+      ['Exitosas:', totalPassed],
+      ['Fallidas:', totalFailed],
+      ['Errores Críticos:', criticalErrors],
     ];
     const wsSummary = XLSX.utils.aoa_to_sheet(summaryData);
 

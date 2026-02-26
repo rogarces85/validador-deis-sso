@@ -9,6 +9,14 @@ import rulesData from '../data/rules.json';
 const catalog = catalogData as unknown as EstablishmentCatalog;
 const rules = rulesData as unknown as ValidationRule[];
 
+// js-set-map-lookups: build index once at module level for O(1) lookups
+const establishmentByCode = new Map(
+    catalog.establecimientos.map(e => [e.codigo, e])
+);
+
+// Reuse a single instance instead of creating per-call
+const filenameValidator = new FilenameValidatorService();
+
 export const useValidationPipeline = () => {
     const [state, setState] = useState<AppState>({
         file: null,
@@ -39,7 +47,6 @@ export const useValidationPipeline = () => {
             await excelService.loadFile(file);
 
             // 2. Validate and Extract Metadata
-            const filenameValidator = new FilenameValidatorService();
             const validationResult = filenameValidator.validate(file.name);
 
             if (!validationResult.isValid) {
@@ -58,7 +65,8 @@ export const useValidationPipeline = () => {
                 sheets: excelService.getSheets(),
             };
 
-            const establishment = catalog.establecimientos.find(e => e.codigo === metadata.codigoEstablecimiento) || null;
+            // js-set-map-lookups: O(1) lookup via pre-built Map
+            const establishment = establishmentByCode.get(metadata.codigoEstablecimiento) || null;
 
             // 4. Run Rules
             const ruleEngine = new RuleEngineService();

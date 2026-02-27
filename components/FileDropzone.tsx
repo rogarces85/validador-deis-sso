@@ -1,12 +1,14 @@
 import React, { useState, useCallback, useRef } from 'react';
 import { useTheme } from './ThemeContext';
+import { FilenameValidatorService, VALID_SERIES } from '../services/filenameValidator';
 
 interface FileDropzoneProps {
     onFileAccepted: (file: File) => void;
     isLoading: boolean;
 }
 
-const FILE_PATTERN = /^(\d{6})([A-Z0-9]{1})(\d{2})\.(xlsx|xlsm)$/i;
+// Reuse a single instance
+const filenameValidator = new FilenameValidatorService();
 
 // rendering-hoist-jsx: static array hoisted outside component
 const FEATURE_BADGES = ['Validación de Nombre', 'Cruces de Información', 'Reporte Automático'] as const;
@@ -18,12 +20,14 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
     const [isDragging, setIsDragging] = useState(false);
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [nameStatus, setNameStatus] = useState<FileNameStatus>('idle');
+    const [validationErrors, setValidationErrors] = useState<string[]>([]);
     const inputRef = useRef<HTMLInputElement>(null);
 
     const validateAndSet = useCallback((file: File) => {
         setSelectedFile(file);
-        const valid = FILE_PATTERN.test(file.name);
-        setNameStatus(valid ? 'valid' : 'invalid');
+        const result = filenameValidator.validate(file.name);
+        setNameStatus(result.isValid ? 'valid' : 'invalid');
+        setValidationErrors(result.errors);
     }, []);
 
     const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -55,7 +59,7 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
     );
 
     const handleUpload = () => {
-        if (selectedFile) {
+        if (selectedFile && nameStatus === 'valid') {
             onFileAccepted(selectedFile);
         }
     };
@@ -63,8 +67,14 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
     const handleReset = () => {
         setSelectedFile(null);
         setNameStatus('idle');
+        setValidationErrors([]);
         if (inputRef.current) inputRef.current.value = '';
     };
+
+    // Determine styling based on validation status
+    const isInvalid = nameStatus === 'invalid';
+    const statusColor = isInvalid ? 'var(--semantic-error)' : 'var(--semantic-success)';
+    const statusBgColor = isInvalid ? 'var(--semantic-error-soft)' : 'var(--semantic-success-soft)';
 
     return (
         <div className="max-w-2xl mx-auto">
@@ -140,64 +150,88 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
 
             {/* File name validation card */}
             {selectedFile && (
-                <div className="mt-5 rounded-2xl p-5 flex items-center gap-4 transition-all animate-in slide-in-from-bottom-4 duration-300"
+                <div className="mt-5 rounded-2xl p-5 transition-all animate-in slide-in-from-bottom-4 duration-300"
                     style={{
-                        backgroundColor: 'var(--bg-surface)',
+                        backgroundColor: isInvalid ? 'var(--semantic-error-soft)' : 'var(--bg-surface)',
                         boxShadow: 'var(--shadow-sm)',
+                        border: isInvalid ? '1px solid var(--semantic-error-border)' : '1px solid transparent',
                     }}>
-                    {/* Status icon */}
-                    <div className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
-                        style={{
-                            backgroundColor: nameStatus === 'valid' ? 'var(--semantic-success-soft)' : 'var(--semantic-warning-soft)',
-                            color: nameStatus === 'valid' ? 'var(--semantic-success)' : 'var(--semantic-warning)',
-                        }}>
-                        {nameStatus === 'valid' ? (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                        ) : (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                            </svg>
-                        )}
+                    <div className="flex items-start gap-4">
+                        {/* Status icon */}
+                        <div className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+                            style={{
+                                backgroundColor: statusBgColor,
+                                color: statusColor,
+                            }}>
+                            {nameStatus === 'valid' ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                </svg>
+                            )}
+                        </div>
+
+                        {/* Text */}
+                        <div className="flex-1 min-w-0">
+                            <p className="text-sm font-semibold truncate" style={{ color: 'var(--text-primary)' }}>{selectedFile.name}</p>
+                            {nameStatus === 'valid' ? (
+                                <p className="text-xs mt-0.5" style={{ color: 'var(--semantic-success)' }}>
+                                    Nombre válido: [Código][Serie][Mes].xlsx
+                                </p>
+                            ) : (
+                                <div className="mt-1 space-y-1">
+                                    {validationErrors.map((err, i) => (
+                                        <p key={i} className="text-xs flex items-start gap-1" style={{ color: 'var(--semantic-error)' }}>
+                                            <span className="shrink-0 mt-0.5">•</span>
+                                            <span>{err}</span>
+                                        </p>
+                                    ))}
+                                </div>
+                            )}
+                            <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
+                                {(selectedFile.size / 1024).toFixed(1)} KB
+                            </p>
+                        </div>
+
+                        {/* Actions */}
+                        <div className="flex gap-2 shrink-0">
+                            <button
+                                onClick={(e) => { e.stopPropagation(); handleReset(); }}
+                                className="px-3 py-2 text-xs font-medium rounded-full transition-colors"
+                                style={{
+                                    color: 'var(--text-secondary)',
+                                    backgroundColor: 'var(--control-bg)',
+                                }}
+                            >
+                                Quitar
+                            </button>
+                            <button
+                                onClick={(e) => { e.stopPropagation(); handleUpload(); }}
+                                disabled={isLoading || isInvalid}
+                                className="px-5 py-2 text-xs font-semibold text-white rounded-full transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                                style={{
+                                    backgroundColor: isInvalid ? 'var(--text-muted)' : 'var(--brand-accent)',
+                                }}
+                                title={isInvalid ? 'Corrige el nombre del archivo para continuar' : 'Iniciar validación'}
+                            >
+                                Validar
+                            </button>
+                        </div>
                     </div>
 
-                    {/* Text */}
-                    <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold truncate" style={{ color: 'var(--text-primary)' }}>{selectedFile.name}</p>
-                        <p className="text-xs mt-0.5" style={{ color: nameStatus === 'valid' ? 'var(--semantic-success)' : 'var(--semantic-warning)' }}>
-                            {nameStatus === 'valid'
-                                ? 'Nombre válido: [Código][Serie][Mes].xlsx'
-                                : 'Formato esperado: 123456A01.xlsx'}
-                        </p>
-                        <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>
-                            {(selectedFile.size / 1024).toFixed(1)} KB
-                        </p>
-                    </div>
-
-                    {/* Actions */}
-                    <div className="flex gap-2 shrink-0">
-                        <button
-                            onClick={(e) => { e.stopPropagation(); handleReset(); }}
-                            className="px-3 py-2 text-xs font-medium rounded-full transition-colors"
-                            style={{
-                                color: 'var(--text-secondary)',
-                                backgroundColor: 'var(--control-bg)',
-                            }}
-                        >
-                            Quitar
-                        </button>
-                        <button
-                            onClick={(e) => { e.stopPropagation(); handleUpload(); }}
-                            disabled={isLoading}
-                            className="px-5 py-2 text-xs font-semibold text-white rounded-full transition-all disabled:opacity-50"
-                            style={{
-                                backgroundColor: 'var(--brand-accent)',
-                            }}
-                        >
-                            Validar
-                        </button>
-                    </div>
+                    {/* Blocked message for invalid files */}
+                    {isInvalid && (
+                        <div className="mt-3 pt-3 flex items-center gap-2 text-xs font-medium"
+                            style={{ borderTop: '1px solid var(--semantic-error-border)', color: 'var(--semantic-error)' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                            </svg>
+                            El archivo no puede ser procesado. Renombre el archivo con el formato correcto y vuelva a intentar.
+                        </div>
+                    )}
                 </div>
             )}
 
@@ -207,6 +241,11 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
                     backgroundColor: 'var(--control-bg)',
                     color: 'var(--text-secondary)',
                 }}>123100A02.xlsx</code>
+                {' · '}
+                Series válidas: <code className="px-1.5 py-0.5 rounded-md font-mono text-[11px]" style={{
+                    backgroundColor: 'var(--control-bg)',
+                    color: 'var(--text-secondary)',
+                }}>{VALID_SERIES.join(', ')}</code>
             </p>
         </div>
     );

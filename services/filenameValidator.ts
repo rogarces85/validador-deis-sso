@@ -1,6 +1,10 @@
 
 import { FileMetadata } from '../types';
 
+// Series REM válidas reconocidas por el sistema
+export const VALID_SERIES = ['A', 'P', 'D', 'BM', 'BS'] as const;
+export type ValidSerie = typeof VALID_SERIES[number];
+
 export interface FilenameValidationResult {
     isValid: boolean;
     errors: string[];
@@ -12,6 +16,9 @@ export class FilenameValidatorService {
     // Ejemplo: 123100A02.xlsx, 123100BM01.xlsx
     // Grupos: 1: Codigo (6 digitos), 2: Serie (1-2 letras: A, P, D, BM, BS), 3: Mes (2 digitos)
     private static readonly REGEX_FORMAT = /^(\d{6})([A-Z]{1,2})(\d{2})\.(xlsx|xlsm)$/i;
+
+    // js-set-map-lookups: O(1) lookup for valid series
+    private static readonly SERIES_SET = new Set(VALID_SERIES.map(s => s.toUpperCase()));
 
     public validate(filename: string): FilenameValidationResult {
         const errors: string[] = [];
@@ -33,13 +40,17 @@ export class FilenameValidatorService {
             };
         }
 
+        // Validate Series against allowed list
+        const serieUpper = serie.toUpperCase();
+        if (!FilenameValidatorService.SERIES_SET.has(serieUpper)) {
+            errors.push(`Serie no reconocida: "${serieUpper}". Series válidas: ${VALID_SERIES.join(', ')}`);
+        }
+
         // Validate Month
         const mesNum = parseInt(mes, 10);
         if (mesNum < 1 || mesNum > 12) {
             errors.push(`Mes inválido: ${mes}. Debe ser entre 01 y 12.`);
         }
-
-        // Validate Code (Length 6 ignored here as regex enforces it, but logic check good)
 
         if (errors.length > 0) {
             return { isValid: false, errors };
@@ -48,7 +59,7 @@ export class FilenameValidatorService {
         // Construct Metadata
         const metadata: Partial<FileMetadata> = {
             nombreOriginal: filename,
-            serieRem: serie.toUpperCase(),
+            serieRem: serieUpper,
             mes: mes,
             periodo: '2026', // Año defaulting to 2026 as per project context
             codigoEstablecimiento: codigo,

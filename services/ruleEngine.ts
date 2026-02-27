@@ -2,6 +2,16 @@
 import { ExcelReaderService } from './excelService';
 import { ValidationRule, ValidationResult, Severity, FileMetadata } from '../types';
 
+function generateUUID(): string {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+  // Fallback for non-secure contexts (HTTP)
+  return '10000000-1000-4000-8000-100000000000'.replace(/[018]/g, c =>
+    (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
+  );
+}
+
 export class RuleEngineService {
   private excel = ExcelReaderService.getInstance();
 
@@ -32,7 +42,7 @@ export class RuleEngineService {
           valorActual: 'Error',
           valorEsperado: rule.expresion_2,
           mensaje: `Falla técnica: ${e instanceof Error ? e.message : 'Desconocido'}`,
-          id: crypto.randomUUID()
+          id: generateUUID()
         });
       }
     }
@@ -67,7 +77,7 @@ export class RuleEngineService {
       valorActual: val1, // Retornamos el valor real (exacto) para el reporte
       valorEsperado: `${rule.operador} ${val2}`,
       rem_sheet: rule.rem_sheet,
-      id: crypto.randomUUID(),
+      id: generateUUID(),
       cell: (typeof rule.expresion_1 === 'string' && !rule.expresion_1.includes('SUM') && !rule.expresion_1.includes('+') && !rule.expresion_1.includes(':')) ? rule.expresion_1 : undefined,
       evidence: `Evaluado: ${JSON.stringify(v1)}. Comparado con: ${rule.operador} ${JSON.stringify(v2)}.`
     };

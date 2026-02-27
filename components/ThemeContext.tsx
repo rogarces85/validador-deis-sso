@@ -18,7 +18,7 @@ const ThemeContext = createContext<ThemeContextValue>({
 // client-localstorage-schema: versioned key
 const STORAGE_KEY = 'deis-theme:v1';
 
-// rerender-lazy-state-init: runs only once
+// Always start in light mode; only respect stored user choice
 function getInitialTheme(): Theme {
   if (typeof window === 'undefined') return 'light';
   try {
@@ -27,7 +27,7 @@ function getInitialTheme(): Theme {
   } catch {
     // client-localstorage-schema: incognito/disabled
   }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return 'light';
 }
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

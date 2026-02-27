@@ -175,6 +175,26 @@ const App: React.FC = () => {
               </div>
             </div>
 
+            {/* VERSION ERROR ALERT — Priority banner */}
+            {state.versionError ? (
+              <div className="rounded-2xl p-5 animate-in fade-in slide-in-from-bottom-4 duration-300"
+                style={{
+                  backgroundColor: 'var(--semantic-error-soft)',
+                  border: '1px solid var(--semantic-error-border)',
+                }}>
+                <div className="flex items-start gap-3">
+                  <svg className="h-6 w-6 shrink-0 mt-0.5" style={{ color: 'var(--semantic-error)' }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                  </svg>
+                  <div>
+                    <h3 className="text-sm font-bold" style={{ color: 'var(--semantic-error)' }}>⚠ Error de Versión de Archivo</h3>
+                    <p className="mt-1 text-sm" style={{ color: 'var(--text-secondary)' }}>{state.versionError}</p>
+                    <p className="mt-2 text-xs font-medium" style={{ color: 'var(--semantic-error)' }}>Esta alerta tiene prioridad. Verifique la versión del archivo antes de continuar.</p>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+
             <RulesSummary
               findings={state.results}
               meta={state.metadata}

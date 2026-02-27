@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { AppState, ValidationResult, FileMetadata, Establishment, EstablishmentCatalog, ValidationRule } from '../types';
 import { ExcelReaderService } from '../services/excelService';
 import { RuleEngineService } from '../services/ruleEngine';
+import { NombreSheetValidator } from '../services/nombreSheetValidator';
 import { FilenameValidatorService } from '../services/filenameValidator';
 import catalogData from '../data/establishments.catalog.json';
 import rulesData from '../data/rules.json';
@@ -24,7 +25,8 @@ export const useValidationPipeline = () => {
         establishment: null,
         results: [],
         isValidating: false,
-        error: null
+        error: null,
+        versionError: null
     });
 
     const resetState = useCallback(() => {
@@ -34,12 +36,13 @@ export const useValidationPipeline = () => {
             establishment: null,
             results: [],
             isValidating: false,
-            error: null
+            error: null,
+            versionError: null
         });
     }, []);
 
     const validateFile = useCallback(async (file: File) => {
-        setState(prev => ({ ...prev, isValidating: true, error: null, file }));
+        setState(prev => ({ ...prev, isValidating: true, error: null, versionError: null, file }));
 
         try {
             // 1. Read Excel File
@@ -68,6 +71,10 @@ export const useValidationPipeline = () => {
             // js-set-map-lookups: O(1) lookup via pre-built Map
             const establishment = establishmentByCode.get(metadata.codigoEstablecimiento) || null;
 
+            // 3. Run NOMBRE sheet validations (before regular rules)
+            const nombreValidator = new NombreSheetValidator();
+            const nombreOutput = nombreValidator.validate();
+
             // 4. Run Rules
             const ruleEngine = new RuleEngineService();
 
@@ -81,7 +88,10 @@ export const useValidationPipeline = () => {
             // Run rules
             const rulesToRun = applicableRules.length > 0 ? applicableRules : [];
 
-            const results = await ruleEngine.evaluate(rulesToRun, metadata);
+            const ruleResults = await ruleEngine.evaluate(rulesToRun, metadata);
+
+            // Combine NOMBRE results (first) + rule engine results
+            const results = [...nombreOutput.results, ...ruleResults];
 
             setState({
                 file,
@@ -89,7 +99,8 @@ export const useValidationPipeline = () => {
                 establishment,
                 results,
                 isValidating: false,
-                error: null
+                error: null,
+                versionError: nombreOutput.versionError
             });
 
         } catch (err) {

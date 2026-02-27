@@ -80,4 +80,5 @@ export interface AppState {
   results: ValidationResult[];
   isValidating: boolean;
   error: string | null;
+  versionError?: string | null;
 }

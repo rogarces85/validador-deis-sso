@@ -67,53 +67,48 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
     };
 
     return (
-        <div className="max-w-3xl mx-auto">
-            {/* Drop Zone */}
+        <div className="max-w-2xl mx-auto">
+            {/* Drop Zone — Apple-style elevated surface */}
             <div
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
                 onDrop={handleDrop}
                 onClick={() => !isLoading && inputRef.current?.click()}
-                className="relative rounded-2xl p-10 md:p-14 transition-all duration-300 flex flex-col items-center justify-center text-center cursor-pointer select-none"
+                className="relative rounded-3xl p-12 md:p-16 transition-all duration-300 flex flex-col items-center justify-center text-center cursor-pointer select-none"
                 style={{
-                    border: isDragging
-                        ? '2px dashed var(--brand-cyan)'
-                        : '2px dashed var(--border-emphasis)',
                     backgroundColor: isDragging
-                        ? (theme === 'dark' ? 'rgba(0, 188, 212, 0.06)' : 'rgba(0, 188, 212, 0.04)')
+                        ? (theme === 'dark' ? 'rgba(0, 113, 227, 0.08)' : 'rgba(0, 113, 227, 0.03)')
                         : 'var(--bg-surface)',
-                    boxShadow: isDragging ? 'var(--shadow-brand)' : 'none',
+                    boxShadow: isDragging ? 'var(--shadow-lg)' : 'var(--shadow-md)',
+                    border: isDragging ? '2px solid var(--brand-accent)' : '2px solid transparent',
                     opacity: isLoading ? 0.5 : 1,
                     pointerEvents: isLoading ? 'none' : 'auto',
                 }}
             >
-                {/* Icon */}
-                <div className="mb-5 p-5 rounded-2xl transition-colors"
-                    style={{
-                        backgroundColor: isDragging ? 'rgba(0, 188, 212, 0.12)' : 'var(--bg-inset)',
-                        color: isDragging ? 'var(--brand-cyan)' : 'var(--text-muted)',
-                    }}>
+                {/* Icon — subtle, no background */}
+                <div className="mb-6 transition-colors" style={{ color: isDragging ? 'var(--brand-accent)' : 'var(--text-muted)' }}>
                     {isLoading ? (
                         <div className="w-10 h-10 rounded-full animate-spin"
-                            style={{ border: '4px solid var(--border-default)', borderTopColor: 'var(--brand-cyan)' }} />
+                            style={{ border: '3px solid var(--border-default)', borderTopColor: 'var(--brand-accent)' }} />
                     ) : (
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                         </svg>
                     )}
                 </div>
 
-                <h3 className="text-xl font-bold mb-1" style={{ color: 'var(--text-primary)' }}>
+                <h3 className="text-lg font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>
                     {isLoading ? 'Procesando archivo...' : 'Sube tu archivo REM'}
                 </h3>
-                <p className="text-sm mb-6 max-w-sm" style={{ color: 'var(--text-muted)' }}>
+                <p className="text-sm mb-8 max-w-xs" style={{ color: 'var(--text-tertiary)' }}>
                     Arrastra y suelta tu archivo .xlsx o .xlsm aquí, o haz clic para seleccionar.
                 </p>
 
-                <div className="inline-flex items-center gap-2 px-6 py-2.5 text-white text-sm font-bold rounded-xl transition-all"
+                {/* CTA — Apple-style solid pill button */}
+                <div className="inline-flex items-center gap-2 px-6 py-2.5 text-white text-sm font-medium transition-all"
                     style={{
-                        background: 'linear-gradient(135deg, var(--brand-ocean), var(--brand-cyan))',
-                        boxShadow: 'var(--shadow-brand)',
+                        backgroundColor: 'var(--brand-accent)',
+                        borderRadius: 'var(--radius-full)',
                     }}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -129,12 +124,13 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
                     onChange={handleInputChange}
                 />
 
-                {/* Feature badges */}
-                <div className="mt-8 flex flex-wrap justify-center gap-4 text-xs font-medium" style={{ color: 'var(--text-muted)' }}>
+                {/* Feature badges — minimal Apple-style */}
+                <div className="mt-10 flex flex-wrap justify-center gap-3 text-xs font-medium" style={{ color: 'var(--text-tertiary)' }}>
                     {FEATURE_BADGES.map(feat => (
-                        <span key={feat} className="flex items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" style={{ color: 'var(--semantic-success)' }} viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        <span key={feat} className="flex items-center gap-1.5 px-3 py-1 rounded-full"
+                            style={{ backgroundColor: 'var(--control-bg)' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" style={{ color: 'var(--semantic-success)' }} viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                             </svg>
                             {feat}
                         </span>
@@ -144,15 +140,16 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
 
             {/* File name validation card */}
             {selectedFile && (
-                <div className="mt-4 rounded-xl p-4 flex items-center gap-4 transition-all animate-in slide-in-from-bottom-4 duration-300"
+                <div className="mt-5 rounded-2xl p-5 flex items-center gap-4 transition-all animate-in slide-in-from-bottom-4 duration-300"
                     style={{
-                        backgroundColor: nameStatus === 'valid' ? 'var(--semantic-success-soft)' : 'var(--semantic-warning-soft)',
-                        border: `1px solid ${nameStatus === 'valid' ? 'var(--semantic-success-border)' : 'var(--semantic-warning-border)'}`,
+                        backgroundColor: 'var(--bg-surface)',
+                        boxShadow: 'var(--shadow-sm)',
                     }}>
                     {/* Status icon */}
-                    <div className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-white"
+                    <div className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
                         style={{
-                            backgroundColor: nameStatus === 'valid' ? 'var(--semantic-success)' : 'var(--semantic-warning)',
+                            backgroundColor: nameStatus === 'valid' ? 'var(--semantic-success-soft)' : 'var(--semantic-warning-soft)',
+                            color: nameStatus === 'valid' ? 'var(--semantic-success)' : 'var(--semantic-warning)',
                         }}>
                         {nameStatus === 'valid' ? (
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -167,7 +164,7 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
 
                     {/* Text */}
                     <div className="flex-1 min-w-0">
-                        <p className="text-sm font-bold truncate" style={{ color: 'var(--text-primary)' }}>{selectedFile.name}</p>
+                        <p className="text-sm font-semibold truncate" style={{ color: 'var(--text-primary)' }}>{selectedFile.name}</p>
                         <p className="text-xs mt-0.5" style={{ color: nameStatus === 'valid' ? 'var(--semantic-success)' : 'var(--semantic-warning)' }}>
                             {nameStatus === 'valid'
                                 ? 'Nombre válido: [Código][Serie][Mes].xlsx'
@@ -182,11 +179,10 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
                     <div className="flex gap-2 shrink-0">
                         <button
                             onClick={(e) => { e.stopPropagation(); handleReset(); }}
-                            className="px-3 py-2 text-xs font-semibold rounded-lg transition-colors"
+                            className="px-3 py-2 text-xs font-medium rounded-full transition-colors"
                             style={{
-                                color: 'var(--text-muted)',
-                                backgroundColor: 'var(--bg-surface)',
-                                border: '1px solid var(--border-default)',
+                                color: 'var(--text-secondary)',
+                                backgroundColor: 'var(--control-bg)',
                             }}
                         >
                             Quitar
@@ -194,10 +190,9 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
                         <button
                             onClick={(e) => { e.stopPropagation(); handleUpload(); }}
                             disabled={isLoading}
-                            className="px-5 py-2 text-xs font-bold text-white rounded-lg transition-all disabled:opacity-50"
+                            className="px-5 py-2 text-xs font-semibold text-white rounded-full transition-all disabled:opacity-50"
                             style={{
-                                background: 'linear-gradient(135deg, var(--brand-ocean), var(--brand-cyan))',
-                                boxShadow: 'var(--shadow-brand)',
+                                backgroundColor: 'var(--brand-accent)',
                             }}
                         >
                             Validar
@@ -207,9 +202,9 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
             )}
 
             {/* Format hint */}
-            <p className="text-center text-xs mt-4" style={{ color: 'var(--text-muted)' }}>
-                Formato esperado: <code className="px-1.5 py-0.5 rounded font-mono text-[11px]" style={{
-                    backgroundColor: 'var(--bg-inset)',
+            <p className="text-center text-xs mt-5" style={{ color: 'var(--text-muted)' }}>
+                Formato esperado: <code className="px-1.5 py-0.5 rounded-md font-mono text-[11px]" style={{
+                    backgroundColor: 'var(--control-bg)',
                     color: 'var(--text-secondary)',
                 }}>123100A02.xlsx</code>
             </p>

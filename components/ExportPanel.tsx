@@ -77,23 +77,21 @@ const ExportPanel: React.FC<ExportPanelProps> = ({ results, metadata, establishm
         URL.revokeObjectURL(url);
     };
 
-    const btnBase = "inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold rounded-xl transition-all";
+    const btnPrimary = "inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white rounded-full transition-all active:scale-95";
+    const btnSecondary = "inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-full transition-all active:scale-95";
 
     return (
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2">
             {/* XLSX Export — primary action */}
             <button
                 onClick={handleExportXLSX}
-                className={btnBase}
+                className={btnPrimary}
                 style={{
-                    background: 'linear-gradient(135deg, var(--brand-ocean), var(--brand-cyan))',
-                    color: 'white',
-                    border: '1px solid transparent',
-                    boxShadow: 'var(--shadow-brand)',
+                    backgroundColor: 'var(--brand-accent)',
                 }}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 Exportar Excel
             </button>
@@ -101,15 +99,14 @@ const ExportPanel: React.FC<ExportPanelProps> = ({ results, metadata, establishm
             {/* CSV Export */}
             <button
                 onClick={handleExportCSV}
-                className={btnBase}
+                className={btnSecondary}
                 style={{
-                    backgroundColor: 'var(--semantic-success-soft)',
-                    border: '1px solid var(--semantic-success-border)',
-                    color: 'var(--semantic-success)',
+                    backgroundColor: 'var(--control-bg)',
+                    color: 'var(--text-secondary)',
                 }}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
                 CSV
             </button>
@@ -117,15 +114,14 @@ const ExportPanel: React.FC<ExportPanelProps> = ({ results, metadata, establishm
             {/* JSON Export */}
             <button
                 onClick={handleExportJSON}
-                className={btnBase}
+                className={btnSecondary}
                 style={{
-                    backgroundColor: 'var(--semantic-info-soft)',
-                    border: '1px solid var(--semantic-info-border)',
-                    color: 'var(--semantic-info)',
+                    backgroundColor: 'var(--control-bg)',
+                    color: 'var(--text-secondary)',
                 }}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
                 JSON
             </button>
@@ -133,23 +129,21 @@ const ExportPanel: React.FC<ExportPanelProps> = ({ results, metadata, establishm
             {/* Copy Summary */}
             <button
                 onClick={handleCopySummary}
-                className={btnBase}
+                className={btnSecondary}
                 style={
                     copied
                         ? {
-                            background: 'linear-gradient(135deg, var(--brand-ocean), var(--brand-cyan))',
+                            backgroundColor: 'var(--brand-accent)',
                             color: 'white',
-                            border: '1px solid transparent',
                         }
                         : {
-                            backgroundColor: 'var(--bg-inset)',
-                            border: '1px solid var(--border-default)',
+                            backgroundColor: 'var(--control-bg)',
                             color: 'var(--text-secondary)',
                         }
                 }
             >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
                 {copied ? '¡Copiado!' : 'Copiar'}
             </button>

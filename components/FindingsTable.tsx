@@ -195,37 +195,22 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                 <td className="px-4 sm:px-6 py-3">
                                     <span className="text-xs font-mono" style={{ color: 'var(--text-muted)' }}>{String(finding.valorEsperado)}</span>
                                 </td>
-                                {/* Acciones — Detallar + Descarga */}
-                                <td className="px-4 sm:px-6 py-3">
-                                    <div className="flex items-center justify-center gap-1.5">
-                                        <button
-                                            onClick={(e) => { e.stopPropagation(); onSelectFinding(finding); }}
-                                            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-150 hover:shadow-sm"
-                                            style={{
-                                                backgroundColor: 'var(--brand-accent)',
-                                                color: '#FFFFFF',
-                                            }}
-                                            title="Ver detalle de esta validación"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                            Detallar
-                                        </button>
-                                        <button
-                                            onClick={(e) => { e.stopPropagation(); onSelectFinding(finding); }}
-                                            className="inline-flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-150 hover:shadow-sm"
-                                            style={{
-                                                backgroundColor: 'var(--control-bg)',
-                                                color: 'var(--text-secondary)',
-                                            }}
-                                            title="Descargar detalle"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                            </svg>
-                                        </button>
-                                    </div>
+                                {/* Acciones — Detalle */}
+                                <td className="px-4 sm:px-6 py-3 text-center">
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); onSelectFinding(finding); }}
+                                        className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-150 hover:shadow-sm"
+                                        style={{
+                                            backgroundColor: 'var(--brand-accent)',
+                                            color: '#FFFFFF',
+                                        }}
+                                        title="Ver detalle de esta validación"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        Detalle
+                                    </button>
                                 </td>
                             </tr>
                         ))}

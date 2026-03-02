@@ -13,7 +13,6 @@ const LIGHT_BG = 'F0F6FA';
 const SEVERITY_FILL: Record<string, { font: string; bg: string }> = {
   ERROR: { font: 'DC2626', bg: 'FEF2F2' },
   REVISAR: { font: 'D97706', bg: 'FFFBEB' },
-  OBSERVAR: { font: '059669', bg: 'ECFDF5' },
   INDICADOR: { font: '2563EB', bg: 'EFF6FF' },
 };
 
@@ -142,7 +141,6 @@ export class ExportService {
     let totalFailed = 0;
     let errCount = 0;
     let revisarCount = 0;
-    let observarCount = 0;
     let indicadorCount = 0;
     for (const r of results) {
       if (r.resultado) {
@@ -151,7 +149,6 @@ export class ExportService {
         totalFailed++;
         if (r.severidad === 'ERROR') errCount++;
         else if (r.severidad === 'REVISAR') revisarCount++;
-        else if (r.severidad === 'OBSERVAR') observarCount++;
         else if (r.severidad === 'INDICADOR') indicadorCount++;
       }
     }
@@ -179,7 +176,6 @@ export class ExportService {
       ['DESGLOSE POR SEVERIDAD'],
       ['🔴 Errores:', errCount],
       ['🟡 A Revisar:', revisarCount],
-      ['🟢 Observaciones:', observarCount],
       ['🔵 Indicadores:', indicadorCount],
     ];
     const wsSummary = XLSX.utils.aoa_to_sheet(summaryData);
@@ -189,7 +185,7 @@ export class ExportService {
     if (wsSummary['A16']) wsSummary['A16'].s = { font: { bold: true, sz: 12, color: { rgb: BRAND_OCEAN }, name: 'Calibri' } };
 
     // Label styles
-    [2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 16, 17, 18, 19].forEach(row => {
+    [2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 16, 17, 18].forEach(row => {
       applyCellStyle(wsSummary, row, 0, makeLabelStyle());
       applyCellStyle(wsSummary, row, 1, makeValueStyle());
     });

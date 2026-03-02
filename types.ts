@@ -2,7 +2,6 @@
 export enum Severity {
   ERROR = 'ERROR',
   REVISAR = 'REVISAR',
-  OBSERVAR = 'OBSERVAR',
   INDICADOR = 'INDICADOR'
 }
 

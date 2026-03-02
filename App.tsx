@@ -164,15 +164,6 @@ const App: React.FC = () => {
                 </svg>
                 Validar otro archivo
               </button>
-              <div className="flex space-x-3">
-                <Suspense fallback={null}>
-                  <ExportPanel
-                    results={state.results}
-                    metadata={state.metadata!}
-                    establishment={state.establishment}
-                  />
-                </Suspense>
-              </div>
             </div>
 
             {/* VERSION ERROR ALERT — Priority banner */}
@@ -200,6 +191,17 @@ const App: React.FC = () => {
               meta={state.metadata}
               establishment={state.establishment}
             />
+
+            {/* Export button — between cards and table */}
+            <div className="flex justify-end">
+              <Suspense fallback={null}>
+                <ExportPanel
+                  results={state.results}
+                  metadata={state.metadata!}
+                  establishment={state.establishment}
+                />
+              </Suspense>
+            </div>
 
             <FindingsTable
               findings={state.results}

@@ -51,7 +51,7 @@ describe('RuleEngineService', () => {
             expresion_1: 'A1',
             operador: '==',
             expresion_2: 10,
-            severidad: 'ERROR',
+            severidad: Severity.ERROR,
             mensaje: 'Test Rule',
             serie: 'A'
         };
@@ -73,7 +73,7 @@ describe('RuleEngineService', () => {
             expresion_1: 'A1',
             operador: '==',
             expresion_2: 20,
-            severidad: 'ERROR',
+            severidad: Severity.ERROR,
             mensaje: 'Test Rule',
             serie: 'A'
         };
@@ -94,7 +94,7 @@ describe('RuleEngineService', () => {
             expresion_1: 'SUM(A1, A2)',
             operador: '==',
             expresion_2: 30,
-            severidad: 'ERROR',
+            severidad: Severity.ERROR,
             mensaje: 'Sum Test',
             serie: 'A'
         };
@@ -118,7 +118,7 @@ describe('RuleEngineService', () => {
             expresion_1: 'A05!C10',
             operador: '==',
             expresion_2: 5,
-            severidad: 'ERROR',
+            severidad: Severity.ERROR,
             mensaje: 'Cross sheet test',
             serie: 'A'
         };

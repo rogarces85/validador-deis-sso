@@ -19,7 +19,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
     const [severityFilter, setSeverityFilter] = useState<Severity | 'ALL'>('ALL');
     const [sheetFilter, setSheetFilter] = useState<string>('ALL');
     const [searchTerm, setSearchTerm] = useState('');
-    const [statusFilter, setStatusFilter] = useState<'ALL' | 'PASS' | 'FAIL'>('ALL');
+    const [statusFilter, setStatusFilter] = useState<'ALL' | 'PASS' | 'FAIL'>('FAIL');
 
     const sheets = useMemo(() => [...new Set(findings.map(f => f.rem_sheet || 'N/A'))], [findings]);
 
@@ -126,60 +126,61 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                 </div>
             </div>
 
-            {/* Table */}
+            {/* Table — reordered: Severidad → Estado → Regla → Hoja → Valor → Esperado + Detallar */}
             <div className="overflow-x-auto">
                 <table className="w-full text-left">
                     <thead style={{ backgroundColor: 'var(--bg-canvas)', borderBottom: '1px solid var(--border-default)' }}>
                         <tr>
+                            <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Severidad</th>
                             <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Estado</th>
                             <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Regla</th>
                             <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Hoja</th>
-                            <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Severidad</th>
                             <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Valor</th>
                             <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Esperado</th>
-                            <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider w-10" style={{ color: 'var(--text-muted)' }}></th>
                         </tr>
                     </thead>
                     <tbody>
                         {filteredFindings.map(finding => (
                             <tr
                                 key={finding.id}
-                                onClick={() => onSelectFinding(finding)}
                                 className="cursor-pointer transition-colors group"
                                 style={{ borderBottom: '1px solid var(--border-subtle)' }}
                                 onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--control-bg)'}
                                 onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
                             >
+                                {/* Severidad */}
                                 <td className="px-6 py-3.5">
+                                    <SeverityBadge severity={finding.severidad} />
+                                </td>
+                                {/* Estado — icon only */}
+                                <td className="px-6 py-3.5 text-center">
                                     {finding.resultado ? (
-                                        <span className="inline-flex items-center gap-1.5 font-medium text-xs" style={{ color: 'var(--semantic-success)' }}>
-                                            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <span title="Aprobado" className="inline-flex items-center justify-center" style={{ color: 'var(--semantic-success)' }}>
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                             </svg>
-                                            OK
                                         </span>
                                     ) : (
-                                        <span className="inline-flex items-center gap-1.5 font-medium text-xs" style={{ color: 'var(--semantic-error)' }}>
-                                            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <span title="Fallido" className="inline-flex items-center justify-center" style={{ color: 'var(--semantic-error)' }}>
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                                             </svg>
-                                            FALLA
                                         </span>
                                     )}
                                 </td>
+                                {/* Regla */}
                                 <td className="px-6 py-3.5">
                                     <p className="text-sm font-medium leading-tight" style={{ color: 'var(--text-primary)' }}>{finding.descripcion}</p>
                                     <p className="text-[11px] font-mono mt-0.5" style={{ color: 'var(--text-muted)' }}>{finding.ruleId} {finding.cell ? `· ${finding.cell}` : ''}</p>
                                 </td>
+                                {/* Hoja */}
                                 <td className="px-6 py-3.5">
                                     <span className="px-2 py-1 text-[11px] font-medium rounded-full"
                                         style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)' }}>
                                         {finding.rem_sheet || 'N/A'}
                                     </span>
                                 </td>
-                                <td className="px-6 py-3.5">
-                                    <SeverityBadge severity={finding.severidad} />
-                                </td>
+                                {/* Valor Actual */}
                                 <td className="px-6 py-3.5">
                                     <span className="text-sm font-mono font-medium px-2 py-1 rounded-lg"
                                         style={{
@@ -189,19 +190,31 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                         {String(finding.valorActual)}
                                     </span>
                                 </td>
+                                {/* Esperado + Detallar */}
                                 <td className="px-6 py-3.5">
-                                    <span className="text-xs font-mono" style={{ color: 'var(--text-muted)' }}>{String(finding.valorEsperado)}</span>
-                                </td>
-                                <td className="px-6 py-3.5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 transition-colors" style={{ color: 'var(--text-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-xs font-mono" style={{ color: 'var(--text-muted)' }}>{String(finding.valorEsperado)}</span>
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); onSelectFinding(finding); }}
+                                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all duration-150 hover:shadow-sm"
+                                            style={{
+                                                backgroundColor: 'var(--brand-accent)',
+                                                color: '#FFFFFF',
+                                            }}
+                                            title="Ver detalle de esta validación"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            Detallar
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}
                         {filteredFindings.length === 0 && (
                             <tr>
-                                <td colSpan={7} className="px-6 py-20 text-center">
+                                <td colSpan={6} className="px-6 py-20 text-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto mb-3" style={{ color: 'var(--text-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>

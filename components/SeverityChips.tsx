@@ -19,11 +19,6 @@ const SEVERITY_STYLES: Record<Severity, { color: string; softBg: string; dot: st
         softBg: 'var(--semantic-warning-soft)',
         dot: 'var(--semantic-warning)',
     },
-    [Severity.OBSERVAR]: {
-        color: 'var(--semantic-success)',
-        softBg: 'var(--semantic-success-soft)',
-        dot: 'var(--semantic-success)',
-    },
     [Severity.INDICADOR]: {
         color: 'var(--semantic-info)',
         softBg: 'var(--semantic-info-soft)',

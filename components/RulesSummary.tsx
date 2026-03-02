@@ -13,30 +13,46 @@ interface RulesSummaryProps {
     establishment: Establishment | null;
 }
 
-const SEVERITY_CONFIG: Record<Severity, { label: string; color: string; softBg: string; borderColor: string }> = {
+const SEVERITY_CONFIG: Record<Severity, { label: string; color: string; softBg: string; borderColor: string; solidBg: string; tooltip: string; icon: React.ReactNode }> = {
     [Severity.ERROR]: {
         label: 'Errores',
-        color: 'var(--semantic-error)',
+        color: '#DC2626',
         softBg: 'var(--semantic-error-soft)',
         borderColor: 'var(--semantic-error-border)',
+        solidBg: '#DC2626',
+        tooltip: 'ERROR: Dato incorrecto o inconsistencia crítica detectada automáticamente. Requiere corrección inmediata antes de enviar el REM.',
+        icon: (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+        ),
     },
     [Severity.REVISAR]: {
         label: 'A Revisar',
-        color: 'var(--semantic-warning)',
+        color: '#F59E0B',
         softBg: 'var(--semantic-warning-soft)',
         borderColor: 'var(--semantic-warning-border)',
-    },
-    [Severity.OBSERVAR]: {
-        label: 'Observaciones',
-        color: 'var(--semantic-success)',
-        softBg: 'var(--semantic-success-soft)',
-        borderColor: 'var(--semantic-success-border)',
+        solidBg: '#F59E0B',
+        tooltip: 'REVISAR: Valor inusual o caso atípico que podría ser correcto pero necesita verificación por el profesional responsable.',
+        icon: (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+        ),
     },
     [Severity.INDICADOR]: {
         label: 'Indicadores',
-        color: 'var(--semantic-info)',
+        color: '#2563EB',
         softBg: 'var(--semantic-info-soft)',
         borderColor: 'var(--semantic-info-border)',
+        solidBg: '#2563EB',
+        tooltip: 'INDICADOR: Dato informativo que no requiere acción. Sirve como referencia para el análisis estadístico del establecimiento.',
+        icon: (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+        ),
     },
 };
 
@@ -45,7 +61,6 @@ const RulesSummary: React.FC<RulesSummaryProps> = ({ findings, meta, establishme
         const counts = {
             [Severity.ERROR]: 0,
             [Severity.REVISAR]: 0,
-            [Severity.OBSERVAR]: 0,
             [Severity.INDICADOR]: 0,
             passed: 0,
             failed: 0,
@@ -158,21 +173,34 @@ const RulesSummary: React.FC<RulesSummaryProps> = ({ findings, meta, establishme
                 </div>
             </div>
 
-            {/* Severity cards — Apple-style neutral backgrounds with colored numbers */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {/* Severity cards — white bg, colored accents, icons + purple tooltips */}
+            <div className="grid grid-cols-3 gap-4">
                 {Object.values(Severity).map(sev => {
                     const config = SEVERITY_CONFIG[sev];
                     const count = summary[sev];
                     return (
                         <div
                             key={sev}
-                            className="deis-card p-5 transition-all"
+                            className="relative group deis-card rounded-2xl p-5 transition-all duration-200 hover:shadow-lg cursor-default"
+                            style={{ borderTop: `3px solid ${config.color}` }}
                         >
                             <div className="flex items-center justify-between mb-3">
-                                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: config.color }} />
-                                <span className="text-3xl font-semibold tracking-tight" style={{ color: config.color }}>{count}</span>
+                                <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${config.color}12`, color: config.color }}>
+                                    {config.icon}
+                                </div>
+                                <span className="text-3xl font-bold tracking-tight" style={{ color: config.color }}>{count}</span>
                             </div>
-                            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-tertiary)' }}>{config.label}</p>
+                            <p className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: config.color }}>{config.label}</p>
+
+                            {/* Tooltip — purple */}
+                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 rounded-xl text-xs font-medium leading-relaxed opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200 w-64 text-center z-50 shadow-lg"
+                                style={{
+                                    backgroundColor: '#7C3AED',
+                                    color: '#FFFFFF',
+                                }}>
+                                {config.tooltip}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0" style={{ borderLeft: '6px solid transparent', borderRight: '6px solid transparent', borderTop: '6px solid #7C3AED' }} />
+                            </div>
                         </div>
                     );
                 })}

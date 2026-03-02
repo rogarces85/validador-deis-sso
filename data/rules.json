@@ -268,7 +268,7 @@
                 "expresion_1": "A03!L20 + A03!M20",
                 "operador": "==",
                 "expresion_2": "O36:O37",
-                "severidad": "OBSERVAR",
+                "severidad": "REVISAR",
                 "mensaje": "La suma de Escala de Desarrollo Psicomotor (REM03!L20+M20) debe ser menor o igual a Controles de Salud (A01!O36:O37) para 18-23 meses."
             },
             {
@@ -278,7 +278,7 @@
                 "expresion_1": "A03!N20 + A03!O20",
                 "operador": "==",
                 "expresion_2": "A01!P36 + A01!P37",
-                "severidad": "OBSERVAR",
+                "severidad": "REVISAR",
                 "mensaje": "La suma de Escala de Desarrollo Psicomotor (REM03!N20+O20) debe ser menor o igual a Controles de Salud (A01!P36:P37) para 24-47 meses."
             }
         ],
@@ -544,8 +544,8 @@
                 "expresion_1": "L11:N14",
                 "operador": "!=",
                 "expresion_2": 0,
-                "severidad": "OBSERVAR",
-                "mensaje": "REM05, OBSERVAR sección A: Ingresos de Gestantes a Programa Prenatal. Celdas L11:N14 (edades extremas 45 a 55 años y más) deben ser corroboradas por profesional a cargo."
+                "severidad": "REVISAR",
+                "mensaje": "REM05, REVISAR sección A: Ingresos de Gestantes a Programa Prenatal. Celdas L11:N14 (edades extremas 45 a 55 años y más) deben ser corroboradas por profesional a cargo."
             },
             {
                 "id": "VAL29",
@@ -884,8 +884,8 @@
                 "expresion_1": "B11",
                 "operador": "==",
                 "expresion_2": "E11:I11",
-                "severidad": "OBSERVAR",
-                "mensaje": "REM19b, OBSERVAR sección A: Atención Oficinas de Informaciones. El número de reclamos (B11) debe ser igual a la suma de las respuestas (E11 a I11) para asegurar consistencia."
+                "severidad": "REVISAR",
+                "mensaje": "REM19b, REVISAR sección A: Atención Oficinas de Informaciones. El número de reclamos (B11) debe ser igual a la suma de las respuestas (E11 a I11) para asegurar consistencia."
             }
         ],
         "A27": [

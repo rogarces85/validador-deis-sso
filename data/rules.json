@@ -308,11 +308,11 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A02",
                 "expresion_1": "B17",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM02, ERROR sección A: EMP realizado por Profesional (B17) debe corresponder solo a Postas. Si el valor es > 0, es un error de digitación en centros que no son Postas.",
-                "aplicar_a": [
+                "establecimientos_excluidos": [
                     "123104",
                     "123105",
                     "123000",
@@ -542,7 +542,7 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A05",
                 "expresion_1": "L11:N14",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM05, REVISAR sección A: Ingresos de Gestantes a Programa Prenatal. Celdas L11:N14 (edades extremas 45 a 55 años y más) deben ser corroboradas por profesional a cargo."
@@ -592,20 +592,26 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A05",
                 "expresion_1": "C329:E339",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM05, REVISAR sección R: El Ingreso y Egreso a Programa de VIH\/SIDA (C329 a E339) corresponde solo al HBSJO (Error si centro no es HBSJO)."
+                "mensaje": "REM05, REVISAR sección R: El Ingreso y Egreso a Programa de VIH/SIDA (C329 a E339) corresponde solo al HBSJO (Error si centro no es HBSJO).",
+                "establecimientos_excluidos": [
+                    "123100"
+                ]
             },
             {
                 "id": "VAL34",
                 "tipo": "CELDA",
                 "rem_sheet": "A05",
                 "expresion_1": "C344:E346",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM05, REVISAR sección S: El Ingreso y Egreso por Comercio Sexual (C344 a E346) corresponde solo al HBSJO (Error si centro no es HBSJO)."
+                "mensaje": "REM05, REVISAR sección S: El Ingreso y Egreso por Comercio Sexual (C344 a E346) corresponde solo al HBSJO (Error si centro no es HBSJO).",
+                "establecimientos_excluidos": [
+                    "123100"
+                ]
             }
         ],
         "A06": [
@@ -614,10 +620,15 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A06",
                 "expresion_1": "D16+D17",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM08, ERROR sección A: Las Consultas y Controles de Odontología general (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos."
+                "mensaje": "REM08, ERROR sección A: Las Consultas y Controles de Odontología general (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos.",
+                "establecimientos_excluidos": [
+                    "123100",
+                    "123101",
+                    "123102"
+                ]
             }
         ],
         "A08": [
@@ -626,11 +637,11 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A08",
                 "expresion_1": "E12:AL15",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM08, ERROR sección A.1: Las Atenciones Realizadas en UEH de Hospital de Alta Complejidad (E12 a AL15) corresponde solo a HBSJO y HPU.",
-                "aplicar_a": [
+                "establecimientos_excluidos": [
                     "123100",
                     "123101",
                     "123000"
@@ -651,11 +662,11 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A08",
                 "expresion_1": "C61:AL66",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM08, ERROR sección B: Categorizaciones de Pacientes (C61 a AL66) corresponde solo a Hospitales alta, Mediana, baja Complejidad, SAPU y SUR.",
-                "aplicar_a": [
+                "establecimientos_excluidos": [
                     "123000",
                     "123100",
                     "123101",
@@ -687,11 +698,11 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A08",
                 "expresion_1": "E31:AL36",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM08, ERROR sección A.3: Atenciones Realizadas en UEH Por Hospitales de BAJA Complejidad (E31 a AL36) Corresponde solo a Hospitales De Baja Complejidad.",
-                "aplicar_a": [
+                "establecimientos_excluidos": [
                     "123000",
                     "123102",
                     "123103",
@@ -714,11 +725,11 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A08",
                 "expresion_1": "C169:F170",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM08, ERROR sección L: Traslados Primarios (C169:F170) solo corresponde registrar a SAMU.",
-                "aplicar_a": [
+                "establecimientos_excluidos": [
                     "123010"
                 ]
             },
@@ -727,12 +738,12 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A08",
                 "expresion_1": "C171:F171",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM08, ERROR sección L: Traslados Primarios (C171:F171) solo corresponde registrar a los siguientes Establecimientos (Nota: Los establecimientos específicos deben ser definidos e incluidos aquí).",
-                "aplicar_a": [
-                    "12300",
+                "establecimientos_excluidos": [
+                    "123000",
                     "123102",
                     "123101",
                     "123104",
@@ -794,11 +805,11 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A09",
                 "expresion_1": "D16+D17",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM08, ERROR sección A: Las Consultas y Controles de Odontología general en Nivel Primario y Secundario de Salud (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos.",
-                "aplicar_a": [
+                "establecimientos_excluidos": [
                     "123000",
                     "123100",
                     "123101",
@@ -812,11 +823,11 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A11",
                 "expresion_1": "B13:C30",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM11, ERROR sección A.1: Examen VDRL Por Grupo de Usuarios (B13 a C30). Esta sección solo le corresponde a HBSJO.",
-                "aplicar_a": [
+                "establecimientos_excluidos": [
                     "123000",
                     "123100"
                 ]
@@ -826,11 +837,11 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A11",
                 "expresion_1": "C144:P148",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM11, ERROR sección B.1: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Lab. Que Procesan (C144 a P148) le corresponde solo a HBSJO.",
-                "aplicar_a": [
+                "establecimientos_excluidos": [
                     "123000",
                     "123100"
                 ]
@@ -840,11 +851,11 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A11",
                 "expresion_1": "C152:P156",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM11, ERROR sección B.2: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Compras Servicio (C152 a P156) le corresponde solo a HBSJO.",
-                "aplicar_a": [
+                "establecimientos_excluidos": [
                     "123000",
                     "123100"
                 ]
@@ -854,11 +865,11 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A11",
                 "expresion_1": "C161:D183",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM11, ERROR sección C1: Exámenes de VIH por Grupos de Usuarios (C161 a D183). Esta sección solo le corresponde a HBSJO.",
-                "aplicar_a": [
+                "establecimientos_excluidos": [
                     "123000",
                     "123100"
                 ]
@@ -894,7 +905,7 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A27",
                 "expresion_1": "D53",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM27, REVISAR sección A: Personas que Ingresan a Educación Grupal (D53). Si existen datos en el total de la sección, se debe revisar que existan datos en Sección B: Actividades de Educación para la Salud personal (D98)."
@@ -904,7 +915,7 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A27",
                 "expresion_1": "D23",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM27, REVISAR sección A: Personas que Ingresan a Educación Grupal. Si existe información en celda D23, se debe revisar la desagregación para Gestantes (Y23 a AA23)."
@@ -966,7 +977,7 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A28",
                 "expresion_1": "AM150:AM178",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM28, REVISAR sección B.1: Ingresos y Egresos al Prog. de Rehabilitación Integral. Se debe registrar solo en “Tipo de atención Abierta” (AM150:AM178). Se activa si existen registros."

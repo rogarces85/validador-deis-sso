@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:5173",
+  "executionArgs": {
+    "projectName": "Validador2026",
+    "projectPath": "c:\\xampp\\htdocs\\www\\Validador2026",
+    "testIds": [],
+    "additionalInstruction": "",
+    "serverMode": "production",
+    "envs": {
+      "API_KEY": "sk-user-iFSQx1st9T0HZxl8sft_gmYSML7H1VJtcxklXVrTgUWdBdobNJi7js2dcu3jKDlN1AMCBfzRAo2BcBWdqtEt12N0HzhwvzjGO4vZV3dGW4q5yhJUUB0fBzaH2pE8m_4rMvw"
+    }
+  },
+  "serverPort": 65364,
+  "proxy": "http://d7a5e064-653e-431e-bb93-b2dc7b0c0978:OSHl99zlvArophw8vutBVa4PjngTugig@tun.testsprite.com:8080"
+}

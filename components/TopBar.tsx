@@ -54,7 +54,7 @@ const TopBar: React.FC<TopBarProps> = ({ currentPage, onNavigate, hasResults }) 
                     {/* Brand — compact Apple style */}
                     <div className="flex items-center gap-2.5">
                         <img
-                            src="/logo-deis.png"
+                            src={`${import.meta.env.BASE_URL}logo-deis.png`}
                             alt="DEIS Osorno"
                             className="h-7 w-7 rounded-lg object-contain"
                             style={{ backgroundColor: theme === 'dark' ? 'rgba(255,255,255,0.08)' : 'transparent', padding: '1px' }}

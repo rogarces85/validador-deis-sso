@@ -49,8 +49,8 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
     return (
         <div className="deis-card overflow-hidden">
             {/* Filters bar */}
-            <div className="p-5 md:p-6 space-y-4" style={{ borderBottom: '1px solid var(--border-default)' }}>
-                <div className="flex flex-col md:flex-row gap-3 md:items-center justify-between">
+            <div className="p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4" style={{ borderBottom: '1px solid var(--border-default)' }}>
+                <div className="flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
                     <h3 className="text-base font-semibold flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                         Hallazgos
                         <span className="text-sm font-normal" style={{ color: 'var(--text-muted)' }}>
@@ -58,7 +58,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                         </span>
                     </h3>
 
-                    {/* Search — minimal, no visible border */}
+                    {/* Search */}
                     <div className="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4" style={{ color: 'var(--text-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -68,7 +68,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                             placeholder="Buscar regla o descripción..."
                             value={searchTerm}
                             onChange={e => setSearchTerm(e.target.value)}
-                            className="pl-10 pr-4 py-2 text-sm rounded-xl w-full md:w-60 transition-all focus:outline-none"
+                            className="pl-10 pr-4 py-2 text-sm rounded-xl w-full sm:w-60 transition-all focus:outline-none"
                             style={{
                                 backgroundColor: 'var(--control-bg)',
                                 border: 'none',
@@ -78,9 +78,9 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                     </div>
                 </div>
 
-                {/* Filter chips — Apple-style pills */}
+                {/* Filter chips */}
                 <div className="flex flex-wrap gap-1.5 items-center">
-                    <span className="text-[10px] font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Severidad:</span>
+                    <span className="text-[10px] font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Estado:</span>
                     {SEVERITY_OPTIONS.map(sev => (
                         <button
                             key={sev}
@@ -92,7 +92,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                         </button>
                     ))}
 
-                    <span className="w-px h-4 mx-1.5" style={{ backgroundColor: 'var(--border-default)' }} />
+                    <span className="w-px h-4 mx-1.5 hidden sm:block" style={{ backgroundColor: 'var(--border-default)' }} />
 
                     <span className="text-[10px] font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Hoja:</span>
                     <select
@@ -111,7 +111,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                         ))}
                     </select>
 
-                    <span className="w-px h-4 mx-1.5" style={{ backgroundColor: 'var(--border-default)' }} />
+                    <span className="w-px h-4 mx-1.5 hidden sm:block" style={{ backgroundColor: 'var(--border-default)' }} />
 
                     {STATUS_OPTIONS.map(opt => (
                         <button
@@ -126,34 +126,35 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                 </div>
             </div>
 
-            {/* Table — reordered: Severidad → Estado → Regla → Hoja → Valor → Esperado + Detallar */}
+            {/* Table — Estado → Validación → Regla → Hoja → Valor → Esperado → Acciones */}
             <div className="overflow-x-auto">
-                <table className="w-full text-left">
+                <table className="w-full text-left" style={{ minWidth: '700px' }}>
                     <thead style={{ backgroundColor: 'var(--bg-canvas)', borderBottom: '1px solid var(--border-default)' }}>
                         <tr>
-                            <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Severidad</th>
-                            <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Estado</th>
-                            <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Regla</th>
-                            <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Hoja</th>
-                            <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Valor</th>
-                            <th className="px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Esperado</th>
+                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Estado</th>
+                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider text-center" style={{ color: 'var(--text-muted)' }}>Validación</th>
+                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Regla</th>
+                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Hoja</th>
+                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Valor</th>
+                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Esperado</th>
+                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider text-center" style={{ color: 'var(--text-muted)' }}>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         {filteredFindings.map(finding => (
                             <tr
                                 key={finding.id}
-                                className="cursor-pointer transition-colors group"
+                                className="transition-colors group"
                                 style={{ borderBottom: '1px solid var(--border-subtle)' }}
                                 onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--control-bg)'}
                                 onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
                             >
-                                {/* Severidad */}
-                                <td className="px-6 py-3.5">
+                                {/* Estado (antes Severidad) — SeverityBadge */}
+                                <td className="px-4 sm:px-6 py-3">
                                     <SeverityBadge severity={finding.severidad} />
                                 </td>
-                                {/* Estado — icon only */}
-                                <td className="px-6 py-3.5 text-center">
+                                {/* Validación (antes Estado) — icon only */}
+                                <td className="px-4 sm:px-6 py-3 text-center">
                                     {finding.resultado ? (
                                         <span title="Aprobado" className="inline-flex items-center justify-center" style={{ color: 'var(--semantic-success)' }}>
                                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -169,19 +170,19 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                     )}
                                 </td>
                                 {/* Regla */}
-                                <td className="px-6 py-3.5">
+                                <td className="px-4 sm:px-6 py-3">
                                     <p className="text-sm font-medium leading-tight" style={{ color: 'var(--text-primary)' }}>{finding.descripcion}</p>
                                     <p className="text-[11px] font-mono mt-0.5" style={{ color: 'var(--text-muted)' }}>{finding.ruleId} {finding.cell ? `· ${finding.cell}` : ''}</p>
                                 </td>
                                 {/* Hoja */}
-                                <td className="px-6 py-3.5">
+                                <td className="px-4 sm:px-6 py-3">
                                     <span className="px-2 py-1 text-[11px] font-medium rounded-full"
                                         style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)' }}>
                                         {finding.rem_sheet || 'N/A'}
                                     </span>
                                 </td>
                                 {/* Valor Actual */}
-                                <td className="px-6 py-3.5">
+                                <td className="px-4 sm:px-6 py-3">
                                     <span className="text-sm font-mono font-medium px-2 py-1 rounded-lg"
                                         style={{
                                             backgroundColor: 'var(--control-bg)',
@@ -190,23 +191,39 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                         {String(finding.valorActual)}
                                     </span>
                                 </td>
-                                {/* Esperado + Detallar */}
-                                <td className="px-6 py-3.5">
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-xs font-mono" style={{ color: 'var(--text-muted)' }}>{String(finding.valorEsperado)}</span>
+                                {/* Esperado */}
+                                <td className="px-4 sm:px-6 py-3">
+                                    <span className="text-xs font-mono" style={{ color: 'var(--text-muted)' }}>{String(finding.valorEsperado)}</span>
+                                </td>
+                                {/* Acciones — Detallar + Descarga */}
+                                <td className="px-4 sm:px-6 py-3">
+                                    <div className="flex items-center justify-center gap-1.5">
                                         <button
                                             onClick={(e) => { e.stopPropagation(); onSelectFinding(finding); }}
-                                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all duration-150 hover:shadow-sm"
+                                            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-150 hover:shadow-sm"
                                             style={{
                                                 backgroundColor: 'var(--brand-accent)',
                                                 color: '#FFFFFF',
                                             }}
                                             title="Ver detalle de esta validación"
                                         >
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                             </svg>
                                             Detallar
+                                        </button>
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); onSelectFinding(finding); }}
+                                            className="inline-flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-150 hover:shadow-sm"
+                                            style={{
+                                                backgroundColor: 'var(--control-bg)',
+                                                color: 'var(--text-secondary)',
+                                            }}
+                                            title="Descargar detalle"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                            </svg>
                                         </button>
                                     </div>
                                 </td>
@@ -214,7 +231,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                         ))}
                         {filteredFindings.length === 0 && (
                             <tr>
-                                <td colSpan={6} className="px-6 py-20 text-center">
+                                <td colSpan={7} className="px-6 py-20 text-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto mb-3" style={{ color: 'var(--text-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>

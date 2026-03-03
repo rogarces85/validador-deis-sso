@@ -10,7 +10,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | F11. La expresión indica que [F11] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | F11. La expresión indica que [F11] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 10 a 14 años, celda F11"
             },
             {
                 "id": "A01-VAL002",
@@ -21,7 +21,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | F12. La expresión indica que [F12] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | F12. La expresión indica que [F12] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 10 a 14 años, celda F12"
             },
             {
                 "id": "A01-VAL003",
@@ -32,7 +32,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | M11. La expresión indica que [M11] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | M11. La expresión indica que [M11] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda M11"
             },
             {
                 "id": "A01-VAL004",
@@ -43,7 +43,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | M12. La expresión indica que [M12] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | M12. La expresión indica que [M12] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda M12"
             },
             {
                 "id": "A01-VAL005",
@@ -54,7 +54,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N11. La expresión indica que [N11] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N11. La expresión indica que [N11] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda N11"
             },
             {
                 "id": "A01-VAL006",
@@ -65,7 +65,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N12. La expresión indica que [N12] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N12. La expresión indica que [N12] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda N12"
             },
             {
                 "id": "A01-VAL007",
@@ -76,7 +76,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N13. La expresión indica que [N13] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N13. La expresión indica que [N13] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Control Prenatal en mujeres de 50 a 54 años, celda N13"
             },
             {
                 "id": "A01-VAL008",
@@ -87,7 +87,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N14. La expresión indica que [N14] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N14. La expresión indica que [N14] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Control Prenatal en mujeres de 50 a 54 años, celda N14"
             },
             {
                 "id": "A01-VAL009",
@@ -98,7 +98,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N15. La expresión indica que [N15] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N15. La expresión indica que [N15] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Control Post Parto y Post Aborto en mujeres de 50 a 54 años, celda N15"
             },
             {
                 "id": "A01-VAL010",
@@ -109,7 +109,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N16. La expresión indica que [N16] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N16. La expresión indica que [N16] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Control Post Parto y Post Aborto en mujeres de 50 a 54 años, celda N16"
             },
             {
                 "id": "A01-VAL011",
@@ -120,7 +120,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | O31. La expresión indica que [O31] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | O31. La expresión indica que [O31] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda O31"
             },
             {
                 "id": "A01-VAL012",
@@ -131,7 +131,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | O32. La expresión indica que [O32] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | O32. La expresión indica que [O32] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda O32"
             },
             {
                 "id": "A01-VAL013",
@@ -142,7 +142,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | P31. La expresión indica que [P31] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | P31. La expresión indica que [P31] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda P31"
             },
             {
                 "id": "A01-VAL014",
@@ -153,7 +153,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | P32. La expresión indica que [P32] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | P32. La expresión indica que [P32] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda P32"
             },
             {
                 "id": "A01-VAL015",
@@ -164,7 +164,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Q31. La expresión indica que [Q31] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Q31. La expresión indica que [Q31] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda Q31"
             },
             {
                 "id": "A01-VAL016",
@@ -175,7 +175,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Q32. La expresión indica que [Q32] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Q32. La expresión indica que [Q32] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda Q32"
             },
             {
                 "id": "A01-VAL017",
@@ -186,7 +186,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | R31. La expresión indica que [R31] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | R31. La expresión indica que [R31] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda R31"
             },
             {
                 "id": "A01-VAL018",
@@ -197,7 +197,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | R32. La expresión indica que [R32] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | R32. La expresión indica que [R32] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda R32"
             },
             {
                 "id": "A01-VAL019",
@@ -208,7 +208,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | S31. La expresión indica que [S31] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | S31. La expresión indica que [S31] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda S31"
             },
             {
                 "id": "A01-VAL020",
@@ -219,7 +219,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | S32. La expresión indica que [S32] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | S32. La expresión indica que [S32] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda S32"
             },
             {
                 "id": "A01-VAL021",
@@ -230,7 +230,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | T31. La expresión indica que [T31] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | T31. La expresión indica que [T31] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda T31"
             },
             {
                 "id": "A01-VAL022",
@@ -241,7 +241,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | T32. La expresión indica que [T32] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | T32. La expresión indica que [T32] la celda no debe contener datos."
+                "mensaje_original": "Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda T32"
             },
             {
                 "id": "A01-VAL023",
@@ -252,7 +252,7 @@
                 "expresion_2": "SUM(C19:C26, F36:F38)",
                 "severidad": "ERROR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | A05, C89, C19, C26, F36, F38. La expresión indica que [A05!C89] debe ser igual a [SUM(C19:C26, F36:F38)].",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | A05, C89, C19, C26, F36, F38. La expresión indica que [A05!C89] debe ser igual a [SUM(C19:C26, F36:F38)]."
+                "mensaje_original": "Controles de salud sexual y Reproductiva, la Suma de Puérpera con recién Nacidos  10 Días hasta 28 Días,  celdas C19 a C26 y Controles de salud sexual y Reproductiva, Menor de 1 Mes, celdas  F36 a F38  deben ser igual a la Sección E REM05, Ingresos a control de salud recién Nacidos, Total menores de 28 Días,  celda C89"
             },
             {
                 "id": "A01-VAL024",
@@ -264,7 +264,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A01 | SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B) | C74, T36, T38. La expresión indica que [C74] debe ser menor o igual a [T36:T38].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A01 | SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B) | C74, T36, T38. La expresión indica que [C74] debe ser menor o igual a [T36:T38]."
+                "mensaje_original": "Controles de Salud según Ciclo Vital, 10 a 14 años (T36 a T38) debe ser mayor o igual a Control de Salud Integral de Adolescente (C74)."
             },
             {
                 "id": "A01-VAL025",
@@ -276,7 +276,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A01 | SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B) | F74, U36, U38. La expresión indica que [F74] debe ser menor o igual a [U36:U38].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A01 | SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B) | F74, U36, U38. La expresión indica que [F74] debe ser menor o igual a [U36:U38]."
+                "mensaje_original": "Controles de Salud según Ciclo Vital, 10 a 14 años (U36 a U38) debe ser mayor o igual a Control de Salud Integral de Adolescente (F74)."
             },
             {
                 "id": "A01-VAL026",
@@ -287,7 +287,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | F36. La expresión indica que [F36] la celda no debe contener datos.",
-                "mensaje_original": "REM A01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | F36. La expresión indica que [F36] la celda no debe contener datos."
+                "mensaje_original": "Controles de Salud según Ciclo Vital, celda F36, no debería ser registrado por el médico salvo excepciones"
             },
             {
                 "id": "A01-VAL027",
@@ -298,7 +298,7 @@
                 "expresion_2": "O36:O37",
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | A03, L20, M20, O36, O37. La expresión indica que [A03!L20 + A03!M20] debe ser igual a [O36:O37].",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | A03, L20, M20, O36, O37. La expresión indica que [A03!L20 + A03!M20] debe ser igual a [O36:O37]."
+                "mensaje_original": "La suma de Escala de Desarrollo Psicomotor (REM03!L20+M20) debe ser menor o igual a Controles de Salud (A01!O36:O37) para 18-23 meses."
             },
             {
                 "id": "A01-VAL028",
@@ -309,7 +309,7 @@
                 "expresion_2": "A01!P36 + A01!P37",
                 "severidad": "REVISAR",
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | A03, N20, O20, A01, P36, P37. La expresión indica que [A03!N20 + A03!O20] debe ser igual a [A01!P36 + A01!P37].",
-                "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | A03, N20, O20, A01, P36, P37. La expresión indica que [A03!N20 + A03!O20] debe ser igual a [A01!P36 + A01!P37]."
+                "mensaje_original": "La suma de Escala de Desarrollo Psicomotor (REM03!N20+O20) debe ser menor o igual a Controles de Salud (A01!P36:P37) para 24-47 meses."
             }
         ],
         "A02": [
@@ -322,7 +322,7 @@
                 "expresion_2": "B21",
                 "severidad": "ERROR",
                 "mensaje": "REM A02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | B11, B21. La expresión indica que [B11] debe ser igual a [B21].",
-                "mensaje_original": "REM A02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | B11, B21. La expresión indica que [B11] debe ser igual a [B21]."
+                "mensaje_original": "REM02, ERROR sección A o B: El total de EMP Realizados por Profesional (B11) debe ser igual al total de los EMP según Resultado del Estado Nutricional (B21)."
             },
             {
                 "id": "A02-VAL002",
@@ -333,7 +333,7 @@
                 "expresion_2": "C21",
                 "severidad": "ERROR",
                 "mensaje": "REM A02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | C11, C21. La expresión indica que [C11] debe ser igual a [C21].",
-                "mensaje_original": "REM A02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | C11, C21. La expresión indica que [C11] debe ser igual a [C21]."
+                "mensaje_original": "REM02, ERROR sección A o B: El total de EMP Realizados por Profesional a Hombres (C11) debe ser igual al total de los EMP según Resultado del Estado Nutricional a Hombres (C21)."
             },
             {
                 "id": "A02-VAL003",
@@ -345,7 +345,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A02 | SECCIÓN A: APLICACIÓN DE INSTRUMENTO Y RESULTADO EN EL NIÑO (A) | A03, C108, C110, B11. La expresión indica que [A03!C108 + A03!C110] debe ser igual a [B11].",
                 "rem_sheet_ext": "A03",
-                "mensaje_original": "REM A02 | SECCIÓN A: APLICACIÓN DE INSTRUMENTO Y RESULTADO EN EL NIÑO (A) | A03, C108, C110, B11. La expresión indica que [A03!C108 + A03!C110] debe ser igual a [B11]."
+                "mensaje_original": "REM02, ERROR, sección A: EMP Realizados por Profesional, Total (B11) debe ser igual al N° de Audit (EMP/EMPAM), Sección D.1 (SUMA(C108 + C110)) del REMA03."
             },
             {
                 "id": "A02-VAL004",
@@ -357,7 +357,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A02 | SECCIÓN A: APLICACIÓN DE INSTRUMENTO Y RESULTADO EN EL NIÑO (A) | A03, C113, E11, F11. La expresión indica que [A03!C113] debe ser igual a [E11 + F11].",
                 "rem_sheet_ext": "A03",
-                "mensaje_original": "REM A02 | SECCIÓN A: APLICACIÓN DE INSTRUMENTO Y RESULTADO EN EL NIÑO (A) | A03, C113, E11, F11. La expresión indica que [A03!C113] debe ser igual a [E11 + F11]."
+                "mensaje_original": "REM02, ERROR, sección A: EMP Realizados por Profesional, Total (E11 + F11) debe ser igual al N° de Craff (EMP) (C113) del REMA03."
             }
         ],
         "A03": [
@@ -370,7 +370,7 @@
                 "expresion_2": "C21:C36",
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C20, C21, C36. La expresión indica que [C20] debe ser igual a [C21:C36].",
-                "mensaje_original": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C20, C21, C36. La expresión indica que [C20] debe ser igual a [C21:C36]."
+                "mensaje_original": "ERROR sección A.2: El total de Resultados de la Aplicación de escala de evaluación del desarrollo psicomotor (C20) debe ser igual al detalle de evaluaciones del test de desarrollo Psicomotor (C21:C36)."
             },
             {
                 "id": "A03-VAL002",
@@ -381,7 +381,7 @@
                 "expresion_2": "C14:C15",
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE | C13, C14, C15. La expresión indica que [C13] debe ser igual a [C14:C15].",
-                "mensaje_original": "REM A03 | SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE | C13, C14, C15. La expresión indica que [C13] debe ser igual a [C14:C15]."
+                "mensaje_original": "REM03, ERROR sección A1: La Aplicación y resultados de Pauta Breve (C13) debe ser igual a la sumatoria de los Resultados de la Aplicación de Pauta Breve (C14 y C15)."
             },
             {
                 "id": "A03-VAL003",
@@ -392,7 +392,7 @@
                 "expresion_2": "C55:C57",
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN A.4: RESULTADOS DE LA APLICACIÓN DE PROTOCOLO NEUROSENSORIAL | C54, C55, C57. La expresión indica que [C54] debe ser igual a [C55:C57].",
-                "mensaje_original": "REM A03 | SECCIÓN A.4: RESULTADOS DE LA APLICACIÓN DE PROTOCOLO NEUROSENSORIAL | C54, C55, C57. La expresión indica que [C54] debe ser igual a [C55:C57]."
+                "mensaje_original": "REM03, ERROR sección A4: Los Resultados de la Aplicación de Protocolo Neurosensorial (C54) debe ser igual a la sumatoria de los Resultados de la Aplicación de Protocolo Neurosensorial (C55:C57)."
             },
             {
                 "id": "A03-VAL004",
@@ -403,7 +403,7 @@
                 "expresion_2": "B46",
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C22, B46. La expresión indica que [C22] debe ser igual a [B46].",
-                "mensaje_original": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C22, B46. La expresión indica que [C22] debe ser igual a [B46]."
+                "mensaje_original": "REM03, ERROR sección A2 o A3: Resultados de la aplicación de escala de evaluación del desarrollo Psicomotor (C22) deben ser igual a Niños y Niñas con rezago, Déficit y otra vulnerabilidad (B46)."
             },
             {
                 "id": "A03-VAL005",
@@ -414,7 +414,7 @@
                 "expresion_2": "B47",
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C23, B47. La expresión indica que [C23] debe ser igual a [B47].",
-                "mensaje_original": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C23, B47. La expresión indica que [C23] debe ser igual a [B47]."
+                "mensaje_original": "REM03, ERROR sección A2 o A3: Resultados de la aplicación de escala de evaluación del desarrollo Psicomotor (C23) deben ser igual a Niños y Niñas con rezago, Déficit y otra vulnerabilidad (B47)."
             },
             {
                 "id": "A03-VAL006",
@@ -425,7 +425,7 @@
                 "expresion_2": "B48",
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C24, B48. La expresión indica que [C24] debe ser igual a [B48].",
-                "mensaje_original": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C24, B48. La expresión indica que [C24] debe ser igual a [B48]."
+                "mensaje_original": "REM03, ERROR sección A2 o A3: Resultados de la aplicación de escala de evaluación del desarrollo Psicomotor (C24) deben ser igual a Niños y Niñas con rezago, Déficit y otra vulnerabilidad (B48)."
             },
             {
                 "id": "A03-VAL007",
@@ -436,7 +436,7 @@
                 "expresion_2": "A05!C11",
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN B.2: APLICACIÓN DE ESCALA SEGÚN EVALUACIÓN DE RIESGO PSICOSOCIAL ABREVIADA A GESTANTES | B86, A05, C11. La expresión indica que [B86] debe ser igual a [A05!C11].",
-                "mensaje_original": "REM A03 | SECCIÓN B.2: APLICACIÓN DE ESCALA SEGÚN EVALUACIÓN DE RIESGO PSICOSOCIAL ABREVIADA A GESTANTES | B86, A05, C11. La expresión indica que [B86] debe ser igual a [A05!C11]."
+                "mensaje_original": "REM03, ERROR, Sección B.2 o REM05 sección A: La Aplicación de Escala de Riesgo Psicosocial abreviada a gestantes (B86) debe ser igual a Total Gestantes Ingresadas en el REM05 (A05!C11)."
             },
             {
                 "id": "A03-VAL008",
@@ -448,7 +448,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | C92, A01, H36, H37. La expresión indica que [C92] debe ser menor o igual a [A01!(H36:H37)].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | C92, A01, H36, H37. La expresión indica que [C92] debe ser menor o igual a [A01!(H36:H37)]."
+                "mensaje_original": "REM03, ERROR sección B3 o REM03 sección B: Evaluación de Edimburgo a los 2 Meses (C92) debe ser menor igual a los Controles de Salud según Ciclo vital del REM01 (A01!H36+H37)."
             },
             {
                 "id": "A03-VAL009",
@@ -460,7 +460,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | C93, A01, L36, L37. La expresión indica que [C93] debe ser menor o igual a [A01!(L36:L37)].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | C93, A01, L36, L37. La expresión indica que [C93] debe ser menor o igual a [A01!(L36:L37)]."
+                "mensaje_original": "REM03, ERROR sección B3 o REM03 sección B: Evaluación de Edimburgo a los 6 Meses (C93) debe ser menor igual a los Controles de Salud según Ciclo vital del REM01 (A01!L36+L37)."
             },
             {
                 "id": "A03-VAL010",
@@ -471,7 +471,7 @@
                 "expresion_2": "A01!(T36:U38)",
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN C: RESULTADOS DE LA EVALUACIÓN DEL ESTADO NUTRICIONAL DEL ADOLESCENTE CON CONTROL SALUD INTEGRAL | C97, A01, T36, U38. La expresión indica que [C97] debe ser igual a [A01!(T36:U38)].",
-                "mensaje_original": "REM A03 | SECCIÓN C: RESULTADOS DE LA EVALUACIÓN DEL ESTADO NUTRICIONAL DEL ADOLESCENTE CON CONTROL SALUD INTEGRAL | C97, A01, T36, U38. La expresión indica que [C97] debe ser igual a [A01!(T36:U38)]."
+                "mensaje_original": "REM03, ERROR sección C o REM01 sección B: Total estado Nutricional del Adolescente (C97) debe ser igual a Controles de salud según ciclo Vital, REM01, de 10 a 19 años (A01!T36:U38)."
             },
             {
                 "id": "A03-VAL011",
@@ -482,7 +482,7 @@
                 "expresion_2": "C115:C117",
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE  ALCOHOL, TABACO Y OTRAS DROGAS | C108, C114, C115, C117. La expresión indica que [C108:C114] debe ser igual a [C115:C117].",
-                "mensaje_original": "REM A03 | SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE  ALCOHOL, TABACO Y OTRAS DROGAS | C108, C114, C115, C117. La expresión indica que [C108:C114] debe ser igual a [C115:C117]."
+                "mensaje_original": "REM03, ERROR sección D.1: La Suma del N° Aplicaciones Audit y Craff (C108 a C114) debe ser Igual a los resultados de la evaluación (C115 a C117)."
             },
             {
                 "id": "A03-VAL012",
@@ -493,7 +493,7 @@
                 "expresion_2": "C214+C215",
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCION E: APLICACIÓN DE PAUTA DETECCIÓN DE FACTORES DE RIESGO BIOPSICOSOCIAL INFANTIL | C213, C214, C215. La expresión indica que [C213] debe ser igual a [C214+C215].",
-                "mensaje_original": "REM A03 | SECCION E: APLICACIÓN DE PAUTA DETECCIÓN DE FACTORES DE RIESGO BIOPSICOSOCIAL INFANTIL | C213, C214, C215. La expresión indica que [C213] debe ser igual a [C214+C215]."
+                "mensaje_original": "REM03, ERROR sección E: El total de aplicaciones Pauta de riesgo Biopsicosocial (C213) debe ser Igual a la Suma Con Riesgo y Sin Riesgo (C214 y C215)."
             },
             {
                 "id": "A03-VAL013",
@@ -504,7 +504,7 @@
                 "expresion_2": "C67",
                 "severidad": "ERROR",
                 "mensaje": "REM A03 | SECCIÓN A.5: TIPO DE ALIMENTACIÓN NIÑOS Y NIÑAS CONTROLADOS | C61, C66, C67. La expresión indica que [C61:C66] debe ser igual a [C67].",
-                "mensaje_original": "REM A03 | SECCIÓN A.5: TIPO DE ALIMENTACIÓN NIÑOS Y NIÑAS CONTROLADOS | C61, C66, C67. La expresión indica que [C61:C66] debe ser igual a [C67]."
+                "mensaje_original": "REM03, ERROR sección A,5: La suma de los tipos de alimentación de niños y niñas controlados (C61 a C66) deben ser igual al Total de Niños y Niñas Controlados (C67)."
             }
         ],
         "A04": [
@@ -517,7 +517,7 @@
                 "expresion_2": "B135:B137",
                 "severidad": "ERROR",
                 "mensaje": "REM A04 | SECCIÓN B: CONSULTAS DE PROFESIONALES NO MÉDICOS | B39, B41, B135, B137. La expresión indica que [B39:B41] debe ser igual a [B135:B137].",
-                "mensaje_original": "REM A04 | SECCIÓN B: CONSULTAS DE PROFESIONALES NO MÉDICOS | B39, B41, B135, B137. La expresión indica que [B39:B41] debe ser igual a [B135:B137]."
+                "mensaje_original": "REM04, ERROR Sección B: El total de Consultas por Nutricionistas (B39 a B41) debe ser igual a Clasificación de consulta Nutricional por grupo de edad (B135 a B137)."
             },
             {
                 "id": "A04-VAL002",
@@ -528,7 +528,7 @@
                 "expresion_2": "C146:C149",
                 "severidad": "ERROR",
                 "mensaje": "REM A04 | SECCIÓN L: CONSULTA DE LACTANCIA EN NIÑOS Y NIÑAS CONTROLADOS | C141, C143, C146, C149. La expresión indica que [C141:C143] debe ser igual a [C146:C149].",
-                "mensaje_original": "REM A04 | SECCIÓN L: CONSULTA DE LACTANCIA EN NIÑOS Y NIÑAS CONTROLADOS | C141, C143, C146, C149. La expresión indica que [C141:C143] debe ser igual a [C146:C149]."
+                "mensaje_original": "REM04, ERROR, sección L: Consultas de lactancia en menores controlados por Nutricionista (C141:C143) debe ser igual a las consultas por lactancia (C146:C149)."
             },
             {
                 "id": "A04-VAL003",
@@ -539,7 +539,7 @@
                 "expresion_2": "E114+F114",
                 "severidad": "ERROR",
                 "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | C114, D114, E114, F114. La expresión indica que [C114+D114] debe ser igual a [E114+F114].",
-                "mensaje_original": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | C114, D114, E114, F114. La expresión indica que [C114+D114] debe ser igual a [E114+F114]."
+                "mensaje_original": "REM04, ERROR, sección I.1: Despacho de Recetas de pacientes Ambulatorios, despacho Total y Parcial de la fila 114 (C114+D114) debe ser igual a E114 + F114."
             },
             {
                 "id": "A04-VAL004",
@@ -550,7 +550,7 @@
                 "expresion_2": "E115+F115",
                 "severidad": "ERROR",
                 "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | C115, D115, E115, F115. La expresión indica que [C115+D115] debe ser igual a [E115+F115].",
-                "mensaje_original": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | C115, D115, E115, F115. La expresión indica que [C115+D115] debe ser igual a [E115+F115]."
+                "mensaje_original": "REM04, ERROR, sección I.1: Despacho de Recetas de pacientes Ambulatorios, despacho Total y Parcial de la fila 115 (C115+D115) debe ser igual a E115 + F115."
             },
             {
                 "id": "A04-VAL005",
@@ -561,7 +561,7 @@
                 "expresion_2": "E116+F116",
                 "severidad": "ERROR",
                 "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | C116, D116, E116, F116. La expresión indica que [C116+D116] debe ser igual a [E116+F116].",
-                "mensaje_original": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | C116, D116, E116, F116. La expresión indica que [C116+D116] debe ser igual a [E116+F116]."
+                "mensaje_original": "REM04, ERROR, sección I.1: Despacho de Recetas de pacientes Ambulatorios, despacho Total y Parcial de la fila 116 (C116+D116) debe ser igual a E116 + F116."
             },
             {
                 "id": "A04-VAL006",
@@ -573,7 +573,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | M114, L114. La expresión indica que [M114] debe ser mayor o igual a [L114].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | M114, L114. La expresión indica que [M114] debe ser mayor o igual a [L114]."
+                "mensaje_original": "REM04, ERROR, sección I.1: Despacho de Recetas, Recetas Despachadas COMPLETAS (M114) debe ser MAYOR a Despacho Completo y Oportuno (L114)."
             }
         ],
         "A05": [
@@ -586,7 +586,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A05 | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | L11, N14. La expresión indica que [L11:N14] la celda no debe contener datos.",
-                "mensaje_original": "REM A05 | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | L11, N14. La expresión indica que [L11:N14] la celda no debe contener datos."
+                "mensaje_original": "REM05, REVISAR sección A: Ingresos de Gestantes a Programa Prenatal. Celdas L11:N14 (edades extremas 45 a 55 años y más) deben ser corroboradas por profesional a cargo."
             },
             {
                 "id": "A05-VAL002",
@@ -598,7 +598,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A05 | SECCIÓN H: INGRESOS AL PROGRAMA DE SALUD CARDIOVASCULAR (PSCV) | C119, C120, C127. La expresión indica que [C119] debe ser menor o igual a [C120:C127].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A05 | SECCIÓN H: INGRESOS AL PROGRAMA DE SALUD CARDIOVASCULAR (PSCV) | C119, C120, C127. La expresión indica que [C119] debe ser menor o igual a [C120:C127]."
+                "mensaje_original": "REM05, ERROR sección H: Ingresos al PSCV (C119) debe ser menor o igual a la suma del desglose del Programa de Salud Cardiovascular (C120 a C127)."
             },
             {
                 "id": "A05-VAL003",
@@ -610,7 +610,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A05 | SECCIÓN J: INGRESOS Y EGRESOS AL PROGRAMA DE PACIENTES CON DEPENDENCIA LEVE, MODERADA Y SEVERA | AF146, AM150, C162. La expresión indica que [AF146:AM150] debe ser estrictamente mayor a [C162].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A05 | SECCIÓN J: INGRESOS Y EGRESOS AL PROGRAMA DE PACIENTES CON DEPENDENCIA LEVE, MODERADA Y SEVERA | AF146, AM150, C162. La expresión indica que [AF146:AM150] debe ser estrictamente mayor a [C162]."
+                "mensaje_original": "REM05, ERROR, sección J: Ingresos y Egresos a programa de pacientes con dependencia Leve, Moderada y Severa (AF146:AM150) debe ser MAYOR a Ingreso al programa A.M según condición de dependencia (C162)."
             },
             {
                 "id": "A05-VAL004",
@@ -621,7 +621,7 @@
                 "expresion_2": "C204",
                 "severidad": "REVISAR",
                 "mensaje": "REM A05 | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | C193, C204. La expresión indica que [C193] debe ser igual a [C204].",
-                "mensaje_original": "REM A05 | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | C193, C204. La expresión indica que [C193] debe ser igual a [C204]."
+                "mensaje_original": "REM05, REVISAR sección N: Ingresos al programa de Salud Mental (C193) deben ser Igual al Número personas que posee uno o más trastornos Mentales (C204)."
             },
             {
                 "id": "A05-VAL005",
@@ -633,42 +633,10 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A05 | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | C204, C205, C241. La expresión indica que [C204] debe ser menor o igual a [C205:C241].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A05 | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | C204, C205, C241. La expresión indica que [C204] debe ser menor o igual a [C205:C241]."
+                "mensaje_original": "REM05, ERROR sección N: Personas con Diagnostico de Trastornos Mentales (C204) deben ser menor o igual a la suma de Diagnósticos de Trastornos Mentales (C205 a C241)."
             }
         ],
         "A08": [
-            {
-                "id": "A08-VAL001",
-                "tipo": "CELDA",
-                "rem_sheet": "A08",
-                "expresion_1": "C61:AL66",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM A08 | SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR) | C61, AL66. La expresión indica que [C61:AL66] la celda no debe contener datos.",
-                "establecimientos_excluidos": [
-                    "123000",
-                    "123100",
-                    "123101",
-                    "123102",
-                    "123103",
-                    "123104",
-                    "123105",
-                    "123800",
-                    "123801",
-                    "200085",
-                    "200747",
-                    "200748",
-                    "200749",
-                    "200750"
-                ],
-                "aplicar_a_tipo": [
-                    "HOSPITAL",
-                    "SAPU",
-                    "SUR"
-                ],
-                "mensaje_original": "REM A08 | SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR) | C61, AL66. La expresión indica que [C61:AL66] la celda no debe contener datos."
-            },
             {
                 "id": "A08-VAL002",
                 "tipo": "CELDA",
@@ -678,7 +646,7 @@
                 "expresion_2": "B78",
                 "severidad": "ERROR",
                 "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | B13, B14, B78. La expresión indica que [B13+B14] debe ser igual a [B78].",
-                "mensaje_original": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | B13, B14, B78. La expresión indica que [B13+B14] debe ser igual a [B78]."
+                "mensaje_original": "REM08, ERROR sección A.1: Atenciones Realizadas U. Urgencias (B13+B14) debe ser igual a Categorizaciones de Pacientes Obstétrica (B78)."
             },
             {
                 "id": "A08-VAL003",
@@ -701,7 +669,7 @@
                     "200749",
                     "200750"
                 ],
-                "mensaje_original": "REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | C171, F171. La expresión indica que [C171:F171] la celda no debe contener datos."
+                "mensaje_original": "REM08, ERROR sección L: Traslados Primarios (C171:F171) solo corresponde registrar a los siguientes Establecimientos (Nota: Los establecimientos específicos deben ser definidos e incluidos aquí)."
             },
             {
                 "id": "A08-VAL004",
@@ -712,7 +680,7 @@
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | C172, F174. La expresión indica que [C172:F174] la celda no debe contener datos.",
-                "mensaje_original": "REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | C172, F174. La expresión indica que [C172:F174] la celda no debe contener datos."
+                "mensaje_original": "REM08, ERROR sección L: Traslados Primarios (C172:F174) deben registrar todos los establecimientos (Error si no tienen registros)."
             },
             {
                 "id": "A08-VAL005",
@@ -729,7 +697,7 @@
                 "excluir_tipo": [
                     "SAMU"
                 ],
-                "mensaje_original": "REM A08 | SECCIÓN M: TRASLADO SECUNDARIO (Desde un establecimiento a otro) | E178, E183. La expresión indica que [E178:E183] la celda no debe contener datos."
+                "mensaje_original": "REM08, ERROR sección M: Traslados Secundario (E178:E183) deben registrar todos los establecimientos que cuenten con ambulancias a excepción de SAMU (Error si no hay registros)."
             },
             {
                 "id": "A08-VAL006",
@@ -740,7 +708,7 @@
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM A08 | SECCIÓN J: LLAMADOS DE URGENCIA A CENTRO REGULADOR, CENTRO DE DESPACHO O CENTRO COORDINADOR | C161, D161. La expresión indica que [C161+D161] la celda no debe contener datos.",
-                "mensaje_original": "REM A08 | SECCIÓN J: LLAMADOS DE URGENCIA A CENTRO REGULADOR, CENTRO DE DESPACHO O CENTRO COORDINADOR | C161, D161. La expresión indica que [C161+D161] la celda no debe contener datos."
+                "mensaje_original": "REM08, ERROR sección J: Llamados de Urgencias a centro Regulador (C161 y D161) no debería contener registros (Debe ser cero)."
             },
             {
                 "id": "A08-VAL007",
@@ -752,20 +720,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | B13, AS13. La expresión indica que [B13] debe ser estrictamente menor a [AS13].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | B13, AS13. La expresión indica que [B13] debe ser estrictamente menor a [AS13]."
-            }
-        ],
-        "A19a": [
-            {
-                "id": "A19a-VAL001",
-                "tipo": "CELDA",
-                "rem_sheet": "A19a",
-                "expresion_1": "C129:C148",
-                "operador": "==",
-                "expresion_2": "O129:O148",
-                "severidad": "ERROR",
-                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C129, C148, O129, O148. La expresión indica que [C129:C148] debe ser igual a [O129:O148].",
-                "mensaje_original": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C129, C148, O129, O148. La expresión indica que [C129:C148] debe ser igual a [O129:O148]."
+                "mensaje_original": "REM08, ERROR sección A.1: Atenciones Realizadas (B13) debe ser mayor o igual a la Demanda (AS13)."
             }
         ],
         "A19b": [
@@ -778,7 +733,7 @@
                 "expresion_2": "E11:I11",
                 "severidad": "REVISAR",
                 "mensaje": "REM A19b | SECCIÓN A: ATENCIÓN OFICINAS DE INFORMACIONES (SISTEMA INTEGRAL DE ATENCIÓN A USUARIOS) | B11, E11, I11. La expresión indica que [B11] debe ser igual a [E11:I11].",
-                "mensaje_original": "REM A19b | SECCIÓN A: ATENCIÓN OFICINAS DE INFORMACIONES (SISTEMA INTEGRAL DE ATENCIÓN A USUARIOS) | B11, E11, I11. La expresión indica que [B11] debe ser igual a [E11:I11]."
+                "mensaje_original": "REM19b, REVISAR sección A: Atención Oficinas de Informaciones. El número de reclamos (B11) debe ser igual a la suma de las respuestas (E11 a I11) para asegurar consistencia."
             }
         ],
         "A27": [
@@ -791,7 +746,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | D53. La expresión indica que [D53] la celda no debe contener datos.",
-                "mensaje_original": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | D53. La expresión indica que [D53] la celda no debe contener datos."
+                "mensaje_original": "REM27, REVISAR sección A: Personas que Ingresan a Educación Grupal (D53). Si existen datos en el total de la sección, se debe revisar que existan datos en Sección B: Actividades de Educación para la Salud personal (D98)."
             },
             {
                 "id": "A27-VAL002",
@@ -802,7 +757,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | D23. La expresión indica que [D23] la celda no debe contener datos.",
-                "mensaje_original": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | D23. La expresión indica que [D23] la celda no debe contener datos."
+                "mensaje_original": "REM27, REVISAR sección A: Personas que Ingresan a Educación Grupal. Si existe información en celda D23, se debe revisar la desagregación para Gestantes (Y23 a AA23)."
             }
         ],
         "A28": [
@@ -816,7 +771,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | B13, B61. La expresión indica que [B13] debe ser menor o igual a [B61].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | B13, B61. La expresión indica que [B13] debe ser menor o igual a [B61]."
+                "mensaje_original": "REM28, ERROR sección A.1: Ingresos al programa de Rehabilitación Integral (B13) debe ser igual o Menor a la suma total de Sección A.2: Evaluación Inicial (B61)."
             },
             {
                 "id": "A28-VAL002",
@@ -828,7 +783,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | B13, B14. La expresión indica que [B13] debe ser mayor o igual a [B14].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | B13, B14. La expresión indica que [B13] debe ser mayor o igual a [B14]."
+                "mensaje_original": "REM28, ERROR sección A.1: Ingresos y Egresos al programa de Rehabilitación Integral (B13) debe ser mayor o igual a Ingresos (B14)."
             },
             {
                 "id": "A28-VAL003",
@@ -840,7 +795,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | B13, B15. La expresión indica que [B13] debe ser mayor o igual a [B15].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | B13, B15. La expresión indica que [B13] debe ser mayor o igual a [B15]."
+                "mensaje_original": "REM28, ERROR sección A.1: Ingresos y Egresos al programa de Rehabilitación Integral (B13) debe ser mayor o igual a Ingresos (B15)."
             },
             {
                 "id": "A28-VAL004",
@@ -852,7 +807,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A28 | SECCIÓN A.2: INGRESOS POR CONDICIÓN DE SALUD | B29, B30, B52. La expresión indica que [B29] debe ser menor o igual a [B30:B52].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A28 | SECCIÓN A.2: INGRESOS POR CONDICIÓN DE SALUD | B29, B30, B52. La expresión indica que [B29] debe ser menor o igual a [B30:B52]."
+                "mensaje_original": "REM28, ERROR sección A.2: Total Ingresos Personas (B29) debe ser menor o igual a la suma de las desagregaciones por condición Física (B30 a B52)."
             },
             {
                 "id": "A28-VAL005",
@@ -864,7 +819,7 @@
                 "severidad": "ERROR",
                 "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | B149, B150, B177. La expresión indica que [B149] debe ser menor o igual a [B150:B177].",
                 "omitir_si_ambos_cero": true,
-                "mensaje_original": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | B149, B150, B177. La expresión indica que [B149] debe ser menor o igual a [B150:B177]."
+                "mensaje_original": "REM28, ERROR sección B.1: El Total de Ingresos (B149) debe ser menor o igual a la sumatoria de ingresos a rehabilitación (B150 a B177)."
             },
             {
                 "id": "A28-VAL006",
@@ -875,7 +830,7 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | AM150, AM178. La expresión indica que [AM150:AM178] la celda no debe contener datos.",
-                "mensaje_original": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | AM150, AM178. La expresión indica que [AM150:AM178] la celda no debe contener datos."
+                "mensaje_original": "REM28, REVISAR sección B.1: Ingresos y Egresos al Prog. de Rehabilitación Integral. Se debe registrar solo en “Tipo de atención Abierta” (AM150:AM178). Se activa si existen registros."
             }
         ],
         "A29": [
@@ -888,7 +843,7 @@
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | O12, P12. La expresión indica que [O12:P12] la celda no debe contener datos.",
-                "mensaje_original": "REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | O12, P12. La expresión indica que [O12:P12] la celda no debe contener datos."
+                "mensaje_original": "REM29, ERROR sección A: Interconsultas de Oftalmología/UAPO. Los datos se deben registrar en M12:N12 y NO debe haber registros en O12:P12."
             },
             {
                 "id": "A29-VAL002",
@@ -899,7 +854,7 @@
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | M13, N13. La expresión indica que [M13:N13] la celda no debe contener datos.",
-                "mensaje_original": "REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | M13, N13. La expresión indica que [M13:N13] la celda no debe contener datos."
+                "mensaje_original": "REM29, ERROR sección A: Interconsultas de Otorrinolaringología/UAPO. Los datos se deben registrar en O13:P13 y NO debe haber registros en M13:N13."
             }
         ],
         "A30": [
@@ -912,7 +867,261 @@
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM A30R | Sección Desconocida | B16, B17. La expresión indica que [B16:B17] la celda no debe contener datos.",
-                "mensaje_original": "REM A30R | Sección Desconocida | B16, B17. La expresión indica que [B16:B17] la celda no debe contener datos."
+                "mensaje_original": "REM30R, ERROR: Atención y Orientación de Salud a Distancia. No debe existir registro en este REM. La suma de todas las celdas de registro debe ser cero."
+            }
+        ],
+        "A19a": [
+            {
+                "id": "A19a-VAL001",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C129",
+                "operador": ">",
+                "expresion_2": "O129",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C129, O129. La expresión indica que [C129] debe ser mayor a [O129].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C129), se debe registrar el TOTAL PARTICIPANTES (O129). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL002",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C130",
+                "operador": ">",
+                "expresion_2": "O130",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C130, O130. La expresión indica que [C130] debe ser mayor a [O130].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C130), se debe registrar el TOTAL PARTICIPANTES (O130). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL003",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C131",
+                "operador": ">",
+                "expresion_2": "O131",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C131, O131. La expresión indica que [C131] debe ser mayor a [O131].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C131), se debe registrar el TOTAL PARTICIPANTES (O131). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL004",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C132",
+                "operador": ">",
+                "expresion_2": "O132",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C132, O132. La expresión indica que [C132] debe ser mayor a [O132].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C132), se debe registrar el TOTAL PARTICIPANTES (O132). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL005",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C133",
+                "operador": ">",
+                "expresion_2": "O133",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C133, O133. La expresión indica que [C133] debe ser mayor a [O133].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C133), se debe registrar el TOTAL PARTICIPANTES (O133). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL006",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C134",
+                "operador": ">",
+                "expresion_2": "O134",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C134, O134. La expresión indica que [C134] debe ser mayor a [O134].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C134), se debe registrar el TOTAL PARTICIPANTES (O134). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL007",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C135",
+                "operador": ">",
+                "expresion_2": "O135",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C135, O135. La expresión indica que [C135] debe ser mayor a [O135].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C135), se debe registrar el TOTAL PARTICIPANTES (O135). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL008",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C136",
+                "operador": ">",
+                "expresion_2": "O136",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C136, O136. La expresión indica que [C136] debe ser mayor a [O136].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C136), se debe registrar el TOTAL PARTICIPANTES (O136). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL009",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C137",
+                "operador": ">",
+                "expresion_2": "O137",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C137, O137. La expresión indica que [C137] debe ser mayor a [O137].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C137), se debe registrar el TOTAL PARTICIPANTES (O137). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL010",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C138",
+                "operador": ">",
+                "expresion_2": "O138",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C138, O138. La expresión indica que [C138] debe ser mayor a [O138].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C138), se debe registrar el TOTAL PARTICIPANTES (O138). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL011",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C139",
+                "operador": ">",
+                "expresion_2": "O139",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C139, O139. La expresión indica que [C139] debe ser mayor a [O139].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C139), se debe registrar el TOTAL PARTICIPANTES (O139). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL012",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C140",
+                "operador": ">",
+                "expresion_2": "O140",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C140, O140. La expresión indica que [C140] debe ser mayor a [O140].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C140), se debe registrar el TOTAL PARTICIPANTES (O140). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL013",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C141",
+                "operador": ">",
+                "expresion_2": "O141",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C141, O141. La expresión indica que [C141] debe ser mayor a [O141].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C141), se debe registrar el TOTAL PARTICIPANTES (O141). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL014",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C142",
+                "operador": ">",
+                "expresion_2": "O142",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C142, O142. La expresión indica que [C142] debe ser mayor a [O142].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C142), se debe registrar el TOTAL PARTICIPANTES (O142). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL015",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C143",
+                "operador": ">",
+                "expresion_2": "O143",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C143, O143. La expresión indica que [C143] debe ser mayor a [O143].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C143), se debe registrar el TOTAL PARTICIPANTES (O143). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL016",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C144",
+                "operador": ">",
+                "expresion_2": "O144",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C144, O144. La expresión indica que [C144] debe ser mayor a [O144].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C144), se debe registrar el TOTAL PARTICIPANTES (O144). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL017",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C145",
+                "operador": ">",
+                "expresion_2": "O145",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C145, O145. La expresión indica que [C145] debe ser mayor a [O145].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C145), se debe registrar el TOTAL PARTICIPANTES (O145). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL018",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C146",
+                "operador": ">",
+                "expresion_2": "O146",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C146, O146. La expresión indica que [C146] debe ser mayor a [O146].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C146), se debe registrar el TOTAL PARTICIPANTES (O146). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL019",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C147",
+                "operador": ">",
+                "expresion_2": "O147",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C147, O147. La expresión indica que [C147] debe ser mayor a [O147].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C147), se debe registrar el TOTAL PARTICIPANTES (O147). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL020",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C148",
+                "operador": ">",
+                "expresion_2": "O148",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C148, O148. La expresión indica que [C148] debe ser mayor a [O148].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C148), se debe registrar el TOTAL PARTICIPANTES (O148). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
+            },
+            {
+                "id": "A19a-VAL021",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C149",
+                "operador": ">",
+                "expresion_2": "O149",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C149, O149. La expresión indica que [C149] debe ser mayor a [O149].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C149), se debe registrar el TOTAL PARTICIPANTES (O149). Se verifica que ambas sumatorias sean iguales.",
+                "omitir_si_ambos_cero": true
             }
         ]
     }

@@ -45,6 +45,7 @@ export interface ValidationRule {
   rem_sheet_ext?: string;
   aplicar_a?: string[];
   establecimientos_excluidos?: string[];
+  omitir_si_ambos_cero?: boolean;
 }
 
 export interface ValidationResult {

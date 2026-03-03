@@ -239,7 +239,8 @@
                 "operador": "<=",
                 "expresion_2": "T36:T38",
                 "severidad": "ERROR",
-                "mensaje": "Controles de Salud según Ciclo Vital, 10 a 14 años (T36 a T38) debe ser mayor o igual a Control de Salud Integral de Adolescente (C74)."
+                "mensaje": "Controles de Salud según Ciclo Vital, 10 a 14 años (T36 a T38) debe ser mayor o igual a Control de Salud Integral de Adolescente (C74).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL08",
@@ -249,7 +250,8 @@
                 "operador": "<=",
                 "expresion_2": "U36:U38",
                 "severidad": "ERROR",
-                "mensaje": "Controles de Salud según Ciclo Vital, 10 a 14 años (U36 a U38) debe ser mayor o igual a Control de Salud Integral de Adolescente (F74)."
+                "mensaje": "Controles de Salud según Ciclo Vital, 10 a 14 años (U36 a U38) debe ser mayor o igual a Control de Salud Integral de Adolescente (F74).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL09",
@@ -424,7 +426,8 @@
                 "operador": "<=",
                 "expresion_2": "A01!(H36:H37)",
                 "severidad": "ERROR",
-                "mensaje": "REM03, ERROR sección B3 o REM03 sección B: Evaluación de Edimburgo a los 2 Meses (C92) debe ser menor igual a los Controles de Salud según Ciclo vital del REM01 (A01!H36+H37)."
+                "mensaje": "REM03, ERROR sección B3 o REM03 sección B: Evaluación de Edimburgo a los 2 Meses (C92) debe ser menor igual a los Controles de Salud según Ciclo vital del REM01 (A01!H36+H37).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL17",
@@ -434,7 +437,8 @@
                 "operador": "<=",
                 "expresion_2": "A01!(L36:L37)",
                 "severidad": "ERROR",
-                "mensaje": "REM03, ERROR sección B3 o REM03 sección B: Evaluación de Edimburgo a los 6 Meses (C93) debe ser menor igual a los Controles de Salud según Ciclo vital del REM01 (A01!L36+L37)."
+                "mensaje": "REM03, ERROR sección B3 o REM03 sección B: Evaluación de Edimburgo a los 6 Meses (C93) debe ser menor igual a los Controles de Salud según Ciclo vital del REM01 (A01!L36+L37).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL18",
@@ -536,7 +540,8 @@
                 "operador": ">=",
                 "expresion_2": "L114",
                 "severidad": "ERROR",
-                "mensaje": "REM04, ERROR, sección I.1: Despacho de Recetas, Recetas Despachadas COMPLETAS (M114) debe ser MAYOR a Despacho Completo y Oportuno (L114)."
+                "mensaje": "REM04, ERROR, sección I.1: Despacho de Recetas, Recetas Despachadas COMPLETAS (M114) debe ser MAYOR a Despacho Completo y Oportuno (L114).",
+                "omitir_si_ambos_cero": true
             }
         ],
         "A05": [
@@ -558,7 +563,8 @@
                 "operador": "<=",
                 "expresion_2": "C120:C127",
                 "severidad": "ERROR",
-                "mensaje": "REM05, ERROR sección H: Ingresos al PSCV (C119) debe ser menor o igual a la suma del desglose del Programa de Salud Cardiovascular (C120 a C127)."
+                "mensaje": "REM05, ERROR sección H: Ingresos al PSCV (C119) debe ser menor o igual a la suma del desglose del Programa de Salud Cardiovascular (C120 a C127).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL30",
@@ -568,7 +574,8 @@
                 "operador": ">",
                 "expresion_2": "C162",
                 "severidad": "ERROR",
-                "mensaje": "REM05, ERROR, sección J: Ingresos y Egresos a programa de pacientes con dependencia Leve, Moderada y Severa (AF146:AM150) debe ser MAYOR a Ingreso al programa A.M según condición de dependencia (C162)."
+                "mensaje": "REM05, ERROR, sección J: Ingresos y Egresos a programa de pacientes con dependencia Leve, Moderada y Severa (AF146:AM150) debe ser MAYOR a Ingreso al programa A.M según condición de dependencia (C162).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL31",
@@ -588,7 +595,8 @@
                 "operador": "<=",
                 "expresion_2": "C205:C241",
                 "severidad": "ERROR",
-                "mensaje": "REM05, ERROR sección N: Personas con Diagnostico de Trastornos Mentales (C204) deben ser menor o igual a la suma de Diagnósticos de Trastornos Mentales (C205 a C241)."
+                "mensaje": "REM05, ERROR sección N: Personas con Diagnostico de Trastornos Mentales (C204) deben ser menor o igual a la suma de Diagnósticos de Trastornos Mentales (C205 a C241).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL33",
@@ -846,7 +854,8 @@
                 "operador": ">=",
                 "expresion_2": "AS13",
                 "severidad": "ERROR",
-                "mensaje": "REM08, ERROR sección A.1: Atenciones Realizadas (B13) debe ser mayor o igual a la Demanda (AS13)."
+                "mensaje": "REM08, ERROR sección A.1: Atenciones Realizadas (B13) debe ser mayor o igual a la Demanda (AS13).",
+                "omitir_si_ambos_cero": true
             }
         ],
         "A09": [
@@ -1012,7 +1021,8 @@
                 "operador": "<=",
                 "expresion_2": "B61",
                 "severidad": "ERROR",
-                "mensaje": "REM28, ERROR sección A.1: Ingresos al programa de Rehabilitación Integral (B13) debe ser igual o Menor a la suma total de Sección A.2: Evaluación Inicial (B61)."
+                "mensaje": "REM28, ERROR sección A.1: Ingresos al programa de Rehabilitación Integral (B13) debe ser igual o Menor a la suma total de Sección A.2: Evaluación Inicial (B61).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL59",
@@ -1022,7 +1032,8 @@
                 "operador": ">=",
                 "expresion_2": "B14",
                 "severidad": "ERROR",
-                "mensaje": "REM28, ERROR sección A.1: Ingresos y Egresos al programa de Rehabilitación Integral (B13) debe ser mayor o igual a Ingresos (B14)."
+                "mensaje": "REM28, ERROR sección A.1: Ingresos y Egresos al programa de Rehabilitación Integral (B13) debe ser mayor o igual a Ingresos (B14).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL60",
@@ -1032,7 +1043,8 @@
                 "operador": ">=",
                 "expresion_2": "B15",
                 "severidad": "ERROR",
-                "mensaje": "REM28, ERROR sección A.1: Ingresos y Egresos al programa de Rehabilitación Integral (B13) debe ser mayor o igual a Ingresos (B15)."
+                "mensaje": "REM28, ERROR sección A.1: Ingresos y Egresos al programa de Rehabilitación Integral (B13) debe ser mayor o igual a Ingresos (B15).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL61",
@@ -1042,7 +1054,8 @@
                 "operador": "<=",
                 "expresion_2": "B30:B52",
                 "severidad": "ERROR",
-                "mensaje": "REM28, ERROR sección A.2: Total Ingresos Personas (B29) debe ser menor o igual a la suma de las desagregaciones por condición Física (B30 a B52)."
+                "mensaje": "REM28, ERROR sección A.2: Total Ingresos Personas (B29) debe ser menor o igual a la suma de las desagregaciones por condición Física (B30 a B52).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL62",
@@ -1052,7 +1065,8 @@
                 "operador": "<=",
                 "expresion_2": "B150:B177",
                 "severidad": "ERROR",
-                "mensaje": "REM28, ERROR sección B.1: El Total de Ingresos (B149) debe ser menor o igual a la sumatoria de ingresos a rehabilitación (B150 a B177)."
+                "mensaje": "REM28, ERROR sección B.1: El Total de Ingresos (B149) debe ser menor o igual a la sumatoria de ingresos a rehabilitación (B150 a B177).",
+                "omitir_si_ambos_cero": true
             },
             {
                 "id": "VAL63",

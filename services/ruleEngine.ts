@@ -58,6 +58,22 @@ export class RuleEngineService {
     const v1 = val1 === null || val1 === undefined ? 0 : val1;
     const v2 = val2 === null || val2 === undefined ? 0 : val2;
 
+    // Omitir validación si ambos valores son 0 y la regla lo indica.
+    // Esto evita falsos positivos cuando no hay datos (ej: 0 > 0 = false).
+    if (rule.omitir_si_ambos_cero && v1 === 0 && v2 === 0) {
+      return {
+        ruleId: rule.id,
+        descripcion: rule.mensaje,
+        severidad: rule.severidad,
+        resultado: true, // Se da por válida (sin datos, no aplica)
+        valorActual: 0,
+        valorEsperado: `${rule.operador} 0`,
+        rem_sheet: rule.rem_sheet,
+        id: generateUUID(),
+        evidence: 'Omitida: ambos valores son 0 (sin datos para comparar).'
+      };
+    }
+
     let passed = false;
     switch (rule.operador) {
       case '==': passed = v1 === v2; break;

@@ -607,15 +607,13 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM05, REVISAR sección R: El Ingreso y Egreso a Programa de VIH/SIDA (C329 a E339) corresponde solo al HBSJO (Error si centro no es HBSJO).",
-                "establecimientos_excluidos": [
-                    "123100"
-                ],
                 "aplicar_a_tipo": [
                     "HOSPITAL"
                 ],
                 "aplicar_a": [
                     "123100"
-                ]
+                ],
+                "validacion_exclusiva": true
             },
             {
                 "id": "VAL34",
@@ -626,15 +624,13 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM05, REVISAR sección S: El Ingreso y Egreso por Comercio Sexual (C344 a E346) corresponde solo al HBSJO (Error si centro no es HBSJO).",
-                "establecimientos_excluidos": [
-                    "123100"
-                ],
                 "aplicar_a_tipo": [
                     "HOSPITAL"
                 ],
                 "aplicar_a": [
                     "123100"
-                ]
+                ],
+                "validacion_exclusiva": true
             }
         ],
         "A06": [
@@ -647,11 +643,6 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM08, ERROR sección A: Las Consultas y Controles de Odontología general (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos.",
-                "establecimientos_excluidos": [
-                    "123100",
-                    "123101",
-                    "123102"
-                ],
                 "aplicar_a_tipo": [
                     "HOSPITAL"
                 ],
@@ -659,7 +650,8 @@
                     "123100",
                     "123101",
                     "123102"
-                ]
+                ],
+                "validacion_exclusiva": true
             }
         ],
         "A08": [
@@ -672,18 +664,14 @@
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM08, ERROR sección A.1: Las Atenciones Realizadas en UEH de Hospital de Alta Complejidad (E12 a AL15) corresponde solo a HBSJO y HPU.",
-                "establecimientos_excluidos": [
-                    "123100",
-                    "123101",
-                    "123000"
-                ],
                 "aplicar_a_tipo": [
                     "HOSPITAL"
                 ],
                 "aplicar_a": [
                     "123100",
                     "123101"
-                ]
+                ],
+                "validacion_exclusiva": true
             },
             {
                 "id": "VAL37",
@@ -868,12 +856,6 @@
                 "expresion_2": 0,
                 "severidad": "REVISAR",
                 "mensaje": "REM08, ERROR sección A: Las Consultas y Controles de Odontología general en Nivel Primario y Secundario de Salud (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos.",
-                "establecimientos_excluidos": [
-                    "123000",
-                    "123100",
-                    "123101",
-                    "123102"
-                ],
                 "aplicar_a_tipo": [
                     "HOSPITAL"
                 ],
@@ -881,7 +863,8 @@
                     "123100",
                     "123101",
                     "123102"
-                ]
+                ],
+                "validacion_exclusiva": true
             }
         ],
         "A11": [
@@ -894,16 +877,13 @@
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM11, ERROR sección A.1: Examen VDRL Por Grupo de Usuarios (B13 a C30). Esta sección solo le corresponde a HBSJO.",
-                "establecimientos_excluidos": [
-                    "123000",
-                    "123100"
-                ],
                 "aplicar_a_tipo": [
                     "HOSPITAL"
                 ],
                 "aplicar_a": [
                     "123100"
-                ]
+                ],
+                "validacion_exclusiva": true
             },
             {
                 "id": "VAL50",
@@ -914,16 +894,13 @@
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM11, ERROR sección B.1: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Lab. Que Procesan (C144 a P148) le corresponde solo a HBSJO.",
-                "establecimientos_excluidos": [
-                    "123000",
-                    "123100"
-                ],
                 "aplicar_a_tipo": [
                     "HOSPITAL"
                 ],
                 "aplicar_a": [
                     "123100"
-                ]
+                ],
+                "validacion_exclusiva": true
             },
             {
                 "id": "VAL51",
@@ -934,16 +911,13 @@
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM11, ERROR sección B.2: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Compras Servicio (C152 a P156) le corresponde solo a HBSJO.",
-                "establecimientos_excluidos": [
-                    "123000",
-                    "123100"
-                ],
                 "aplicar_a_tipo": [
                     "HOSPITAL"
                 ],
                 "aplicar_a": [
                     "123100"
-                ]
+                ],
+                "validacion_exclusiva": true
             },
             {
                 "id": "VAL52",
@@ -954,16 +928,13 @@
                 "expresion_2": 0,
                 "severidad": "ERROR",
                 "mensaje": "REM11, ERROR sección C1: Exámenes de VIH por Grupos de Usuarios (C161 a D183). Esta sección solo le corresponde a HBSJO.",
-                "establecimientos_excluidos": [
-                    "123000",
-                    "123100"
-                ],
                 "aplicar_a_tipo": [
                     "HOSPITAL"
                 ],
                 "aplicar_a": [
                     "123100"
-                ]
+                ],
+                "validacion_exclusiva": true
             }
         ],
         "A19a": [

@@ -19,10 +19,22 @@ export class RuleEngineService {
     const results: ValidationResult[] = [];
 
     for (const rule of rules) {
-      // js-set-map-lookups: O(1) Set lookups instead of O(n) .includes()
-      if (rule.aplicar_a) {
-        const allowedSet = new Set(rule.aplicar_a);
-        if (!allowedSet.has(metadata.codigoEstablecimiento)) continue;
+      let invertirOperador = false;
+
+      // Validación exclusiva: la regla aplica a TODOS los establecimientos.
+      // Para los de aplicar_a: se INVIERTE el operador (ej: == se vuelve !=)
+      //   → Deben tener datos, error si NO los tienen.
+      // Para el resto: se mantiene el operador original
+      //   → No deben tener datos, error si SÍ los tienen.
+      if (rule.validacion_exclusiva && rule.aplicar_a) {
+        const targetSet = new Set(rule.aplicar_a);
+        invertirOperador = targetSet.has(metadata.codigoEstablecimiento);
+      } else {
+        // Flujo normal: si tiene aplicar_a, solo evalúa para esos establecimientos
+        if (rule.aplicar_a) {
+          const allowedSet = new Set(rule.aplicar_a);
+          if (!allowedSet.has(metadata.codigoEstablecimiento)) continue;
+        }
       }
 
       if (rule.establecimientos_excluidos) {
@@ -31,7 +43,7 @@ export class RuleEngineService {
       }
 
       try {
-        const result = await this.evaluateSingleRule(rule);
+        const result = await this.evaluateSingleRule(rule, invertirOperador);
         results.push(result);
       } catch (e) {
         results.push({
@@ -50,7 +62,7 @@ export class RuleEngineService {
     return results;
   }
 
-  private async evaluateSingleRule(rule: ValidationRule): Promise<ValidationResult> {
+  private async evaluateSingleRule(rule: ValidationRule, invertirOperador: boolean = false): Promise<ValidationResult> {
     const val1 = this.resolveExpression(rule.expresion_1, rule.rem_sheet);
     const val2 = this.resolveExpression(rule.expresion_2, rule.rem_sheet);
 
@@ -74,8 +86,21 @@ export class RuleEngineService {
       };
     }
 
+    // Invertir el operador si aplica (para validacion_exclusiva)
+    let operador = rule.operador;
+    if (invertirOperador) {
+      switch (operador) {
+        case '==': operador = '!='; break;
+        case '!=': operador = '=='; break;
+        case '>': operador = '<='; break;
+        case '<': operador = '>='; break;
+        case '>=': operador = '<'; break;
+        case '<=': operador = '>'; break;
+      }
+    }
+
     let passed = false;
-    switch (rule.operador) {
+    switch (operador) {
       case '==': passed = v1 === v2; break;
       case '!=': passed = v1 !== v2; break;
       case '>': passed = v1 > v2; break;
@@ -85,17 +110,19 @@ export class RuleEngineService {
       default: passed = false;
     }
 
+    const operadorEfectivo = invertirOperador ? `${operador} (invertido de ${rule.operador})` : operador;
+
     return {
       ruleId: rule.id,
       descripcion: rule.mensaje,
       severidad: rule.severidad,
       resultado: passed,
-      valorActual: val1, // Retornamos el valor real (exacto) para el reporte
-      valorEsperado: `${rule.operador} ${val2}`,
+      valorActual: val1,
+      valorEsperado: `${operador} ${val2}`,
       rem_sheet: rule.rem_sheet,
       id: generateUUID(),
       cell: (typeof rule.expresion_1 === 'string' && !rule.expresion_1.includes('SUM') && !rule.expresion_1.includes('+') && !rule.expresion_1.includes(':')) ? rule.expresion_1 : undefined,
-      evidence: `Evaluado: ${JSON.stringify(v1)}. Comparado con: ${rule.operador} ${JSON.stringify(v2)}.`
+      evidence: `Evaluado: ${JSON.stringify(v1)}. Comparado con: ${operadorEfectivo} ${JSON.stringify(v2)}.`
     };
   }
 

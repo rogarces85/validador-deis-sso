@@ -44,6 +44,8 @@ export class FilenameValidatorService {
         const serieUpper = serie.toUpperCase();
         if (!FilenameValidatorService.SERIES_SET.has(serieUpper)) {
             errors.push(`Serie no reconocida: "${serieUpper}". Series válidas: ${VALID_SERIES.join(', ')}`);
+        } else if (serieUpper !== 'A') {
+            errors.push(`⚠️ La Serie "${serieUpper}" aún se encuentra en construcción. Actualmente solo está disponible la validación para la Serie A.`);
         }
 
         // Validate Month

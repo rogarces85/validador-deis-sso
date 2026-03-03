@@ -15,6 +15,7 @@ const STATUS_OPTIONS: { key: 'ALL' | 'PASS' | 'FAIL'; label: string }[] = [
     { key: 'FAIL', label: 'Fallidos' },
 ];
 
+
 const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding }) => {
     const [severityFilter, setSeverityFilter] = useState<Severity | 'ALL'>('ALL');
     const [sheetFilter, setSheetFilter] = useState<string>('ALL');

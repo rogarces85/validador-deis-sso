@@ -2,14 +2,14 @@
     "validaciones": {
         "A02": [
             {
-                "id": "VAL06",
+                "id": "A02-VAL005",
                 "tipo": "CELDA",
                 "rem_sheet": "A02",
                 "expresion_1": "B17",
                 "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM02, ERROR sección A: EMP realizado por Profesional (B17) debe corresponder solo a Postas. Si el valor es > 0, es un error de digitación en centros que no son Postas.",
+                "mensaje": "REM A02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | B17. La expresión indica que [B17] la celda no debe contener datos.",
                 "establecimientos_excluidos": [
                     "123104",
                     "123105",
@@ -18,7 +18,8 @@
                 ],
                 "aplicar_a_tipo": [
                     "POSTA"
-                ]
+                ],
+                "mensaje_original": "REM02, ERROR sección A: EMP realizado por Profesional (B17) debe corresponder solo a Postas. Si el valor es > 0, es un error de digitación en centros que no son Postas."
             }
         ]
     }

@@ -2,20 +2,21 @@
     "validaciones": {
         "A08": [
             {
-                "id": "VAL42",
+                "id": "A08-VAL012",
                 "tipo": "CELDA",
                 "rem_sheet": "A08",
                 "expresion_1": "C169:F170",
                 "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM08, ERROR sección L: Traslados Primarios (C169:F170) solo corresponde registrar a SAMU.",
+                "mensaje": "REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | C169, F170. La expresión indica que [C169:F170] la celda no debe contener datos.",
                 "establecimientos_excluidos": [
                     "123010"
                 ],
                 "aplicar_a_tipo": [
                     "SAMU"
-                ]
+                ],
+                "mensaje_original": "REM08, ERROR sección L: Traslados Primarios (C169:F170) solo corresponde registrar a SAMU."
             }
         ]
     }

@@ -61,4 +61,45 @@ export class ExcelReaderService {
   public getSheets(): string[] {
     return this.workbook?.SheetNames || [];
   }
+
+  /**
+   * Skill_Excel_Concatenate: Extrae, limpia, concatena y castéa datos de múltiples celdas.
+   * 
+   * @param sheetName La hoja por defecto donde buscar
+   * @param coordenadas Las celdas a concatenar
+   * @param separador El separador opcional (default '')
+   * @returns Un valor numérico garantizado
+   */
+  public concatenateToNumber(sheetName: string, coordenadas: string[], separador: string = ""): number {
+    // 1. Extraer y convertir a array de strings puros
+    const valoresCrudos = coordenadas.map(ref => {
+      // Manejar referencias cruzadas si las hay (H1!A1)
+      let sheet = sheetName;
+      let targetRef = ref;
+      if (ref.includes('!')) {
+        const parts = ref.split('!');
+        sheet = parts[0];
+        targetRef = parts[1];
+      }
+
+      const rawValue = this.getCellValue(sheet, targetRef);
+      // Asegurarse de retornar un string incluso desde undefined/null
+      return rawValue === null || rawValue === undefined ? "" : String(rawValue);
+    });
+
+    // 2. Concatenar
+    const resultadoString = valoresCrudos.join(separador);
+
+    // 3. Sanitizar (quitar lo que no sea dígito, menos, punto o coma)
+    const stringLimpio = resultadoString.replace(/[^0-9.,-]/g, '');
+
+    // Homologar comas a puntos para parseFloat
+    const stringParseable = stringLimpio.replace(',', '.');
+
+    // 4. Casting a Número
+    const numeroFinal = parseFloat(stringParseable);
+
+    // Si la limpieza dio algo inválido (ej: puro texto que desapareció), retornar 0.
+    return isNaN(numeroFinal) ? 0 : numeroFinal;
+  }
 }

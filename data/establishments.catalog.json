@@ -2,7 +2,7 @@
     "version": "2026.1.0",
     "generadoEl": "2026-02-11T18:29:00-03:00",
     "servicioDeSalud": "Servicio de Salud Osorno",
-    "totalEstablecimientos": 73,
+    "totalEstablecimientos": 77,
     "establecimientos": [
         {
             "codigo": "123000",
@@ -86,6 +86,13 @@
             "nombre": "Clínica Alemana Osorno",
             "comuna": "10301",
             "tipo": "PRIVADA",
+            "activo": true
+        },
+        {
+            "codigo": "123207",
+            "nombre": "Centro de Rehabilitación de Minusválidos",
+            "comuna": "10303",
+            "tipo": "Otro",
             "activo": true
         },
         {
@@ -467,6 +474,13 @@
             "activo": true
         },
         {
+            "codigo": "200556",
+            "nombre": "Hospital Digital",
+            "comuna": "10301",
+            "tipo": "HOSPITAL",
+            "activo": true
+        },
+        {
             "codigo": "200747",
             "nombre": "SAPU Entre Lagos",
             "comuna": "10304",
@@ -513,6 +527,20 @@
             "nombre": "Centro Comunitario de Salud Familiar Las Cascadas",
             "comuna": "10302",
             "tipo": "CECOSF",
+            "activo": true
+        },
+        {
+            "codigo": "201667",
+            "nombre": "Posta de Salud Rural Chan Chan Río Negro",
+            "comuna": "10305",
+            "tipo": "POSTA",
+            "activo": true
+        },
+        {
+            "codigo": "202043",
+            "nombre": "Posta de Salud Rural Pucatrihue",
+            "comuna": "10306",
+            "tipo": "POSTA",
             "activo": true
         }
     ]

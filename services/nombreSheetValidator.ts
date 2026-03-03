@@ -145,6 +145,7 @@ export class NombreSheetValidator {
 
     /**
      * Validate cells individually (not empty) then concatenate and lookup against a catalog set.
+     * Utiliza Skill_Excel_Concatenate para purgar el valor y evitar errores de casteo matemáticos.
      */
     private validateConcatenatedCode(
         cells: string[],
@@ -154,13 +155,11 @@ export class NombreSheetValidator {
         codeLabel: string
     ): ValidationResult[] {
         const results: ValidationResult[] = [];
-        const cellValues: string[] = [];
         let hasEmpty = false;
 
         // Check each cell individually
         for (const cell of cells) {
             const val = this.getCellString(cell);
-            cellValues.push(val);
             if (!val) {
                 hasEmpty = true;
                 results.push(this.makeResult(
@@ -171,14 +170,17 @@ export class NombreSheetValidator {
             }
         }
 
-        // If all cells have values, concatenate and verify
+        // Skill_Excel_Concatenate: Asegura un string limpio (incluso si tienen espacios/caracteres ocultos del Excel)
+        const numericCode = this.excel.concatenateToNumber(this.SHEET, cells);
+        const codeString = numericCode.toString();
+
+        // If all cells have values, verify
         if (!hasEmpty) {
-            const code = cellValues.join('');
-            if (!catalogSet.has(code)) {
+            if (!catalogSet.has(codeString)) {
                 results.push(this.makeResult(
                     ruleIdBase, Severity.ERROR,
-                    `NOMBRE, ERROR: El ${codeLabel} concatenado "${code}" (celdas ${cells.join('+')}) no corresponde a un ${entityLabel} válido del catálogo.`,
-                    code, `Código de ${entityLabel} válido`, cells[0]
+                    `NOMBRE, ERROR: El ${codeLabel} resultante "${codeString}" (celdas ${cells.join('+')}) no corresponde a un ${entityLabel} válido del catálogo.`,
+                    codeString, `Código de ${entityLabel} válido`, cells[0]
                 ));
             }
         }
@@ -188,15 +190,14 @@ export class NombreSheetValidator {
 
     /**
      * Validate month code cells: each not empty, concatenated value is valid month 01-12.
+     * Utiliza Skill_Excel_Concatenate
      */
     private validateMonthCode(cells: string[]): ValidationResult[] {
         const results: ValidationResult[] = [];
-        const cellValues: string[] = [];
         let hasEmpty = false;
 
         for (const cell of cells) {
             const val = this.getCellString(cell);
-            cellValues.push(val);
             if (!val) {
                 hasEmpty = true;
                 results.push(this.makeResult(
@@ -207,12 +208,15 @@ export class NombreSheetValidator {
             }
         }
 
+        // Skill_Excel_Concatenate: Pule y convierte a número
+        const numericMonth = this.excel.concatenateToNumber(this.SHEET, cells);
+        const monthCode = numericMonth.toString().padStart(2, '0'); // Asegura '01'-'12'
+
         if (!hasEmpty) {
-            const monthCode = cellValues.join('').padStart(2, '0');
             if (!VALID_MONTHS.has(monthCode)) {
                 results.push(this.makeResult(
                     'VAL_NOM07', Severity.ERROR,
-                    `NOMBRE, ERROR: El código de mes concatenado "${monthCode}" (celdas ${cells.join('+')}) no corresponde a un mes válido (01-12).`,
+                    `NOMBRE, ERROR: El código de mes resultante "${monthCode}" (celdas ${cells.join('+')}) no corresponde a un mes válido (01-12).`,
                     monthCode, 'Mes válido (01-12)', cells[0]
                 ));
             }

@@ -232,6 +232,17 @@ const App: React.FC = () => {
           onClose={handleCloseDrawer}
         />
       </Suspense>
+
+      {/* Version Footer */}
+      <footer className="fixed bottom-0 left-0 right-0 py-2 px-4 text-center" style={{
+        backgroundColor: 'var(--bg-surface)',
+        borderTop: '1px solid var(--border-default)',
+        zIndex: 10
+      }}>
+        <span className="text-xs" style={{ color: 'var(--text-tertiary)' }}>
+          Validador DEIS SSO — v{__APP_VERSION__} · Build {__BUILD_DATE__}
+        </span>
+      </footer>
     </div>
   );
 };

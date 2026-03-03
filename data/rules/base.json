@@ -306,25 +306,6 @@
                 "mensaje": "REM02, ERROR sección A o B: El total de EMP Realizados por Profesional a Hombres (C11) debe ser igual al total de los EMP según Resultado del Estado Nutricional a Hombres (C21)."
             },
             {
-                "id": "VAL06",
-                "tipo": "CELDA",
-                "rem_sheet": "A02",
-                "expresion_1": "B17",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM02, ERROR sección A: EMP realizado por Profesional (B17) debe corresponder solo a Postas. Si el valor es > 0, es un error de digitación en centros que no son Postas.",
-                "establecimientos_excluidos": [
-                    "123104",
-                    "123105",
-                    "123000",
-                    "123000"
-                ],
-                "aplicar_a_tipo": [
-                    "POSTA"
-                ]
-            },
-            {
                 "id": "VAL07",
                 "tipo": "CELDA",
                 "rem_sheet": "A02",
@@ -597,95 +578,9 @@
                 "severidad": "ERROR",
                 "mensaje": "REM05, ERROR sección N: Personas con Diagnostico de Trastornos Mentales (C204) deben ser menor o igual a la suma de Diagnósticos de Trastornos Mentales (C205 a C241).",
                 "omitir_si_ambos_cero": true
-            },
-            {
-                "id": "VAL33",
-                "tipo": "CELDA",
-                "rem_sheet": "A05",
-                "expresion_1": "C329:E339",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "REVISAR",
-                "mensaje": "REM05, REVISAR sección R: El Ingreso y Egreso a Programa de VIH/SIDA (C329 a E339) corresponde solo al HBSJO (Error si centro no es HBSJO).",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ],
-                "aplicar_a": [
-                    "123100"
-                ],
-                "validacion_exclusiva": true
-            },
-            {
-                "id": "VAL34",
-                "tipo": "CELDA",
-                "rem_sheet": "A05",
-                "expresion_1": "C344:E346",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "REVISAR",
-                "mensaje": "REM05, REVISAR sección S: El Ingreso y Egreso por Comercio Sexual (C344 a E346) corresponde solo al HBSJO (Error si centro no es HBSJO).",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ],
-                "aplicar_a": [
-                    "123100"
-                ],
-                "validacion_exclusiva": true
-            }
-        ],
-        "A06": [
-            {
-                "id": "VAL35",
-                "tipo": "CELDA",
-                "rem_sheet": "A06",
-                "expresion_1": "D16+D17",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "REVISAR",
-                "mensaje": "REM08, ERROR sección A: Las Consultas y Controles de Odontología general (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos.",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ],
-                "aplicar_a": [
-                    "123100",
-                    "123101",
-                    "123102"
-                ],
-                "validacion_exclusiva": true
             }
         ],
         "A08": [
-            {
-                "id": "VAL36",
-                "tipo": "CELDA",
-                "rem_sheet": "A08",
-                "expresion_1": "E12:AL15",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM08, ERROR sección A.1: Las Atenciones Realizadas en UEH de Hospital de Alta Complejidad (E12 a AL15) corresponde solo a HBSJO y HPU.",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ],
-                "aplicar_a": [
-                    "123100",
-                    "123101"
-                ],
-                "validacion_exclusiva": true
-            },
-            {
-                "id": "VAL37",
-                "tipo": "CELDA",
-                "rem_sheet": "A08",
-                "expresion_1": "B12",
-                "operador": "==",
-                "expresion_2": "B67",
-                "severidad": "ERROR",
-                "mensaje": "REM08, ERROR sección A.1: Atenciones Realizadas en UEH de Hospital de Alta Complejidad (B12) debe ser igual a Categorizaciones de Pacientes (B67).",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ]
-            },
             {
                 "id": "VAL38",
                 "tipo": "CELDA",
@@ -726,55 +621,6 @@
                 "expresion_2": "B78",
                 "severidad": "ERROR",
                 "mensaje": "REM08, ERROR sección A.1: Atenciones Realizadas U. Urgencias (B13+B14) debe ser igual a Categorizaciones de Pacientes Obstétrica (B78)."
-            },
-            {
-                "id": "VAL40",
-                "tipo": "CELDA",
-                "rem_sheet": "A08",
-                "expresion_1": "E31:AL36",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM08, ERROR sección A.3: Atenciones Realizadas en UEH Por Hospitales de BAJA Complejidad (E31 a AL36) Corresponde solo a Hospitales De Baja Complejidad.",
-                "establecimientos_excluidos": [
-                    "123000",
-                    "123102",
-                    "123103",
-                    "123104",
-                    "123105"
-                ],
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ]
-            },
-            {
-                "id": "VAL41",
-                "tipo": "CELDA",
-                "rem_sheet": "A08",
-                "expresion_1": "B31",
-                "operador": "==",
-                "expresion_2": "B67",
-                "severidad": "ERROR",
-                "mensaje": "REM08, ERROR sección A.3: Atenciones Realizadas en UEH de Hospital de Alta Complejidad (B31) debe ser igual a Categorizaciones de Pacientes (B67).",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ]
-            },
-            {
-                "id": "VAL42",
-                "tipo": "CELDA",
-                "rem_sheet": "A08",
-                "expresion_1": "C169:F170",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM08, ERROR sección L: Traslados Primarios (C169:F170) solo corresponde registrar a SAMU.",
-                "establecimientos_excluidos": [
-                    "123010"
-                ],
-                "aplicar_a_tipo": [
-                    "SAMU"
-                ]
             },
             {
                 "id": "VAL43",
@@ -844,97 +690,6 @@
                 "severidad": "ERROR",
                 "mensaje": "REM08, ERROR sección A.1: Atenciones Realizadas (B13) debe ser mayor o igual a la Demanda (AS13).",
                 "omitir_si_ambos_cero": true
-            }
-        ],
-        "A09": [
-            {
-                "id": "VAL48",
-                "tipo": "CELDA",
-                "rem_sheet": "A09",
-                "expresion_1": "D16+D17",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "REVISAR",
-                "mensaje": "REM08, ERROR sección A: Las Consultas y Controles de Odontología general en Nivel Primario y Secundario de Salud (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos.",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ],
-                "aplicar_a": [
-                    "123100",
-                    "123101",
-                    "123102"
-                ],
-                "validacion_exclusiva": true
-            }
-        ],
-        "A11": [
-            {
-                "id": "VAL49",
-                "tipo": "CELDA",
-                "rem_sheet": "A11",
-                "expresion_1": "B13:C30",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM11, ERROR sección A.1: Examen VDRL Por Grupo de Usuarios (B13 a C30). Esta sección solo le corresponde a HBSJO.",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ],
-                "aplicar_a": [
-                    "123100"
-                ],
-                "validacion_exclusiva": true
-            },
-            {
-                "id": "VAL50",
-                "tipo": "CELDA",
-                "rem_sheet": "A11",
-                "expresion_1": "C144:P148",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM11, ERROR sección B.1: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Lab. Que Procesan (C144 a P148) le corresponde solo a HBSJO.",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ],
-                "aplicar_a": [
-                    "123100"
-                ],
-                "validacion_exclusiva": true
-            },
-            {
-                "id": "VAL51",
-                "tipo": "CELDA",
-                "rem_sheet": "A11",
-                "expresion_1": "C152:P156",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM11, ERROR sección B.2: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Compras Servicio (C152 a P156) le corresponde solo a HBSJO.",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ],
-                "aplicar_a": [
-                    "123100"
-                ],
-                "validacion_exclusiva": true
-            },
-            {
-                "id": "VAL52",
-                "tipo": "CELDA",
-                "rem_sheet": "A11",
-                "expresion_1": "C161:D183",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM11, ERROR sección C1: Exámenes de VIH por Grupos de Usuarios (C161 a D183). Esta sección solo le corresponde a HBSJO.",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
-                ],
-                "aplicar_a": [
-                    "123100"
-                ],
-                "validacion_exclusiva": true
             }
         ],
         "A19a": [

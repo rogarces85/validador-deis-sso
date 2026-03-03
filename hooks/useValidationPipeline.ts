@@ -5,10 +5,9 @@ import { RuleEngineService } from '../services/ruleEngine';
 import { NombreSheetValidator } from '../services/nombreSheetValidator';
 import { FilenameValidatorService } from '../services/filenameValidator';
 import catalogData from '../data/establishments.catalog.json';
-import rulesData from '../data/rules.json';
+import ruleDictionary from '../data/rules';
 
 const catalog = catalogData as unknown as EstablishmentCatalog;
-const rules = rulesData as unknown as ValidationRule[];
 
 // js-set-map-lookups: build index once at module level for O(1) lookups
 const establishmentByCode = new Map(
@@ -78,9 +77,19 @@ export const useValidationPipeline = () => {
             // 4. Run Rules
             const ruleEngine = new RuleEngineService();
 
-            // Flatten rules from new JSON structure
+            // Load Rules Dynamically based on Establishment Type
+            const tipoEstablecimiento = establishment ? establishment.tipo.toUpperCase() : 'BASE';
+
             // @ts-ignore
-            const allRules = Object.values(rulesData.validaciones || {}).flat() as ValidationRule[];
+            const baseRules = Object.values(ruleDictionary.BASE?.validaciones || {}).flat() as ValidationRule[];
+
+            // @ts-ignore
+            const specificRules = ruleDictionary[tipoEstablecimiento]
+                // @ts-ignore
+                ? Object.values(ruleDictionary[tipoEstablecimiento].validaciones || {}).flat() as ValidationRule[]
+                : [];
+
+            const allRules = [...baseRules, ...specificRules];
 
             // Filter by series (using rem_sheet prefix as proxy for series)
             const applicableRules = allRules.filter(r => r.rem_sheet.startsWith(metadata.serieRem));

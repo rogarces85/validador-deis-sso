@@ -1,10 +1,11 @@
 {
   "name": "validador-deis-sso-2026---react-edition",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm version patch --no-git-tag-version",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run --reporter=verbose"

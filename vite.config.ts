@@ -6,7 +6,7 @@ import pkg from './package.json';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: '/estadisticas/validador/',
+    base: './', // Permite que la app funcione tanto en /Validador2026/ como en /estadisticas/validador/
     server: {
       port: 3000,
       host: '0.0.0.0',

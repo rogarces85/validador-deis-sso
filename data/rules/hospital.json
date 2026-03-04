@@ -1,38 +1,3 @@
 {
-    "validaciones": {
-        "A08": [
-            {
-                "id": "A08-VAL001",
-                "tipo": "CELDA",
-                "rem_sheet": "A08",
-                "expresion_1": "C61:AL66",
-                "operador": "==",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM A08 | SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR) | C61, AL66. La expresión indica que [C61:AL66] la celda no debe contener datos.",
-                "establecimientos_excluidos": [
-                    "123000",
-                    "123100",
-                    "123101",
-                    "123102",
-                    "123103",
-                    "123104",
-                    "123105",
-                    "123800",
-                    "123801",
-                    "200085",
-                    "200747",
-                    "200748",
-                    "200749",
-                    "200750"
-                ],
-                "aplicar_a_tipo": [
-                    "HOSPITAL",
-                    "SAPU",
-                    "SUR"
-                ],
-                "mensaje_original": "REM08, ERROR sección B: Categorizaciones de Pacientes (C61 a AL66) corresponde solo a Hospitales alta, Mediana, baja Complejidad, SAPU y SUR."
-            }
-        ]
-    }
+    "validaciones": {}
 }

@@ -46,6 +46,7 @@ export interface ValidationRule {
   aplicar_a?: string[];
   establecimientos_excluidos?: string[];
   omitir_si_ambos_cero?: boolean;
+  omitir_si_v1_es_cero?: boolean;
   validacion_exclusiva?: boolean;
 }
 

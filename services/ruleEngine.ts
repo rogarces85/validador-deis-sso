@@ -86,6 +86,21 @@ export class RuleEngineService {
       };
     }
 
+    // Omitir validación si la primera expresión es 0 y la regla lo indica.
+    if (rule.omitir_si_v1_es_cero && v1 === 0) {
+      return {
+        ruleId: rule.id,
+        descripcion: rule.mensaje,
+        severidad: rule.severidad,
+        resultado: true,
+        valorActual: 0,
+        valorEsperado: `${rule.operador} ${val2}`,
+        rem_sheet: rule.rem_sheet,
+        id: generateUUID(),
+        evidence: 'Omitida: valor actual de la expresión 1 es 0.'
+      };
+    }
+
     // Invertir el operador si aplica (para validacion_exclusiva)
     let operador = rule.operador;
     if (invertirOperador) {

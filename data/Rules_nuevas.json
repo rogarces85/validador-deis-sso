@@ -775,9 +775,10 @@
                 "rem_sheet": "A27",
                 "expresion_1": "D53",
                 "operador": "==",
-                "expresion_2": 0,
+                "expresion_2": "D98",
+                "omitir_si_v1_es_cero": true,
                 "severidad": "REVISAR",
-                "mensaje": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | D53. La expresión indica que [D53] la celda no debe contener datos.",
+                "mensaje": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | D53. La expresión indica que [D53] debe ser igual a [D98].",
                 "mensaje_original": "REM27, REVISAR sección A: Personas que Ingresan a Educación Grupal (D53). Si existen datos en el total de la sección, se debe revisar que existan datos en Sección B: Actividades de Educación para la Salud personal (D98)."
             },
             {
@@ -786,9 +787,10 @@
                 "rem_sheet": "A27",
                 "expresion_1": "D23",
                 "operador": "==",
-                "expresion_2": 0,
+                "expresion_2": "Y23:AA23",
+                "omitir_si_v1_es_cero": true,
                 "severidad": "REVISAR",
-                "mensaje": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | D23. La expresión indica que [D23] la celda no debe contener datos.",
+                "mensaje": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | D23. La expresión indica que [D23] debe ser igual a [Y23:AA23].",
                 "mensaje_original": "REM27, REVISAR sección A: Personas que Ingresan a Educación Grupal. Si existe información en celda D23, se debe revisar la desagregación para Gestantes (Y23 a AA23)."
             }
         ],

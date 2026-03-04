@@ -173,33 +173,48 @@ const RulesSummary: React.FC<RulesSummaryProps> = ({ findings, meta, establishme
                 </div>
             </div>
 
-            {/* Severity cards — white bg, colored accents, icons + purple tooltips */}
-            <div className="grid grid-cols-3 gap-4">
-                {Object.values(Severity).map(sev => {
+            {/* Severity cards — Apple Style (Updated) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {Object.values(Severity).map((sev) => {
                     const config = SEVERITY_CONFIG[sev];
                     const count = summary[sev];
+                    const tooltipParts = config.tooltip.split(': ');
+                    // tooltipParts[1] contiene la parte principal sin "ERROR: "
+                    const descText = tooltipParts.length > 1 ? tooltipParts.slice(1).join(': ').trim() : tooltipParts[0];
+
                     return (
                         <div
                             key={sev}
-                            className="relative group deis-card rounded-2xl p-5 transition-all duration-200 hover:shadow-lg cursor-default"
-                            style={{ borderTop: `3px solid ${config.color}` }}
+                            className="bg-white rounded-[20px] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col"
+                            style={{
+                                boxShadow: '0 4px 24px rgba(0,0,0,0.04)',
+                                border: '1px solid #f8fafc',
+                                cursor: 'default'
+                            }}
                         >
-                            <div className="flex items-center justify-between mb-3">
-                                <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${config.color}12`, color: config.color }}>
-                                    {config.icon}
-                                </div>
-                                <span className="text-3xl font-bold tracking-tight" style={{ color: config.color }}>{count}</span>
+                            {/* Icon and Count Row */}
+                            <div className="flex items-center gap-3 mb-4" style={{ color: config.color }}>
+                                {React.isValidElement(config.icon) ? (
+                                    React.cloneElement(config.icon as React.ReactElement, {
+                                        className: 'w-9 h-9 md:w-11 md:h-11',
+                                        strokeWidth: 2
+                                    })
+                                ) : (
+                                    config.icon
+                                )}
+                                <span className="text-4xl md:text-5xl font-bold tracking-tighter leading-none">
+                                    {count}
+                                </span>
                             </div>
-                            <p className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: config.color }}>{config.label}</p>
 
-                            {/* Tooltip — purple */}
-                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 rounded-xl text-xs font-medium leading-relaxed opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200 w-64 text-center z-50 shadow-lg"
-                                style={{
-                                    backgroundColor: '#7C3AED',
-                                    color: '#FFFFFF',
-                                }}>
-                                {config.tooltip}
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0" style={{ borderLeft: '6px solid transparent', borderRight: '6px solid transparent', borderTop: '6px solid #7C3AED' }} />
+                            {/* Text Content */}
+                            <div className="text-[15px] leading-[1.35] tracking-tight text-slate-800">
+                                <span className="font-semibold mr-1" style={{ color: config.color }}>
+                                    {config.label}.
+                                </span>
+                                <span className="text-slate-500">
+                                    {descText}
+                                </span>
                             </div>
                         </div>
                     );

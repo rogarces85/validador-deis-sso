@@ -859,12 +859,33 @@
                 "id": "A28-VAL006",
                 "tipo": "CELDA",
                 "rem_sheet": "A28",
-                "expresion_1": "AM150:AM178",
+                "expresion_1": "AM149:AM177",
                 "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | AM150, AM178. La expresión indica que [AM150:AM178] la celda no debe contener datos.",
-                "mensaje_original": "REM28, REVISAR sección B.1: Ingresos y Egresos al Prog. de Rehabilitación Integral. Se debe registrar solo en “Tipo de atención Abierta” (AM150:AM178). Se activa si existen registros."
+                "aplicar_a": [
+                    "123100",
+                    "123101",
+                    "123102"
+                ],
+                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL | AM149, AM177. La expresión indica que [AM149:AM177] debería contener datos para este establecimiento hospitalario.",
+                "mensaje_original": "REM28, REVISAR sección B.1: Hospitales 123100, 123101 y 123102 deben registrar en Tipo de atención Abierta (AM149:AM177). Se activa si NO existen registros."
+            },
+            {
+                "id": "A28-VAL007",
+                "tipo": "CELDA",
+                "rem_sheet": "A28",
+                "expresion_1": "AM149:AM177",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "establecimientos_excluidos": [
+                    "123100",
+                    "123101",
+                    "123102"
+                ],
+                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL | AM149, AM177. La expresión indica que [AM149:AM177] NO debe contener datos para este establecimiento.",
+                "mensaje_original": "REM28, ERROR sección B.1: Solo hospitales 123100, 123101 y 123102 pueden registrar en Tipo de atención Abierta (AM149:AM177). Este establecimiento no debe tener registros."
             }
         ],
         "A29": [

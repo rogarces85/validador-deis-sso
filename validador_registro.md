@@ -1,156 +1,936 @@
-# Registro Maestro de Validaciones REM
+# 📋 Registro Completo de Validaciones — Validador DEIS SSO
 
-Este documento contiene el catálogo oficial de todas las reglas de validación activas en el sistema, ordenadas correlativamente por Hoja REM.
+> **Generado automáticamente** el 04-03-2026, 4:41:15 p. m. — Total: **90 validaciones**
 
-**Total de Reglas:** 90
+## 📊 Resumen por Hoja REM
 
-## Sección: Hoja A01
+| Hoja REM | Cantidad de Validaciones |
+|----------|------------------------|
+| **NOMBRE** | 9 |
+| **A01** | 28 |
+| **A02** | 4 |
+| **A03** | 13 |
+| **A04** | 6 |
+| **A05** | 5 |
+| **A08** | 7 |
+| **A09** | 1 |
+| **A11** | 4 |
+| **A19a** | 1 |
+| **A19b** | 1 |
+| **A27** | 2 |
+| **A28** | 6 |
+| **A29** | 2 |
+| **A30R** | 1 |
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A01-VAL001** | `base.json` | `REVISAR` | `F11 == 0` | Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 10 a 14 años, celda F11 |
-| **A01-VAL002** | `base.json` | `REVISAR` | `F12 == 0` | Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 10 a 14 años, celda F12 |
-| **A01-VAL003** | `base.json` | `REVISAR` | `M11 == 0` | Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda M11 |
-| **A01-VAL004** | `base.json` | `REVISAR` | `M12 == 0` | Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda M12 |
-| **A01-VAL005** | `base.json` | `REVISAR` | `N11 == 0` | Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda N11 |
-| **A01-VAL006** | `base.json` | `REVISAR` | `N12 == 0` | Control De Salud y Reproductiva, Control Preconcepcional en edades extremas de 45 a 54 años, celda N12 |
-| **A01-VAL007** | `base.json` | `REVISAR` | `N13 == 0` | Control De Salud y Reproductiva, Control Prenatal en mujeres de 50 a 54 años, celda N13 |
-| **A01-VAL008** | `base.json` | `REVISAR` | `N14 == 0` | Control De Salud y Reproductiva, Control Prenatal en mujeres de 50 a 54 años, celda N14 |
-| **A01-VAL009** | `base.json` | `REVISAR` | `N15 == 0` | Control De Salud y Reproductiva, Control Post Parto y Post Aborto en mujeres de 50 a 54 años, celda N15 |
-| **A01-VAL010** | `base.json` | `REVISAR` | `N16 == 0` | Control De Salud y Reproductiva, Control Post Parto y Post Aborto en mujeres de 50 a 54 años, celda N16 |
-| **A01-VAL011** | `base.json` | `REVISAR` | `O31 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda O31 |
-| **A01-VAL012** | `base.json` | `REVISAR` | `O32 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda O32 |
-| **A01-VAL013** | `base.json` | `REVISAR` | `P31 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda P31 |
-| **A01-VAL014** | `base.json` | `REVISAR` | `P32 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda P32 |
-| **A01-VAL015** | `base.json` | `REVISAR` | `Q31 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda Q31 |
-| **A01-VAL016** | `base.json` | `REVISAR` | `Q32 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda Q32 |
-| **A01-VAL017** | `base.json` | `REVISAR` | `R31 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda R31 |
-| **A01-VAL018** | `base.json` | `REVISAR` | `R32 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda R32 |
-| **A01-VAL019** | `base.json` | `REVISAR` | `S31 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda S31 |
-| **A01-VAL020** | `base.json` | `REVISAR` | `S32 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda S32 |
-| **A01-VAL021** | `base.json` | `REVISAR` | `T31 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda T31 |
-| **A01-VAL022** | `base.json` | `REVISAR` | `T32 == 0` | Control De Salud y Reproductiva, Regulación de Fecundidad en mujeres de 55 a 80 años y más, celda T32 |
-| **A01-VAL023** | `base.json` | `ERROR` | `A05!C89 == SUM(C19:C26, F36:F38)` | Controles de salud sexual y Reproductiva, la Suma de Puérpera con recién Nacidos  10 Días hasta 28 Días,  celdas C19 a C26 y Controles de salud sexual y Reproductiva, Menor de 1 Mes, celdas  F36 a F38  deben ser igual a la Sección E REM05, Ingresos a control de salud recién Nacidos, Total menores de 28 Días,  celda C89 |
-| **A01-VAL024** | `base.json` | `ERROR` | `C74 <= T36:T38` | Controles de Salud según Ciclo Vital, 10 a 14 años (T36 a T38) debe ser mayor o igual a Control de Salud Integral de Adolescente (C74). |
-| **A01-VAL025** | `base.json` | `ERROR` | `F74 <= U36:U38` | Controles de Salud según Ciclo Vital, 10 a 14 años (U36 a U38) debe ser mayor o igual a Control de Salud Integral de Adolescente (F74). |
-| **A01-VAL026** | `base.json` | `REVISAR` | `F36 == 0` | Controles de Salud según Ciclo Vital, celda F36, no debería ser registrado por el médico salvo excepciones |
-| **A01-VAL027** | `base.json` | `REVISAR` | `A03!L20 + A03!M20 == O36:O37` | La suma de Escala de Desarrollo Psicomotor (REM03!L20+M20) debe ser menor o igual a Controles de Salud (A01!O36:O37) para 18-23 meses. |
-| **A01-VAL028** | `base.json` | `REVISAR` | `A03!N20 + A03!O20 == A01!P36 + A01!P37` | La suma de Escala de Desarrollo Psicomotor (REM03!N20+O20) debe ser menor o igual a Controles de Salud (A01!P36:P37) para 24-47 meses. |
-## Sección: Hoja A02
+---
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A02-VAL001** | `base.json` | `ERROR` | `B11 == B21` | REM02, ERROR sección A o B: El total de EMP Realizados por Profesional (B11) debe ser igual al total de los EMP según Resultado del Estado Nutricional (B21). |
-| **A02-VAL002** | `base.json` | `ERROR` | `C11 == C21` | REM02, ERROR sección A o B: El total de EMP Realizados por Profesional a Hombres (C11) debe ser igual al total de los EMP según Resultado del Estado Nutricional a Hombres (C21). |
-| **A02-VAL003** | `base.json` | `ERROR` | `A03!C108 + A03!C110 == B11` | REM02, ERROR, sección A: EMP Realizados por Profesional, Total (B11) debe ser igual al N° de Audit (EMP/EMPAM), Sección D.1 (SUMA(C108 + C110)) del REMA03. |
-| **A02-VAL004** | `base.json` | `ERROR` | `A03!C113 == E11 + F11` | REM02, ERROR, sección A: EMP Realizados por Profesional, Total (E11 + F11) debe ser igual al N° de Craff (EMP) (C113) del REMA03. |
-| **A02-VAL005** | `posta.json` | `ERROR` | `B17 == 0` | REM02, ERROR sección A: EMP realizado por Profesional (B17) debe corresponder solo a Postas. Si el valor es > 0, es un error de digitación en centros que no son Postas. |
-## Sección: Hoja A03
+## 📄 Hoja: NOMBRE
+> 9 validaciones
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A03-VAL001** | `base.json` | `ERROR` | `C20 == C21:C36` | ERROR sección A.2: El total de Resultados de la Aplicación de escala de evaluación del desarrollo psicomotor (C20) debe ser igual al detalle de evaluaciones del test de desarrollo Psicomotor (C21:C36). |
-| **A03-VAL002** | `base.json` | `ERROR` | `C13 == C14:C15` | REM03, ERROR sección A1: La Aplicación y resultados de Pauta Breve (C13) debe ser igual a la sumatoria de los Resultados de la Aplicación de Pauta Breve (C14 y C15). |
-| **A03-VAL003** | `base.json` | `ERROR` | `C54 == C55:C57` | REM03, ERROR sección A4: Los Resultados de la Aplicación de Protocolo Neurosensorial (C54) debe ser igual a la sumatoria de los Resultados de la Aplicación de Protocolo Neurosensorial (C55:C57). |
-| **A03-VAL004** | `base.json` | `ERROR` | `C22 == B46` | REM03, ERROR sección A2 o A3: Resultados de la aplicación de escala de evaluación del desarrollo Psicomotor (C22) deben ser igual a Niños y Niñas con rezago, Déficit y otra vulnerabilidad (B46). |
-| **A03-VAL005** | `base.json` | `ERROR` | `C23 == B47` | REM03, ERROR sección A2 o A3: Resultados de la aplicación de escala de evaluación del desarrollo Psicomotor (C23) deben ser igual a Niños y Niñas con rezago, Déficit y otra vulnerabilidad (B47). |
-| **A03-VAL006** | `base.json` | `ERROR` | `C24 == B48` | REM03, ERROR sección A2 o A3: Resultados de la aplicación de escala de evaluación del desarrollo Psicomotor (C24) deben ser igual a Niños y Niñas con rezago, Déficit y otra vulnerabilidad (B48). |
-| **A03-VAL007** | `base.json` | `ERROR` | `B86 == A05!C11` | REM03, ERROR, Sección B.2 o REM05 sección A: La Aplicación de Escala de Riesgo Psicosocial abreviada a gestantes (B86) debe ser igual a Total Gestantes Ingresadas en el REM05 (A05!C11). |
-| **A03-VAL008** | `base.json` | `ERROR` | `C92 <= A01!(H36:H37)` | REM03, ERROR sección B3 o REM03 sección B: Evaluación de Edimburgo a los 2 Meses (C92) debe ser menor igual a los Controles de Salud según Ciclo vital del REM01 (A01!H36+H37). |
-| **A03-VAL009** | `base.json` | `ERROR` | `C93 <= A01!(L36:L37)` | REM03, ERROR sección B3 o REM03 sección B: Evaluación de Edimburgo a los 6 Meses (C93) debe ser menor igual a los Controles de Salud según Ciclo vital del REM01 (A01!L36+L37). |
-| **A03-VAL010** | `base.json` | `ERROR` | `C97 == A01!(T36:U38)` | REM03, ERROR sección C o REM01 sección B: Total estado Nutricional del Adolescente (C97) debe ser igual a Controles de salud según ciclo Vital, REM01, de 10 a 19 años (A01!T36:U38). |
-| **A03-VAL011** | `base.json` | `ERROR` | `C108:C114 == C115:C117` | REM03, ERROR sección D.1: La Suma del N° Aplicaciones Audit y Craff (C108 a C114) debe ser Igual a los resultados de la evaluación (C115 a C117). |
-| **A03-VAL012** | `base.json` | `ERROR` | `C213 == C214+C215` | REM03, ERROR sección E: El total de aplicaciones Pauta de riesgo Biopsicosocial (C213) debe ser Igual a la Suma Con Riesgo y Sin Riesgo (C214 y C215). |
-| **A03-VAL013** | `base.json` | `ERROR` | `C61:C66 == C67` | REM03, ERROR sección A,5: La suma de los tipos de alimentación de niños y niñas controlados (C61 a C66) deben ser igual al Total de Niños y Niñas Controlados (C67). |
-## Sección: Hoja A04
+### VAL_NOM01
+- **Tipo:** CELDA
+- **Expresión 1:** `A9`
+- **Operador:** `==`
+- **Expresión 2:** `"Versión 1.2: Febrero 2026" o "Versión 1.1: Febrero 2026"`
+- **Severidad:** ERROR
+- **Mensaje:** Verifica que la celda A9 contenga la versión aceptada del archivo REM.
+- **🔍 Detalle:** Compara el texto de A9 contra las versiones válidas. Si no coincide, bloquea la validación con alerta de versión inválida. Es la validación de mayor prioridad.
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A04-VAL001** | `base.json` | `ERROR` | `B39:B41 == B135:B137` | REM04, ERROR Sección B: El total de Consultas por Nutricionistas (B39 a B41) debe ser igual a Clasificación de consulta Nutricional por grupo de edad (B135 a B137). |
-| **A04-VAL002** | `base.json` | `ERROR` | `C141:C143 == C146:C149` | REM04, ERROR, sección L: Consultas de lactancia en menores controlados por Nutricionista (C141:C143) debe ser igual a las consultas por lactancia (C146:C149). |
-| **A04-VAL003** | `base.json` | `ERROR` | `C114+D114 == E114+F114` | REM04, ERROR, sección I.1: Despacho de Recetas de pacientes Ambulatorios, despacho Total y Parcial de la fila 114 (C114+D114) debe ser igual a E114 + F114. |
-| **A04-VAL004** | `base.json` | `ERROR` | `C115+D115 == E115+F115` | REM04, ERROR, sección I.1: Despacho de Recetas de pacientes Ambulatorios, despacho Total y Parcial de la fila 115 (C115+D115) debe ser igual a E115 + F115. |
-| **A04-VAL005** | `base.json` | `ERROR` | `C116+D116 == E116+F116` | REM04, ERROR, sección I.1: Despacho de Recetas de pacientes Ambulatorios, despacho Total y Parcial de la fila 116 (C116+D116) debe ser igual a E116 + F116. |
-| **A04-VAL006** | `base.json` | `ERROR` | `M114 >= L114` | REM04, ERROR, sección I.1: Despacho de Recetas, Recetas Despachadas COMPLETAS (M114) debe ser MAYOR a Despacho Completo y Oportuno (L114). |
-## Sección: Hoja A05
+### VAL_NOM02
+- **Tipo:** CELDA
+- **Expresión 1:** `B2`
+- **Operador:** `!=`
+- **Expresión 2:** `(vacío)`
+- **Severidad:** ERROR
+- **Mensaje:** El nombre de la Comuna (celda B2) no debe estar vacío.
+- **🔍 Detalle:** Valida que la celda B2 contenga el nombre de la comuna del establecimiento. Si está vacía, se genera un error.
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A05-VAL001** | `base.json` | `REVISAR` | `L11:N14 == 0` | REM05, REVISAR sección A: Ingresos de Gestantes a Programa Prenatal. Celdas L11:N14 (edades extremas 45 a 55 años y más) deben ser corroboradas por profesional a cargo. |
-| **A05-VAL002** | `base.json` | `ERROR` | `C119 <= C120:C127` | REM05, ERROR sección H: Ingresos al PSCV (C119) debe ser menor o igual a la suma del desglose del Programa de Salud Cardiovascular (C120 a C127). |
-| **A05-VAL003** | `base.json` | `ERROR` | `AF146:AM150 > C162` | REM05, ERROR, sección J: Ingresos y Egresos a programa de pacientes con dependencia Leve, Moderada y Severa (AF146:AM150) debe ser MAYOR a Ingreso al programa A.M según condición de dependencia (C162). |
-| **A05-VAL004** | `base.json` | `REVISAR` | `C193 == C204` | REM05, REVISAR sección N: Ingresos al programa de Salud Mental (C193) deben ser Igual al Número personas que posee uno o más trastornos Mentales (C204). |
-| **A05-VAL005** | `base.json` | `ERROR` | `C204 <= C205:C241` | REM05, ERROR sección N: Personas con Diagnostico de Trastornos Mentales (C204) deben ser menor o igual a la suma de Diagnósticos de Trastornos Mentales (C205 a C241). |
-| **A05-VAL006** | `hospital.json` | `REVISAR` | `C329:E339 == 0` | REM05, REVISAR sección R: El Ingreso y Egreso a Programa de VIH/SIDA (C329 a E339) corresponde solo al HBSJO (Error si centro no es HBSJO). |
-| **A05-VAL007** | `hospital.json` | `REVISAR` | `C344:E346 == 0` | REM05, REVISAR sección S: El Ingreso y Egreso por Comercio Sexual (C344 a E346) corresponde solo al HBSJO (Error si centro no es HBSJO). |
-## Sección: Hoja A06
+### VAL_NOM03
+- **Tipo:** CONCATENACIÓN
+- **Expresión 1:** `C2+D2+E2+F2+G2`
+- **Operador:** `IN catálogo`
+- **Expresión 2:** `communes (catalog)`
+- **Severidad:** ERROR
+- **Mensaje:** El código de comuna concatenado debe existir en el catálogo de establecimientos.
+- **🔍 Detalle:** Concatena las celdas C2, D2, E2, F2 y G2 para formar el código de comuna. Luego verifica que dicho código exista en establishments.catalog.json. Además, valida que ninguna celda individual esté vacía.
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A06-VAL001** | `hospital.json` | `REVISAR` | `D16+D17 == 0` | REM08, ERROR sección A: Las Consultas y Controles de Odontología general (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos. |
-## Sección: Hoja A08
+### VAL_NOM04
+- **Tipo:** CELDA
+- **Expresión 1:** `B3`
+- **Operador:** `!=`
+- **Expresión 2:** `(vacío)`
+- **Severidad:** ERROR
+- **Mensaje:** El nombre del Establecimiento (celda B3) no debe estar vacío.
+- **🔍 Detalle:** Valida que la celda B3 contenga el nombre del establecimiento de salud.
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A08-VAL001** | `base.json` | `ERROR` | `C61:AL66 == 0` | REM08, ERROR sección B: Categorizaciones de Pacientes (C61 a AL66) corresponde solo a Hospitales alta, Mediana, baja Complejidad, SAPU y SUR. |
-| **A08-VAL002** | `base.json` | `ERROR` | `B13+B14 == B78` | REM08, ERROR sección A.1: Atenciones Realizadas U. Urgencias (B13+B14) debe ser igual a Categorizaciones de Pacientes Obstétrica (B78). |
-| **A08-VAL003** | `base.json` | `ERROR` | `C171:F171 == 0` | REM08, ERROR sección L: Traslados Primarios (C171:F171) solo corresponde registrar a los siguientes Establecimientos (Nota: Los establecimientos específicos deben ser definidos e incluidos aquí). |
-| **A08-VAL004** | `base.json` | `ERROR` | `C172:F174 == 0` | REM08, ERROR sección L: Traslados Primarios (C172:F174) deben registrar todos los establecimientos (Error si no tienen registros). |
-| **A08-VAL005** | `base.json` | `ERROR` | `E178:E183 == 0` | REM08, ERROR sección M: Traslados Secundario (E178:E183) deben registrar todos los establecimientos que cuenten con ambulancias a excepción de SAMU (Error si no hay registros). |
-| **A08-VAL006** | `base.json` | `ERROR` | `C161+D161 == 0` | REM08, ERROR sección J: Llamados de Urgencias a centro Regulador (C161 y D161) no debería contener registros (Debe ser cero). |
-| **A08-VAL007** | `base.json` | `ERROR` | `B13 >= AS13` | REM08, ERROR sección A.1: Atenciones Realizadas (B13) debe ser mayor o igual a la Demanda (AS13). |
-| **A08-VAL008** | `hospital.json` | `ERROR` | `E12:AL15 == 0` | REM08, ERROR sección A.1: Las Atenciones Realizadas en UEH de Hospital de Alta Complejidad (E12 a AL15) corresponde solo a HBSJO y HPU. |
-| **A08-VAL009** | `hospital.json` | `ERROR` | `B12 == B67` | REM08, ERROR sección A.1: Atenciones Realizadas en UEH de Hospital de Alta Complejidad (B12) debe ser igual a Categorizaciones de Pacientes (B67). |
-| **A08-VAL010** | `hospital.json` | `ERROR` | `E31:AL36 == 0` | REM08, ERROR sección A.3: Atenciones Realizadas en UEH Por Hospitales de BAJA Complejidad (E31 a AL36) Corresponde solo a Hospitales De Baja Complejidad. |
-| **A08-VAL011** | `hospital.json` | `ERROR` | `B31 == B67` | REM08, ERROR sección A.3: Atenciones Realizadas en UEH de Hospital de Alta Complejidad (B31) debe ser igual a Categorizaciones de Pacientes (B67). |
-| **A08-VAL012** | `samu.json` | `ERROR` | `C169:F170 == 0` | REM08, ERROR sección L: Traslados Primarios (C169:F170) solo corresponde registrar a SAMU. |
-## Sección: Hoja A09
+### VAL_NOM05
+- **Tipo:** CONCATENACIÓN
+- **Expresión 1:** `C3+D3+E3+F3+G3+H3`
+- **Operador:** `IN catálogo`
+- **Expresión 2:** `establishments (catalog)`
+- **Severidad:** ERROR
+- **Mensaje:** El código de establecimiento concatenado debe existir en el catálogo.
+- **🔍 Detalle:** Concatena las celdas C3 a H3 para formar el código DEIS del establecimiento. Verifica su existencia en el catálogo. Cada celda individual tampoco puede estar vacía.
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A09-VAL001** | `hospital.json` | `REVISAR` | `D16+D17 == 0` | REM08, ERROR sección A: Las Consultas y Controles de Odontología general en Nivel Primario y Secundario de Salud (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos. |
-## Sección: Hoja A11
+### VAL_NOM06
+- **Tipo:** CELDA
+- **Expresión 1:** `B6`
+- **Operador:** `!=`
+- **Expresión 2:** `(vacío)`
+- **Severidad:** ERROR
+- **Mensaje:** El nombre del Mes (celda B6) no debe estar vacío.
+- **🔍 Detalle:** Valida que la celda B6 contenga el nombre del mes de reporte.
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A11-VAL001** | `hospital.json` | `ERROR` | `B13:C30 == 0` | REM11, ERROR sección A.1: Examen VDRL Por Grupo de Usuarios (B13 a C30). Esta sección solo le corresponde a HBSJO. |
-| **A11-VAL002** | `hospital.json` | `ERROR` | `C144:P148 == 0` | REM11, ERROR sección B.1: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Lab. Que Procesan (C144 a P148) le corresponde solo a HBSJO. |
-| **A11-VAL003** | `hospital.json` | `ERROR` | `C152:P156 == 0` | REM11, ERROR sección B.2: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Compras Servicio (C152 a P156) le corresponde solo a HBSJO. |
-| **A11-VAL004** | `hospital.json` | `ERROR` | `C161:D183 == 0` | REM11, ERROR sección C1: Exámenes de VIH por Grupos de Usuarios (C161 a D183). Esta sección solo le corresponde a HBSJO. |
-## Sección: Hoja A19a
+### VAL_NOM07
+- **Tipo:** CONCATENACIÓN
+- **Expresión 1:** `C6+D6`
+- **Operador:** `IN`
+- **Expresión 2:** `01-12`
+- **Severidad:** ERROR
+- **Mensaje:** El código de mes concatenado (C6+D6) debe ser un mes válido entre 01 y 12.
+- **🔍 Detalle:** Concatena C6 y D6 para formar el código del mes (ej. "03"). Verifica que sea un mes válido del 01 al 12.
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A19a-VAL001** | `base.json` | `ERROR` | `C129:C148 == O129:O148` | REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C129:C148), se debe registrar el TOTAL PARTICIPANTES (O129:O148). Se verifica que ambas sumatorias sean iguales. |
-## Sección: Hoja A19b
+### VAL_NOM08
+- **Tipo:** CELDA
+- **Expresión 1:** `B11`
+- **Operador:** `!=`
+- **Expresión 2:** `(vacío)`
+- **Severidad:** ERROR
+- **Mensaje:** El nombre del Responsable del Establecimiento (celda B11) no debe estar vacío.
+- **🔍 Detalle:** Valida que se haya ingresado el nombre del responsable del establecimiento en B11.
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A19b-VAL001** | `base.json` | `REVISAR` | `B11 == E11:I11` | REM19b, REVISAR sección A: Atención Oficinas de Informaciones. El número de reclamos (B11) debe ser igual a la suma de las respuestas (E11 a I11) para asegurar consistencia. |
-## Sección: Hoja A27
+### VAL_NOM09
+- **Tipo:** CELDA
+- **Expresión 1:** `B12`
+- **Operador:** `!=`
+- **Expresión 2:** `(vacío)`
+- **Severidad:** ERROR
+- **Mensaje:** El nombre del Jefe de Estadística (celda B12) no debe estar vacío.
+- **🔍 Detalle:** Valida que se haya ingresado el nombre del jefe de estadística en B12.
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A27-VAL001** | `base.json` | `REVISAR` | `D53 == 0` | REM27, REVISAR sección A: Personas que Ingresan a Educación Grupal (D53). Si existen datos en el total de la sección, se debe revisar que existan datos en Sección B: Actividades de Educación para la Salud personal (D98). |
-| **A27-VAL002** | `base.json` | `REVISAR` | `D23 == 0` | REM27, REVISAR sección A: Personas que Ingresan a Educación Grupal. Si existe información en celda D23, se debe revisar la desagregación para Gestantes (Y23 a AA23). |
-## Sección: Hoja A28
+---
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A28-VAL001** | `base.json` | `ERROR` | `B13 <= B61` | REM28, ERROR sección A.1: Ingresos al programa de Rehabilitación Integral (B13) debe ser igual o Menor a la suma total de Sección A.2: Evaluación Inicial (B61). |
-| **A28-VAL002** | `base.json` | `ERROR` | `B13 >= B14` | REM28, ERROR sección A.1: Ingresos y Egresos al programa de Rehabilitación Integral (B13) debe ser mayor o igual a Ingresos (B14). |
-| **A28-VAL003** | `base.json` | `ERROR` | `B13 >= B15` | REM28, ERROR sección A.1: Ingresos y Egresos al programa de Rehabilitación Integral (B13) debe ser mayor o igual a Ingresos (B15). |
-| **A28-VAL004** | `base.json` | `ERROR` | `B29 <= B30:B52` | REM28, ERROR sección A.2: Total Ingresos Personas (B29) debe ser menor o igual a la suma de las desagregaciones por condición Física (B30 a B52). |
-| **A28-VAL005** | `base.json` | `ERROR` | `B149 <= B150:B177` | REM28, ERROR sección B.1: El Total de Ingresos (B149) debe ser menor o igual a la sumatoria de ingresos a rehabilitación (B150 a B177). |
-| **A28-VAL006** | `base.json` | `REVISAR` | `AM150:AM178 == 0` | REM28, REVISAR sección B.1: Ingresos y Egresos al Prog. de Rehabilitación Integral. Se debe registrar solo en “Tipo de atención Abierta” (AM150:AM178). Se activa si existen registros. |
-## Sección: Hoja A29
+## 📄 Hoja: A01
+> 28 validaciones
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A29-VAL001** | `base.json` | `ERROR` | `O12:P12 == 0` | REM29, ERROR sección A: Interconsultas de Oftalmología/UAPO. Los datos se deben registrar en M12:N12 y NO debe haber registros en O12:P12. |
-| **A29-VAL002** | `base.json` | `ERROR` | `M13:N13 == 0` | REM29, ERROR sección A: Interconsultas de Otorrinolaringología/UAPO. Los datos se deben registrar en O13:P13 y NO debe haber registros en M13:N13. |
-## Sección: Hoja A30
+### A01-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `F11`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | F11. La expresión indica que [F11] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [F11] NO contenga datos (sea cero o vacía).
 
-| ID Regla | Archivo | Severidad | Expresión | Mensaje |
-| :--- | :--- | :--- | :--- | :--- |
-| **A30-VAL001** | `base.json` | `ERROR` | `B16:B17 == 0` | REM30R, ERROR: Atención y Orientación de Salud a Distancia. No debe existir registro en este REM. La suma de todas las celdas de registro debe ser cero. |
+### A01-VAL002
+- **Tipo:** CELDA
+- **Expresión 1:** `F12`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | F12. La expresión indica que [F12] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [F12] NO contenga datos (sea cero o vacía).
+
+### A01-VAL003
+- **Tipo:** CELDA
+- **Expresión 1:** `M11`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | M11. La expresión indica que [M11] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [M11] NO contenga datos (sea cero o vacía).
+
+### A01-VAL004
+- **Tipo:** CELDA
+- **Expresión 1:** `M12`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | M12. La expresión indica que [M12] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [M12] NO contenga datos (sea cero o vacía).
+
+### A01-VAL005
+- **Tipo:** CELDA
+- **Expresión 1:** `N11`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N11. La expresión indica que [N11] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [N11] NO contenga datos (sea cero o vacía).
+
+### A01-VAL006
+- **Tipo:** CELDA
+- **Expresión 1:** `N12`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N12. La expresión indica que [N12] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [N12] NO contenga datos (sea cero o vacía).
+
+### A01-VAL007
+- **Tipo:** CELDA
+- **Expresión 1:** `N13`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N13. La expresión indica que [N13] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [N13] NO contenga datos (sea cero o vacía).
+
+### A01-VAL008
+- **Tipo:** CELDA
+- **Expresión 1:** `N14`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N14. La expresión indica que [N14] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [N14] NO contenga datos (sea cero o vacía).
+
+### A01-VAL009
+- **Tipo:** CELDA
+- **Expresión 1:** `N15`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N15. La expresión indica que [N15] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [N15] NO contenga datos (sea cero o vacía).
+
+### A01-VAL010
+- **Tipo:** CELDA
+- **Expresión 1:** `N16`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | N16. La expresión indica que [N16] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [N16] NO contenga datos (sea cero o vacía).
+
+### A01-VAL011
+- **Tipo:** CELDA
+- **Expresión 1:** `O31`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | O31. La expresión indica que [O31] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [O31] NO contenga datos (sea cero o vacía).
+
+### A01-VAL012
+- **Tipo:** CELDA
+- **Expresión 1:** `O32`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | O32. La expresión indica que [O32] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [O32] NO contenga datos (sea cero o vacía).
+
+### A01-VAL013
+- **Tipo:** CELDA
+- **Expresión 1:** `P31`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | P31. La expresión indica que [P31] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [P31] NO contenga datos (sea cero o vacía).
+
+### A01-VAL014
+- **Tipo:** CELDA
+- **Expresión 1:** `P32`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | P32. La expresión indica que [P32] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [P32] NO contenga datos (sea cero o vacía).
+
+### A01-VAL015
+- **Tipo:** CELDA
+- **Expresión 1:** `Q31`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Q31. La expresión indica que [Q31] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [Q31] NO contenga datos (sea cero o vacía).
+
+### A01-VAL016
+- **Tipo:** CELDA
+- **Expresión 1:** `Q32`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Q32. La expresión indica que [Q32] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [Q32] NO contenga datos (sea cero o vacía).
+
+### A01-VAL017
+- **Tipo:** CELDA
+- **Expresión 1:** `R31`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | R31. La expresión indica que [R31] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [R31] NO contenga datos (sea cero o vacía).
+
+### A01-VAL018
+- **Tipo:** CELDA
+- **Expresión 1:** `R32`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | R32. La expresión indica que [R32] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [R32] NO contenga datos (sea cero o vacía).
+
+### A01-VAL019
+- **Tipo:** CELDA
+- **Expresión 1:** `S31`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | S31. La expresión indica que [S31] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [S31] NO contenga datos (sea cero o vacía).
+
+### A01-VAL020
+- **Tipo:** CELDA
+- **Expresión 1:** `S32`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | S32. La expresión indica que [S32] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [S32] NO contenga datos (sea cero o vacía).
+
+### A01-VAL021
+- **Tipo:** CELDA
+- **Expresión 1:** `T31`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | T31. La expresión indica que [T31] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [T31] NO contenga datos (sea cero o vacía).
+
+### A01-VAL022
+- **Tipo:** CELDA
+- **Expresión 1:** `T32`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | T32. La expresión indica que [T32] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [T32] NO contenga datos (sea cero o vacía).
+
+### A01-VAL023
+- **Tipo:** CELDA
+- **Expresión 1:** `A05!C89`
+- **Operador:** `==`
+- **Expresión 2:** `SUM(C19:C26, F36:F38)`
+- **Severidad:** ERROR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | A05, C89, C19, C26, F36, F38. La expresión indica que [A05!C89] debe ser igual a [SUM(C19:C26, F36:F38)].
+- **🔍 Detalle:** Compara [A05!C89] sea igual a la suma del rango [SUM(C19:C26, F36:F38)].
+
+### A01-VAL024
+- **Tipo:** CELDA
+- **Expresión 1:** `C74`
+- **Operador:** `<=`
+- **Expresión 2:** `T36:T38`
+- **Severidad:** ERROR
+- **Mensaje:** REM A01 | SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B) | C74, T36, T38. La expresión indica que [C74] debe ser menor o igual a [T36:T38].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara [C74] sea menor o igual a la suma del rango [T36:T38]. | Se omite si ambas expresiones son 0
+
+### A01-VAL025
+- **Tipo:** CELDA
+- **Expresión 1:** `F74`
+- **Operador:** `<=`
+- **Expresión 2:** `U36:U38`
+- **Severidad:** ERROR
+- **Mensaje:** REM A01 | SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B) | F74, U36, U38. La expresión indica que [F74] debe ser menor o igual a [U36:U38].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara [F74] sea menor o igual a la suma del rango [U36:U38]. | Se omite si ambas expresiones son 0
+
+### A01-VAL026
+- **Tipo:** CELDA
+- **Expresión 1:** `F36`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | F36. La expresión indica que [F36] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [F36] NO contenga datos (sea cero o vacía).
+
+### A01-VAL027
+- **Tipo:** CELDA
+- **Expresión 1:** `A03!L20 + A03!M20`
+- **Operador:** `==`
+- **Expresión 2:** `O36:O37`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | A03, L20, M20, O36, O37. La expresión indica que [A03!L20 + A03!M20] debe ser igual a [O36:O37].
+- **🔍 Detalle:** Compara [A03!L20 + A03!M20] sea igual a la suma del rango [O36:O37].
+
+### A01-VAL028
+- **Tipo:** CELDA
+- **Expresión 1:** `A03!N20 + A03!O20`
+- **Operador:** `==`
+- **Expresión 2:** `A01!P36 + A01!P37`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | A03, N20, O20, A01, P36, P37. La expresión indica que [A03!N20 + A03!O20] debe ser igual a [A01!P36 + A01!P37].
+- **🔍 Detalle:** Comparación cross-sheet: verifica que [A03!N20 + A03!O20] sea igual a [A01!P36 + A01!P37] (referencia a otra hoja del libro).
+
+---
+
+## 📄 Hoja: A02
+> 4 validaciones
+
+### A02-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `B11`
+- **Operador:** `==`
+- **Expresión 2:** `B21`
+- **Severidad:** ERROR
+- **Mensaje:** REM A02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | B11, B21. La expresión indica que [B11] debe ser igual a [B21].
+- **🔍 Detalle:** Compara [B11] sea igual a [B21].
+
+### A02-VAL002
+- **Tipo:** CELDA
+- **Expresión 1:** `C11`
+- **Operador:** `==`
+- **Expresión 2:** `C21`
+- **Severidad:** ERROR
+- **Mensaje:** REM A02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | C11, C21. La expresión indica que [C11] debe ser igual a [C21].
+- **🔍 Detalle:** Compara [C11] sea igual a [C21].
+
+### A02-VAL003
+- **Tipo:** CELDA
+- **Expresión 1:** `A03!C108 + A03!C110`
+- **Operador:** `==`
+- **Expresión 2:** `B11`
+- **Severidad:** ERROR
+- **Mensaje:** REM A02 | SECCIÓN A: APLICACIÓN DE INSTRUMENTO Y RESULTADO EN EL NIÑO (A) | A03, C108, C110, B11. La expresión indica que [A03!C108 + A03!C110] debe ser igual a [B11].
+- **🔍 Detalle:** Compara [A03!C108 + A03!C110] sea igual a [B11].
+
+### A02-VAL004
+- **Tipo:** CELDA
+- **Expresión 1:** `A03!C113`
+- **Operador:** `==`
+- **Expresión 2:** `E11 + F11`
+- **Severidad:** ERROR
+- **Mensaje:** REM A02 | SECCIÓN A: APLICACIÓN DE INSTRUMENTO Y RESULTADO EN EL NIÑO (A) | A03, C113, E11, F11. La expresión indica que [A03!C113] debe ser igual a [E11 + F11].
+- **🔍 Detalle:** Compara [A03!C113] sea igual a [E11 + F11].
+
+---
+
+## 📄 Hoja: A03
+> 13 validaciones
+
+### A03-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `C20`
+- **Operador:** `==`
+- **Expresión 2:** `C21:C36`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C20, C21, C36. La expresión indica que [C20] debe ser igual a [C21:C36].
+- **🔍 Detalle:** Compara [C20] sea igual a la suma del rango [C21:C36].
+
+### A03-VAL002
+- **Tipo:** CELDA
+- **Expresión 1:** `C13`
+- **Operador:** `==`
+- **Expresión 2:** `C14:C15`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE | C13, C14, C15. La expresión indica que [C13] debe ser igual a [C14:C15].
+- **🔍 Detalle:** Compara [C13] sea igual a la suma del rango [C14:C15].
+
+### A03-VAL003
+- **Tipo:** CELDA
+- **Expresión 1:** `C54`
+- **Operador:** `==`
+- **Expresión 2:** `C55:C57`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN A.4: RESULTADOS DE LA APLICACIÓN DE PROTOCOLO NEUROSENSORIAL | C54, C55, C57. La expresión indica que [C54] debe ser igual a [C55:C57].
+- **🔍 Detalle:** Compara [C54] sea igual a la suma del rango [C55:C57].
+
+### A03-VAL004
+- **Tipo:** CELDA
+- **Expresión 1:** `C22`
+- **Operador:** `==`
+- **Expresión 2:** `B46`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C22, B46. La expresión indica que [C22] debe ser igual a [B46].
+- **🔍 Detalle:** Compara [C22] sea igual a [B46].
+
+### A03-VAL005
+- **Tipo:** CELDA
+- **Expresión 1:** `C23`
+- **Operador:** `==`
+- **Expresión 2:** `B47`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C23, B47. La expresión indica que [C23] debe ser igual a [B47].
+- **🔍 Detalle:** Compara [C23] sea igual a [B47].
+
+### A03-VAL006
+- **Tipo:** CELDA
+- **Expresión 1:** `C24`
+- **Operador:** `==`
+- **Expresión 2:** `B48`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | C24, B48. La expresión indica que [C24] debe ser igual a [B48].
+- **🔍 Detalle:** Compara [C24] sea igual a [B48].
+
+### A03-VAL007
+- **Tipo:** CELDA
+- **Expresión 1:** `B86`
+- **Operador:** `==`
+- **Expresión 2:** `A05!C11`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN B.2: APLICACIÓN DE ESCALA SEGÚN EVALUACIÓN DE RIESGO PSICOSOCIAL ABREVIADA A GESTANTES | B86, A05, C11. La expresión indica que [B86] debe ser igual a [A05!C11].
+- **🔍 Detalle:** Comparación cross-sheet: verifica que [B86] sea igual a [A05!C11] (referencia a otra hoja del libro).
+
+### A03-VAL008
+- **Tipo:** CELDA
+- **Expresión 1:** `C92`
+- **Operador:** `<=`
+- **Expresión 2:** `A01!(H36:H37)`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | C92, A01, H36, H37. La expresión indica que [C92] debe ser menor o igual a [A01!(H36:H37)].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Comparación cross-sheet: verifica que [C92] sea menor o igual a [A01!(H36:H37)] (referencia a otra hoja del libro). | Se omite si ambas expresiones son 0
+
+### A03-VAL009
+- **Tipo:** CELDA
+- **Expresión 1:** `C93`
+- **Operador:** `<=`
+- **Expresión 2:** `A01!(L36:L37)`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | C93, A01, L36, L37. La expresión indica que [C93] debe ser menor o igual a [A01!(L36:L37)].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Comparación cross-sheet: verifica que [C93] sea menor o igual a [A01!(L36:L37)] (referencia a otra hoja del libro). | Se omite si ambas expresiones son 0
+
+### A03-VAL010
+- **Tipo:** CELDA
+- **Expresión 1:** `C97`
+- **Operador:** `==`
+- **Expresión 2:** `A01!(T36:U38)`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN C: RESULTADOS DE LA EVALUACIÓN DEL ESTADO NUTRICIONAL DEL ADOLESCENTE CON CONTROL SALUD INTEGRAL | C97, A01, T36, U38. La expresión indica que [C97] debe ser igual a [A01!(T36:U38)].
+- **🔍 Detalle:** Comparación cross-sheet: verifica que [C97] sea igual a [A01!(T36:U38)] (referencia a otra hoja del libro).
+
+### A03-VAL011
+- **Tipo:** CELDA
+- **Expresión 1:** `C108:C114`
+- **Operador:** `==`
+- **Expresión 2:** `C115:C117`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE  ALCOHOL, TABACO Y OTRAS DROGAS | C108, C114, C115, C117. La expresión indica que [C108:C114] debe ser igual a [C115:C117].
+- **🔍 Detalle:** Compara [C108:C114] sea igual a la suma del rango [C115:C117].
+
+### A03-VAL012
+- **Tipo:** CELDA
+- **Expresión 1:** `C213`
+- **Operador:** `==`
+- **Expresión 2:** `C214+C215`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCION E: APLICACIÓN DE PAUTA DETECCIÓN DE FACTORES DE RIESGO BIOPSICOSOCIAL INFANTIL | C213, C214, C215. La expresión indica que [C213] debe ser igual a [C214+C215].
+- **🔍 Detalle:** Compara [C213] sea igual a [C214+C215].
+
+### A03-VAL013
+- **Tipo:** CELDA
+- **Expresión 1:** `C61:C66`
+- **Operador:** `==`
+- **Expresión 2:** `C67`
+- **Severidad:** ERROR
+- **Mensaje:** REM A03 | SECCIÓN A.5: TIPO DE ALIMENTACIÓN NIÑOS Y NIÑAS CONTROLADOS | C61, C66, C67. La expresión indica que [C61:C66] debe ser igual a [C67].
+- **🔍 Detalle:** Verifica que el rango [C61:C66] esté vacío.
+
+---
+
+## 📄 Hoja: A04
+> 6 validaciones
+
+### A04-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `B39:B41`
+- **Operador:** `==`
+- **Expresión 2:** `B135:B137`
+- **Severidad:** ERROR
+- **Mensaje:** REM A04 | SECCIÓN B: CONSULTAS DE PROFESIONALES NO MÉDICOS | B39, B41, B135, B137. La expresión indica que [B39:B41] debe ser igual a [B135:B137].
+- **🔍 Detalle:** Compara [B39:B41] sea igual a la suma del rango [B135:B137].
+
+### A04-VAL002
+- **Tipo:** CELDA
+- **Expresión 1:** `C141:C143`
+- **Operador:** `==`
+- **Expresión 2:** `C146:C149`
+- **Severidad:** ERROR
+- **Mensaje:** REM A04 | SECCIÓN L: CONSULTA DE LACTANCIA EN NIÑOS Y NIÑAS CONTROLADOS | C141, C143, C146, C149. La expresión indica que [C141:C143] debe ser igual a [C146:C149].
+- **🔍 Detalle:** Compara [C141:C143] sea igual a la suma del rango [C146:C149].
+
+### A04-VAL003
+- **Tipo:** CELDA
+- **Expresión 1:** `C114+D114`
+- **Operador:** `==`
+- **Expresión 2:** `E114+F114`
+- **Severidad:** ERROR
+- **Mensaje:** REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | C114, D114, E114, F114. La expresión indica que [C114+D114] debe ser igual a [E114+F114].
+- **🔍 Detalle:** Compara [C114+D114] sea igual a [E114+F114].
+
+### A04-VAL004
+- **Tipo:** CELDA
+- **Expresión 1:** `C115+D115`
+- **Operador:** `==`
+- **Expresión 2:** `E115+F115`
+- **Severidad:** ERROR
+- **Mensaje:** REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | C115, D115, E115, F115. La expresión indica que [C115+D115] debe ser igual a [E115+F115].
+- **🔍 Detalle:** Compara [C115+D115] sea igual a [E115+F115].
+
+### A04-VAL005
+- **Tipo:** CELDA
+- **Expresión 1:** `C116+D116`
+- **Operador:** `==`
+- **Expresión 2:** `E116+F116`
+- **Severidad:** ERROR
+- **Mensaje:** REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | C116, D116, E116, F116. La expresión indica que [C116+D116] debe ser igual a [E116+F116].
+- **🔍 Detalle:** Compara [C116+D116] sea igual a [E116+F116].
+
+### A04-VAL006
+- **Tipo:** CELDA
+- **Expresión 1:** `M114`
+- **Operador:** `>=`
+- **Expresión 2:** `L114`
+- **Severidad:** ERROR
+- **Mensaje:** REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | M114, L114. La expresión indica que [M114] debe ser mayor o igual a [L114].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara [M114] sea mayor o igual a [L114]. | Se omite si ambas expresiones son 0
+
+---
+
+## 📄 Hoja: A05
+> 5 validaciones
+
+### A05-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `L11:N14`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A05 | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | L11, N14. La expresión indica que [L11:N14] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [L11:N14] NO contenga datos (sea cero o vacía).
+
+### A05-VAL002
+- **Tipo:** CELDA
+- **Expresión 1:** `C119`
+- **Operador:** `<=`
+- **Expresión 2:** `C120:C127`
+- **Severidad:** ERROR
+- **Mensaje:** REM A05 | SECCIÓN H: INGRESOS AL PROGRAMA DE SALUD CARDIOVASCULAR (PSCV) | C119, C120, C127. La expresión indica que [C119] debe ser menor o igual a [C120:C127].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara [C119] sea menor o igual a la suma del rango [C120:C127]. | Se omite si ambas expresiones son 0
+
+### A05-VAL003
+- **Tipo:** CELDA
+- **Expresión 1:** `AF146:AM150`
+- **Operador:** `>`
+- **Expresión 2:** `C162`
+- **Severidad:** ERROR
+- **Mensaje:** REM A05 | SECCIÓN J: INGRESOS Y EGRESOS AL PROGRAMA DE PACIENTES CON DEPENDENCIA LEVE, MODERADA Y SEVERA | AF146, AM150, C162. La expresión indica que [AF146:AM150] debe ser estrictamente mayor a [C162].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara la suma del rango [AF146:AM150] sea mayor que [C162]. | Se omite si ambas expresiones son 0
+
+### A05-VAL004
+- **Tipo:** CELDA
+- **Expresión 1:** `C193`
+- **Operador:** `==`
+- **Expresión 2:** `C204`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A05 | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | C193, C204. La expresión indica que [C193] debe ser igual a [C204].
+- **🔍 Detalle:** Compara [C193] sea igual a [C204].
+
+### A05-VAL005
+- **Tipo:** CELDA
+- **Expresión 1:** `C204`
+- **Operador:** `<=`
+- **Expresión 2:** `C205:C241`
+- **Severidad:** ERROR
+- **Mensaje:** REM A05 | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | C204, C205, C241. La expresión indica que [C204] debe ser menor o igual a [C205:C241].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara [C204] sea menor o igual a la suma del rango [C205:C241]. | Se omite si ambas expresiones son 0
+
+---
+
+## 📄 Hoja: A08
+> 7 validaciones
+
+### A08-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `C61:AL66`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A08 | SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR) | C61, AL66. La expresión indica que [C61:AL66] la celda no debe contener datos.
+- **Aplica a:** Tipo: HOSPITAL, SAPU, SUR
+- **Excluye:** Códigos: 123000, 123100, 123101, 123102, 123103, 123104, 123105, 123800, 123801, 200085, 200747, 200748, 200749, 200750
+- **🔍 Detalle:** Verifica que la expresión [C61:AL66] NO contenga datos (sea cero o vacía). | Solo aplica a tipo: HOSPITAL, SAPU, SUR. Excluye códigos: 123000, 123100, 123101, 123102, 123103, 123104, 123105, 123800, 123801, 200085, 200747, 200748, 200749, 200750
+
+### A08-VAL002
+- **Tipo:** CELDA
+- **Expresión 1:** `B13+B14`
+- **Operador:** `==`
+- **Expresión 2:** `B78`
+- **Severidad:** ERROR
+- **Mensaje:** REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | B13, B14, B78. La expresión indica que [B13+B14] debe ser igual a [B78].
+- **🔍 Detalle:** Compara [B13+B14] sea igual a [B78].
+
+### A08-VAL003
+- **Tipo:** CELDA
+- **Expresión 1:** `C171:F171`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | C171, F171. La expresión indica que [C171:F171] la celda no debe contener datos.
+- **Excluye:** Códigos: 123000, 123102, 123101, 123104, 123105, 123311, 200747, 200748, 200749, 200750
+- **🔍 Detalle:** Verifica que la expresión [C171:F171] NO contenga datos (sea cero o vacía). | Excluye códigos: 123000, 123102, 123101, 123104, 123105, 123311, 200747, 200748, 200749, 200750
+
+### A08-VAL004
+- **Tipo:** CELDA
+- **Expresión 1:** `C172:F174`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | C172, F174. La expresión indica que [C172:F174] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [C172:F174] NO contenga datos (sea cero o vacía).
+
+### A08-VAL005
+- **Tipo:** CELDA
+- **Expresión 1:** `E178:E183`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A08 | SECCIÓN M: TRASLADO SECUNDARIO (Desde un establecimiento a otro) | E178, E183. La expresión indica que [E178:E183] la celda no debe contener datos.
+- **Excluye:** Tipo: SAMU; Códigos: 123010
+- **🔍 Detalle:** Verifica que la expresión [E178:E183] NO contenga datos (sea cero o vacía). | Excluye tipo: SAMU. Excluye códigos: 123010
+
+### A08-VAL006
+- **Tipo:** CELDA
+- **Expresión 1:** `C161+D161`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A08 | SECCIÓN J: LLAMADOS DE URGENCIA A CENTRO REGULADOR, CENTRO DE DESPACHO O CENTRO COORDINADOR | C161, D161. La expresión indica que [C161+D161] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [C161+D161] NO contenga datos (sea cero o vacía).
+
+### A08-VAL007
+- **Tipo:** CELDA
+- **Expresión 1:** `B13`
+- **Operador:** `<`
+- **Expresión 2:** `AS13`
+- **Severidad:** ERROR
+- **Mensaje:** REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | B13, AS13. La expresión indica que [B13] debe ser estrictamente menor a [AS13].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara [B13] sea menor que [AS13]. | Se omite si ambas expresiones son 0
+
+---
+
+## 📄 Hoja: A09
+> 1 validaciones
+
+### A09-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `D16+D17`
+- **Operador:** `!=`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A09 | SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN  NIVEL PRIMARIO Y SECUNDARIO DE SALUD | D16, D17. La expresión indica que [D16+D17] la celda debe contener datos.
+- **Aplica a:** Códigos: 123000, 123100, 123101, 123102
+- **🔍 Detalle:** Verifica que la expresión [D16+D17] contenga datos (no sea cero ni vacía). | Solo aplica a códigos: 123000, 123100, 123101, 123102
+
+---
+
+## 📄 Hoja: A11
+> 4 validaciones
+
+### A11-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `B13:C30`
+- **Operador:** `!=`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A11 | SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | B13, C30. La expresión indica que [B13:C30] la celda debe contener datos.
+- **Aplica a:** Códigos: 123000, 123100
+- **🔍 Detalle:** Verifica que la expresión [B13:C30] contenga datos (no sea cero ni vacía). | Solo aplica a códigos: 123000, 123100
+
+### A11-VAL002
+- **Tipo:** CELDA
+- **Expresión 1:** `C144:P148`
+- **Operador:** `!=`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A11 | SECCIÓN B.1: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | C144, P148. La expresión indica que [C144:P148] la celda debe contener datos.
+- **Aplica a:** Códigos: 123000, 123100
+- **🔍 Detalle:** Verifica que la expresión [C144:P148] contenga datos (no sea cero ni vacía). | Solo aplica a códigos: 123000, 123100
+
+### A11-VAL003
+- **Tipo:** CELDA
+- **Expresión 1:** `C152:P156`
+- **Operador:** `!=`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A11 | SECCIÓN B.2: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS QUE COMPRAN SERVICIO) | C152, P156. La expresión indica que [C152:P156] la celda debe contener datos.
+- **Aplica a:** Códigos: 123000, 123100
+- **Opciones:** Omitir si exp1=0
+- **🔍 Detalle:** Verifica que la expresión [C152:P156] contenga datos (no sea cero ni vacía). | Se omite si expresión_1 es 0. Solo aplica a códigos: 123000, 123100
+
+### A11-VAL004
+- **Tipo:** CELDA
+- **Expresión 1:** `C161:D183`
+- **Operador:** `!=`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A11 | SECCIÓN C.1: EXÁMENES  DE  VIH POR GRUPOS DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | C161, D183. La expresión indica que [C161:D183] la celda debe contener datos.
+- **Aplica a:** Códigos: 123000, 123100
+- **🔍 Detalle:** Verifica que la expresión [C161:D183] contenga datos (no sea cero ni vacía). | Solo aplica a códigos: 123000, 123100
+
+---
+
+## 📄 Hoja: A19a
+> 1 validaciones
+
+### A19a-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `C129:C148`
+- **Operador:** `==`
+- **Expresión 2:** `O129:O148`
+- **Severidad:** ERROR
+- **Mensaje:** REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C129, C148, O129, O148. La expresión indica que [C129:C148] debe ser igual a [O129:O148].
+- **🔍 Detalle:** Compara [C129:C148] sea igual a la suma del rango [O129:O148].
+
+---
+
+## 📄 Hoja: A19b
+> 1 validaciones
+
+### A19b-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `B11`
+- **Operador:** `==`
+- **Expresión 2:** `E11:I11`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A19b | SECCIÓN A: ATENCIÓN OFICINAS DE INFORMACIONES (SISTEMA INTEGRAL DE ATENCIÓN A USUARIOS) | B11, E11, I11. La expresión indica que [B11] debe ser igual a [E11:I11].
+- **🔍 Detalle:** Compara [B11] sea igual a la suma del rango [E11:I11].
+
+---
+
+## 📄 Hoja: A27
+> 2 validaciones
+
+### A27-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `D53`
+- **Operador:** `==`
+- **Expresión 2:** `D98`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | D53. La expresión indica que [D53] debe ser igual a [D98].
+- **Opciones:** Omitir si exp1=0
+- **🔍 Detalle:** Compara [D53] sea igual a [D98]. | Se omite si expresión_1 es 0
+
+### A27-VAL002
+- **Tipo:** CELDA
+- **Expresión 1:** `D23`
+- **Operador:** `==`
+- **Expresión 2:** `Y23:AA23`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | D23. La expresión indica que [D23] debe ser igual a [Y23:AA23].
+- **Opciones:** Omitir si exp1=0
+- **🔍 Detalle:** Compara [D23] sea igual a la suma del rango [Y23:AA23]. | Se omite si expresión_1 es 0
+
+---
+
+## 📄 Hoja: A28
+> 6 validaciones
+
+### A28-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `B13`
+- **Operador:** `<=`
+- **Expresión 2:** `B61`
+- **Severidad:** ERROR
+- **Mensaje:** REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | B13, B61. La expresión indica que [B13] debe ser menor o igual a [B61].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara [B13] sea menor o igual a [B61]. | Se omite si ambas expresiones son 0
+
+### A28-VAL002
+- **Tipo:** CELDA
+- **Expresión 1:** `B13`
+- **Operador:** `>=`
+- **Expresión 2:** `B14`
+- **Severidad:** ERROR
+- **Mensaje:** REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | B13, B14. La expresión indica que [B13] debe ser mayor o igual a [B14].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara [B13] sea mayor o igual a [B14]. | Se omite si ambas expresiones son 0
+
+### A28-VAL003
+- **Tipo:** CELDA
+- **Expresión 1:** `B13`
+- **Operador:** `>=`
+- **Expresión 2:** `B15`
+- **Severidad:** ERROR
+- **Mensaje:** REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | B13, B15. La expresión indica que [B13] debe ser mayor o igual a [B15].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara [B13] sea mayor o igual a [B15]. | Se omite si ambas expresiones son 0
+
+### A28-VAL004
+- **Tipo:** CELDA
+- **Expresión 1:** `B29`
+- **Operador:** `<=`
+- **Expresión 2:** `B30:B52`
+- **Severidad:** ERROR
+- **Mensaje:** REM A28 | SECCIÓN A.2: INGRESOS POR CONDICIÓN DE SALUD | B29, B30, B52. La expresión indica que [B29] debe ser menor o igual a [B30:B52].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara [B29] sea menor o igual a la suma del rango [B30:B52]. | Se omite si ambas expresiones son 0
+
+### A28-VAL005
+- **Tipo:** CELDA
+- **Expresión 1:** `B149`
+- **Operador:** `<=`
+- **Expresión 2:** `B150:B177`
+- **Severidad:** ERROR
+- **Mensaje:** REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | B149, B150, B177. La expresión indica que [B149] debe ser menor o igual a [B150:B177].
+- **Opciones:** Omitir si ambos=0
+- **🔍 Detalle:** Compara [B149] sea menor o igual a la suma del rango [B150:B177]. | Se omite si ambas expresiones son 0
+
+### A28-VAL006
+- **Tipo:** CELDA
+- **Expresión 1:** `AM150:AM178`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** REVISAR
+- **Mensaje:** REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | AM150, AM178. La expresión indica que [AM150:AM178] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [AM150:AM178] NO contenga datos (sea cero o vacía).
+
+---
+
+## 📄 Hoja: A29
+> 2 validaciones
+
+### A29-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `O12:P12`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | O12, P12. La expresión indica que [O12:P12] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [O12:P12] NO contenga datos (sea cero o vacía).
+
+### A29-VAL002
+- **Tipo:** CELDA
+- **Expresión 1:** `M13:N13`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | M13, N13. La expresión indica que [M13:N13] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [M13:N13] NO contenga datos (sea cero o vacía).
+
+---
+
+## 📄 Hoja: A30R
+> 1 validaciones
+
+### A30-VAL001
+- **Tipo:** CELDA
+- **Expresión 1:** `B16:B17`
+- **Operador:** `==`
+- **Expresión 2:** `0`
+- **Severidad:** ERROR
+- **Mensaje:** REM A30R | Sección Desconocida | B16, B17. La expresión indica que [B16:B17] la celda no debe contener datos.
+- **🔍 Detalle:** Verifica que la expresión [B16:B17] NO contenga datos (sea cero o vacía).
+
+---

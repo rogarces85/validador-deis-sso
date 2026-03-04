@@ -15,6 +15,24 @@ const STATUS_OPTIONS: { key: 'ALL' | 'PASS' | 'FAIL'; label: string }[] = [
     { key: 'FAIL', label: 'Fallidos' },
 ];
 
+const renderDescripcionFormatted = (descripcion: string) => {
+    if (!descripcion) return '';
+    const parts = descripcion.split('|');
+    if (parts.length >= 3) {
+        const part1 = parts[0];
+        const part2 = parts[1];
+        const part3 = parts.slice(2).join('|');
+
+        return (
+            <>
+                <span className="font-bold" style={{ color: 'var(--text-primary)' }}>{part1}|</span>
+                <span className="font-bold" style={{ color: '#10b981' }}>{part2}|</span>
+                <span>{part3}</span>
+            </>
+        );
+    }
+    return descripcion;
+};
 
 const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding }) => {
     const [severityFilter, setSeverityFilter] = useState<Severity | 'ALL'>('ALL');
@@ -172,7 +190,9 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                 </td>
                                 {/* Regla */}
                                 <td className="px-4 sm:px-6 py-3">
-                                    <p className="text-sm font-medium leading-tight" style={{ color: 'var(--text-primary)' }}>{finding.descripcion}</p>
+                                    <p className="text-sm leading-tight" style={{ color: 'var(--text-primary)' }}>
+                                        {renderDescripcionFormatted(finding.descripcion)}
+                                    </p>
                                     <p className="text-[11px] font-mono mt-0.5" style={{ color: 'var(--text-muted)' }}>{finding.ruleId} {finding.cell ? `· ${finding.cell}` : ''}</p>
                                 </td>
                                 {/* Hoja */}

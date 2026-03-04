@@ -903,7 +903,104 @@
                 "mensaje": "REM A30R | Sección Desconocida | B16, B17. La expresión indica que [B16:B17] la celda no debe contener datos.",
                 "mensaje_original": "REM30R, ERROR: Atención y Orientación de Salud a Distancia. No debe existir registro en este REM. La suma de todas las celdas de registro debe ser cero."
             }
-        ]
+        ],
+        "A07": [],
+        "A09": [
+            {
+                "id": "A09-VAL001",
+                "tipo": "CELDA",
+                "rem_sheet": "A09",
+                "expresion_1": "D16+D17",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "REVISAR",
+                "mensaje": "REM A09 | SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN  NIVEL PRIMARIO Y SECUNDARIO DE SALUD | D16, D17. La expresión indica que [D16+D17] la celda debe contener datos.",
+                "aplicar_a": [
+                    "123000",
+                    "123100",
+                    "123101",
+                    "123102"
+                ],
+                "mensaje_original": "REM08, ERROR sección A: Las Consultas y Controles de Odontología general en Nivel Primario y Secundario de Salud (D16 y D17) corresponde solo a HBSJO, HPU y HRN. Valor debe ser revisado si el centro no es uno de estos."
+            }
+        ],
+        "A11": [
+            {
+                "id": "A11-VAL001",
+                "tipo": "CELDA",
+                "rem_sheet": "A11",
+                "expresion_1": "B13:C30",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM A11 | SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | B13, C30. La expresión indica que [B13:C30] la celda debe contener datos.",
+                "aplicar_a": [
+                    "123000",
+                    "123100"
+                ],
+                "mensaje_original": "REM11, ERROR sección A.1: Examen VDRL Por Grupo de Usuarios (B13 a C30). Esta sección solo le corresponde a HBSJO."
+            },
+            {
+                "id": "A11-VAL002",
+                "tipo": "CELDA",
+                "rem_sheet": "A11",
+                "expresion_1": "C144:P148",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM A11 | SECCIÓN B.1: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | C144, P148. La expresión indica que [C144:P148] la celda debe contener datos.",
+                "aplicar_a": [
+                    "123000",
+                    "123100"
+                ],
+                "mensaje_original": "REM11, ERROR sección B.1: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Lab. Que Procesan (C144 a P148) le corresponde solo a HBSJO."
+            },
+            {
+                "id": "A11-VAL003",
+                "tipo": "CELDA",
+                "rem_sheet": "A11",
+                "expresion_1": "C152:P156",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM A11 | SECCIÓN B.2: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS QUE COMPRAN SERVICIO) | C152, P156. La expresión indica que [C152:P156] la celda debe contener datos.",
+                "aplicar_a": [
+                    "123000",
+                    "123100"
+                ],
+                "mensaje_original": "REM11, ERROR sección B.2: Exámenes (Hepatitis B, C, Chagas, HTLV1, Sífilis) Uso Exclusivo Compras Servicio (C152 a P156) le corresponde solo a HBSJO.",
+                "omitir_si_v1_es_cero": true
+            },
+            {
+                "id": "A11-VAL004",
+                "tipo": "CELDA",
+                "rem_sheet": "A11",
+                "expresion_1": "C161:D183",
+                "operador": "!=",
+                "expresion_2": 0,
+                "severidad": "ERROR",
+                "mensaje": "REM A11 | SECCIÓN C.1: EXÁMENES  DE  VIH POR GRUPOS DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | C161, D183. La expresión indica que [C161:D183] la celda debe contener datos.",
+                "aplicar_a": [
+                    "123000",
+                    "123100"
+                ],
+                "mensaje_original": "REM11, ERROR sección C1: Exámenes de VIH por Grupos de Usuarios (C161 a D183). Esta sección solo le corresponde a HBSJO."
+            }
+        ],
+        "A19a": [
+            {
+                "id": "A19a-VAL001",
+                "tipo": "CELDA",
+                "rem_sheet": "A19a",
+                "expresion_1": "C129:C148",
+                "operador": "==",
+                "expresion_2": "O129:O148",
+                "severidad": "ERROR",
+                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | C129, C148, O129, O148. La expresión indica que [C129:C148] debe ser igual a [O129:O148].",
+                "mensaje_original": "REM19a, ERROR sección B.1: Si existen registros en TOTAL ACTIVIDADES (C129:C148), se debe registrar el TOTAL PARTICIPANTES (O129:O148). Se verifica que ambas sumatorias sean iguales."
+            }
+        ],
+        "A21": []
     },
     "A19a": [
         {

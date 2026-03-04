@@ -1,13 +1,21 @@
-Las validaciones están integradas y funcionando. Build ✅ | Tests ✅
+# Reglas de Validación Validador DEIS SSO
 
-¿Dónde están las reglas?
-Las reglas están en un solo archivo JSON:
+Las validaciones están diseñadas bajo un esquema flexible.
+Build ✅ | Tests ✅
 
-📁 data/rules.json
+## ¿Dónde están las reglas?
+Las reglas base están unificadas y documentadas en:
+📁 `data/Rules_nuevas.json`
 
-Estructura:
+Sin embargo, para la ejecución se distribuyen en archivos por tipo de establecimiento dentro de la carpeta:
+📁 `data/rules/`
+- `base.json`
+- `hospital.json`
+- `posta.json`
+- `samu.json`
 
-json
+### Estructura base en `Rules_nuevas.json`:
+```json
 {
   "validaciones": {
     "A01": [ ...reglas para REM A01... ],
@@ -17,46 +25,68 @@ json
     "A30": [ ...reglas... ]
   }
 }
-Actualmente hay 66 reglas distribuidas en 14 series (A01 → A30).
+```
+> Actualmente hay **81 reglas** distribuidas en **16 series** en `Rules_nuevas.json`. Estas se traspasan luego a `data/rules/*.json` automáticamente usando la habilidad `sincronizador-reglas`.
 
-¿Cómo se cargan?
-En hooks/useValidationPipeline.ts (línea 68):
+## ¿Cómo se cargan en la aplicación?
+En `hooks/useValidationPipeline.ts`, la aplicación consume dinámicamente el archivo en `data/rules/` que corresponda al tipo de establecimiento logueado o, por defecto, `base.json`.
 
-typescript
+```typescript
 const allRules = Object.values(rulesData.validaciones).flat();
 const applicableRules = allRules.filter(r => r.rem_sheet.startsWith(metadata.serieRem));
-Se aplanan todas las series → se filtran solo las que corresponden al archivo subido.
-¿Cómo editar/agregar/modificar reglas?
-Solo edita data/rules.json. Cada regla tiene esta estructura:
+```
+Se aplanan todas las series y se filtran solo las validaciones declaradas para el archivo subido.
 
-json
+## ¿Qué estructura tiene cada regla?
+Cada regla JSON tiene la siguiente configuración:
+
+```json
 {
-  "id": "VAL01",              // Identificador único
+  "id": "A01-VAL001",         // Identificador único generado
   "tipo": "CELDA",            // Tipo de validación
   "rem_sheet": "A01",         // Hoja REM donde aplica
   "expresion_1": "F11",       // Lado izquierdo de la comparación
-  "operador": "==",           // ==, !=, >, <, >=, <=
-  "expresion_2": 0,           // Lado derecho (número, celda, rango o fórmula)
+  "operador": "==",           // Operador: ==, !=, >, <, >=, <=
+  "expresion_2": 0,           // Lado derecho (número, celda o rango)
   "severidad": "REVISAR",     // ERROR, REVISAR, OBSERVAR, INDICADOR
-  "mensaje": "Descripción..." // Mensaje que aparece en el reporte
+  "mensaje": "REM A01 | SECCIÓN A | F11. La expresión indica que [F11] debe ser distinto de [0].",
+  
+  // Campos opcionales avanzados
+  "omitir_si_v1_es_cero": true, 
+  "omitir_si_ambos_cero": false,
+  
+  // Parametrización por Establecimientos
+  "aplicar_a_tipo": ["HOSPITAL", "CESFAM"], 
+  "excluir_tipo": ["SAMU"],
+  "aplicar_a": ["123100"],     
+  "establecimientos_excluidos": ["123000"]
 }
-Expresiones soportadas en expresion_1 / expresion_2:
-Patrón	Ejemplo	Qué hace
-Celda simple	F11	Lee valor de F11 en rem_sheet
-Cross-sheet	A03!C108	Lee C108 de la hoja A03
-Rango (suma)	C21:C36	Suma todas las celdas del rango
-Cross-sheet rango	A01!(H36:H37)	Suma H36:H37 de la hoja A01
-Aritmética	C114+D114	Suma valores de ambas celdas
-SUM multi-rango	SUM(C19:C26, F36:F38)	Suma múltiples rangos
-Número fijo	0	Valor literal
-Campos opcionales:
-Campo	Para qué
-aplicar_a	Array de códigos DEIS. La regla solo se aplica a estos establecimientos
-establecimientos_excluidos	Array de códigos DEIS. La regla se salta estos establecimientos
-rem_sheet_ext	Documentación de la hoja externa referenciada
-Para agregar una regla nueva:
-Abre data/rules.json
-Ubica la serie (ej: "A01": [...])
-Agrega un nuevo objeto al array
-Guarda — al hacer build o recargar la app, las reglas se aplican automáticamente
-No es necesario tocar código TypeScript ni recompilar para cambios en reglas.
+```
+
+### Expresiones soportadas (`expresion_1` / `expresion_2`)
+| Patrón                             | Ejemplo                | Qué hace                                  |
+| ---------------------------------- | ---------------------- | ----------------------------------------- |
+| **Celda simple**                     | `F11`                  | Lee valor de F11                          |
+| **Cross-sheet**                      | `A03!C108`             | Lee C108 de la hoja A03                   |
+| **Rango (suma)**                     | `C21:C36`              | Suma todas las celdas del rango           |
+| **Rango multi-selección**            | `SUM(C19:C26, F36:F38)`| Suma múltiples rangos                     |
+| **Valor nulo/numérico estricto**     | `0`                    | Valor literal de comparación              |
+
+### Parametrización para Inclusiones/Exclusiones
+| Propiedad                    | Uso |
+| ---------------------------- | --- |
+| `aplicar_a_tipo`             | Array con tipos de recintos. Ej: `["HOSPITAL"]`. Filtra por `establecimientos.catalog.json`. |
+| `excluir_tipo`               | Array con tipos de recintos. Ej: `["SAMU"]`. Se salta al momento de evaluar. |
+| `aplicar_a`                  | Array de **códigos DEIS** directos (ej: `["123100"]`). Hace la regla exclusiva para ellos. |
+| `establecimientos_excluidos` | Array de **códigos DEIS** directos que ignoran la evaluación. |
+| `omitir_si_v1_es_cero`       | Si `expresion_1` está vacía o es `0`, la validación no se dispara. |
+
+## Mantenimiento
+Para agregar una nueva regla:
+1. Agrégala en `data/Rules_nuevas.json` (manteniendo control de IDs como `AXX-VALYYY`).
+2. Usa opcionalmente la habilidad `mejora-mensajes-errores` si deseas autocompletar o formalizar la estructura descriptiva.
+3. Al terminar de probar o agregar, corre el siguiente comando NodeJS en la raíz para esparcirlas a los archivos de ejecución:
+```bash
+node sync_rules.cjs
+```
+Los archivos base.json, hospital.json, posta.json, samu.json se autogenerarán y estarán listos en el build.

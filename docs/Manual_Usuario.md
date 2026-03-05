@@ -57,12 +57,12 @@ Cuando hace clic en **"Ver Detalle"**, se abre un panel lateral que le explica:
 
 ---
 
-## 4. Uso en Terreno (Vista Móvil)
+## 4. Acceso desde Cualquier Dispositivo
 
-El validador es totalmente responsivo, lo que permite a los jefes de estadística o directivos revisar el estado de los archivos desde un smartphone o tablet durante reuniones o supervisiones en terreno.
+El validador es totalmente responsivo. Los directivos y equipos técnicos pueden validar el estado de sus archivos desde cualquier smartphone, tablet o computador, facilitando una supervisión ágil y oportuna.
 
 <p align="center">
-  <img src="images/validador_mobile_view.png" alt="Vista en Dispositivos Móviles" width="350"/>
+  <img src="images/validador_mobile_view.png" alt="Vista en múltiples dispositivos" width="350"/>
 </p>
 
 ---

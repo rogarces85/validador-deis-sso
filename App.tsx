@@ -3,6 +3,7 @@ import TopBar from './components/TopBar';
 import FileDropzone from './components/FileDropzone';
 import RulesSummary from './components/RulesSummary';
 import FindingsTable from './components/FindingsTable';
+import UserManual from './components/UserManual';
 import { useValidationPipeline } from './hooks/useValidationPipeline';
 import { ValidationResult } from './types';
 
@@ -145,6 +146,8 @@ const App: React.FC = () => {
                 </div>
               ))}
             </div>
+
+            <UserManual />
           </div>
         ) : null}
 

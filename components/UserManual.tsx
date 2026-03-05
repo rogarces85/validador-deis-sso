@@ -5,25 +5,25 @@ const UserManual: React.FC = () => {
         {
             title: 'Paso 1: Carga y Validación',
             desc: 'Arrastra tu archivo .xlsx o .xlsm. El sistema verificará el nombre y la estructura automáticamente.',
-            img: '/docs/images/validador_home.png',
+            img: './docs/images/validador_home.png',
             alt: 'Pantalla de carga de archivos'
         },
         {
             title: 'Paso 2: Entender las Alertas',
             desc: 'Clasificamos los hallazgos en Errores (Críticos), Revisiones e Indicadores para tu gestión.',
-            img: '/docs/images/validador_severity_legend.png',
+            img: './docs/images/validador_severity_legend.png',
             alt: 'Leyenda de severidad'
         },
         {
             title: 'Paso 3: Detalle de Errores',
             desc: 'Haz clic en "Ver Detalle" para conocer la celda exacta y cómo corregir la inconsistencia.',
-            img: '/docs/images/validador_error_detail.png',
+            img: './docs/images/validador_error_detail.png',
             alt: 'Panel de detalle de error'
         },
         {
             title: 'Paso 4: Exportación Final',
             desc: 'Descarga un reporte consolidado en Excel para facilitar el trabajo del equipo de estadística.',
-            img: '/docs/images/validador_export.png',
+            img: './docs/images/validador_export.png',
             alt: 'Opciones de exportación'
         }
     ];
@@ -75,7 +75,7 @@ const UserManual: React.FC = () => {
                 </div>
                 <div className="w-full md:w-64 shrink-0 flex justify-center">
                     <img
-                        src="/docs/images/validador_mobile_view.png"
+                        src="./docs/images/validador_mobile_view.png"
                         alt="Vista en múltiples dispositivos del validador"
                         className="rounded-2xl shadow-lg border border-default max-h-[300px]"
                     />

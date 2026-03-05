@@ -18,7 +18,23 @@ const STATUS_OPTIONS: { key: 'ALL' | 'PASS' | 'FAIL'; label: string }[] = [
 const renderDescripcionFormatted = (descripcion: string) => {
     if (!descripcion) return '';
     const parts = descripcion.split('|');
-    if (parts.length >= 3) {
+
+    // Si tiene 6 partes (5 pipes), es un mensaje de doble hoja:
+    // REM A01 | SECCIÓN 1 | Celdas | REM A05 | SECCIÓN 2 | Celdas. La expresión...
+    if (parts.length === 6) {
+        return (
+            <>
+                <span className="font-bold" style={{ color: 'var(--text-primary)' }}>{parts[0]}|</span>
+                <span className="font-bold" style={{ color: '#10b981' }}>{parts[1]}|</span>
+                <span>{parts[2]}|</span>
+                <span className="font-bold" style={{ color: 'var(--text-primary)' }}>{parts[3]}|</span>
+                <span className="font-bold" style={{ color: '#10b981' }}>{parts[4]}|</span>
+                <span>{parts[5]}</span>
+            </>
+        );
+    }
+    // Si tiene 3 o más partes, es un mensaje de una hoja u otro formato
+    else if (parts.length >= 3) {
         const part1 = parts[0];
         const part2 = parts[1];
         const part3 = parts.slice(2).join('|');
@@ -31,6 +47,7 @@ const renderDescripcionFormatted = (descripcion: string) => {
             </>
         );
     }
+
     return descripcion;
 };
 

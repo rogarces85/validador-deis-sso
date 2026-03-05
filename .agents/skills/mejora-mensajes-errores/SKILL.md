@@ -20,7 +20,7 @@ Cuando el usuario requiera mejorar los mensajes de de errores en un archivo de v
 
 ### Paso 1 — Ejecutar el Script de Mejora
 
-Puedes ejecutar el script por línea de comandos, proporcionando tres argumentos posicionales:
+Puedes ejecutar el script por línea de comandos, proporcionando tres argumentos posicionales. **El script detectará automáticamente si la validación se realiza sobre una sola hoja o si cruza referencias con otras hojas (ej. A05!C89), construyendo el mensaje compuesto de forma dinámica:**
 
 ```bash
 node .agents/skills/mejora-mensajes-errores/scripts/improve_messages.cjs <ruta_json_entrada> <ruta_md_secciones> <ruta_json_salida>

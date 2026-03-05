@@ -59,13 +59,19 @@ function findSection(secciones, hoja, row) {
     return foundSection;
 }
 
-function extractCells(exp) {
+function extractCells(exp, defaultSheet) {
     if (typeof exp !== 'string') return [];
-    const cellRegex = /[A-Z]+(\d+)/g;
+    // Buscar prefijo opcional de hoja "A05!" seguido de la celda "C89"
+    const cellRegex = /(?:([A-Z0-9]+)!)?([A-Z]+)(\d+)/g;
     const cells = [];
     let match;
     while ((match = cellRegex.exec(exp)) !== null) {
-        cells.push({ cell: match[0], row: parseInt(match[1], 10) });
+        let sheet = match[1] || defaultSheet;
+        cells.push({
+            sheet: sheet,
+            cell: match[2] + match[3],
+            row: parseInt(match[3], 10)
+        });
     }
     return cells;
 }
@@ -81,6 +87,27 @@ function translateOperator(op) {
         "<=": "debe ser menor o igual a"
     };
     return ops[op] || `[${op}]`;
+}
+
+function buildSheetString(cellsArray, defaultSheet, secciones) {
+    if (!cellsArray || cellsArray.length === 0) return null;
+
+    const sheetGroups = {};
+    for (const c of cellsArray) {
+        if (!sheetGroups[c.sheet]) sheetGroups[c.sheet] = [];
+        sheetGroups[c.sheet].push(c);
+    }
+
+    const parts = [];
+    for (const [sheet, cList] of Object.entries(sheetGroups)) {
+        const firstRow = cList[0].row;
+        const seccionNombre = findSection(secciones, sheet, firstRow);
+
+        const celdasUnicas = [...new Set(cList.map(item => item.cell))].join(', ');
+        parts.push(`REM ${sheet} | ${seccionNombre} | ${celdasUnicas}`);
+    }
+
+    return parts.join(' | ');
 }
 
 async function main() {
@@ -104,22 +131,36 @@ async function main() {
 
         for (const [hoja, rulesArray] of Object.entries(rulesData.validaciones || {})) {
             newRulesData.validaciones[hoja] = rulesArray.map(rule => {
+                const defaultSheet = rule.rem_sheet;
                 const exp1 = rule.expresion_1;
                 const exp2 = rule.expresion_2;
 
-                const cells1 = extractCells(exp1);
-                const cells2 = typeof exp2 === 'string' ? extractCells(exp2) : [];
+                const cells1 = extractCells(exp1, defaultSheet);
+                const cells2 = typeof exp2 === 'string' ? extractCells(exp2, defaultSheet) : [];
 
-                const allCells = [...cells1, ...cells2];
-                let seccionNombre = 'Sección Múltiple o Desconocida';
+                const part1 = buildSheetString(cells1, defaultSheet, secciones);
+                const part2 = buildSheetString(cells2, defaultSheet, secciones);
 
-                if (allCells.length > 0) {
-                    const targetHoja = rule.rem_sheet_ext || rule.rem_sheet;
-                    seccionNombre = findSection(secciones, targetHoja, allCells[0].row);
+                let isDouble = false;
+                let startText = "";
+                if (part1 && part2) {
+                    // Si son idénticos (misma hoja, misma sección, mismas celdas) se muestra una vez
+                    if (part1 === part2) {
+                        startText = part1;
+                    } else {
+                        // Si son distintos (ya sea por hoja cruzada o distintas celdas agrupadas por hoja)
+                        // Se unen las respuestas como: REM A01 | Seccion... | REM A05 | Seccion...
+                        startText = `${part1} | ${part2}`;
+                        isDouble = true;
+                    }
+                } else if (part1) {
+                    startText = part1;
+                } else if (part2) {
+                    startText = part2;
+                } else {
+                    startText = `REM ${defaultSheet} | Sección Múltiple o Desconocida | N/A`;
                 }
 
-                const celdasUnicas = [...new Set(allCells.map(c => c.cell))].join(', ');
-                // Generar explicación de la operación
                 let explicacion = "";
                 if (String(exp2).trim() === '0') {
                     if (rule.operador === '==') {
@@ -133,9 +174,14 @@ async function main() {
                     explicacion = `La expresión indica que [${exp1}] ${translateOperator(rule.operador)} [${exp2}]`;
                 }
 
-                // Construir mensaje nuevo
-                const celdasStr = celdasUnicas ? celdasUnicas : 'N/A';
-                const nuevoMensaje = `REM ${rule.rem_sheet} | ${seccionNombre} | ${celdasStr}. ${explicacion}.`;
+                let nuevoMensaje = "";
+                if (isDouble) {
+                    // Validaciones con doble hoja o cruzadas (6 partes / 5 pipes visuales)
+                    nuevoMensaje = `${startText}. ${explicacion}.`;
+                } else {
+                    // Validaciones de una sola hoja (4 partes / 3 pipes visuales)
+                    nuevoMensaje = `${startText} | ${explicacion}.`;
+                }
 
                 return {
                     ...rule,
@@ -151,7 +197,7 @@ async function main() {
         }
 
         fs.writeFileSync(outputPath, JSON.stringify(newRulesData, null, 4), 'utf8');
-        console.log(`Proceso completado. Mensajes de reglas mejorados en: ${path.basename(outputPath)}`);
+        console.log(`Proceso completado. Mensajes de reglas (Doble Hoja Automático) mejorados en: ${path.basename(outputPath)}`);
 
     } catch (err) {
         console.error('Error procesando archivos:', err);

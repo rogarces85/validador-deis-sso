@@ -6,7 +6,7 @@ Bienvenido al **Validador de Archivos REM del Servicio de Salud Osorno (SSO)**. 
 
 ## 1. Carga de Archivo y Validación Automática
 
-El uso del sistema comienza siempre desde la pantalla principal, que está diseñada para ser completamente intuitiva.
+El uso del sistema comienza siempre desde la pantalla principal, diseñada para ser completamente intuitiva y rápida, incluso en dispositivos móviles.
 
 <p align="center">
   <img src="images/validador_home.png" alt="Pantalla de Inicio del Validador" width="800"/>
@@ -20,54 +20,64 @@ El uso del sistema comienza siempre desde la pantalla principal, que está dise�
    *(Ejemplo: **123100A01.xlsm**)*
 2. **Arrastra el Excel (XLSX o XLSM)** hacia el recuadro punteado al centro de la pantalla, o simplemente haz clic sobre él para abrir tu explorador de archivos.
 3. El sistema **procesará automáticamente** las reglas de validación en tiempo real. 
-   *(Nota: Este procesamiento ocurre directamente en tu navegador; tus datos clínicos no son enviados a ningún servidor externo).*
+
+> [!NOTE]
+> **Privacidad Total**: El procesamiento ocurre 100% en su navegador. Sus datos clínicos **nunca** salen de su computador ni se envían a servidores externos.
 
 ---
 
-## 2. Lectura del Tablero de Resultados
+## 2. Niveles de Alerta y Severidad
 
-Una vez que el archivo es procesado, verás una pantalla detallada, separada en dos áreas principales: el **Resumen Superior** y la **Tabla de Hallazgos**.
+Para facilitar la priorización del trabajo, el sistema clasifica cada hallazgo en tres categorías visuales claras:
 
 <p align="center">
-  <img src="images/validador_results.png" alt="Pantalla de Resultados y Resumen" width="800"/>
+  <img src="images/validador_severity_legend.png" alt="Leyenda de Severidad" width="600"/>
 </p>
 
-### Resumen Superior (Dashboard)
-
-Aquí puedes confirmar rápidamente si todo fue procesado de forma correcta:
-- **Establecimiento y Serie:** Te confirmará a qué hospital o centro corresponden los datos, además del mes analizado.
-- **Nivel de Severidad:** Identifica de forma inmediata dónde poner atención:
-  - 🔴 **Error (Crítico):** Fallo obligatorio de corregir.
-  - 🟡 **Revisar:** Posible inconsistencia (debe verificarse según criterio clínico/estadístico).
-  - 🔵 **Indicador:** Información o advertencias menores que no detienen el flujo.
-
-### Tabla de Hallazgos
-
-En la parte inferior de los resultados verás el detalle de todas las alertas levantadas:
-1. En cada fila se detalla la **Hoja REM** (ej. A01), la **Regla incumplida** y una **Descripción** de lo que ocurre.
-2. Cada fila cuenta con un botón **"Ver Detalle"** al lado derecho. 
-3. Al hacer clic, se abrirá un panel lateral derecho explicándote con exactitud **qué celda del Excel** falló y una recomendación para solucionarlo.
+- 🔴 **ERROR**: Representa una falla estructural o lógica que **debe corregirse obligatoriamente**. Sin esta corrección, el DEIS rechazará la carga.
+- 🟡 **REVISAR**: Indica una posible inconsistencia (ej. valores atípicos). Requiere que el equipo de estadística verifique si el dato es correcto según la realidad clínica.
+- 🔵 **INDICADOR**: Sugerencias o advertencias menores que ayudan a mejorar la calidad del registro, pero no impiden el flujo.
 
 ---
 
-## 3. Exportar Resultados y Siguientes Pasos
+## 3. Análisis de Hallazgos y Detalle de Errores
 
-Una de las utilidades más prácticas del Validador es la posibilidad de descargar los errores detectados para trabajarlos cómodamente.
+Una vez procesado el archivo, la **Tabla de Hallazgos** muestra todas las alertas. Para entender un error específico, puede ver su detalle expandido.
 
 <p align="center">
-  <img src="images/validador_export.png" alt="Opciones de Exportación al finalizar" width="800"/>
+  <img src="images/validador_error_detail.png" alt="Detalle de Error Expandido" width="500"/>
+</p>
+
+### Cómo leer el detalle de un error:
+
+Cuando hace clic en **"Ver Detalle"**, se abre un panel lateral que le explica:
+- **Ubicación Exacta**: La hoja y la celda (ej. A03, Celda C129).
+- **Lógica de la Falla**: Una explicación humana de por qué falló la regla (ej. "El total no suma igual que sus partes").
+- **Acción Recomendada**: Instrucciones directas de qué corregir en su archivo Excel original.
+
+---
+
+## 4. Uso en Terreno (Vista Móvil)
+
+El validador es totalmente responsivo, lo que permite a los jefes de estadística o directivos revisar el estado de los archivos desde un smartphone o tablet durante reuniones o supervisiones en terreno.
+
+<p align="center">
+  <img src="images/validador_mobile_view.png" alt="Vista en Dispositivos Móviles" width="350"/>
+</p>
+
+---
+
+## 5. Exportar Resultados y Siguientes Pasos
+
+<p align="center">
+  <img src="images/validador_export.png" alt="Opciones de Exportación" width="800"/>
 </p>
 
 ### Exportar Reporte a Excel
-
-- Usa el botón verde **"Exportar a XLSX"** ubicado arriba de la tabla.
-- El sistema descargará un archivo Excel con todos los hallazgos en formato de lista.
-- Puedes enviar este documento al equipo encargado de las correcciones de estadística, facilitándoles la ubicación exacta de las celdas mal digitadas.
+Use el botón verde **"Exportar a XLSX"** para descargar una lista maestra de errores. Esto es ideal para enviarlo por correo o WhatsApp al equipo encargado de corregir la digitación.
 
 ### Validar Otro Archivo
-
-- Cuando hayas corregido el archivo original, o si deseas probar otra serie estadística (por ejemplo, pasar de la serie *A* a la *B*), haz clic en el botón azul suave **"Validar otro archivo"** ubicado en la esquina superior derecha. 
-- Volverás inmediatamente a la pantalla principal sin perder velocidad ni sobrecargar tu navegador.
+Cuando corrija su Excel, simplemente use el botón **"Validar otro archivo"** para volver a procesarlo y confirmar que los errores han desaparecido.
 
 ---
-*Si presentas problemas continuos con las validaciones, asegúrate de estar utilizando un archivo correspondiente a la última versión del año estadístico en curso o contacta al equipo de DEIS SSO.*
+*Desarrollado por el Equipo de Ingeniería Senior - 2026*

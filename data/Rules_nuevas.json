@@ -247,11 +247,11 @@
                 "id": "A01-VAL023",
                 "tipo": "CELDA",
                 "rem_sheet": "A01",
-                "expresion_1": "A05!C89",
+                "expresion_1": "SUM(C19:C26, F36:F38)",
                 "operador": "==",
-                "expresion_2": "SUM(C19:C26, F36:F38)",
+                "expresion_2": "A05!C89",
                 "severidad": "ERROR",
-                "mensaje": "REM A05 | SECCIÓN E:  INGRESOS  A CONTROL DE SALUD DE RECIÉN NACIDOS | C89 | REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | C19, C26, F36, F38. La expresión indica que [A05!C89] debe ser igual a [SUM(C19:C26, F36:F38)].",
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | C89 | C19, C26, F36, F38. | REM A05 | SECCIÓN E:  INGRESOS  A CONTROL DE SALUD DE RECIÉN NACIDOS  La expresión indica que [A05!C89] debe ser igual a [SUM(C19:C26, F36:F38)].",
                 "mensaje_original": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | A05, C89, C19, C26, F36, F38. La expresión indica que [A05!C89] debe ser igual a [SUM(C19:C26, F36:F38)]."
             },
             {
@@ -879,12 +879,12 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "establecimientos_excluidos": [
+                "aplicar_a": [
                     "123100",
                     "123101",
                     "123102"
                 ],
-                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | AM149, AM177 | La expresión indica que [AM149:AM177] la celda debe contener datos.",
+                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | AM149, AM177 | La expresión indica que [AM149:AM177] la celda debe contener datos .",
                 "mensaje_original": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL | AM149, AM177. La expresión indica que [AM149:AM177] NO debe contener datos para este establecimiento."
             }
         ],

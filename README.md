@@ -2,7 +2,7 @@
 
 Plataforma avanzada de validación y aseguramiento de calidad para archivos **REM (Resumen Estadístico Mensual)** del Servicio de Salud Osorno.
 
-## 📦 Repositorio
+## 📦 Repositorio y Configuración
 
 **GitHub:** [https://github.com/rogarces85/validador-deis-sso](https://github.com/rogarces85/validador-deis-sso)
 
@@ -17,12 +17,10 @@ npm run dev
 
 - **Soporte de Formatos:** Compatibilidad total con archivos `.xlsm` y `.xlsx`.
 - **Validación de Nomenclatura (Regla REM01):** Verificación estricta mediante el nombre del archivo: `CodEstab(6)Serie(1-2 caracteres)Mes(2).xlsx/xlsm`.
-- **Identificadores Reales:** Cruce automático con el catálogo oficial `establecimientos.txt` del DEIS (Hospitales, CESFAM, CECOSF, Postas, etc.).
-- **Motor de Reglas Dinámico:** Evalúa las normativas de revisión REM directamente sobre las celdas de Excel, soportando comprobaciones de blancos, vacíos, fórmulas SUM/UPPER o cruces entre hojas.
-- **Análisis de Severidad Simplificado:** Nueva clasificación de hallazgos en 3 estados unificados: *ERROR*, *REVISAR* e *INDICADOR*.
-- **Interfaz y Experiencia de Usuario (UI/UX):** Plataforma de alto estándar, responsiva (adaptable a PC, Tablet y Smartphone). Incluye layout maximizado, tarjetas resumen rediseñadas con tooltips informativos (morados) y un flujo de revisión visualmente pulido.
-- **Tabla de Hallazgos Eficiente:** Estructurada para priorizar información clave, mostrando el estado de validación por iconos nativos (✅/❌) y una acción directa de *Detalle*.
-- **Exportación:** Resultados consolidados exportables directamente a un reporte ordenado en **Excel** integrando la semántica de la revisión.
+- **Identificadores Reales:** Cruce automático con el catálogo oficial del DEIS.
+- **Motor de Reglas Dinámico:** Evalúa normativas REM directamente sobre celdas, soportando fórmulas complejas y cruces entre hojas (ej: `A03!L20 + A03!M20`).
+- **Análisis de Severidad:** Clasificación unificada en *ERROR*, *REVISAR* e *INDICADOR*.
+- **Interfaz Premium:** Diseño responsivo de alto estándar con visualización clara de hallazgos y exportación a Excel.
 
 ## 🛠️ Stack Tecnológico
 
@@ -32,36 +30,36 @@ npm run dev
 | **TypeScript** | Tipado estricto |
 | **Vite** | Build tool & dev server |
 | **SheetJS (XLSX)** | Lectura de archivos Excel en cliente |
-| **Tailwind CSS** | Estilos |
-| **Vitest** | Testing |
+| **Tailwind CSS** | Estilos y UI |
 
-## ⚙️ Arquitectura
+## 📂 Estructura del Proyecto (Limpia)
 
 ```
-├── components/         # Componentes UI (TopBar, FileDropzone, FindingsTable, etc.)
-├── services/           # Servicios core (ExcelService, RuleEngine, ExportService)
-├── src/
-│   ├── engine/         # Motor de reglas v2 (AST parser)
-│   ├── hooks/          # Custom hooks (useValidationPipeline)
-│   ├── modules/        # Módulos de validación
-│   ├── rules/          # Reglas JSON (schema + samples)
-│   └── utils/          # Utilidades (Excel reader, filename validator)
-├── App.tsx             # Componente principal
-├── types.ts            # Interfaces TypeScript
-└── constants.ts        # Datos estáticos (establecimientos, reglas)
+Validador2026/
+├── .agents/          # Skills y configuración de inteligencia artificial
+├── components/       # Componentes UI (FindingsTable, FileDropzone, etc.)
+├── data/             # Reglas de validación (Rules_nuevas.json) y catálogos
+├── docs/             # Manuales, documentación técnica y flujos de datos
+├── hooks/            # Lógica de estado y efectos (useValidationPipeline)
+├── scripts/          # Scripts utilitarios del sistema
+├── services/         # Servicios core (ExcelService, RuleEngine)
+├── tests/            # Tests de integración y calidad
+└── [archivos de configuración: Vite, TS, Tailwind, Package.json]
 ```
 
-## ⚙️ Funcionamiento del Motor
+## 🧠 Sistema de Habilidades (Skills)
 
-1. **Referencias Cruzadas:** `A03!L20 + A03!M20` (Valida datos entre diferentes hojas del REM).
-2. **Exclusiones Inteligentes:** Ciertas reglas solo se aplican según tipo de establecimiento o características específicas.
-3. **Identificador de Serie:** Si el archivo es serie "A", el motor ejecuta todas las validaciones de A01, A02, A19, etc.
+El proyecto cuenta con un sistema de **Skills** que automatizan tareas complejas:
+- `rem-validation-rules`: Gestión de lógica de reglas.
+- `agrupador-validaciones`: Organización de reglas por establecimiento.
+- `sincronizador-reglas`: Propagación de cambios desde el core.
+- `leer-manual-rem`: Extracción de definiciones desde PDFs oficiales.
+- *Consulta `docs/AYUDA_MEMORIA_SKILLS.md` para más información.*
 
 ## 📋 Requisitos de Uso
 
-- **Convención de Nombres:** `CodEstab(6)Serie(1-2)Mes(2)` + extensión.
-  - Ejemplo: `123207A01.xlsm`
-- **Privacidad:** 100% client-side. Ningún dato sensible es enviado a servidores.
+- **Convención de Nombres:** `CodEstab(6)Serie(1-2)Mes(2)` + extensión (ej: `123207A01.xlsm`).
+- **Privacidad:** Operación 100% en el cliente (navegador). No se envían datos sensibles a servidores externos.
 
 ---
-**Desarrollado por el Equipo de Ingeniería Senior - 2026**
+**Desarrollado con Estándares de Ingeniería Senior - 2026**

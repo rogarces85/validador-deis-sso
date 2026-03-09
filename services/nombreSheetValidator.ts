@@ -179,7 +179,7 @@ export class NombreSheetValidator {
             if (!catalogSet.has(codeString)) {
                 results.push(this.makeResult(
                     ruleIdBase, Severity.ERROR,
-                    `NOMBRE, ERROR: El ${codeLabel} resultante "${codeString}" (celdas ${cells.join('+')}) no corresponde a un ${entityLabel} válido del catálogo.`,
+                    `NOMBRE, ERROR: El ${codeLabel} resultante "${codeString}" (celdas ${cells.join('&')}) no corresponde a un ${entityLabel} válido del catálogo.`,
                     codeString, `Código de ${entityLabel} válido`, cells[0]
                 ));
             }
@@ -216,7 +216,7 @@ export class NombreSheetValidator {
             if (!VALID_MONTHS.has(monthCode)) {
                 results.push(this.makeResult(
                     'VAL_NOM07', Severity.ERROR,
-                    `NOMBRE, ERROR: El código de mes resultante "${monthCode}" (celdas ${cells.join('+')}) no corresponde a un mes válido (01-12).`,
+                    `NOMBRE, ERROR: El código de mes resultante "${monthCode}" (celdas ${cells.join('&')}) no corresponde a un mes válido (01-12).`,
                     monthCode, 'Mes válido (01-12)', cells[0]
                 ));
             }

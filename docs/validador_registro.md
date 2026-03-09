@@ -47,7 +47,7 @@
 
 ### VAL_NOM03
 - **Tipo:** CONCATENACIÓN
-- **Expresión 1:** `C2+D2+E2+F2+G2`
+- **Expresión 1:** `C2&D2&E2&F2&G2`
 - **Operador:** `IN catálogo`
 - **Expresión 2:** `communes (catalog)`
 - **Severidad:** ERROR
@@ -65,7 +65,7 @@
 
 ### VAL_NOM05
 - **Tipo:** CONCATENACIÓN
-- **Expresión 1:** `C3+D3+E3+F3+G3+H3`
+- **Expresión 1:** `C3&D3&E3&F3&G3&H3`
 - **Operador:** `IN catálogo`
 - **Expresión 2:** `establishments (catalog)`
 - **Severidad:** ERROR
@@ -83,11 +83,11 @@
 
 ### VAL_NOM07
 - **Tipo:** CONCATENACIÓN
-- **Expresión 1:** `C6+D6`
+- **Expresión 1:** `C6&D6`
 - **Operador:** `IN`
 - **Expresión 2:** `01-12`
 - **Severidad:** ERROR
-- **Mensaje:** El código de mes concatenado (C6+D6) debe ser un mes válido entre 01 y 12.
+- **Mensaje:** El código de mes concatenado (C6&D6) debe ser un mes válido entre 01 y 12.
 - **🔍 Detalle:** Concatena C6 y D6 para formar el código del mes (ej. "03"). Verifica que sea un mes válido del 01 al 12.
 
 ### VAL_NOM08

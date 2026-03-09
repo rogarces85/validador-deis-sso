@@ -50,8 +50,10 @@ export class NombreSheetValidator {
 
     /**
      * Run all NOMBRE sheet validations.
+     * @param fileEstablishmentCode El código de establecimiento extraído del nombre del archivo.
+     * @param fileMonth El mes extraído del nombre del archivo (ej. "03").
      */
-    public validate(): NombreValidationOutput {
+    public validate(fileEstablishmentCode?: string, fileMonth?: string): NombreValidationOutput {
         const results: ValidationResult[] = [];
         let versionError: string | null = null;
 
@@ -101,7 +103,8 @@ export class NombreSheetValidator {
         const estabCells = ['C3', 'D3', 'E3', 'F3', 'G3', 'H3'];
         const estabCodeResult = this.validateConcatenatedCode(
             estabCells, establishmentCodes, 'establecimiento',
-            'VAL_NOM05', 'código de establecimiento'
+            'VAL_NOM05', 'código de establecimiento',
+            fileEstablishmentCode
         );
         results.push(...estabCodeResult);
 
@@ -117,7 +120,7 @@ export class NombreSheetValidator {
 
         // ─── 7. MONTH CODE (C6,D6) ───
         const monthCells = ['C6', 'D6'];
-        const monthCodeResult = this.validateMonthCode(monthCells);
+        const monthCodeResult = this.validateMonthCode(monthCells, fileMonth);
         results.push(...monthCodeResult);
 
         // ─── 8. RESPONSIBLE NAME (B11) ───
@@ -152,7 +155,8 @@ export class NombreSheetValidator {
         catalogSet: Set<string>,
         entityLabel: string,
         ruleIdBase: string,
-        codeLabel: string
+        codeLabel: string,
+        fileEstablishmentCode?: string
     ): ValidationResult[] {
         const results: ValidationResult[] = [];
         let hasEmpty = false;
@@ -183,6 +187,15 @@ export class NombreSheetValidator {
                     codeString, `Código de ${entityLabel} válido`, cells[0]
                 ));
             }
+
+            // VAL_NOM10: Compare with file code if provided (only for establishment code)
+            if (ruleIdBase === 'VAL_NOM05' && fileEstablishmentCode && codeString !== fileEstablishmentCode) {
+                results.push(this.makeResult(
+                    'VAL_NOM10', Severity.ERROR,
+                    `NOMBRE, ERROR: El código de establecimiento en la hoja ("${codeString}") no coincide con el código del archivo ("${fileEstablishmentCode}").`,
+                    codeString, fileEstablishmentCode, cells[0]
+                ));
+            }
         }
 
         return results;
@@ -192,7 +205,7 @@ export class NombreSheetValidator {
      * Validate month code cells: each not empty, concatenated value is valid month 01-12.
      * Utiliza Skill_Excel_Concatenate
      */
-    private validateMonthCode(cells: string[]): ValidationResult[] {
+    private validateMonthCode(cells: string[], fileMonth?: string): ValidationResult[] {
         const results: ValidationResult[] = [];
         let hasEmpty = false;
 
@@ -218,6 +231,15 @@ export class NombreSheetValidator {
                     'VAL_NOM07', Severity.ERROR,
                     `NOMBRE, ERROR: El código de mes resultante "${monthCode}" (celdas ${cells.join('&')}) no corresponde a un mes válido (01-12).`,
                     monthCode, 'Mes válido (01-12)', cells[0]
+                ));
+            }
+
+            // VAL_NOM11: Compare with file month if provided
+            if (fileMonth && monthCode !== fileMonth) {
+                results.push(this.makeResult(
+                    'VAL_NOM11', Severity.ERROR,
+                    `NOMBRE, ERROR: El mes en la hoja ("${monthCode}") no coincide con el mes del archivo ("${fileMonth}").`,
+                    monthCode, fileMonth, cells[0]
                 ));
             }
         }

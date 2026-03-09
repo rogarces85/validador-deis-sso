@@ -1,6 +1,6 @@
 ---
 name: Agrupador de Validaciones por Establecimiento
-description: "Reestructura y agrupa las validaciones de rules.json discriminando por el tipo de establecimiento."
+description: "Reestructura y agrupa las validaciones de Rules_nuevas.json discriminando por el tipo de establecimiento."
 ---
 
 # Agrupador de Validaciones por Establecimiento

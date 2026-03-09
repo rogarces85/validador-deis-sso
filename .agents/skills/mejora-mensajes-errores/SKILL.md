@@ -1,11 +1,11 @@
 ---
 name: Mejora Mensajes Errores
-description: Enriquece automáticamente los mensajes de error en los archivos de reglas (rules.json) combinando la información leída del documento de secciones (secciones.md) y explicando la operación lógica de la validación.
+description: Enriquece automáticamente los mensajes de error en los archivos de reglas (Rules_nuevas.json) combinando la información leída del documento de secciones (secciones.md) y explicando la operación lógica de la validación.
 ---
 
 # Mejora Mensajes Errores
 
-Esta habilidad permite enriquecer los mensajes de error generados por el Validador DEIS SSO. Utiliza un script de Node.js para cruzar la expresión lógica contenida en cada regla de validación (por ejemplo, en `base.json`) con las secciones estructuradas extraídas en `secciones.md`. 
+Esta habilidad permite enriquecer los mensajes de error generados por el Validador DEIS SSO. Utiliza un script de Node.js para cruzar la expresión lógica contenida en cada regla de validación (por ejemplo, en `data/Rules_nuevas.json`) con las secciones estructuradas extraídas en `secciones.md`. 
 
 Con este cruce, compone un nuevo mensaje de error con un formato unificado y altamente descriptivo para el usuario final.
 

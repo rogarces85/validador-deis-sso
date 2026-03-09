@@ -11,7 +11,7 @@ Este documento sirve como referencia rápida para entender qué hace cada "Skill
 *   **Uso**: Cuando necesites definir la lógica técnica de una nueva validación en `Rules_nuevas.json`.
 
 ### 2. `agrupador-validaciones`
-*   **Propósito**: Reestructura y agrupa las reglas de `rules.json` discriminando por tipo de establecimiento (Hospital, CESFAM, etc.).
+*   **Propósito**: Reestructura y agrupa las reglas de `Rules_nuevas.json` discriminando por tipo de establecimiento (Hospital, CESFAM, etc.).
 *   **Uso**: Para mantener la jerarquía correcta en los archivos de reglas por establecimiento.
 
 ### 3. `sincronizador-reglas`
@@ -19,7 +19,7 @@ Este documento sirve como referencia rápida para entender qué hace cada "Skill
 *   **Uso**: Después de editar la "fuente de verdad" (`Rules_nuevas.json`) para propagar los cambios.
 
 ### 4. `mejora-mensajes-errores`
-*   **Propósito**: Enriquece los mensajes de error en `rules.json` usando información de `secciones.md`.
+*   **Propósito**: Enriquece los mensajes de error en `Rules_nuevas.json` usando información de `secciones.md`.
 *   **Uso**: Para que el usuario final entienda exactamente qué falló y por qué (lógica explicada).
 
 ---

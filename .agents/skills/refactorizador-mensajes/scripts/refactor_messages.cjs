@@ -5,30 +5,42 @@ const path = require('path');
 const rulesPath = path.join(process.cwd(), 'data', 'Rules_nuevas.json');
 const glosaPath = path.join(process.cwd(), 'glosa Serie a.xlsx');
 
+/**
+ * Filtro de caracteres ultra-restrictivo. 
+ * Solo permite caracteres en el rango 32-255 (Imprimibles básicos + Latin-1).
+ */
+function ultraClean(text) {
+    if (!text) return '';
+    let result = '';
+    const str = text.toString();
+    for (let i = 0; i < str.length; i++) {
+        const code = str.charCodeAt(i);
+        // Permitir solo caracteres imprimibles estándar y latinos comunes
+        if ((code >= 32 && code <= 126) || (code >= 160 && code <= 255)) {
+            result += str[i];
+        } else {
+            result += ' ';
+        }
+    }
+    return result.replace(/\s+/g, ' ').trim();
+}
+
 function cleanGlosa(glosa) {
-    if (!glosa) return { seccion: 'Desconocida', nombre: 'Sin descripción' };
+    const raw = ultraClean(glosa);
+    if (!raw) return { seccion: 'Desconocida', nombre: 'Sin descripción' };
 
-    // Limpieza agresiva de saltos de línea y caracteres invisibles
-    const normalized = glosa.toString().replace(/[\r\n\t]/g, ' ').replace(/\s+/g, ' ').trim();
-
-    // El separador suele ser " - " o simplemente "-"
-    const parts = normalized.split(/\s*-\s*/);
+    // Separar por guion
+    const parts = raw.split(/\s*-\s*/);
 
     if (parts.length >= 2) {
         const seccionRaw = parts[0];
         const seccionMatch = seccionRaw.match(/SECCIÓN\s+([A-Z0-9]+)/i);
         const seccionCode = seccionMatch ? seccionMatch[1] : seccionRaw;
-        const nombre = parts[parts.length - 1].trim();
-        return { seccion: seccionCode, nombre: nombre };
+        const nombre = parts[parts.length - 1];
+        return { seccion: ultraClean(seccionCode), nombre: ultraClean(nombre) };
     }
 
-    return { seccion: 'General', nombre: normalized };
-}
-
-function extractLine(cell) {
-    if (!cell) return null;
-    const match = cell.match(/\d+/);
-    return match ? match[0] : null;
+    return { seccion: 'General', nombre: raw };
 }
 
 function getInverseOperatorDescription(op, val2) {
@@ -61,14 +73,21 @@ async function refactorAllMessages() {
 
         for (const sheetName in rulesData.validaciones) {
             rulesData.validaciones[sheetName].forEach(rule => {
-                const line = extractLine(rule.expresion_1);
+                const match = rule.expresion_1.match(/\d+/);
+                const line = match ? match[0] : null;
                 const key = `${rule.rem_sheet}|${line}`;
                 const info = glosaMap.get(key) || { seccion: '?', nombre: 'Descripción no encontrada' };
 
                 const inverseCond = getInverseOperatorDescription(rule.operador, rule.expresion_2);
-                const newMsg = `REM ${rule.rem_sheet} | Seccion ${info.seccion}: La prestación '${info.nombre}' (${rule.expresion_1}) ${inverseCond}.`;
 
-                rule.mensaje = newMsg;
+                const rem = ultraClean(rule.rem_sheet);
+                const sec = ultraClean(info.seccion);
+                const nom = ultraClean(info.nombre);
+                const exp = ultraClean(rule.expresion_1);
+
+                const newMsg = `REM ${rem} | Seccion ${sec}: La prestación '${nom}' (${exp}) ${inverseCond}.`;
+
+                rule.mensaje = ultraClean(newMsg);
                 updateCount++;
             });
         }

@@ -72,7 +72,7 @@ export const useValidationPipeline = () => {
 
             // 3. Run NOMBRE sheet validations (before regular rules)
             const nombreValidator = new NombreSheetValidator();
-            const nombreOutput = nombreValidator.validate();
+            const nombreOutput = nombreValidator.validate(metadata.codigoEstablecimiento, metadata.mes);
 
             // 4. Run Rules
             const ruleEngine = new RuleEngineService();

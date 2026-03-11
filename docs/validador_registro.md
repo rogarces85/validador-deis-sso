@@ -99,14 +99,23 @@
 - **Mensaje:** El nombre del Responsable del Establecimiento (celda B11) no debe estar vacío.
 - **🔍 Detalle:** Valida que se haya ingresado el nombre del responsable del establecimiento en B11.
 
-### VAL_NOM09
-- **Tipo:** CELDA
-- **Expresión 1:** `B12`
-- **Operador:** `!=`
-- **Expresión 2:** `(vacío)`
+### VAL_NOM10
+- **Tipo:** COMPARACIÓN
+- **Expresión 1:** `VAL_NOM05 (Hoja)`
+- **Operador:** `==`
+- **Expresión 2:** `Código Archivo (Nombre)`
 - **Severidad:** ERROR
-- **Mensaje:** El nombre del Jefe de Estadística (celda B12) no debe estar vacío.
-- **🔍 Detalle:** Valida que se haya ingresado el nombre del jefe de estadística en B12.
+- **Mensaje:** El código de establecimiento en la hoja debe coincidir con el código del nombre del archivo.
+- **🔍 Detalle:** Verifica que el código DEIS resultante de la concatenación en la hoja NOMBRE sea idéntico al código extraído del nombre del archivo cargado.
+
+### VAL_NOM11
+- **Tipo:** COMPARACIÓN
+- **Expresión 1:** `VAL_NOM07 (Hoja)`
+- **Operador:** `==`
+- **Expresión 2:** `Mes Archivo (Nombre)`
+- **Severidad:** ERROR
+- **Mensaje:** El mes en la hoja debe coincidir con el mes del nombre del archivo.
+- **🔍 Detalle:** Verifica que el código de mes concatenado en la hoja NOMBRE sea idéntico al mes extraído del nombre del archivo cargado.
 
 ---
 

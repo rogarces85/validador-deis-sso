@@ -1,112 +1,49 @@
 {
     "validaciones": {
-        "A09": [
+        "A08": [
             {
-                "id": "A09-VAL001",
+                "id": "A08-VAL002",
+                "seccion_expresion_1": "SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad)",
                 "tipo": "CELDA",
-                "rem_sheet": "A09",
-                "expresion_1": "D16+D17",
-                "operador": "!=",
-                "expresion_2": 0,
-                "severidad": "REVISAR",
-                "mensaje": "REM A09 | SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN NIVEL PRIMARIO Y SECUNDARIO DE SALUD | La prestación 'CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN NIVEL PRIMARIO Y SECUNDARIO DE SALUD Consulta nueva de Operatoria de alta complejidad' (D16+D17) es igual a 0",
-                "aplicar_a": [
-                    "123000",
-                    "123100",
-                    "123101",
-                    "123102"
-                ]
+                "rem_sheet": "A08",
+                "expresion_1": "B13+B14",
+                "operador": "==",
+                "seccion_expresion_2": "SECCIÓN B.1: CATEGORIZACIÓN DE PACIENTES DE URGENCIA GINECO OBSTÉTRICA PREVIO A LA ATENCIÓN CLÍNICA POR MATRÓN (A) Y/O MÉDICO GINECO-OBSTETRA (Establecimientos alta, mediana y baja complejidad)",
+                "expresion_2": "B78",
+                "severidad": "ERROR",
+                "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Celdas (B13+B14) debe ser igual a | SECCIÓN B.1: CATEGORIZACIÓN DE PACIENTES DE URGENCIA GINECO OBSTÉTRICA PREVIO A LA ATENCIÓN CLÍNICA POR MATRÓN (A) Y/O MÉDICO GINECO-OBSTETRA (Establecimientos alta, mediana y baja complejidad) | celda (B78)",
+                "rem_sheet_2": "A08"
+            },
+            {
+                "id": "A08-VAL007",
+                "seccion_expresion_1": "SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad)",
+                "tipo": "CELDA",
+                "rem_sheet": "A08",
+                "expresion_1": "B13",
+                "operador": "<",
+                "seccion_expresion_2": "SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad)",
+                "expresion_2": "AS13",
+                "severidad": "ERROR",
+                "omitir_si_ambos_cero": true,
+                "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Celdas (B13) debe ser menor que | celda (AS13)",
+                "rem_sheet_2": "A08"
             }
         ],
-        "A11": [
+        "A30R": [
             {
-                "id": "A11-VAL001",
+                "id": "A30R-VAL001",
+                "seccion": "SECCION A1: TELEINTERCONSULTA DE ESPECIALIDAD MEDICA POR HOSPITAL DIGITAL",
                 "tipo": "CELDA",
-                "rem_sheet": "A11",
-                "expresion_1": "B13:C30",
+                "rem_sheet": "A30R",
+                "expresion_1": "B16:B17",
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A11 | SECCION A: TRATAMIENTO DE SÍFILIS EN GESTANTES | La prestación 'GESTANTES PRIMER TRIMESTRE EMBARAZO' (B13:C30) es igual a 0",
-                "aplicar_a": [
-                    "123000",
-                    "123100"
-                ]
-            },
-            {
-                "id": "A11-VAL002",
-                "tipo": "CELDA",
-                "rem_sheet": "A11",
-                "expresion_1": "C144:P148",
-                "operador": "!=",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM A11 | SECCION N: TRATAMIENTOS FAMACOLÓGICOS | La prestación 'USUARIOS' (C144:P148) es igual a 0",
-                "aplicar_a": [
-                    "123000",
-                    "123100"
-                ]
-            },
-            {
-                "id": "A11-VAL003",
-                "tipo": "CELDA",
-                "rem_sheet": "A11",
-                "expresion_1": "C152:P156",
-                "operador": "!=",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM A11 | SECCION N: TRATAMIENTOS FAMACOLÓGICOS | La prestación 'USUARIOS' (C152:P156) es igual a 0",
-                "aplicar_a": [
-                    "123000",
-                    "123100"
-                ],
+                "mensaje": "REM A30R |SECCION A1: TELEINTERCONSULTA DE ESPECIALIDAD MEDICA POR HOSPITAL DIGITAL Celdas (B16:B17) debe ser distinto de | celda (0)",
+                "rem_sheet_2": "A30R",
+                "seccion_expresion_1": "",
+                "seccion_expresion_2": "",
                 "omitir_si_v1_es_cero": true
-            },
-            {
-                "id": "A11-VAL004",
-                "tipo": "CELDA",
-                "rem_sheet": "A11",
-                "expresion_1": "C161:D183",
-                "operador": "!=",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "mensaje": "REM A11 | SECCION N: TRATAMIENTOS FAMACOLÓGICOS | La prestación 'GESTANTES PRIMER EXAMEN' (C161:D183) es igual a 0",
-                "aplicar_a": [
-                    "123000",
-                    "123100"
-                ]
-            }
-        ],
-        "A28": [
-            {
-                "id": "A28-VAL006",
-                "tipo": "CELDA",
-                "rem_sheet": "A28",
-                "expresion_1": "AM149:AM177",
-                "operador": ">=",
-                "expresion_2": 0,
-                "severidad": "REVISAR",
-                "aplicar_a": [
-                    "123100",
-                    "123101",
-                    "123102"
-                ],
-                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL | La prestación 'TOTAL INGRESO (N° DE PERSONAS)' (AM149:AM177) es menor que 0"
-            },
-            {
-                "id": "A28-VAL007",
-                "tipo": "CELDA",
-                "rem_sheet": "A28",
-                "expresion_1": "AM149:AM177",
-                "operador": "!=",
-                "expresion_2": 0,
-                "severidad": "ERROR",
-                "aplicar_a": [
-                    "123100",
-                    "123101",
-                    "123102"
-                ],
-                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL | La prestación 'TOTAL INGRESO (N° DE PERSONAS)' (AM149:AM177) es igual a 0"
             }
         ]
     }

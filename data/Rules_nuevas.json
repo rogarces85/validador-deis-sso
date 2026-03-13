@@ -109,7 +109,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (N12) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL007",
@@ -123,7 +124,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (N13) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL008",
@@ -137,7 +139,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (N14) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL009",
@@ -151,7 +154,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (N15) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL010",
@@ -165,7 +169,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (N16) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL011",
@@ -179,7 +184,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (O31) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL012",
@@ -193,7 +199,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (O32) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL013",
@@ -207,7 +214,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (P31) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL014",
@@ -221,7 +229,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (P32) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL015",
@@ -235,7 +244,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (Q31) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL016",
@@ -249,7 +259,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (Q32) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL017",
@@ -263,7 +274,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (R31) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL018",
@@ -277,7 +289,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (R32) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL019",
@@ -291,7 +304,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (S31) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL020",
@@ -305,7 +319,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (S32) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL021",
@@ -319,7 +334,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (T31) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL022",
@@ -333,7 +349,8 @@
                 "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (T32) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL023",
@@ -360,7 +377,8 @@
                 "mensaje": "REM A01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Celdas (F36) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A01-VAL024",
@@ -714,7 +732,8 @@
                 "mensaje": "REM A05 | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | Celdas (L11:N14) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A05",
                 "seccion_expresion_1": "SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A05-VAL002",
@@ -833,7 +852,8 @@
                 "mensaje": "REM A08 | SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR) | Celdas (C61:AL66) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR)",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A08-VAL006",
@@ -847,7 +867,8 @@
                 "mensaje": "REM A08 | SECCIÓN J: LLAMADOS DE URGENCIA A CENTRO REGULADOR, CENTRO DE DESPACHO O CENTRO COORDINADOR | Celdas (C161+D161) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN J: LLAMADOS DE URGENCIA A CENTRO REGULADOR, CENTRO DE DESPACHO O CENTRO COORDINADOR",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A08-VAL003",
@@ -873,7 +894,8 @@
                 "mensaje": "REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | Celdas (C171:F171) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia)",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A08-VAL004",
@@ -887,7 +909,8 @@
                 "mensaje": "REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | Celdas (C172:F174) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia)",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A08-VAL005",
@@ -907,7 +930,8 @@
                 "mensaje": "REM A08 | SECCIÓN M: TRASLADO SECUNDARIO (Desde un establecimiento a otro) | Celdas (E178:E183) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN M: TRASLADO SECUNDARIO (Desde un establecimiento a otro)",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             }
         ],
         "A09": [
@@ -929,7 +953,8 @@
                 "mensaje": "REM A09 | SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN  NIVEL PRIMARIO Y SECUNDARIO DE SALUD | Celdas (D16+D17) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A09",
                 "seccion_expresion_1": "SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN  NIVEL PRIMARIO Y SECUNDARIO DE SALUD",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             }
         ],
         "A11": [
@@ -949,7 +974,8 @@
                 "mensaje": "REM A11 | SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | Celdas (B13:C30) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A11",
                 "seccion_expresion_1": "SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN)",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A11-VAL002",
@@ -967,7 +993,8 @@
                 "mensaje": "REM A11 | SECCIÓN B.1: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | Celdas (C144:P148) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A11",
                 "seccion_expresion_1": "SECCIÓN B.1: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN)",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A11-VAL003",
@@ -1004,7 +1031,8 @@
                 "mensaje": "REM A11 | SECCIÓN C.1: EXÁMENES  DE  VIH POR GRUPOS DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | Celdas (C161:D183) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A11",
                 "seccion_expresion_1": "SECCIÓN C.1: EXÁMENES  DE  VIH POR GRUPOS DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN)",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             }
         ],
         "A19a": [
@@ -1175,7 +1203,8 @@
                 "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | Celdas (AM149:AM177) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A28",
                 "seccion_expresion_1": "SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             }
         ],
         "A29": [
@@ -1191,7 +1220,8 @@
                 "mensaje": "REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | Celdas (O12:P12) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A29",
                 "seccion_expresion_1": "SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             },
             {
                 "id": "A29-VAL002",
@@ -1205,7 +1235,8 @@
                 "mensaje": "REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | Celdas (M13:N13) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A29",
                 "seccion_expresion_1": "SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             }
         ],
         "A30R": [
@@ -1221,7 +1252,8 @@
                 "mensaje": "REM A30R |SECCION A1: TELEINTERCONSULTA DE ESPECIALIDAD MEDICA POR HOSPITAL DIGITAL Celdas (B16:B17) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A30R",
                 "seccion_expresion_1": "",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "omitir_si_v1_es_cero": true
             }
         ]
     }

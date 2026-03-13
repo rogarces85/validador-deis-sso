@@ -421,7 +421,7 @@
                 "seccion_expresion_2": "SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE",
                 "expresion_2": "B11",
                 "severidad": "ERROR",
-                "rem_sheet_ext": "A03",
+                "rem_sheet_ext": "A02",
                 "mensaje": "REM A03 | SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE  ALCOHOL, TABACO Y OTRAS DROGAS | Celdas (C108 + C110) debe ser igual a | SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE | celda (B11)"
             },
             {
@@ -431,7 +431,7 @@
                 "rem_sheet": "A03",
                 "expresion_1": "C113",
                 "operador": "==",
-                "rem_sheet_2": "A03",
+                "rem_sheet_2": "A02",
                 "seccion_expresion_2": "SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE",
                 "expresion_2": "E11 + F11",
                 "severidad": "ERROR",

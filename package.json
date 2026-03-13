@@ -1,7 +1,7 @@
 {
   "name": "validador-deis-sso-2026---react-edition",
   "private": true,
-  "version": "1.0.14",
+  "version": "1.0.15",
   "type": "module",
   "scripts": {
     "dev": "vite",

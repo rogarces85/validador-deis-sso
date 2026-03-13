@@ -9,7 +9,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion General: La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Médico/a' (F11) es distinto de 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Médico/a' (F11) es distinto de 0"
             },
             {
                 "id": "A01-VAL002",
@@ -19,7 +19,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion General: La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Matrona/ón' (F12) es distinto de 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Matrona/ón' (F12) es distinto de 0"
             },
             {
                 "id": "A01-VAL003",
@@ -29,7 +29,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion General: La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Médico/a' (M11) es distinto de 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Médico/a' (M11) es distinto de 0"
             },
             {
                 "id": "A01-VAL004",
@@ -39,7 +39,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion General: La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Matrona/ón' (M12) es distinto de 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Matrona/ón' (M12) es distinto de 0"
             },
             {
                 "id": "A01-VAL005",
@@ -49,7 +49,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion General: La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Médico/a' (N11) es distinto de 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Médico/a' (N11) es distinto de 0"
             },
             {
                 "id": "A01-VAL006",
@@ -59,7 +59,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion General: La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Matrona/ón' (N12) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA PreConcepcional Matrona/ón' (N12) es igual a 0"
             },
             {
                 "id": "A01-VAL007",
@@ -69,7 +69,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion General: La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA Prenatal Médico/a' (N13) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA Prenatal Médico/a' (N13) es igual a 0"
             },
             {
                 "id": "A01-VAL008",
@@ -79,7 +79,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion General: La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA Prenatal Matrona/ón' (N14) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA Prenatal Matrona/ón' (N14) es igual a 0"
             },
             {
                 "id": "A01-VAL009",
@@ -89,7 +89,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion General: La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA Post Parto Médico/a' (N15) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA Post Parto Médico/a' (N15) es igual a 0"
             },
             {
                 "id": "A01-VAL010",
@@ -99,7 +99,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion General: La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA Post Parto Matrona/ón' (N16) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA Post Parto Matrona/ón' (N16) es igual a 0"
             },
             {
                 "id": "A01-VAL011",
@@ -109,7 +109,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Médico/a' (O31) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Médico/a' (O31) es igual a 0"
             },
             {
                 "id": "A01-VAL012",
@@ -119,7 +119,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Matrona/ón' (O32) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Matrona/ón' (O32) es igual a 0"
             },
             {
                 "id": "A01-VAL013",
@@ -129,7 +129,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Médico/a' (P31) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Médico/a' (P31) es igual a 0"
             },
             {
                 "id": "A01-VAL014",
@@ -139,7 +139,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Matrona/ón' (P32) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Matrona/ón' (P32) es igual a 0"
             },
             {
                 "id": "A01-VAL015",
@@ -149,7 +149,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Médico/a' (Q31) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Médico/a' (Q31) es igual a 0"
             },
             {
                 "id": "A01-VAL016",
@@ -159,7 +159,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Matrona/ón' (Q32) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Matrona/ón' (Q32) es igual a 0"
             },
             {
                 "id": "A01-VAL017",
@@ -169,7 +169,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Médico/a' (R31) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Médico/a' (R31) es igual a 0"
             },
             {
                 "id": "A01-VAL018",
@@ -179,7 +179,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Matrona/ón' (R32) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Matrona/ón' (R32) es igual a 0"
             },
             {
                 "id": "A01-VAL019",
@@ -189,7 +189,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Médico/a' (S31) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Médico/a' (S31) es igual a 0"
             },
             {
                 "id": "A01-VAL020",
@@ -199,7 +199,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Matrona/ón' (S32) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Matrona/ón' (S32) es igual a 0"
             },
             {
                 "id": "A01-VAL021",
@@ -209,7 +209,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Médico/a' (T31) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Médico/a' (T31) es igual a 0"
             },
             {
                 "id": "A01-VAL022",
@@ -219,7 +219,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA: La prestación 'Matrona/ón' (T32) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | La prestación 'Matrona/ón' (T32) es igual a 0"
             },
             {
                 "id": "A01-VAL023",
@@ -229,7 +229,7 @@
                 "operador": "==",
                 "expresion_2": "A05!C89",
                 "severidad": "ERROR",
-                "mensaje": "REM A01 | Seccion General: La prestación 'CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA Puérpera con recién nacido hasta 10 días de vida Médico/a' (SUM(C19:C26, F36:F38)) es distinto de A05!C89."
+                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (SUM(C19:C26, F36:F38)) debe ser igual a | SECCIÓN E: INGRESOS A CONTROL DE SALUD DE RECIÉN NACIDOS | celda (A05!C89)"
             },
             {
                 "id": "A01-VAL024",
@@ -239,7 +239,7 @@
                 "operador": "<=",
                 "expresion_2": "T36:T38",
                 "severidad": "ERROR",
-                "mensaje": "REM A01 | Seccion ?: La prestación 'Descripción no encontrada' (C74) es mayor que T36:T38.",
+                "mensaje": "REM A01 | SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B) | Celdas (C74) debe ser menor o igual a | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | celda (T36:T38)",
                 "omitir_si_ambos_cero": true
             },
             {
@@ -250,7 +250,7 @@
                 "operador": "<=",
                 "expresion_2": "U36:U38",
                 "severidad": "ERROR",
-                "mensaje": "REM A01 | Seccion ?: La prestación 'Descripción no encontrada' (F74) es mayor que U36:U38.",
+                "mensaje": "REM A01 | SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B) | Celdas (F74) debe ser menor o igual a | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | celda (U36:U38)",
                 "omitir_si_ambos_cero": true
             },
             {
@@ -261,7 +261,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion CONTROLES DE SALUD SEGÚN CICLO VITAL: La prestación 'Médico/a' (F36) es igual a 0."
+                "mensaje": "REM A01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | La prestación 'Médico/a' (F36) es igual a 0"
             },
             {
                 "id": "A01-VAL027",
@@ -271,7 +271,7 @@
                 "operador": "==",
                 "expresion_2": "O36:O37",
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion ?: La prestación 'Descripción no encontrada' (A03!L20 + A03!M20) es distinto de O36:O37."
+                "mensaje": "REM A01 | Celdas (A03!L20 + A03!M20) debe ser igual a | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | celda (O36:O37)"
             },
             {
                 "id": "A01-VAL028",
@@ -281,7 +281,7 @@
                 "operador": "==",
                 "expresion_2": "A01!P36 + A01!P37",
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | Seccion ?: La prestación 'Descripción no encontrada' (A03!N20 + A03!O20) es distinto de A01!P36 + A01!P37."
+                "mensaje": "REM A01 | Celdas (A03!N20 + A03!O20) debe ser igual a | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | celda (A01!P36 + A01!P37)"
             }
         ],
         "A02": [
@@ -293,7 +293,7 @@
                 "operador": "==",
                 "expresion_2": "B21",
                 "severidad": "ERROR",
-                "mensaje": "REM A02 | Seccion ?: La prestación 'Descripción no encontrada' (B11) es distinto de B21."
+                "mensaje": "REM A02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | Celdas (B11) debe ser igual a | SECCIÓN B: EMP SEGÚN RESULTADO DEL ESTADO NUTRICIONAL | celda (B21)"
             },
             {
                 "id": "A02-VAL002",
@@ -303,7 +303,7 @@
                 "operador": "==",
                 "expresion_2": "C21",
                 "severidad": "ERROR",
-                "mensaje": "REM A02 | Seccion ?: La prestación 'Descripción no encontrada' (C11) es distinto de C21."
+                "mensaje": "REM A02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | Celdas (C11) debe ser igual a | SECCIÓN B: EMP SEGÚN RESULTADO DEL ESTADO NUTRICIONAL | celda (C21)"
             },
             {
                 "id": "A02-VAL003",
@@ -313,7 +313,7 @@
                 "operador": "==",
                 "expresion_2": "B11",
                 "severidad": "ERROR",
-                "mensaje": "REM A02 | Seccion ?: La prestación 'Descripción no encontrada' (A03!C108 + A03!C110) es distinto de B11.",
+                "mensaje": "REM A02 | Celdas (A03!C108 + A03!C110) debe ser igual a | SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE | celda (B11)",
                 "rem_sheet_ext": "A03"
             },
             {
@@ -324,7 +324,7 @@
                 "operador": "==",
                 "expresion_2": "E11 + F11",
                 "severidad": "ERROR",
-                "mensaje": "REM A02 | Seccion ?: La prestación 'Descripción no encontrada' (A03!C113) es distinto de E11 + F11.",
+                "mensaje": "REM A02 | Celdas (A03!C113) debe ser igual a | SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE | celda (E11 + F11)",
                 "rem_sheet_ext": "A03"
             }
         ],
@@ -337,7 +337,7 @@
                 "operador": "==",
                 "expresion_2": "C21:C36",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR: La prestación 'Aplicación test de Desarrrollo Psicomotor' (C20) es distinto de C21:C36."
+                "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Celdas (C20) debe ser igual a | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | celda (C21:C36)"
             },
             {
                 "id": "A03-VAL002",
@@ -347,7 +347,7 @@
                 "operador": "==",
                 "expresion_2": "C14:C15",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion APLICACIÓN Y RESULTADOS DE PAUTA BREVE: La prestación 'Aplicación Pauta Breve' (C13) es distinto de C14:C15."
+                "mensaje": "REM A03 | SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE | Celdas (C13) debe ser igual a | SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE | celda (C14:C15)"
             },
             {
                 "id": "A03-VAL003",
@@ -357,7 +357,7 @@
                 "operador": "==",
                 "expresion_2": "C55:C57",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion ?: La prestación 'Descripción no encontrada' (C54) es distinto de C55:C57."
+                "mensaje": "REM A03 | SECCIÓN A.4: RESULTADOS DE LA APLICACIÓN DE PROTOCOLO NEUROSENSORIAL | Celdas (C54) debe ser igual a | SECCIÓN A.4: RESULTADOS DE LA APLICACIÓN DE PROTOCOLO NEUROSENSORIAL | celda (C55:C57)"
             },
             {
                 "id": "A03-VAL004",
@@ -367,7 +367,7 @@
                 "operador": "==",
                 "expresion_2": "B46",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR: La prestación 'Normal con Rezago' (C22) es distinto de B46."
+                "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Celdas (C22) debe ser igual a | SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN | celda (B46)"
             },
             {
                 "id": "A03-VAL005",
@@ -377,7 +377,7 @@
                 "operador": "==",
                 "expresion_2": "B47",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR: La prestación 'Riesgo' (C23) es distinto de B47."
+                "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Celdas (C23) debe ser igual a | SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN | celda (B47)"
             },
             {
                 "id": "A03-VAL006",
@@ -387,7 +387,7 @@
                 "operador": "==",
                 "expresion_2": "B48",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR: La prestación 'Retraso' (C24) es distinto de B48."
+                "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Celdas (C24) debe ser igual a | SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN | celda (B48)"
             },
             {
                 "id": "A03-VAL007",
@@ -397,7 +397,7 @@
                 "operador": "==",
                 "expresion_2": "A05!C11",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion APLICACIÓN DE ESCALA SEGÚN EVALUACIÓN DE RIESGO PSICOSOCIAL ABREVIADA A GESTANTES: La prestación 'Evaluación al ingreso' (B86) es distinto de A05!C11."
+                "mensaje": "REM A03 | SECCIÓN B.2: APLICACIÓN DE ESCALA SEGÚN EVALUACIÓN DE RIESGO PSICOSOCIAL ABREVIADA A GESTANTES | Celdas (B86) debe ser igual a | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | celda (A05!C11)"
             },
             {
                 "id": "A03-VAL008",
@@ -407,7 +407,7 @@
                 "operador": "<=",
                 "expresion_2": "A01!(H36:H37)",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO: La prestación 'A los 2 meses' (C92) es mayor que A01!(H36:H37).",
+                "mensaje": "REM A03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Celdas (C92) debe ser menor o igual a | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | celda (A01!(H36:H37))",
                 "omitir_si_ambos_cero": true
             },
             {
@@ -418,7 +418,7 @@
                 "operador": "<=",
                 "expresion_2": "A01!(L36:L37)",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO: La prestación 'A los 6 meses' (C93) es mayor que A01!(L36:L37).",
+                "mensaje": "REM A03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Celdas (C93) debe ser menor o igual a | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | celda (A01!(L36:L37))",
                 "omitir_si_ambos_cero": true
             },
             {
@@ -429,7 +429,7 @@
                 "operador": "==",
                 "expresion_2": "A01!(T36:U38)",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion ?: La prestación 'Descripción no encontrada' (C97) es distinto de A01!(T36:U38)."
+                "mensaje": "REM A03 | SECCIÓN C: RESULTADOS DE LA EVALUACIÓN DEL ESTADO NUTRICIONAL DEL ADOLESCENTE CON CONTROL SALUD INTEGRAL | Celdas (C97) debe ser igual a | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | celda (A01!(T36:U38))"
             },
             {
                 "id": "A03-VAL011",
@@ -439,7 +439,7 @@
                 "operador": "==",
                 "expresion_2": "C115:C117",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE ALCOHOL, TABACO Y OTRAS DROGAS: La prestación 'Nº de Audit (EMP/EMPAM)' (C108:C114) es distinto de C115:C117."
+                "mensaje": "REM A03 | SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE ALCOHOL, TABACO Y OTRAS DROGAS | Celdas (C108:C114) debe ser igual a | SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE ALCOHOL, TABACO Y OTRAS DROGAS | celda (C115:C117)"
             },
             {
                 "id": "A03-VAL012",
@@ -449,7 +449,7 @@
                 "operador": "==",
                 "expresion_2": "C214+C215",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion APLICACIÓN DE PAUTA DETECCIÓN DE FACTORES DE RIESGO PSICOSOCIAL INFANTIL: La prestación 'Total de Aplicaciones Pauta de Riesgo Biopsicosocial en Control de Salud Infantil' (C213) es distinto de C214+C215."
+                "mensaje": "REM A03 | SECCION E: APLICACIÓN DE PAUTA DETECCIÓN DE FACTORES DE RIESGO BIOPSICOSOCIAL INFANTIL | Celdas (C213) debe ser igual a | SECCION E: APLICACIÓN DE PAUTA DETECCIÓN DE FACTORES DE RIESGO BIOPSICOSOCIAL INFANTIL | celda (C214+C215)"
             },
             {
                 "id": "A03-VAL013",
@@ -459,7 +459,7 @@
                 "operador": "==",
                 "expresion_2": "C67",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | Seccion General: La prestación 'TIPO DE ALIMENTACIÓN NIÑOS Y NIÑAS CONTROLADOS Lactancia Materna exclusiva (LME)' (C61:C66) es distinto de C67."
+                "mensaje": "REM A03 | SECCIÓN A.5: TIPO DE ALIMENTACIÓN NIÑOS Y NIÑAS CONTROLADOS | Celdas (C61:C66) debe ser igual a | SECCIÓN A.5: TIPO DE ALIMENTACIÓN NIÑOS Y NIÑAS CONTROLADOS | celda (C67)"
             }
         ],
         "A04": [
@@ -471,7 +471,7 @@
                 "operador": "==",
                 "expresion_2": "B135:B137",
                 "severidad": "ERROR",
-                "mensaje": "REM A04 | Seccion General: La prestación 'CONSULTAS DE PROFESIONALES NO MÉDICOS Nutricionista (Otras consultas)' (B39:B41) es distinto de B135:B137."
+                "mensaje": "REM A04 | SECCIÓN B: CONSULTAS DE PROFESIONALES NO MÉDICOS | Celdas (B39:B41) debe ser igual a | SECCIÓN K CLASIFICACIÓN DE CONSULTA NUTRICIONAL POR GRUPO DE EDAD (Incluidas en sección B) | celda (B135:B137)"
             },
             {
                 "id": "A04-VAL002",
@@ -481,7 +481,7 @@
                 "operador": "==",
                 "expresion_2": "C146:C149",
                 "severidad": "ERROR",
-                "mensaje": "REM A04 | Seccion General: La prestación 'CONSULTA DE LACTANCIA EN NIÑOS Y NIÑAS CONTROLADOS Consulta de Lactancia Consulta Lactancia Materna de alerta' (C141:C143) es distinto de C146:C149."
+                "mensaje": "REM A04 | SECCIÓN L: CONSULTA DE LACTANCIA EN NIÑOS Y NIÑAS CONTROLADOS | Celdas (C141:C143) debe ser igual a | SECCIÓN L: CONSULTA DE LACTANCIA EN NIÑOS Y NIÑAS CONTROLADOS | celda (C146:C149)"
             },
             {
                 "id": "A04-VAL003",
@@ -491,7 +491,7 @@
                 "operador": "==",
                 "expresion_2": "E114+F114",
                 "severidad": "ERROR",
-                "mensaje": "REM A04 | Seccion General: La prestación 'DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS Crónica' (C114+D114) es distinto de E114+F114."
+                "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | Celdas (C114+D114) debe ser igual a | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | celda (E114+F114)"
             },
             {
                 "id": "A04-VAL004",
@@ -501,7 +501,7 @@
                 "operador": "==",
                 "expresion_2": "E115+F115",
                 "severidad": "ERROR",
-                "mensaje": "REM A04 | Seccion General: La prestación 'DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS Morbilidad' (C115+D115) es distinto de E115+F115."
+                "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | Celdas (C115+D115) debe ser igual a | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | celda (E115+F115)"
             },
             {
                 "id": "A04-VAL005",
@@ -511,7 +511,7 @@
                 "operador": "==",
                 "expresion_2": "E116+F116",
                 "severidad": "ERROR",
-                "mensaje": "REM A04 | Seccion General: La prestación 'DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS Bajo control legal' (C116+D116) es distinto de E116+F116."
+                "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | Celdas (C116+D116) debe ser igual a | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | celda (E116+F116)"
             },
             {
                 "id": "A04-VAL006",
@@ -521,7 +521,7 @@
                 "operador": ">=",
                 "expresion_2": "L114",
                 "severidad": "ERROR",
-                "mensaje": "REM A04 | Seccion General: La prestación 'DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS Crónica' (M114) es menor que L114.",
+                "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | Celdas (M114) debe ser mayor o igual a | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | celda (L114)",
                 "omitir_si_ambos_cero": true
             }
         ],
@@ -534,7 +534,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A05 | Seccion General: La prestación 'INGRESOS DE GESTANTES A PROGRAMA PRENATAL Gestantes Ingresadas' (L11:N14) es igual a 0."
+                "mensaje": "REM A05 | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | La prestación 'INGRESOS DE GESTANTES A PROGRAMA PRENATAL Gestantes Ingresadas' (L11:N14) es igual a 0"
             },
             {
                 "id": "A05-VAL002",
@@ -544,7 +544,7 @@
                 "operador": "<=",
                 "expresion_2": "C120:C127",
                 "severidad": "ERROR",
-                "mensaje": "REM A05 | Seccion INGRESOS DEL PSCV: La prestación 'Ingresos al PSCV' (C119) es mayor que C120:C127.",
+                "mensaje": "REM A05 | SECCIÓN H: INGRESOS AL PROGRAMA DE SALUD CARDIOVASCULAR (PSCV) | Celdas (C119) debe ser menor o igual a | SECCIÓN H: INGRESOS AL PROGRAMA DE SALUD CARDIOVASCULAR (PSCV) | celda (C120:C127)",
                 "omitir_si_ambos_cero": true
             },
             {
@@ -555,7 +555,7 @@
                 "operador": ">",
                 "expresion_2": "C162",
                 "severidad": "ERROR",
-                "mensaje": "REM A05 | Seccion INGRESOS Y EGRESOS AL PROGRAMA DE PACIENTES CON DEPENDENCIA LEVE, MODERADA Y SEVERA: La prestación 'Dependencia Leve' (AF146:AM150) es menor o igual a C162.",
+                "mensaje": "REM A05 | SECCIÓN J: INGRESOS Y EGRESOS AL PROGRAMA DE PACIENTES CON DEPENDENCIA LEVE, MODERADA Y SEVERA | Celdas (AF146:AM150) debe ser mayor que | SECCIÓN K: INGRESOS AL PROGRAMA DEL ADULTO MAYOR SEGÚN CONDICIÓN DE FUNCIONALIDAD Y DEPENDENCIA | celda (C162)",
                 "omitir_si_ambos_cero": true
             },
             {
@@ -566,7 +566,7 @@
                 "operador": "==",
                 "expresion_2": "C204",
                 "severidad": "REVISAR",
-                "mensaje": "REM A05 | Seccion INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD: La prestación 'INGRESOS AL PROGRAMA' (C193) es distinto de C204."
+                "mensaje": "REM A05 | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | Celdas (C193) debe ser igual a | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | celda (C204)"
             },
             {
                 "id": "A05-VAL005",
@@ -576,7 +576,7 @@
                 "operador": "<=",
                 "expresion_2": "C205:C241",
                 "severidad": "ERROR",
-                "mensaje": "REM A05 | Seccion INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD: La prestación 'PERSONAS CON DIAGNÓSTICOS DE TRASTORNOS MENTALES' (C204) es mayor que C205:C241.",
+                "mensaje": "REM A05 | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | Celdas (C204) debe ser menor o igual a | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | celda (C205:C241)",
                 "omitir_si_ambos_cero": true
             }
         ],
@@ -589,7 +589,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A08 | Seccion CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA Y ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAR y SAPU): La prestación 'C1' (C61:AL66) es igual a 0.",
+                "mensaje": "REM A08 | SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR) | La prestación 'C1' (C61:AL66) es igual a 0",
                 "establecimientos_excluidos": [
                     "123000",
                     "123100",
@@ -620,7 +620,7 @@
                 "operador": "==",
                 "expresion_2": "B78",
                 "severidad": "ERROR",
-                "mensaje": "REM A08 | Seccion ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA DE ALTA, MEDIANA COMPLEJIDAD (UEH): La prestación 'OBSTETRA' (B13+B14) es distinto de B78."
+                "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Celdas (B13+B14) debe ser igual a | SECCIÓN B.1: CATEGORIZACIÓN DE PACIENTES DE URGENCIA GINECO OBSTÉTRICA PREVIO A LA ATENCIÓN CLÍNICA POR MATRÓN (A) Y/O MÉDICO GINECO-OBSTETRA (Establecimientos alta, mediana y baja complejidad) | celda (B78)"
             },
             {
                 "id": "A08-VAL003",
@@ -630,7 +630,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A08 | Seccion TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia): La prestación 'BASICO' (C171:F171) es igual a 0.",
+                "mensaje": "REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | La prestación 'BASICO' (C171:F171) es igual a 0",
                 "establecimientos_excluidos": [
                     "123000",
                     "123102",
@@ -652,7 +652,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A08 | Seccion TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia): La prestación 'TERRESTRE' (C172:F174) es igual a 0."
+                "mensaje": "REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | La prestación 'TERRESTRE' (C172:F174) es igual a 0"
             },
             {
                 "id": "A08-VAL005",
@@ -662,7 +662,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A08 | Seccion TRASLADO SECUNDARIO (Desde un Establecimiento a Otro): La prestación 'Aéreo' (E178:E183) es igual a 0.",
+                "mensaje": "REM A08 | SECCIÓN M: TRASLADO SECUNDARIO (Desde un establecimiento a otro) | La prestación 'Aéreo' (E178:E183) es igual a 0",
                 "establecimientos_excluidos": [
                     "123010"
                 ],
@@ -678,7 +678,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A08 | Seccion LLAMADOS DE URGENCIA A CENTRO REGULADOR, CENTRO DE DESPACHO O CENTRO COORDINADOR: La prestación 'Nº de llamados de urgencia' (C161+D161) es igual a 0."
+                "mensaje": "REM A08 | SECCIÓN J: LLAMADOS DE URGENCIA A CENTRO REGULADOR, CENTRO DE DESPACHO O CENTRO COORDINADOR | La prestación 'Nº de llamados de urgencia' (C161+D161) es igual a 0"
             },
             {
                 "id": "A08-VAL007",
@@ -688,7 +688,7 @@
                 "operador": "<",
                 "expresion_2": "AS13",
                 "severidad": "ERROR",
-                "mensaje": "REM A08 | Seccion ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA DE ALTA, MEDIANA COMPLEJIDAD (UEH): La prestación 'OBSTETRA' (B13) es mayor o igual a AS13.",
+                "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Celdas (B13) debe ser menor que | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | celda (AS13)",
                 "omitir_si_ambos_cero": true
             }
         ],
@@ -702,7 +702,7 @@
                 "expresion_2": "O129:O148",
                 "omitir_si_v1_es_cero": true,
                 "severidad": "ERROR",
-                "mensaje": "REM A19a | Seccion ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES: La prestación 'COMUNAS, COMUNIDADES.' (C129:C148) es mayor que O129:O148."
+                "mensaje": "REM A19a | ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | Celdas (C129:C148) debe ser menor o igual a | celda (O129:O148)"
             }
         ],
         "A19b": [
@@ -714,7 +714,7 @@
                 "operador": "==",
                 "expresion_2": "E11:I11",
                 "severidad": "REVISAR",
-                "mensaje": "REM A19b | Seccion ?: La prestación 'Descripción no encontrada' (B11) es distinto de E11:I11."
+                "mensaje": "REM A19b | Celdas (B11) debe ser igual a | celda (E11:I11)"
             }
         ],
         "A27": [
@@ -727,7 +727,7 @@
                 "expresion_2": "D98",
                 "omitir_si_v1_es_cero": true,
                 "severidad": "REVISAR",
-                "mensaje": "REM A27 | Seccion ?: La prestación 'Descripción no encontrada' (D53) es menor que D98."
+                "mensaje": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | Celdas (D53) debe ser mayor o igual a | SECCIÓN B: ACTIVIDADES DE EDUCACIÓN PARA LA SALUD SEGÚN PERSONAL QUE LAS REALIZA (SESIONES) | celda (D98)"
             },
             {
                 "id": "A27-VAL002",
@@ -738,7 +738,7 @@
                 "expresion_2": "Y23:AA23",
                 "omitir_si_v1_es_cero": true,
                 "severidad": "REVISAR",
-                "mensaje": "REM A27 | Seccion PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD: La prestación 'PREPARACIÓN PARTO Y OTROS)' (D23) es menor que Y23:AA23."
+                "mensaje": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | Celdas (D23) debe ser mayor o igual a | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | celda (Y23:AA23)"
             }
         ],
         "A28": [
@@ -750,7 +750,7 @@
                 "operador": "<=",
                 "expresion_2": "B61",
                 "severidad": "ERROR",
-                "mensaje": "REM A28 | Seccion INGRESOS Y EGRESOS AL PROGRAMA DE REHABILITACIÓN EN EL NIVEL PRIMARIO: La prestación 'INGRESOS' (B13) es mayor que B61.",
+                "mensaje": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | Celdas (B13) debe ser menor o igual a | SECCIÓN A.3: EVALUACIÓN INICIAL | celda (B61)",
                 "omitir_si_ambos_cero": true
             },
             {
@@ -761,7 +761,7 @@
                 "operador": ">=",
                 "expresion_2": "B14",
                 "severidad": "ERROR",
-                "mensaje": "REM A28 | Seccion INGRESOS Y EGRESOS AL PROGRAMA DE REHABILITACIÓN EN EL NIVEL PRIMARIO: La prestación 'INGRESOS' (B13) es menor que B14.",
+                "mensaje": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | Celdas (B13) debe ser mayor o igual a | SECCIÓN A.1: INGRESOS Y EGRESOS A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | celda (B14)",
                 "omitir_si_ambos_cero": true
             },
             {
@@ -772,7 +772,7 @@
                 "operador": ">=",
                 "expresion_2": "B15",
                 "severidad": "ERROR",
-                "mensaje": "REM A28 | Seccion INGRESOS Y EGRESOS AL PROGRAMA DE REHABILITACIÓN EN EL NIVEL PRIMARIO: La prestación 'INGRESOS' (B13) es menor que B15.",
+                "mensaje": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | Celdas (B13) debe ser mayor o igual a | SECCIÓN A.1: INGRESOS Y EGRESOS A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | celda (B15)",
                 "omitir_si_ambos_cero": true
             },
             {
@@ -783,7 +783,7 @@
                 "operador": "<=",
                 "expresion_2": "B30:B52",
                 "severidad": "ERROR",
-                "mensaje": "REM A28 | Seccion INGRESOS POR CONDICIÓN DE SALUD: La prestación 'TOTAL INGRESO (N° DE PERSONAS)' (B29) es mayor que B30:B52.",
+                "mensaje": "REM A28 | SECCIÓN A.2: INGRESOS POR CONDICIÓN DE SALUD | Celdas (B29) debe ser menor o igual a | SECCIÓN A.2: INGRESOS POR CONDICIÓN DE SALUD | celda (B30:B52)",
                 "omitir_si_ambos_cero": true
             },
             {
@@ -794,7 +794,7 @@
                 "operador": "<=",
                 "expresion_2": "B150:B177",
                 "severidad": "ERROR",
-                "mensaje": "REM A28 | Seccion INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL: La prestación 'TOTAL INGRESO (N° DE PERSONAS)' (B149) es mayor que B150:B177.",
+                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL | Celdas (B149) debe ser menor o igual a | SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL | celda (B150:B177)",
                 "omitir_si_ambos_cero": true
             }
         ],
@@ -807,7 +807,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A29 | Seccion General: La prestación 'PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD Consultas médicas de especialidades Oftalmología/UAPO' (O12:P12) es igual a 0."
+                "mensaje": "REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | La prestación 'PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD Consultas médicas de especialidades Oftalmología/UAPO' (O12:P12) es igual a 0"
             },
             {
                 "id": "A29-VAL002",
@@ -817,7 +817,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A29 | Seccion General: La prestación 'PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD Consultas médicas de especialidades Otorrinolaringología/UAPORRINO' (M13:N13) es igual a 0."
+                "mensaje": "REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | La prestación 'PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD Consultas médicas de especialidades Otorrinolaringología/UAPORRINO' (M13:N13) es igual a 0"
             }
         ],
         "A30": [
@@ -829,7 +829,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A30R | Seccion ?: La prestación 'Descripción no encontrada' (B16:B17) es igual a 0."
+                "mensaje": "REM A30R | La prestación 'Descripción no encontrada' (B16:B17) es igual a 0"
             }
         ]
     }

@@ -9,7 +9,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A09 | Seccion General: La prestación 'CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN NIVEL PRIMARIO Y SECUNDARIO DE SALUD Consulta nueva de Operatoria de alta complejidad' (D16+D17) es igual a 0.",
+                "mensaje": "REM A09 | SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN NIVEL PRIMARIO Y SECUNDARIO DE SALUD | La prestación 'CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN NIVEL PRIMARIO Y SECUNDARIO DE SALUD Consulta nueva de Operatoria de alta complejidad' (D16+D17) es igual a 0",
                 "aplicar_a": [
                     "123000",
                     "123100",
@@ -27,7 +27,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A11 | Seccion EXAMEN VDRL POR GRUPO DE USUARIOS (Uso exclusivo de establecimientos con Laboratorio que procesan): La prestación 'GESTANTES PRIMER TRIMESTRE EMBARAZO' (B13:C30) es igual a 0.",
+                "mensaje": "REM A11 | SECCION A: TRATAMIENTO DE SÍFILIS EN GESTANTES | La prestación 'GESTANTES PRIMER TRIMESTRE EMBARAZO' (B13:C30) es igual a 0",
                 "aplicar_a": [
                     "123000",
                     "123100"
@@ -41,7 +41,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A11 | Seccion EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (Uso exclusivo de establecimientos con Laboratorio que procesan): La prestación 'USUARIOS' (C144:P148) es igual a 0.",
+                "mensaje": "REM A11 | SECCION N: TRATAMIENTOS FAMACOLÓGICOS | La prestación 'USUARIOS' (C144:P148) es igual a 0",
                 "aplicar_a": [
                     "123000",
                     "123100"
@@ -55,7 +55,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A11 | Seccion EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (Uso exclusivo de establecimientos que Compran Servicio): La prestación 'USUARIOS' (C152:P156) es igual a 0.",
+                "mensaje": "REM A11 | SECCION N: TRATAMIENTOS FAMACOLÓGICOS | La prestación 'USUARIOS' (C152:P156) es igual a 0",
                 "aplicar_a": [
                     "123000",
                     "123100"
@@ -70,7 +70,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A11 | Seccion EXÁMENES DE VIH POR GRUPOS DE USUARIOS (Uso exclusivo de establecimientos con Laboratorio que procesan): La prestación 'GESTANTES PRIMER EXAMEN' (C161:D183) es igual a 0.",
+                "mensaje": "REM A11 | SECCION N: TRATAMIENTOS FAMACOLÓGICOS | La prestación 'GESTANTES PRIMER EXAMEN' (C161:D183) es igual a 0",
                 "aplicar_a": [
                     "123000",
                     "123100"
@@ -91,7 +91,7 @@
                     "123101",
                     "123102"
                 ],
-                "mensaje": "REM A28 | Seccion INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL: La prestación 'TOTAL INGRESO (N° DE PERSONAS)' (AM149:AM177) es menor que 0."
+                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL | La prestación 'TOTAL INGRESO (N° DE PERSONAS)' (AM149:AM177) es menor que 0"
             },
             {
                 "id": "A28-VAL007",
@@ -106,7 +106,7 @@
                     "123101",
                     "123102"
                 ],
-                "mensaje": "REM A28 | Seccion INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL: La prestación 'TOTAL INGRESO (N° DE PERSONAS)' (AM149:AM177) es igual a 0."
+                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL | La prestación 'TOTAL INGRESO (N° DE PERSONAS)' (AM149:AM177) es igual a 0"
             }
         ]
     }

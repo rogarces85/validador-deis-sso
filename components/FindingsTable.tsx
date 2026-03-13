@@ -15,40 +15,97 @@ const STATUS_OPTIONS: { key: 'ALL' | 'PASS' | 'FAIL'; label: string }[] = [
     { key: 'FAIL', label: 'Fallidos' },
 ];
 
+type MessagePartType = 'rem' | 'section' | 'text' | 'separator';
+
+interface MessagePart {
+    value: string;
+    type: MessagePartType;
+}
+
+const REM_TOKEN_REGEX = /\bREM\s+[A-Z0-9]+\b/i;
+const SECTION_TOKEN_REGEX = /\bSECCI[ÓO]N(?:\s+[A-Z0-9.]+)?\s*:[^|,]+|\bSECCI[ÓO]N\s+[A-Z0-9.]+/i;
+const INLINE_TOKEN_REGEX = /\bREM\s+[A-Z0-9]+\b|\bSECCI[ÓO]N(?:\s+[A-Z0-9.]+)?\s*:[^|,]+|\bSECCI[ÓO]N\s+[A-Z0-9.]+/gi;
+
+const classifyPart = (part: string): MessagePartType => {
+    if (SECTION_TOKEN_REGEX.test(part)) return 'section';
+    if (REM_TOKEN_REGEX.test(part)) return 'rem';
+    return 'text';
+};
+
+const tokenizePipeMessage = (descripcion: string): MessagePart[] => {
+    const parts = descripcion
+        .split('|')
+        .map(p => p.trim())
+        .filter(Boolean);
+
+    if (parts.length <= 1) return [{ value: descripcion, type: 'text' }];
+
+    const tokens: MessagePart[] = [];
+    parts.forEach((part, index) => {
+        tokens.push({ value: part, type: classifyPart(part) });
+        if (index < parts.length - 1) tokens.push({ value: '|', type: 'separator' });
+    });
+    return tokens;
+};
+
+const tokenizeInlineMessage = (descripcion: string): MessagePart[] => {
+    const tokens: MessagePart[] = [];
+    let lastIndex = 0;
+
+    for (const match of descripcion.matchAll(INLINE_TOKEN_REGEX)) {
+        if (match.index === undefined) continue;
+        const start = match.index;
+        const token = match[0];
+
+        if (start > lastIndex) {
+            tokens.push({ value: descripcion.slice(lastIndex, start), type: 'text' });
+        }
+
+        tokens.push({ value: token, type: classifyPart(token) });
+        lastIndex = start + token.length;
+    }
+
+    if (lastIndex < descripcion.length) {
+        tokens.push({ value: descripcion.slice(lastIndex), type: 'text' });
+    }
+
+    return tokens.length > 0 ? tokens : [{ value: descripcion, type: 'text' }];
+};
+
 const renderDescripcionFormatted = (descripcion: string) => {
     if (!descripcion) return '';
-    const parts = descripcion.split('|');
 
-    // Si tiene 6 partes (5 pipes), es un mensaje de doble hoja:
-    // REM A01 | SECCIÓN 1 | Celdas | REM A05 | SECCIÓN 2 | Celdas. La expresión...
-    if (parts.length === 6) {
-        return (
-            <>
-                <span className="font-bold" style={{ color: 'var(--text-primary)' }}>{parts[0]}|</span>
-                <span className="font-bold" style={{ color: '#10b981' }}>{parts[1]}|</span>
-                <span>{parts[2]}|</span>
-                <span className="font-bold" style={{ color: 'var(--text-primary)' }}>{parts[3]}|</span>
-                <span className="font-bold" style={{ color: '#10b981' }}>{parts[4]}|</span>
-                <span>{parts[5]}</span>
-            </>
-        );
-    }
-    // Si tiene 3 o más partes, es un mensaje de una hoja u otro formato
-    else if (parts.length >= 3) {
-        const part1 = parts[0];
-        const part2 = parts[1];
-        const part3 = parts.slice(2).join('|');
+    const tokens = descripcion.includes('|')
+        ? tokenizePipeMessage(descripcion)
+        : tokenizeInlineMessage(descripcion);
 
-        return (
-            <>
-                <span className="font-bold" style={{ color: 'var(--text-primary)' }}>{part1}|</span>
-                <span className="font-bold" style={{ color: '#10b981' }}>{part2}|</span>
-                <span>{part3}</span>
-            </>
-        );
-    }
+    return (
+        <>
+            {tokens.map((token, index) => {
+                if (token.type === 'separator') {
+                    return <span key={`sep-${index}`} className="mx-1" style={{ color: 'var(--text-muted)' }}>|</span>;
+                }
 
-    return descripcion;
+                if (token.type === 'rem') {
+                    return (
+                        <span key={`rem-${index}`} className="font-bold" style={{ color: 'var(--text-primary)' }}>
+                            {token.value}
+                        </span>
+                    );
+                }
+
+                if (token.type === 'section') {
+                    return (
+                        <span key={`sec-${index}`} className="font-bold" style={{ color: '#10b981' }}>
+                            {token.value}
+                        </span>
+                    );
+                }
+
+                return <span key={`txt-${index}`}>{token.value}</span>;
+            })}
+        </>
+    );
 };
 
 const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding }) => {

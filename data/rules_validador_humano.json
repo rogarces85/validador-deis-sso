@@ -12,7 +12,7 @@
                 "seccion_expresion_2": "SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR",
                 "expresion_2": "O36:O37",
                 "severidad": "REVISAR",
-                "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Celdas (L20 + M20) debe ser igual a | celda (O36:O37)"
+                "mensaje": "En REM A03, SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR, la operación (L20 + M20) debe ser igual a rango O36:O37 en SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR. Revise y ajuste los valores informados."
             },
             {
                 "id": "A01-VAL028",
@@ -25,7 +25,7 @@
                 "seccion_expresion_2": "SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL",
                 "expresion_2": "P36 + P37",
                 "severidad": "REVISAR",
-                "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Celdas (N20 + O20) debe ser igual a | REM A01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | celda (P36 + P37)"
+                "mensaje": "En REM A03, SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR, la operación (N20 + O20) debe ser igual a operación (P36 + P37) en REM A01 - SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL. Revise y ajuste los valores informados."
             },
             {
                 "id": "A01-VAL001",
@@ -36,7 +36,7 @@
                 "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (F11) debe ser igual a | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda F11 debe ser igual a 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -50,7 +50,7 @@
                 "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (F12) debe ser igual a | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda F12 debe ser igual a 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -64,7 +64,7 @@
                 "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (M11) debe ser igual a | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda M11 debe ser igual a 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -78,7 +78,7 @@
                 "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (M12) debe ser igual a | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda M12 debe ser igual a 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -92,7 +92,7 @@
                 "operador": "==",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (N11) debe ser igual a | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda N11 debe ser igual a 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -106,7 +106,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (N12) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda N12 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -120,7 +120,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (N13) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda N13 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -134,7 +134,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (N14) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda N14 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -148,7 +148,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (N15) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda N15 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -162,7 +162,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (N16) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda N16 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -176,7 +176,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (O31) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda O31 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -190,7 +190,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (O32) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda O32 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -204,7 +204,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (P31) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda P31 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -218,7 +218,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (P32) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda P32 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -232,7 +232,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (Q31) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda Q31 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -246,7 +246,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (Q32) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda Q32 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -260,7 +260,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (R31) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda R31 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -274,7 +274,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (R32) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda R32 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -288,7 +288,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (S31) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda S31 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -302,7 +302,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (S32) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda S32 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -316,7 +316,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (T31) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda T31 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -330,7 +330,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (T32) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la celda T32 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -346,7 +346,7 @@
                 "seccion_expresion_2": "SECCIÓN E:  INGRESOS  A CONTROL DE SALUD DE RECIÉN NACIDOS",
                 "expresion_2": "C89",
                 "severidad": "ERROR",
-                "mensaje": "REM A01 | SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA | Celdas (SUM(C19:C26, F36:F38)) debe ser igual a | REM A05 | SECCIÓN E:  INGRESOS  A CONTROL DE SALUD DE RECIÉN NACIDOS | celda (C89)"
+                "mensaje": "En REM A01, SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA, la operación (SUM(C19:C26, F36:F38)) debe ser igual a celda C89 en REM A05 - SECCIÓN E: INGRESOS A CONTROL DE SALUD DE RECIÉN NACIDOS. Revise y ajuste los valores informados."
             },
             {
                 "id": "A01-VAL026",
@@ -357,7 +357,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Celdas (F36) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A01, SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL, la celda F36 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL",
                 "seccion_expresion_2": ""
@@ -373,7 +373,7 @@
                 "expresion_2": "T36:T38",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A01 | SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B) | Celdas (C74) debe ser menor o igual a | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | celda (T36:T38)",
+                "mensaje": "En REM A01, SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B), la celda C74 debe ser menor o igual que rango T36:T38 en SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01"
             },
             {
@@ -387,7 +387,7 @@
                 "expresion_2": "U36:U38",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A01 | SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B) | Celdas (F74) debe ser menor o igual a | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | celda (U36:U38)",
+                "mensaje": "En REM A01, SECCIÓN D: CONTROL DE SALUD INTEGRAL DE ADOLESCENTES (incluidos en sección B), la celda F74 debe ser menor o igual que rango U36:U38 en SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A01"
             }
         ],
@@ -404,7 +404,7 @@
                 "expresion_2": "B11",
                 "severidad": "ERROR",
                 "rem_sheet_ext": "A03",
-                "mensaje": "REM A03 | SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE  ALCOHOL, TABACO Y OTRAS DROGAS | Celdas (C108 + C110) debe ser igual a | SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE | celda (B11)"
+                "mensaje": "En REM A03, SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE ALCOHOL, TABACO Y OTRAS DROGAS, la operación (C108 + C110) debe ser igual a celda B11 en SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE. Revise y ajuste los valores informados."
             },
             {
                 "id": "A02-VAL004",
@@ -418,7 +418,7 @@
                 "expresion_2": "E11 + F11",
                 "severidad": "ERROR",
                 "rem_sheet_ext": "A03",
-                "mensaje": "REM A03 | SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE  ALCOHOL, TABACO Y OTRAS DROGAS | Celdas (C113) debe ser igual a | SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE | celda (E11 + F11)"
+                "mensaje": "En REM A03, SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE ALCOHOL, TABACO Y OTRAS DROGAS, la celda C113 debe ser igual a operación (E11 + F11) en SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE. Revise y ajuste los valores informados."
             },
             {
                 "id": "A02-VAL001",
@@ -430,7 +430,7 @@
                 "seccion_expresion_2": "SECCIÓN B: EMP SEGÚN RESULTADO DEL ESTADO NUTRICIONAL",
                 "expresion_2": "B21",
                 "severidad": "ERROR",
-                "mensaje": "REM A02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | Celdas (B11) debe ser igual a | SECCIÓN B: EMP SEGÚN RESULTADO DEL ESTADO NUTRICIONAL | celda (B21)",
+                "mensaje": "En REM A02, SECCIÓN A: EMP REALIZADO POR PROFESIONAL, la celda B11 debe ser igual a celda B21 en SECCIÓN B: EMP SEGÚN RESULTADO DEL ESTADO NUTRICIONAL. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A02"
             },
             {
@@ -443,7 +443,7 @@
                 "seccion_expresion_2": "SECCIÓN B: EMP SEGÚN RESULTADO DEL ESTADO NUTRICIONAL",
                 "expresion_2": "C21",
                 "severidad": "ERROR",
-                "mensaje": "REM A02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | Celdas (C11) debe ser igual a | SECCIÓN B: EMP SEGÚN RESULTADO DEL ESTADO NUTRICIONAL | celda (C21)",
+                "mensaje": "En REM A02, SECCIÓN A: EMP REALIZADO POR PROFESIONAL, la celda C11 debe ser igual a celda C21 en SECCIÓN B: EMP SEGÚN RESULTADO DEL ESTADO NUTRICIONAL. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A02"
             }
         ],
@@ -458,7 +458,7 @@
                 "seccion_expresion_2": "SECCION E: APLICACIÓN DE PAUTA DETECCIÓN DE FACTORES DE RIESGO BIOPSICOSOCIAL INFANTIL",
                 "expresion_2": "C214+C215",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | SECCION E: APLICACIÓN DE PAUTA DETECCIÓN DE FACTORES DE RIESGO BIOPSICOSOCIAL INFANTIL | Celdas (C213) debe ser igual a | celda (C214+C215)",
+                "mensaje": "En REM A03, SECCION E: APLICACIÓN DE PAUTA DETECCIÓN DE FACTORES DE RIESGO BIOPSICOSOCIAL INFANTIL, la celda C213 debe ser igual a operación (C214+C215) en SECCION E: APLICACIÓN DE PAUTA DETECCIÓN DE FACTORES DE RIESGO BIOPSICOSOCIAL INFANTIL. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A03"
             },
             {
@@ -471,7 +471,7 @@
                 "seccion_expresion_2": "SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE",
                 "expresion_2": "C14:C15",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE | Celdas (C13) debe ser igual a | celda (C14:C15)",
+                "mensaje": "En REM A03, SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE, la celda C13 debe ser igual a rango C14:C15 en SECCIÓN A.1: APLICACIÓN Y RESULTADOS DE PAUTA BREVE. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A03"
             },
             {
@@ -484,7 +484,7 @@
                 "seccion_expresion_2": "SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR",
                 "expresion_2": "C21:C36",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Celdas (C20) debe ser igual a | celda (C21:C36)",
+                "mensaje": "En REM A03, SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR, la celda C20 debe ser igual a rango C21:C36 en SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A03"
             },
             {
@@ -497,7 +497,7 @@
                 "seccion_expresion_2": "SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL  DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN",
                 "expresion_2": "B46",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Celdas (C22) debe ser igual a | SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL  DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN | celda (B46)",
+                "mensaje": "En REM A03, SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR, la celda C22 debe ser igual a celda B46 en SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A03"
             },
             {
@@ -510,7 +510,7 @@
                 "seccion_expresion_2": "SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL  DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN",
                 "expresion_2": "B47",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Celdas (C23) debe ser igual a | SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL  DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN | celda (B47)",
+                "mensaje": "En REM A03, SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR, la celda C23 debe ser igual a celda B47 en SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A03"
             },
             {
@@ -523,7 +523,7 @@
                 "seccion_expresion_2": "SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL  DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN",
                 "expresion_2": "B48",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Celdas (C24) debe ser igual a | SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL  DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN | celda (B48)",
+                "mensaje": "En REM A03, SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR, la celda C24 debe ser igual a celda B48 en SECCIÓN A.3: NIÑOS Y NIÑAS CON REZAGO, DÉFICIT O RIESGO BIOPSICOSOCIAL DERIVADOS A ALGUNA MODALIDAD DE ESTIMULACIÓN EN LA PRIMERA EVALUACIÓN. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A03"
             },
             {
@@ -536,7 +536,7 @@
                 "seccion_expresion_2": "SECCIÓN A.4: RESULTADOS DE LA APLICACIÓN DE PROTOCOLO NEUROSENSORIAL",
                 "expresion_2": "C55:C57",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | SECCIÓN A.4: RESULTADOS DE LA APLICACIÓN DE PROTOCOLO NEUROSENSORIAL | Celdas (C54) debe ser igual a | celda (C55:C57)",
+                "mensaje": "En REM A03, SECCIÓN A.4: RESULTADOS DE LA APLICACIÓN DE PROTOCOLO NEUROSENSORIAL, la celda C54 debe ser igual a rango C55:C57 en SECCIÓN A.4: RESULTADOS DE LA APLICACIÓN DE PROTOCOLO NEUROSENSORIAL. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A03"
             },
             {
@@ -549,7 +549,7 @@
                 "seccion_expresion_2": "SECCIÓN A.5: TIPO DE ALIMENTACIÓN NIÑOS Y NIÑAS CONTROLADOS",
                 "expresion_2": "C67",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | SECCIÓN A.5: TIPO DE ALIMENTACIÓN NIÑOS Y NIÑAS CONTROLADOS | Celdas (C61:C66) debe ser igual a | celda (C67)",
+                "mensaje": "En REM A03, SECCIÓN A.5: TIPO DE ALIMENTACIÓN NIÑOS Y NIÑAS CONTROLADOS, el rango C61:C66 debe ser igual a celda C67 en SECCIÓN A.5: TIPO DE ALIMENTACIÓN NIÑOS Y NIÑAS CONTROLADOS. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A03"
             },
             {
@@ -563,7 +563,7 @@
                 "seccion_expresion_2": "SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL",
                 "expresion_2": "C11",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | SECCIÓN B.2: APLICACIÓN DE ESCALA SEGÚN EVALUACIÓN DE RIESGO PSICOSOCIAL ABREVIADA A GESTANTES | Celdas (B86) debe ser igual a | REM A05 | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | celda (C11)"
+                "mensaje": "En REM A03, SECCIÓN B.2: APLICACIÓN DE ESCALA SEGÚN EVALUACIÓN DE RIESGO PSICOSOCIAL ABREVIADA A GESTANTES, la celda B86 debe ser igual a celda C11 en REM A05 - SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL. Revise y ajuste los valores informados."
             },
             {
                 "id": "A03-VAL008",
@@ -577,7 +577,7 @@
                 "expresion_2": "H36:H37",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Celdas (C92) debe ser menor o igual a | REM A01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | celda (H36:H37)"
+                "mensaje": "En REM A03, SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO, la celda C92 debe ser menor o igual que rango H36:H37 en REM A01 - SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL. Revise y ajuste los valores informados."
             },
             {
                 "id": "A03-VAL009",
@@ -591,7 +591,7 @@
                 "expresion_2": "L36:L37",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Celdas (C93) debe ser menor o igual a | REM A01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | celda (L36:L37)"
+                "mensaje": "En REM A03, SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO, la celda C93 debe ser menor o igual que rango L36:L37 en REM A01 - SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL. Revise y ajuste los valores informados."
             },
             {
                 "id": "A03-VAL010",
@@ -604,7 +604,7 @@
                 "seccion_expresion_2": "SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL",
                 "expresion_2": "T36:U38",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | SECCIÓN C: RESULTADOS DE LA EVALUACIÓN DEL ESTADO NUTRICIONAL DEL ADOLESCENTE CON CONTROL SALUD INTEGRAL | Celdas (C97) debe ser igual a | REM A01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | celda (T36:U38)"
+                "mensaje": "En REM A03, SECCIÓN C: RESULTADOS DE LA EVALUACIÓN DEL ESTADO NUTRICIONAL DEL ADOLESCENTE CON CONTROL SALUD INTEGRAL, la celda C97 debe ser igual a rango T36:U38 en REM A01 - SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL. Revise y ajuste los valores informados."
             },
             {
                 "id": "A03-VAL011",
@@ -616,7 +616,7 @@
                 "seccion_expresion_2": "SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE  ALCOHOL, TABACO Y OTRAS DROGAS",
                 "expresion_2": "C115:C117",
                 "severidad": "ERROR",
-                "mensaje": "REM A03 | SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE  ALCOHOL, TABACO Y OTRAS DROGAS | Celdas (C108:C114) debe ser igual a | celda (C115:C117)",
+                "mensaje": "En REM A03, SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE ALCOHOL, TABACO Y OTRAS DROGAS, el rango C108:C114 debe ser igual a rango C115:C117 en SECCIÓN D.1: APLICACIÓN DE TAMIZAJE PARA EVALUAR EL NIVEL DE RIESGO DE CONSUMO DE ALCOHOL, TABACO Y OTRAS DROGAS. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A03"
             }
         ],
@@ -631,7 +631,7 @@
                 "seccion_expresion_2": "SECCIÓN K CLASIFICACIÓN DE CONSULTA NUTRICIONAL POR GRUPO DE EDAD (Incluidas en sección B)",
                 "expresion_2": "B135:B137",
                 "severidad": "ERROR",
-                "mensaje": "REM A04 | SECCIÓN B: CONSULTAS DE PROFESIONALES NO MÉDICOS | Celdas (B39:B41) debe ser igual a | SECCIÓN K CLASIFICACIÓN DE CONSULTA NUTRICIONAL POR GRUPO DE EDAD (Incluidas en sección B) | celda (B135:B137)",
+                "mensaje": "En REM A04, SECCIÓN B: CONSULTAS DE PROFESIONALES NO MÉDICOS, el rango B39:B41 debe ser igual a rango B135:B137 en SECCIÓN K CLASIFICACIÓN DE CONSULTA NUTRICIONAL POR GRUPO DE EDAD (Incluidas en sección B). Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A04"
             },
             {
@@ -644,7 +644,7 @@
                 "seccion_expresion_2": "SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA",
                 "expresion_2": "E114+F114",
                 "severidad": "ERROR",
-                "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | Celdas (C114+D114) debe ser igual a | celda (E114+F114)",
+                "mensaje": "En REM A04, SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA, la operación (C114+D114) debe ser igual a operación (E114+F114) en SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A04"
             },
             {
@@ -657,7 +657,7 @@
                 "seccion_expresion_2": "SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA",
                 "expresion_2": "E115+F115",
                 "severidad": "ERROR",
-                "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | Celdas (C115+D115) debe ser igual a | celda (E115+F115)",
+                "mensaje": "En REM A04, SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA, la operación (C115+D115) debe ser igual a operación (E115+F115) en SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A04"
             },
             {
@@ -670,7 +670,7 @@
                 "seccion_expresion_2": "SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA",
                 "expresion_2": "E116+F116",
                 "severidad": "ERROR",
-                "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | Celdas (C116+D116) debe ser igual a | celda (E116+F116)",
+                "mensaje": "En REM A04, SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA, la operación (C116+D116) debe ser igual a operación (E116+F116) en SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A04"
             },
             {
@@ -684,7 +684,7 @@
                 "expresion_2": "L114",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A04 | SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA | Celdas (M114) debe ser mayor o igual a | celda (L114)",
+                "mensaje": "En REM A04, SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA, la celda M114 debe ser mayor o igual que celda L114 en SECCIÓN I.1 : DESPACHO DE RECETAS DE PACIENTES AMBULATORIOS EN ATENCIÓN PRIMARIA. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A04"
             },
             {
@@ -697,7 +697,7 @@
                 "seccion_expresion_2": "SECCIÓN L: CONSULTA DE LACTANCIA EN NIÑOS Y NIÑAS CONTROLADOS",
                 "expresion_2": "C146:C149",
                 "severidad": "ERROR",
-                "mensaje": "REM A04 | SECCIÓN L: CONSULTA DE LACTANCIA EN NIÑOS Y NIÑAS CONTROLADOS | Celdas (C141:C143) debe ser igual a | celda (C146:C149)",
+                "mensaje": "En REM A04, SECCIÓN L: CONSULTA DE LACTANCIA EN NIÑOS Y NIÑAS CONTROLADOS, el rango C141:C143 debe ser igual a rango C146:C149 en SECCIÓN L: CONSULTA DE LACTANCIA EN NIÑOS Y NIÑAS CONTROLADOS. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A04"
             }
         ],
@@ -711,7 +711,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "REM A05 | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | Celdas (L11:N14) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A05, SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL, el rango L11:N14 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A05",
                 "seccion_expresion_1": "SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL",
                 "seccion_expresion_2": ""
@@ -727,7 +727,7 @@
                 "expresion_2": "C120:C127",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A05 | SECCIÓN H: INGRESOS AL PROGRAMA DE SALUD CARDIOVASCULAR (PSCV) | Celdas (C119) debe ser menor o igual a | celda (C120:C127)",
+                "mensaje": "En REM A05, SECCIÓN H: INGRESOS AL PROGRAMA DE SALUD CARDIOVASCULAR (PSCV), la celda C119 debe ser menor o igual que rango C120:C127 en SECCIÓN H: INGRESOS AL PROGRAMA DE SALUD CARDIOVASCULAR (PSCV). Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A05"
             },
             {
@@ -741,7 +741,7 @@
                 "expresion_2": "C162",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A05 | SECCIÓN J: INGRESOS Y EGRESOS AL PROGRAMA DE PACIENTES CON DEPENDENCIA LEVE, MODERADA Y SEVERA | Celdas (AF146:AM150) debe ser mayor que | SECCIÓN K: INGRESOS AL PROGRAMA DEL ADULTO MAYOR SEGÚN CONDICIÓN DE FUNCIONALIDAD Y DEPENDENCIA | celda (C162)",
+                "mensaje": "En REM A05, SECCIÓN J: INGRESOS Y EGRESOS AL PROGRAMA DE PACIENTES CON DEPENDENCIA LEVE, MODERADA Y SEVERA, el rango AF146:AM150 debe ser mayor que celda C162 en SECCIÓN K: INGRESOS AL PROGRAMA DEL ADULTO MAYOR SEGÚN CONDICIÓN DE FUNCIONALIDAD Y DEPENDENCIA. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A05"
             },
             {
@@ -754,7 +754,7 @@
                 "seccion_expresion_2": "SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD",
                 "expresion_2": "C204",
                 "severidad": "REVISAR",
-                "mensaje": "REM A05 | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | Celdas (C193) debe ser igual a | celda (C204)",
+                "mensaje": "En REM A05, SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD, la celda C193 debe ser igual a celda C204 en SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A05"
             },
             {
@@ -768,7 +768,7 @@
                 "expresion_2": "C205:C241",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A05 | SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD | Celdas (C204) debe ser menor o igual a | celda (C205:C241)",
+                "mensaje": "En REM A05, SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD, la celda C204 debe ser menor o igual que rango C205:C241 en SECCIÓN N: INGRESOS AL PROGRAMA DE SALUD MENTAL EN APS /ESPECIALIDAD. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A05"
             }
         ],
@@ -783,7 +783,7 @@
                 "seccion_expresion_2": "SECCIÓN B.1: CATEGORIZACIÓN DE PACIENTES DE URGENCIA GINECO OBSTÉTRICA PREVIO A LA ATENCIÓN CLÍNICA POR MATRÓN (A) Y/O MÉDICO GINECO-OBSTETRA (Establecimientos alta, mediana y baja complejidad)",
                 "expresion_2": "B78",
                 "severidad": "ERROR",
-                "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Celdas (B13+B14) debe ser igual a | SECCIÓN B.1: CATEGORIZACIÓN DE PACIENTES DE URGENCIA GINECO OBSTÉTRICA PREVIO A LA ATENCIÓN CLÍNICA POR MATRÓN (A) Y/O MÉDICO GINECO-OBSTETRA (Establecimientos alta, mediana y baja complejidad) | celda (B78)",
+                "mensaje": "En REM A08, SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad), la operación (B13+B14) debe ser igual a celda B78 en SECCIÓN B.1: CATEGORIZACIÓN DE PACIENTES DE URGENCIA GINECO OBSTÉTRICA PREVIO A LA ATENCIÓN CLÍNICA POR MATRÓN (A) Y/O MÉDICO GINECO-OBSTETRA (Establecimientos alta, mediana y baja complejidad). Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A08"
             },
             {
@@ -797,7 +797,7 @@
                 "expresion_2": "AS13",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Celdas (B13) debe ser menor que | celda (AS13)",
+                "mensaje": "En REM A08, SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad), la celda B13 debe ser menor que celda AS13 en SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad). Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A08"
             },
             {
@@ -830,7 +830,7 @@
                     "SAPU",
                     "SUR"
                 ],
-                "mensaje": "REM A08 | SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR) | Celdas (C61:AL66) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A08, SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR), el rango C61:AL66 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR)",
                 "seccion_expresion_2": ""
@@ -844,7 +844,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A08 | SECCIÓN J: LLAMADOS DE URGENCIA A CENTRO REGULADOR, CENTRO DE DESPACHO O CENTRO COORDINADOR | Celdas (C161+D161) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A08, SECCIÓN J: LLAMADOS DE URGENCIA A CENTRO REGULADOR, CENTRO DE DESPACHO O CENTRO COORDINADOR, la operación (C161+D161) debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN J: LLAMADOS DE URGENCIA A CENTRO REGULADOR, CENTRO DE DESPACHO O CENTRO COORDINADOR",
                 "seccion_expresion_2": ""
@@ -870,7 +870,7 @@
                     "200749",
                     "200750"
                 ],
-                "mensaje": "REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | Celdas (C171:F171) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A08, SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia), el rango C171:F171 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia)",
                 "seccion_expresion_2": ""
@@ -884,7 +884,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | Celdas (C172:F174) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A08, SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia), el rango C172:F174 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia)",
                 "seccion_expresion_2": ""
@@ -904,7 +904,7 @@
                 "excluir_tipo": [
                     "SAMU"
                 ],
-                "mensaje": "REM A08 | SECCIÓN M: TRASLADO SECUNDARIO (Desde un establecimiento a otro) | Celdas (E178:E183) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A08, SECCIÓN M: TRASLADO SECUNDARIO (Desde un establecimiento a otro), el rango E178:E183 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN M: TRASLADO SECUNDARIO (Desde un establecimiento a otro)",
                 "seccion_expresion_2": ""
@@ -926,7 +926,7 @@
                     "123101",
                     "123102"
                 ],
-                "mensaje": "REM A09 | SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN  NIVEL PRIMARIO Y SECUNDARIO DE SALUD | Celdas (D16+D17) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A09, SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN NIVEL PRIMARIO Y SECUNDARIO DE SALUD, la operación (D16+D17) debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A09",
                 "seccion_expresion_1": "SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN  NIVEL PRIMARIO Y SECUNDARIO DE SALUD",
                 "seccion_expresion_2": ""
@@ -946,7 +946,7 @@
                     "123000",
                     "123100"
                 ],
-                "mensaje": "REM A11 | SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | Celdas (B13:C30) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A11, SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN), el rango B13:C30 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A11",
                 "seccion_expresion_1": "SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN)",
                 "seccion_expresion_2": ""
@@ -964,7 +964,7 @@
                     "123000",
                     "123100"
                 ],
-                "mensaje": "REM A11 | SECCIÓN B.1: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | Celdas (C144:P148) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A11, SECCIÓN B.1: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN), el rango C144:P148 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A11",
                 "seccion_expresion_1": "SECCIÓN B.1: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN)",
                 "seccion_expresion_2": ""
@@ -983,7 +983,7 @@
                     "123000",
                     "123100"
                 ],
-                "mensaje": "REM A11 | SECCIÓN B.2: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS QUE COMPRAN SERVICIO) | Celdas (C152:P156) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A11, SECCIÓN B.2: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS QUE COMPRAN SERVICIO), el rango C152:P156 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A11",
                 "seccion_expresion_1": "SECCIÓN B.2: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS QUE COMPRAN SERVICIO)",
                 "seccion_expresion_2": ""
@@ -1001,7 +1001,7 @@
                     "123000",
                     "123100"
                 ],
-                "mensaje": "REM A11 | SECCIÓN C.1: EXÁMENES  DE  VIH POR GRUPOS DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | Celdas (C161:D183) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A11, SECCIÓN C.1: EXÁMENES DE VIH POR GRUPOS DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN), el rango C161:D183 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A11",
                 "seccion_expresion_1": "SECCIÓN C.1: EXÁMENES  DE  VIH POR GRUPOS DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN)",
                 "seccion_expresion_2": ""
@@ -1019,7 +1019,7 @@
                 "expresion_2": "O129:O148",
                 "severidad": "ERROR",
                 "omitir_si_v1_es_cero": true,
-                "mensaje": "REM A19a | SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES | Celdas (C129:C148) debe ser menor o igual a | celda (O129:O148)",
+                "mensaje": "En REM A19a, SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES, el rango C129:C148 debe ser menor o igual que rango O129:O148 en SECCIÓN B.1: ACTIVIDADES DE PROMOCIÓN SEGÚN ESTRATEGIAS Y CONDICIONANTES ABORDADAS Y NÚMERO DE PARTICIPANTES. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A19a"
             }
         ],
@@ -1034,7 +1034,7 @@
                 "seccion_expresion_2": "SECCIÓN A: ATENCIÓN OFICINAS DE INFORMACIONES (SISTEMA INTEGRAL DE ATENCIÓN A USUARIOS)",
                 "expresion_2": "E11:I11",
                 "severidad": "REVISAR",
-                "mensaje": "REM A19b | SECCIÓN A: ATENCIÓN OFICINAS DE INFORMACIONES (SISTEMA INTEGRAL DE ATENCIÓN A USUARIOS) | Celdas (B11) debe ser igual a | celda (E11:I11)",
+                "mensaje": "En REM A19b, SECCIÓN A: ATENCIÓN OFICINAS DE INFORMACIONES (SISTEMA INTEGRAL DE ATENCIÓN A USUARIOS), la celda B11 debe ser igual a rango E11:I11 en SECCIÓN A: ATENCIÓN OFICINAS DE INFORMACIONES (SISTEMA INTEGRAL DE ATENCIÓN A USUARIOS). Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A19b"
             }
         ],
@@ -1050,7 +1050,7 @@
                 "expresion_2": "D98",
                 "severidad": "REVISAR",
                 "omitir_si_v1_es_cero": true,
-                "mensaje": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | Celdas (D53) debe ser mayor o igual a | SECCIÓN B: ACTIVIDADES DE EDUCACIÓN PARA LA SALUD SEGÚN PERSONAL QUE LAS REALIZA (SESIONES) | celda (D98)",
+                "mensaje": "En REM A27, SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD, la celda D53 debe ser mayor o igual que celda D98 en SECCIÓN B: ACTIVIDADES DE EDUCACIÓN PARA LA SALUD SEGÚN PERSONAL QUE LAS REALIZA (SESIONES). Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A27"
             },
             {
@@ -1064,7 +1064,7 @@
                 "expresion_2": "Y23:AA23",
                 "severidad": "REVISAR",
                 "omitir_si_v1_es_cero": true,
-                "mensaje": "REM A27 | SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD | Celdas (D23) debe ser mayor o igual a | celda (Y23:AA23)",
+                "mensaje": "En REM A27, SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD, la celda D23 debe ser mayor o igual que rango Y23:AA23 en SECCIÓN A: PERSONAS QUE INGRESAN A EDUCACIÓN GRUPAL SEGÚN ÁREAS TEMÁTICAS Y EDAD. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A27"
             }
         ],
@@ -1080,7 +1080,7 @@
                 "expresion_2": "B61",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | Celdas (B13) debe ser menor o igual a | SECCIÓN A.3: EVALUACIÓN INICIAL | celda (B61)",
+                "mensaje": "En REM A28, SECCIÓN A.1: INGRESOS Y EGRESOS A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO, la celda B13 debe ser menor o igual que celda B61 en SECCIÓN A.3: EVALUACIÓN INICIAL. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A28"
             },
             {
@@ -1094,7 +1094,7 @@
                 "expresion_2": "B14",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | Celdas (B13) debe ser mayor o igual a | celda (B14)",
+                "mensaje": "En REM A28, SECCIÓN A.1: INGRESOS Y EGRESOS A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO, la celda B13 debe ser mayor o igual que celda B14 en SECCIÓN A.1: INGRESOS Y EGRESOS A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A28"
             },
             {
@@ -1108,7 +1108,7 @@
                 "expresion_2": "B15",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A28 | SECCIÓN A.1: INGRESOS Y EGRESOS  A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO | Celdas (B13) debe ser mayor o igual a | celda (B15)",
+                "mensaje": "En REM A28, SECCIÓN A.1: INGRESOS Y EGRESOS A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO, la celda B13 debe ser mayor o igual que celda B15 en SECCIÓN A.1: INGRESOS Y EGRESOS A ATENCIONES DE REHABILITACIÓN EN EL NIVEL PRIMARIO. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A28"
             },
             {
@@ -1122,7 +1122,7 @@
                 "expresion_2": "B30:B52",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A28 | SECCIÓN A.2: INGRESOS POR CONDICIÓN DE SALUD | Celdas (B29) debe ser menor o igual a | celda (B30:B52)",
+                "mensaje": "En REM A28, SECCIÓN A.2: INGRESOS POR CONDICIÓN DE SALUD, la celda B29 debe ser menor o igual que rango B30:B52 en SECCIÓN A.2: INGRESOS POR CONDICIÓN DE SALUD. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A28"
             },
             {
@@ -1136,7 +1136,7 @@
                 "expresion_2": "B150:B177",
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
-                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | Celdas (B149) debe ser menor o igual a | celda (B150:B177)",
+                "mensaje": "En REM A28, SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL, la celda B149 debe ser menor o igual que rango B150:B177 en SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A28"
             },
             {
@@ -1153,7 +1153,7 @@
                     "123101",
                     "123102"
                 ],
-                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | Celdas (AM149:AM177) debe ser mayor o igual a | celda (0)",
+                "mensaje": "En REM A28, SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL, el rango AM149:AM177 debe ser mayor o igual que 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A28",
                 "seccion_expresion_1": "SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL",
                 "seccion_expresion_2": ""
@@ -1172,7 +1172,7 @@
                     "123101",
                     "123102"
                 ],
-                "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | Celdas (AM149:AM177) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A28, SECCIÓN B.1: INGRESOS Y EGRESOS A REHABILITACIÓN INTEGRAL, el rango AM149:AM177 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A28",
                 "seccion_expresion_1": "SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL",
                 "seccion_expresion_2": ""
@@ -1188,7 +1188,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | Celdas (O12:P12) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A29, SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD, el rango O12:P12 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A29",
                 "seccion_expresion_1": "SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD",
                 "seccion_expresion_2": ""
@@ -1202,23 +1202,23 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A29 | SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD | Celdas (M13:N13) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A29, SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD, el rango M13:N13 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A29",
                 "seccion_expresion_1": "SECCIÓN A: PROGRAMA DE RESOLUTIVIDAD ATENCIÓN PRIMARIA DE SALUD",
                 "seccion_expresion_2": ""
             }
         ],
-        "A30R": [
+        "A30": [
             {
                 "id": "A30R-VAL001",
-                "seccion": "SECCION A1: TELEINTERCONSULTA DE ESPECIALIDAD MEDICA POR HOSPITAL DIGITAL",
+                "seccion": "",
                 "tipo": "CELDA",
                 "rem_sheet": "A30R",
                 "expresion_1": "B16:B17",
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "mensaje": "REM A30R |SECCION A1: TELEINTERCONSULTA DE ESPECIALIDAD MEDICA POR HOSPITAL DIGITAL Celdas (B16:B17) debe ser distinto de | celda (0)",
+                "mensaje": "En REM A30R, SECCION NO INFORMADA, el rango B16:B17 debe ser distinto de 0. Revise y ajuste los valores informados.",
                 "rem_sheet_2": "A30R",
                 "seccion_expresion_1": "",
                 "seccion_expresion_2": ""

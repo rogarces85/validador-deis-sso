@@ -69,6 +69,11 @@ export const useValidationPipeline = () => {
 
             // js-set-map-lookups: O(1) lookup via pre-built Map
             const establishment = establishmentByCode.get(metadata.codigoEstablecimiento) || null;
+            const normalizedEstablishmentType = establishment?.tipo?.toUpperCase() === 'OTRO'
+                ? 'OTROS'
+                : establishment?.tipo;
+
+            metadata.tipoEstablecimiento = normalizedEstablishmentType;
 
             // 3. Run NOMBRE sheet validations (before regular rules)
             const nombreValidator = new NombreSheetValidator();
@@ -78,7 +83,7 @@ export const useValidationPipeline = () => {
             const ruleEngine = new RuleEngineService();
 
             // Load Rules Dynamically based on Establishment Type
-            const tipoEstablecimiento = establishment ? establishment.tipo.toUpperCase() : 'BASE';
+            const tipoEstablecimiento = normalizedEstablishmentType?.toUpperCase() || 'BASE';
 
             // @ts-ignore
             const baseRules = Object.values(ruleDictionary.BASE?.validaciones || {}).flat() as ValidationRule[];

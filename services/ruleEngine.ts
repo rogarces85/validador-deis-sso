@@ -1,6 +1,6 @@
 
 import { ExcelReaderService } from './excelService';
-import { ValidationRule, ValidationResult, Severity, FileMetadata } from '../types';
+import { ValidationRule, ValidationResult, Severity, FileMetadata, EstablishmentType } from '../types';
 
 function generateUUID(): string {
   if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
@@ -15,11 +15,58 @@ function generateUUID(): string {
 export class RuleEngineService {
   private excel = ExcelReaderService.getInstance();
 
+  private normalizeEstablishmentType(type?: string): EstablishmentType | undefined {
+    if (!type) return undefined;
+
+    const normalized = type.trim().toUpperCase();
+    return normalized === 'OTRO' ? 'OTROS' : normalized as EstablishmentType;
+  }
+
+  private ruleAppliesToMetadata(rule: ValidationRule, metadata: FileMetadata): boolean {
+    const establishmentCode = metadata.codigoEstablecimiento;
+    const establishmentType = this.normalizeEstablishmentType(metadata.tipoEstablecimiento);
+    const exclusiveByCode = !!(rule.validacion_exclusiva && rule.aplicar_a?.length);
+    const exclusiveByType = !!(rule.validacion_exclusiva && rule.aplicar_a_tipo?.length);
+
+    if (rule.establecimientos_excluidos?.includes(establishmentCode)) {
+      return false;
+    }
+
+    if (!exclusiveByCode && rule.aplicar_a && !rule.aplicar_a.includes(establishmentCode)) {
+      return false;
+    }
+
+    if (rule.excluir_tipo?.length && establishmentType) {
+      const excludedTypes = new Set(rule.excluir_tipo.map(type => this.normalizeEstablishmentType(type)));
+      if (excludedTypes.has(establishmentType)) {
+        return false;
+      }
+    }
+
+    if (!exclusiveByType && rule.aplicar_a_tipo?.length) {
+      if (!establishmentType) {
+        return false;
+      }
+
+      const allowedTypes = new Set(rule.aplicar_a_tipo.map(type => this.normalizeEstablishmentType(type)));
+      if (!allowedTypes.has(establishmentType)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   public async evaluate(rules: ValidationRule[], metadata: FileMetadata): Promise<ValidationResult[]> {
     const results: ValidationResult[] = [];
 
     for (const rule of rules) {
+      if (!this.ruleAppliesToMetadata(rule, metadata)) {
+        continue;
+      }
+
       let invertirOperador = false;
+      const normalizedType = this.normalizeEstablishmentType(metadata.tipoEstablecimiento);
 
       // Validación exclusiva: la regla aplica a TODOS los establecimientos.
       // Para los de aplicar_a: se INVIERTE el operador (ej: == se vuelve !=)
@@ -29,17 +76,9 @@ export class RuleEngineService {
       if (rule.validacion_exclusiva && rule.aplicar_a) {
         const targetSet = new Set(rule.aplicar_a);
         invertirOperador = targetSet.has(metadata.codigoEstablecimiento);
-      } else {
-        // Flujo normal: si tiene aplicar_a, solo evalúa para esos establecimientos
-        if (rule.aplicar_a) {
-          const allowedSet = new Set(rule.aplicar_a);
-          if (!allowedSet.has(metadata.codigoEstablecimiento)) continue;
-        }
-      }
-
-      if (rule.establecimientos_excluidos) {
-        const excludedSet = new Set(rule.establecimientos_excluidos);
-        if (excludedSet.has(metadata.codigoEstablecimiento)) continue;
+      } else if (rule.validacion_exclusiva && rule.aplicar_a_tipo?.length) {
+        const targetTypes = new Set(rule.aplicar_a_tipo.map(type => this.normalizeEstablishmentType(type)));
+        invertirOperador = !!normalizedType && targetTypes.has(normalizedType);
       }
 
       try {

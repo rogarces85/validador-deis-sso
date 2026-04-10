@@ -44,6 +44,8 @@ export interface ValidationRule {
   serie?: string;
   rem_sheet_ext?: string;
   aplicar_a?: string[];
+  aplicar_a_tipo?: EstablishmentType[];
+  excluir_tipo?: EstablishmentType[];
   establecimientos_excluidos?: string[];
   omitir_si_ambos_cero?: boolean;
   omitir_si_v1_es_cero?: boolean;
@@ -66,6 +68,7 @@ export interface ValidationResult {
 
 export interface FileMetadata {
   codigoEstablecimiento: string;
+  tipoEstablecimiento?: EstablishmentType;
   serieRem: string;
   mes: string;
   extension: string;

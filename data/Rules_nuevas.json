@@ -803,7 +803,10 @@
                 "expresion_2": "B78",
                 "severidad": "ERROR",
                 "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Celdas (B13+B14) debe ser igual a | SECCIÓN B.1: CATEGORIZACIÓN DE PACIENTES DE URGENCIA GINECO OBSTÉTRICA PREVIO A LA ATENCIÓN CLÍNICA POR MATRÓN (A) Y/O MÉDICO GINECO-OBSTETRA (Establecimientos alta, mediana y baja complejidad) | celda (B78)",
-                "rem_sheet_2": "A08"
+                "rem_sheet_2": "A08",
+                "aplicar_a_tipo": [
+                    "HOSPITAL"
+                ]
             },
             {
                 "id": "A08-VAL007",
@@ -817,7 +820,10 @@
                 "severidad": "ERROR",
                 "omitir_si_ambos_cero": true,
                 "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Celdas (B13) debe ser menor que | celda (AS13)",
-                "rem_sheet_2": "A08"
+                "rem_sheet_2": "A08",
+                "aplicar_a_tipo": [
+                    "HOSPITAL"
+                ]
             },
             {
                 "id": "A08-VAL001",
@@ -825,25 +831,9 @@
                 "tipo": "CELDA",
                 "rem_sheet": "A08",
                 "expresion_1": "C61:AL66",
-                "operador": "!=",
+                "operador": "==",
                 "expresion_2": 0,
                 "severidad": "ERROR",
-                "establecimientos_excluidos": [
-                    "123000",
-                    "123100",
-                    "123101",
-                    "123102",
-                    "123103",
-                    "123104",
-                    "123105",
-                    "123800",
-                    "123801",
-                    "200085",
-                    "200747",
-                    "200748",
-                    "200749",
-                    "200750"
-                ],
                 "aplicar_a_tipo": [
                     "HOSPITAL",
                     "SAPU",
@@ -853,7 +843,7 @@
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA (Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR)",
                 "seccion_expresion_2": "",
-                "omitir_si_v1_es_cero": true
+                "validacion_exclusiva": true
             },
             {
                 "id": "A08-VAL006",
@@ -886,16 +876,16 @@
                     "123104",
                     "123105",
                     "123311",
-                    "200747",
-                    "200748",
-                    "200749",
-                    "200750"
+                    "200747"
                 ],
                 "mensaje": "REM A08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia) | Celdas (C171:F171) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A08",
                 "seccion_expresion_1": "SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA (Desde el lugar del evento a unidad de Emergencia)",
                 "seccion_expresion_2": "",
-                "omitir_si_v1_es_cero": true
+                "omitir_si_v1_es_cero": true,
+                "excluir_tipo": [
+                    "SUR"
+                ]
             },
             {
                 "id": "A08-VAL004",
@@ -954,7 +944,11 @@
                 "rem_sheet_2": "A09",
                 "seccion_expresion_1": "SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN  NIVEL PRIMARIO Y SECUNDARIO DE SALUD",
                 "seccion_expresion_2": "",
-                "omitir_si_v1_es_cero": true
+                "omitir_si_v1_es_cero": true,
+                "aplicar_a_tipo": [
+                    "HOSPITAL",
+                    "OTROS"
+                ]
             }
         ],
         "A11": [
@@ -975,7 +969,11 @@
                 "rem_sheet_2": "A11",
                 "seccion_expresion_1": "SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN)",
                 "seccion_expresion_2": "",
-                "omitir_si_v1_es_cero": true
+                "omitir_si_v1_es_cero": true,
+                "aplicar_a_tipo": [
+                    "HOSPITAL",
+                    "OTROS"
+                ]
             },
             {
                 "id": "A11-VAL002",
@@ -994,7 +992,11 @@
                 "rem_sheet_2": "A11",
                 "seccion_expresion_1": "SECCIÓN B.1: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN)",
                 "seccion_expresion_2": "",
-                "omitir_si_v1_es_cero": true
+                "omitir_si_v1_es_cero": true,
+                "aplicar_a_tipo": [
+                    "HOSPITAL",
+                    "OTROS"
+                ]
             },
             {
                 "id": "A11-VAL003",
@@ -1013,7 +1015,11 @@
                 "mensaje": "REM A11 | SECCIÓN B.2: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS QUE COMPRAN SERVICIO) | Celdas (C152:P156) debe ser distinto de | celda (0)",
                 "rem_sheet_2": "A11",
                 "seccion_expresion_1": "SECCIÓN B.2: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS (USO EXCLUSIVO DE ESTABLECIMIENTOS QUE COMPRAN SERVICIO)",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "aplicar_a_tipo": [
+                    "HOSPITAL",
+                    "OTROS"
+                ]
             },
             {
                 "id": "A11-VAL004",
@@ -1032,7 +1038,11 @@
                 "rem_sheet_2": "A11",
                 "seccion_expresion_1": "SECCIÓN C.1: EXÁMENES  DE  VIH POR GRUPOS DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN)",
                 "seccion_expresion_2": "",
-                "omitir_si_v1_es_cero": true
+                "omitir_si_v1_es_cero": true,
+                "aplicar_a_tipo": [
+                    "HOSPITAL",
+                    "OTROS"
+                ]
             }
         ],
         "A19a": [
@@ -1184,7 +1194,10 @@
                 "mensaje": "REM A28 | SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL | Celdas (AM149:AM177) debe ser mayor o igual a | celda (0)",
                 "rem_sheet_2": "A28",
                 "seccion_expresion_1": "SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL",
-                "seccion_expresion_2": ""
+                "seccion_expresion_2": "",
+                "aplicar_a_tipo": [
+                    "HOSPITAL"
+                ]
             },
             {
                 "id": "A28-VAL007",
@@ -1204,7 +1217,10 @@
                 "rem_sheet_2": "A28",
                 "seccion_expresion_1": "SECCIÓN B.1: INGRESOS Y EGRESOS  A REHABILITACIÓN INTEGRAL",
                 "seccion_expresion_2": "",
-                "omitir_si_v1_es_cero": true
+                "omitir_si_v1_es_cero": true,
+                "aplicar_a_tipo": [
+                    "HOSPITAL"
+                ]
             }
         ],
         "A29": [
@@ -1253,7 +1269,10 @@
                 "rem_sheet_2": "A30R",
                 "seccion_expresion_1": "",
                 "seccion_expresion_2": "",
-                "omitir_si_v1_es_cero": true
+                "omitir_si_v1_es_cero": true,
+                "aplicar_a_tipo": [
+                    "HOSPITAL"
+                ]
             }
         ]
     }

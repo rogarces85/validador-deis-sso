@@ -37,6 +37,7 @@ describe('RuleEngineService', () => {
 
     const mockMetadata: FileMetadata = {
         codigoEstablecimiento: '123100',
+        tipoEstablecimiento: 'HOSPITAL',
         serieRem: 'A',
         mes: '01',
         extension: 'xlsx',
@@ -129,5 +130,152 @@ describe('RuleEngineService', () => {
 
         expect(mockExcel.getCellValue).toHaveBeenCalledWith('A05', 'C10');
         expect(results[0].resultado).toBe(true);
+    });
+
+    it('should evaluate rules limited by establishment type', async () => {
+        const rule: ValidationRule = {
+            id: 'TEST04',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A1',
+            operador: '==',
+            expresion_2: 10,
+            severidad: Severity.ERROR,
+            mensaje: 'Type-scoped rule',
+            aplicar_a_tipo: ['HOSPITAL']
+        };
+
+        mockExcel.getCellValue.mockReturnValue(10);
+
+        const results = await ruleEngine.evaluate([rule], mockMetadata);
+
+        expect(results).toHaveLength(1);
+        expect(results[0].resultado).toBe(true);
+    });
+
+    it('should skip rules excluded by establishment type', async () => {
+        const rule: ValidationRule = {
+            id: 'TEST05',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A1',
+            operador: '==',
+            expresion_2: 10,
+            severidad: Severity.ERROR,
+            mensaje: 'Excluded type rule',
+            excluir_tipo: ['HOSPITAL']
+        };
+
+        const results = await ruleEngine.evaluate([rule], mockMetadata);
+
+        expect(results).toHaveLength(0);
+    });
+
+    it('should normalize OTRO to OTROS when filtering by type', async () => {
+        const rule: ValidationRule = {
+            id: 'TEST06',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A1',
+            operador: '==',
+            expresion_2: 7,
+            severidad: Severity.ERROR,
+            mensaje: 'Normalized type rule',
+            aplicar_a_tipo: ['OTROS']
+        };
+
+        mockExcel.getCellValue.mockReturnValue(7);
+
+        const results = await ruleEngine.evaluate([rule], {
+            ...mockMetadata,
+            codigoEstablecimiento: '123207',
+            tipoEstablecimiento: 'OTROS'
+        });
+
+        expect(results).toHaveLength(1);
+        expect(results[0].resultado).toBe(true);
+    });
+
+    it('should require both type and code when both scopes are present', async () => {
+        const rule: ValidationRule = {
+            id: 'TEST07',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A1',
+            operador: '==',
+            expresion_2: 7,
+            severidad: Severity.ERROR,
+            mensaje: 'Combined scope rule',
+            aplicar_a: ['123100'],
+            aplicar_a_tipo: ['HOSPITAL']
+        };
+
+        mockExcel.getCellValue.mockReturnValue(7);
+
+        const passingResults = await ruleEngine.evaluate([rule], mockMetadata);
+        expect(passingResults).toHaveLength(1);
+        expect(passingResults[0].resultado).toBe(true);
+
+        const skippedResults = await ruleEngine.evaluate([rule], {
+            ...mockMetadata,
+            codigoEstablecimiento: '123101'
+        });
+
+        expect(skippedResults).toHaveLength(0);
+    });
+
+    it('should evaluate exclusivity for non-target codes', async () => {
+        const rule: ValidationRule = {
+            id: 'TEST08',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A1',
+            operador: '==',
+            expresion_2: 0,
+            severidad: Severity.ERROR,
+            mensaje: 'Exclusive code rule',
+            aplicar_a: ['123100'],
+            validacion_exclusiva: true
+        };
+
+        mockExcel.getCellValue.mockReturnValue(5);
+
+        const nonTargetResults = await ruleEngine.evaluate([rule], {
+            ...mockMetadata,
+            codigoEstablecimiento: '123101'
+        });
+
+        expect(nonTargetResults).toHaveLength(1);
+        expect(nonTargetResults[0].resultado).toBe(false);
+    });
+
+    it('should invert operator for exclusive target types only', async () => {
+        const rule: ValidationRule = {
+            id: 'TEST09',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A1',
+            operador: '==',
+            expresion_2: 0,
+            severidad: Severity.ERROR,
+            mensaje: 'Exclusive type rule',
+            aplicar_a_tipo: ['HOSPITAL'],
+            validacion_exclusiva: true
+        };
+
+        mockExcel.getCellValue.mockReturnValue(5);
+
+        const targetResults = await ruleEngine.evaluate([rule], mockMetadata);
+        expect(targetResults).toHaveLength(1);
+        expect(targetResults[0].resultado).toBe(true);
+
+        const nonTargetResults = await ruleEngine.evaluate([rule], {
+            ...mockMetadata,
+            codigoEstablecimiento: '123300',
+            tipoEstablecimiento: 'CESFAM'
+        });
+
+        expect(nonTargetResults).toHaveLength(1);
+        expect(nonTargetResults[0].resultado).toBe(false);
     });
 });

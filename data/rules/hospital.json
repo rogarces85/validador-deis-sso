@@ -1,57 +1,85 @@
 {
     "validaciones": {
-        "A08": [
+        "A05": [
             {
-                "id": "A08-VAL002",
-                "seccion_expresion_1": "SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad)",
-                "tipo": "CELDA",
-                "rem_sheet": "A08",
-                "expresion_1": "B13+B14",
+                "id": "A05-VAL006",
+                "seccion_expresion_1": "SECCIÓN R: INGRESOS Y EGRESOS DEL PROGRAMA DE VIH/SIDA (Uso exclusivo Centros de Atención VIH-SIDA)",
+                "tipo": "RESTRICCION",
+                "rem_sheet": "A05",
+                "expresion_1": "C329:E339",
                 "operador": "==",
-                "seccion_expresion_2": "SECCIÓN B.1: CATEGORIZACIÓN DE PACIENTES DE URGENCIA GINECO OBSTÉTRICA PREVIO A LA ATENCIÓN CLÍNICA POR MATRÓN (A) Y/O MÉDICO GINECO-OBSTETRA (Establecimientos alta, mediana y baja complejidad)",
-                "expresion_2": "B78",
-                "severidad": "ERROR",
-                "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Celdas (B13+B14) debe ser igual a | SECCIÓN B.1: CATEGORIZACIÓN DE PACIENTES DE URGENCIA GINECO OBSTÉTRICA PREVIO A LA ATENCIÓN CLÍNICA POR MATRÓN (A) Y/O MÉDICO GINECO-OBSTETRA (Establecimientos alta, mediana y baja complejidad) | celda (B78)",
-                "rem_sheet_2": "A08",
+                "expresion_2": "SOLO HBSJO",
+                "severidad": "REVISAR",
+                "mensaje": "REVISAR | REM05 | SECCIÓN R: INGRESOS Y EGRESOS DEL PROGRAMA DE VIH/SIDA (Uso exclusivo Centros de Atención VIH-SIDA) | Ingreso y Egreso corresponde solo al HBSJO | C329:E339",
+                "rem_sheet_2": "A05",
                 "aplicar_a_tipo": [
                     "HOSPITAL"
-                ]
-            },
-            {
-                "id": "A08-VAL007",
-                "seccion_expresion_1": "SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad)",
-                "tipo": "CELDA",
-                "rem_sheet": "A08",
-                "expresion_1": "B13",
-                "operador": "<",
-                "seccion_expresion_2": "SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad)",
-                "expresion_2": "AS13",
-                "severidad": "ERROR",
-                "omitir_si_ambos_cero": true,
-                "mensaje": "REM A08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Celdas (B13) debe ser menor que | celda (AS13)",
-                "rem_sheet_2": "A08",
-                "aplicar_a_tipo": [
-                    "HOSPITAL"
+                ],
+                "aplicar_a": [
+                    "123100"
                 ]
             }
         ],
-        "A30R": [
+        "A08": [
             {
-                "id": "A30R-VAL001",
-                "seccion": "SECCION A1: TELEINTERCONSULTA DE ESPECIALIDAD MEDICA POR HOSPITAL DIGITAL",
-                "tipo": "CELDA",
-                "rem_sheet": "A30R",
-                "expresion_1": "B16:B17",
-                "operador": "!=",
-                "expresion_2": 0,
+                "id": "A08-VAL001",
+                "seccion_expresion_1": "SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad)",
+                "tipo": "RESTRICCION",
+                "rem_sheet": "A08",
+                "expresion_1": "E12:AL15",
+                "operador": "==",
+                "expresion_2": "SOLO HBSJO, HPU",
                 "severidad": "ERROR",
-                "mensaje": "REM A30R |SECCION A1: TELEINTERCONSULTA DE ESPECIALIDAD MEDICA POR HOSPITAL DIGITAL Celdas (B16:B17) debe ser distinto de | celda (0)",
-                "rem_sheet_2": "A30R",
-                "seccion_expresion_1": "",
-                "seccion_expresion_2": "",
-                "omitir_si_v1_es_cero": true,
+                "mensaje": "ERROR | REM08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Atenciones Alta Complejidad solo HBSJO y HPU | E12:AL15",
+                "rem_sheet_2": "A08",
                 "aplicar_a_tipo": [
                     "HOSPITAL"
+                ],
+                "aplicar_a": [
+                    "123100",
+                    "123101"
+                ]
+            }
+        ],
+        "A09": [
+            {
+                "id": "A09-VAL001",
+                "seccion_expresion_1": "SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN  NIVEL PRIMARIO Y SECUNDARIO DE SALUD",
+                "tipo": "RESTRICCION",
+                "rem_sheet": "A09",
+                "expresion_1": "D16:D17",
+                "operador": "==",
+                "expresion_2": "SOLO HBSJO, HPU, HRN",
+                "severidad": "ERROR",
+                "mensaje": "ERROR | REM09 | SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN  NIVEL PRIMARIO Y SECUNDARIO DE SALUD | Consultas y Controles Odontologia general solo HBSJO, HPU y HRN | D16:D17",
+                "rem_sheet_2": "A09",
+                "aplicar_a_tipo": [
+                    "HOSPITAL"
+                ],
+                "aplicar_a": [
+                    "123100",
+                    "123101",
+                    "123102"
+                ]
+            }
+        ],
+        "A11": [
+            {
+                "id": "A11-VAL001",
+                "seccion_expresion_1": "SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN)",
+                "tipo": "RESTRICCION",
+                "rem_sheet": "A11",
+                "expresion_1": "B13:C30",
+                "operador": "==",
+                "expresion_2": "SOLO HBSJO",
+                "severidad": "ERROR",
+                "mensaje": "ERROR | REM11 | SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | Examen VDRL corresponde solo a HBSJO | B13:C30",
+                "rem_sheet_2": "A11",
+                "aplicar_a_tipo": [
+                    "HOSPITAL"
+                ],
+                "aplicar_a": [
+                    "123100"
                 ]
             }
         ]

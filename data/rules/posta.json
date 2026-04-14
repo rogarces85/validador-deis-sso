@@ -1,3 +1,21 @@
 {
-    "validaciones": {}
+    "validaciones": {
+        "A02": [
+            {
+                "id": "A02-VAL003",
+                "seccion_expresion_1": "SECCIÓN A: EMP REALIZADO POR PROFESIONAL",
+                "tipo": "RESTRICCION",
+                "rem_sheet": "A02",
+                "expresion_1": "B17",
+                "operador": "==",
+                "expresion_2": "SOLO POSTAS",
+                "severidad": "ERROR",
+                "mensaje": "ERROR | REM02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | EMP Técnico Enfermería corresponde solo a Postas | B17",
+                "rem_sheet_2": "A02",
+                "aplicar_a_tipo": [
+                    "Posta de Salud Rural (PSR)"
+                ]
+            }
+        ]
+    }
 }

@@ -1,24 +1,60 @@
 const fs = require('fs');
 const path = require('path');
 
-const rulesNuevasPath = path.join(process.cwd(), 'data', 'Rules_nuevas.json');
-const catalogPath = path.join(process.cwd(), 'data', 'establishments.catalog.json');
+const sourceRulesPath = path.join(process.cwd(), 'data', 'reglas_finales.json');
 const rulesDir = path.join(process.cwd(), 'data', 'rules');
 
 const baseJsonPath = path.join(rulesDir, 'base.json');
 const hospitalJsonPath = path.join(rulesDir, 'hospital.json');
 const postaJsonPath = path.join(rulesDir, 'posta.json');
 const samuJsonPath = path.join(rulesDir, 'samu.json');
+const checkOnly = process.argv.includes('--check');
 
 // Crear la carpeta data/rules si no existe
 if (!fs.existsSync(rulesDir)) {
     fs.mkdirSync(rulesDir, { recursive: true });
 }
 
+const HOSPITAL_CODE_GROUPS = {
+    'SOLO HBSJO': ['123100'],
+    'SOLO HBSJO, HPU': ['123100', '123101'],
+    'SOLO HBSJO, HPU, HRN': ['123100', '123101', '123102'],
+};
+
+function cloneRule(rule) {
+    return JSON.parse(JSON.stringify(rule));
+}
+
+function pushRule(target, sheet, rule) {
+    if (!target.validaciones[sheet]) {
+        target.validaciones[sheet] = [];
+    }
+    target.validaciones[sheet].push(rule);
+}
+
+function normalizeScopedRule(rule) {
+    const normalized = cloneRule(rule);
+    delete normalized.aplicar_a;
+    delete normalized.aplicar_a_tipo;
+    delete normalized.excluir_tipo;
+
+    if (normalized.expresion_2 === 'SOLO POSTAS') {
+        normalized.aplicar_a_tipo = ['POSTA'];
+        return { bucket: 'POSTA', rule: normalized };
+    }
+
+    if (HOSPITAL_CODE_GROUPS[normalized.expresion_2]) {
+        normalized.aplicar_a_tipo = ['HOSPITAL'];
+        normalized.aplicar_a = HOSPITAL_CODE_GROUPS[normalized.expresion_2];
+        return { bucket: 'HOSPITAL', rule: normalized };
+    }
+
+    return { bucket: 'BASE', rule: normalized };
+}
+
 function parseRules() {
-    console.log('📖 Cargando rules y catálogo...');
-    const rulesData = JSON.parse(fs.readFileSync(rulesNuevasPath, 'utf8'));
-    const catalogData = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+    console.log('📖 Cargando reglas base...');
+    const rulesData = JSON.parse(fs.readFileSync(sourceRulesPath, 'utf8'));
 
     const baseRules = { validaciones: {} };
     const hospitalRules = { validaciones: {} };
@@ -27,67 +63,55 @@ function parseRules() {
 
     let countBase = 0, countHosp = 0, countPosta = 0, countSamu = 0;
 
-    for (const sheet in rulesData.validaciones) {
-        rulesData.validaciones[sheet].forEach(rule => {
-            const msgLower = (rule.mensaje || '').toLowerCase();
-            let isHospital = false;
-            let isPosta = false;
-            let isSamu = false;
+    for (const sheet in rulesData) {
+        rulesData[sheet].forEach(rule => {
+            const { bucket, rule: normalizedRule } = normalizeScopedRule(rule);
 
-            // Detección base en el mensaje de palabras clave
-            if (msgLower.includes('solo a hbsjo') || msgLower.includes('alta complejidad') || msgLower.includes('hospital')) {
-                isHospital = true;
-                if (msgLower.includes('hbsjo')) {
-                    rule.aplicar_a = ["123100"]; // HBSJO
-                }
-            }
-            if (msgLower.includes('posta') || msgLower.includes('psr')) {
-                isPosta = true;
-            }
-            if (msgLower.includes('samu') && msgLower.includes('exclusivo')) {
-                isSamu = true;
-            }
-
-            // Excluir SAMU explícitamente si se detecta en la regla original
-            if (msgLower.includes('excluye samu')) {
-                rule.excluir_tipo = rule.excluir_tipo || [];
-                if (!rule.excluir_tipo.includes("SAMU")) rule.excluir_tipo.push("SAMU");
-            }
-
-            // Distribución
-            if (isHospital && !isPosta && !isSamu) {
-                if (!hospitalRules.validaciones[sheet]) hospitalRules.validaciones[sheet] = [];
-                hospitalRules.validaciones[sheet].push(rule);
+            if (bucket === 'HOSPITAL') {
+                pushRule(hospitalRules, sheet, normalizedRule);
                 countHosp++;
-            } else if (isPosta && !isHospital && !isSamu) {
-                if (!postaRules.validaciones[sheet]) postaRules.validaciones[sheet] = [];
-                postaRules.validaciones[sheet].push(rule);
-                countPosta++;
-            } else if (isSamu && !isHospital && !isPosta) {
-                if (!samuRules.validaciones[sheet]) samuRules.validaciones[sheet] = [];
-                samuRules.validaciones[sheet].push(rule);
-                countSamu++;
-            } else {
-                // Si no es exclusivo, va a base.json
-                if (!baseRules.validaciones[sheet]) baseRules.validaciones[sheet] = [];
-                baseRules.validaciones[sheet].push(rule);
-                countBase++;
+                return;
             }
+
+            if (bucket === 'POSTA') {
+                pushRule(postaRules, sheet, normalizedRule);
+                countPosta++;
+                return;
+            }
+
+            if (bucket === 'SAMU') {
+                pushRule(samuRules, sheet, normalizedRule);
+                countSamu++;
+                return;
+            }
+
+            pushRule(baseRules, sheet, normalizedRule);
+            countBase++;
         });
     }
 
-    // Escribir los archivos
-    fs.writeFileSync(baseJsonPath, JSON.stringify(baseRules, null, 4), 'utf8');
-    fs.writeFileSync(hospitalJsonPath, JSON.stringify(hospitalRules, null, 4), 'utf8');
-    fs.writeFileSync(postaJsonPath, JSON.stringify(postaRules, null, 4), 'utf8');
-    fs.writeFileSync(samuJsonPath, JSON.stringify(samuRules, null, 4), 'utf8');
+    const sourceCount = Object.values(rulesData).reduce((acc, rules) => acc + rules.length, 0);
+    const splitCount = countBase + countHosp + countPosta + countSamu;
 
-    console.log(`✅ Sincronización completada.`);
+    if (sourceCount !== splitCount) {
+        throw new Error(`Conteo inconsistente: origen=${sourceCount}, divididas=${splitCount}`);
+    }
+
+    if (!checkOnly) {
+        fs.writeFileSync(baseJsonPath, JSON.stringify(baseRules, null, 4), 'utf8');
+        fs.writeFileSync(hospitalJsonPath, JSON.stringify(hospitalRules, null, 4), 'utf8');
+        fs.writeFileSync(postaJsonPath, JSON.stringify(postaRules, null, 4), 'utf8');
+        fs.writeFileSync(samuJsonPath, JSON.stringify(samuRules, null, 4), 'utf8');
+    }
+
+    console.log(checkOnly ? '✅ Verificación completada.' : '✅ Sincronización completada.');
     console.log(`📊 Distribución de reglas:`);
     console.log(`  - Base: ${countBase}`);
     console.log(`  - Hospital: ${countHosp}`);
     console.log(`  - Posta: ${countPosta}`);
     console.log(`  - SAMU: ${countSamu}`);
+    console.log(`  - Total origen: ${sourceCount}`);
+    console.log(`  - Total dividido: ${splitCount}`);
 }
 
 try {

@@ -112,7 +112,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
     const [severityFilter, setSeverityFilter] = useState<Severity | 'ALL'>('ALL');
     const [sheetFilter, setSheetFilter] = useState<string>('ALL');
     const [searchTerm, setSearchTerm] = useState('');
-    const [statusFilter, setStatusFilter] = useState<'ALL' | 'PASS' | 'FAIL'>('FAIL');
+    const [statusFilter, setStatusFilter] = useState<'ALL' | 'PASS' | 'FAIL'>('ALL');
 
     const sheets = useMemo(() => [...new Set(findings.map(f => f.rem_sheet || 'N/A'))], [findings]);
 
@@ -219,9 +219,9 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                 </div>
             </div>
 
-            {/* Table — Estado → Validación → Regla → Hoja → Valor → Esperado → Acciones */}
+            {/* Table — Estado → Validación → Regla → Hoja → Valor → Esperado → Comparación → Acciones */}
             <div className="overflow-x-auto">
-                <table className="w-full text-left" style={{ minWidth: '700px' }}>
+                <table className="w-full text-left" style={{ minWidth: '860px' }}>
                     <thead style={{ backgroundColor: 'var(--bg-canvas)', borderBottom: '1px solid var(--border-default)' }}>
                         <tr>
                             <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Estado</th>
@@ -230,6 +230,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                             <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Hoja</th>
                             <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Valor</th>
                             <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Esperado</th>
+                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Comparación</th>
                             <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider text-center" style={{ color: 'var(--text-muted)' }}>Acciones</th>
                         </tr>
                     </thead>
@@ -290,6 +291,30 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                 <td className="px-4 sm:px-6 py-3">
                                     <span className="text-xs font-mono" style={{ color: 'var(--text-muted)' }}>{String(finding.valorEsperado)}</span>
                                 </td>
+                                <td className="px-4 sm:px-6 py-3">
+                                    <div className="space-y-1">
+                                        <span className="text-xs font-mono" style={{ color: 'var(--text-secondary)' }}>
+                                            {finding.comparacion || 'N/A'}
+                                        </span>
+                                        {typeof finding.diferencia === 'number' ? (
+                                            <span className="inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold"
+                                                style={{
+                                                    backgroundColor: finding.diferencia === 0
+                                                        ? 'var(--control-bg)'
+                                                        : finding.diferencia > 0
+                                                            ? 'var(--semantic-success-soft)'
+                                                            : 'var(--semantic-error-soft)',
+                                                    color: finding.diferencia === 0
+                                                        ? 'var(--text-secondary)'
+                                                        : finding.diferencia > 0
+                                                            ? 'var(--semantic-success)'
+                                                            : 'var(--semantic-error)',
+                                                }}>
+                                                {finding.diferencia > 0 ? '+' : ''}{finding.diferencia}
+                                            </span>
+                                        ) : null}
+                                    </div>
+                                </td>
                                 {/* Acciones — Detalle */}
                                 <td className="px-4 sm:px-6 py-3 text-center">
                                     <button
@@ -311,7 +336,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                         ))}
                         {filteredFindings.length === 0 && (
                             <tr>
-                                <td colSpan={7} className="px-6 py-20 text-center">
+                                <td colSpan={8} className="px-6 py-20 text-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto mb-3" style={{ color: 'var(--text-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>

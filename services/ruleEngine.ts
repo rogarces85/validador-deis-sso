@@ -15,6 +15,10 @@ function generateUUID(): string {
 export class RuleEngineService {
   private excel = ExcelReaderService.getInstance();
 
+  private formatValue(value: unknown): string {
+    return JSON.stringify(value);
+  }
+
   private normalizeEstablishmentType(type?: string): EstablishmentType | undefined {
     if (!type) return undefined;
 
@@ -119,6 +123,10 @@ export class RuleEngineService {
         resultado: true, // Se da por válida (sin datos, no aplica)
         valorActual: 0,
         valorEsperado: `${rule.operador} 0`,
+        operador: rule.operador,
+        valorReferencia: 0,
+        comparacion: `${this.formatValue(v1)} ${rule.operador} ${this.formatValue(v2)}`,
+        diferencia: 0,
         rem_sheet: rule.rem_sheet,
         id: generateUUID(),
         evidence: 'Omitida: ambos valores son 0 (sin datos para comparar).'
@@ -134,6 +142,10 @@ export class RuleEngineService {
         resultado: true,
         valorActual: 0,
         valorEsperado: `${rule.operador} ${val2}`,
+        operador: rule.operador,
+        valorReferencia: val2,
+        comparacion: `${this.formatValue(v1)} ${rule.operador} ${this.formatValue(v2)}`,
+        diferencia: typeof v2 === 'number' ? -v2 : undefined,
         rem_sheet: rule.rem_sheet,
         id: generateUUID(),
         evidence: 'Omitida: valor actual de la expresión 1 es 0.'
@@ -165,6 +177,10 @@ export class RuleEngineService {
     }
 
     const operadorEfectivo = invertirOperador ? `${operador} (invertido de ${rule.operador})` : operador;
+    const comparacion = `${this.formatValue(v1)} ${operador} ${this.formatValue(v2)}`;
+    const diferencia = typeof v1 === 'number' && typeof v2 === 'number'
+      ? v1 - v2
+      : undefined;
 
     return {
       ruleId: rule.id,
@@ -173,6 +189,10 @@ export class RuleEngineService {
       resultado: passed,
       valorActual: val1,
       valorEsperado: `${operador} ${val2}`,
+      operador,
+      valorReferencia: val2,
+      comparacion,
+      diferencia,
       rem_sheet: rule.rem_sheet,
       id: generateUUID(),
       cell: (typeof rule.expresion_1 === 'string' && !rule.expresion_1.includes('SUM') && !rule.expresion_1.includes('+') && !rule.expresion_1.includes(':')) ? rule.expresion_1 : undefined,

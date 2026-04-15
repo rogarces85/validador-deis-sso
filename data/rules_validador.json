@@ -162,7 +162,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "OBSERVAR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de Salud 18-23 meses | O36:O37 >= REM03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Resultados 18-23 meses | L20:M20",
+                "mensaje": "REVISAR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de Salud 18-23 meses | O36:O37 >= REM03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Resultados 18-23 meses | L20:M20",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -176,7 +176,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "OBSERVAR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de Salud 24-47 meses | P36:P37 >= REM03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Resultados 24-47 meses | N20:O20",
+                "mensaje": "REVISAR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de Salud 24-47 meses | P36:P37 >= REM03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Resultados 24-47 meses | N20:O20",
                 "rem_sheet_2": "A01",
                 "seccion_expresion_1": "SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA",
                 "seccion_expresion_2": ""
@@ -711,7 +711,7 @@
                 "operador": "!=",
                 "expresion_2": 0,
                 "severidad": "REVISAR",
-                "mensaje": "OBSERVAR | REM05 | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | Ingresos Gestantes edades extremas | L11:N14",
+                "mensaje": "REVISAR | REM05 | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | Ingresos Gestantes edades extremas | L11:N14",
                 "rem_sheet_2": "A05",
                 "seccion_expresion_1": "SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL",
                 "seccion_expresion_2": ""

@@ -13,6 +13,7 @@ export const ruleSets: RuleDictionary = {
     BASE: baseRules as unknown as { validaciones: Record<string, ValidationRule[]> },
     HOSPITAL: hospitalRules as unknown as { validaciones: Record<string, ValidationRule[]> },
     POSTA: postaRules as unknown as { validaciones: Record<string, ValidationRule[]> },
+    MOVIL: samuRules as unknown as { validaciones: Record<string, ValidationRule[]> },
     SAMU: samuRules as unknown as { validaciones: Record<string, ValidationRule[]> },
 };
 

@@ -117,8 +117,8 @@
                 "expresion_1": "O36+O37",
                 "operador": ">=",
                 "expresion_2": "L20+M20",
-                "severidad": "OBSERVAR",
-                "mensaje": "OBSERVAR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de Salud 18-23 meses | O36:O37 >= REM03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Resultados 18-23 meses | L20:M20",
+                "severidad": "REVISAR",
+                "mensaje": "REVISAR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de Salud 18-23 meses | O36:O37 >= REM03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Resultados 18-23 meses | L20:M20",
                 "rem_sheet_2": "A03"
             },
             {
@@ -129,8 +129,8 @@
                 "expresion_1": "P36+P37",
                 "operador": ">=",
                 "expresion_2": "N20+O20",
-                "severidad": "OBSERVAR",
-                "mensaje": "OBSERVAR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de Salud 24-47 meses | P36:P37 >= REM03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Resultados 24-47 meses | N20:O20",
+                "severidad": "REVISAR",
+                "mensaje": "REVISAR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de Salud 24-47 meses | P36:P37 >= REM03 | SECCIÓN A.2: RESULTADOS DE LA APLICACIÓN DE ESCALA DE EVALUACIÓN DEL DESARROLLO PSICOMOTOR | Resultados 24-47 meses | N20:O20",
                 "rem_sheet_2": "A03"
             }
         ],
@@ -329,8 +329,8 @@
                 "expresion_1": "SUM(L11:N14)",
                 "operador": "==",
                 "expresion_2": 0,
-                "severidad": "OBSERVAR",
-                "mensaje": "OBSERVAR | REM05 | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | Ingresos Gestantes edades extremas | L11:N14",
+                "severidad": "REVISAR",
+                "mensaje": "REVISAR | REM05 | SECCIÓN A: INGRESOS DE GESTANTES A PROGRAMA PRENATAL | Ingresos Gestantes edades extremas | L11:N14",
                 "rem_sheet_2": "A05"
             },
             {
@@ -431,8 +431,8 @@
                 "expresion_1": "C32 > 0",
                 "operador": "=>",
                 "expresion_2": "INGRESOS > 0",
-                "severidad": "OBSERVAR",
-                "mensaje": "OBSERVAR | REM21 | SECCIÓN C.1.1:  PERSONAS ATENDIDAS EN EL PROGRAMA | Personas atendidas implica ingresos | C32",
+                "severidad": "REVISAR",
+                "mensaje": "REVISAR | REM21 | SECCIÓN C.1.1:  PERSONAS ATENDIDAS EN EL PROGRAMA | Personas atendidas implica ingresos | C32",
                 "rem_sheet_2": "A21"
             }
         ],

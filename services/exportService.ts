@@ -195,9 +195,9 @@ export class ExportService {
 
     // ═════════════════════════════════════════════════
     // HOJA 2: HALLAZGOS (replica la FindingsTable)
-    // Columnas: Estado | Descripción | ID Regla | Celda | Hoja REM | Severidad | Valor Actual | Valor Esperado
+    // Columnas: Estado | Descripción | ID Regla | Celda | Hoja REM | Severidad | Valor Actual | Valor Esperado | Comparación | Diferencia
     // ═════════════════════════════════════════════════
-    const headers = ['Estado', 'Descripción', 'ID Regla', 'Celda', 'Hoja REM', 'Severidad', 'Valor Actual', 'Valor Esperado'];
+    const headers = ['Estado', 'Descripción', 'ID Regla', 'Celda', 'Hoja REM', 'Severidad', 'Valor Actual', 'Valor Esperado', 'Comparación', 'Diferencia'];
     const numCols = headers.length;
 
     const dataRows = results.map(r => [
@@ -209,6 +209,8 @@ export class ExportService {
       r.severidad,
       r.valorActual != null ? String(r.valorActual) : '',
       r.valorEsperado != null ? String(r.valorEsperado) : '',
+      r.comparacion || '',
+      typeof r.diferencia === 'number' ? String(r.diferencia) : '',
     ]);
 
     const wsTable = XLSX.utils.aoa_to_sheet([headers, ...dataRows]);
@@ -240,6 +242,10 @@ export class ExportService {
       applyCellStyle(wsTable, rowNum, 6, monoStyle);
       // Col 7: Valor Esperado
       applyCellStyle(wsTable, rowNum, 7, monoStyle);
+      // Col 8: Comparación
+      applyCellStyle(wsTable, rowNum, 8, monoStyle);
+      // Col 9: Diferencia
+      applyCellStyle(wsTable, rowNum, 9, monoStyle);
     });
 
     // Column widths matching the visual weight of the on-screen table
@@ -252,6 +258,8 @@ export class ExportService {
       { wch: 14 }, // Severidad
       { wch: 14 }, // Valor Actual
       { wch: 14 }, // Valor Esperado
+      { wch: 24 }, // Comparación
+      { wch: 12 }, // Diferencia
     ];
 
     // Freeze header row
@@ -275,9 +283,11 @@ export class ExportService {
         r.rem_sheet || '',
         r.valorActual != null ? String(r.valorActual) : '',
         r.valorEsperado != null ? String(r.valorEsperado) : '',
+        r.comparacion || '',
+        typeof r.diferencia === 'number' ? String(r.diferencia) : '',
         r.mensaje || r.evidence || '',
       ]);
-      const failedHeaders = ['Severidad', 'Descripción', 'ID Regla', 'Celda', 'Hoja REM', 'Valor Actual', 'Valor Esperado', 'Detalle'];
+      const failedHeaders = ['Severidad', 'Descripción', 'ID Regla', 'Celda', 'Hoja REM', 'Valor Actual', 'Valor Esperado', 'Comparación', 'Diferencia', 'Detalle'];
       const wsErrors = XLSX.utils.aoa_to_sheet([failedHeaders, ...failedRows]);
 
       const failedNumCols = failedHeaders.length;
@@ -297,7 +307,7 @@ export class ExportService {
       });
 
       wsErrors['!cols'] = [
-        { wch: 14 }, { wch: 55 }, { wch: 14 }, { wch: 8 }, { wch: 10 }, { wch: 14 }, { wch: 14 }, { wch: 40 },
+        { wch: 14 }, { wch: 55 }, { wch: 14 }, { wch: 8 }, { wch: 10 }, { wch: 14 }, { wch: 14 }, { wch: 24 }, { wch: 12 }, { wch: 40 },
       ];
 
       XLSX.utils.book_append_sheet(wb, wsErrors, 'Solo Errores');
@@ -331,7 +341,7 @@ export class ExportService {
   }
 
   public static exportToCsv(results: ValidationResult[], metadata: FileMetadata) {
-    const headers = ['Severidad', 'ID Regla', 'Descripción', 'Hoja', 'Celda', 'Mensaje', 'Valor', 'Esperado'];
+    const headers = ['Severidad', 'ID Regla', 'Descripción', 'Hoja', 'Celda', 'Mensaje', 'Valor', 'Esperado', 'Comparación', 'Diferencia'];
     const rows = results.map(r => [
       r.severidad,
       r.ruleId,
@@ -340,7 +350,9 @@ export class ExportService {
       r.cell || '',
       `"${(r.mensaje || '').replace(/"/g, '""')}"`,
       r.valorActual,
-      r.valorEsperado
+      r.valorEsperado,
+      `"${(r.comparacion || '').replace(/"/g, '""')}"`,
+      r.diferencia ?? ''
     ].join(','));
 
     const csvContent = [headers.join(','), ...rows].join('\n');

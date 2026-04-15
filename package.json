@@ -8,7 +8,9 @@
     "prebuild": "npm version patch --no-git-tag-version",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run --reporter=verbose"
+    "test": "vitest run --reporter=verbose",
+    "sync-rules": "node .agents/skills/sincronizador-reglas/scripts/sync_rules.cjs",
+    "sync-rules:check": "node .agents/skills/sincronizador-reglas/scripts/sync_rules.cjs --check"
   },
   "dependencies": {
     "pdf-parse": "^2.4.5",

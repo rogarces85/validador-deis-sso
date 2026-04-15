@@ -63,6 +63,8 @@ describe('RuleEngineService', () => {
 
         expect(results).toHaveLength(1);
         expect(results[0].resultado).toBe(true);
+        expect(results[0].comparacion).toBe('10 == 10');
+        expect(results[0].diferencia).toBe(0);
         expect(mockExcel.getCellValue).toHaveBeenCalledWith('A01', 'A1');
     });
 
@@ -85,6 +87,48 @@ describe('RuleEngineService', () => {
 
         expect(results).toHaveLength(1);
         expect(results[0].resultado).toBe(false);
+        expect(results[0].comparacion).toBe('10 == 20');
+        expect(results[0].diferencia).toBe(-10);
+    });
+
+    it('should expose positive and negative deltas for relational operators', async () => {
+        const greaterRule: ValidationRule = {
+            id: 'TEST10',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A1',
+            operador: '>=',
+            expresion_2: 3,
+            severidad: Severity.ERROR,
+            mensaje: 'Greater or equal rule'
+        };
+
+        const lowerRule: ValidationRule = {
+            id: 'TEST11',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A2',
+            operador: '<=',
+            expresion_2: 4,
+            severidad: Severity.ERROR,
+            mensaje: 'Lower or equal rule'
+        };
+
+        mockExcel.getCellValue.mockImplementation((_sheet: string, cell: string) => {
+            if (cell === 'A1') return 7;
+            if (cell === 'A2') return 9;
+            return 0;
+        });
+
+        const results = await ruleEngine.evaluate([greaterRule, lowerRule], mockMetadata);
+
+        expect(results).toHaveLength(2);
+        expect(results[0].comparacion).toBe('7 >= 3');
+        expect(results[0].diferencia).toBe(4);
+        expect(results[0].resultado).toBe(true);
+        expect(results[1].comparacion).toBe('9 <= 4');
+        expect(results[1].diferencia).toBe(5);
+        expect(results[1].resultado).toBe(false);
     });
 
     it('should resolve SUM function correctly', async () => {

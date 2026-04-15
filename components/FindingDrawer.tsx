@@ -10,6 +10,26 @@ interface FindingDrawerProps {
 const FindingDrawer: React.FC<FindingDrawerProps> = ({ finding, onClose }) => {
     if (!finding) return null;
 
+    const deltaTone = typeof finding.diferencia !== 'number'
+        ? null
+        : finding.diferencia === 0
+            ? {
+                bg: 'var(--control-bg)',
+                color: 'var(--text-secondary)',
+                label: 'Igualdad'
+            }
+            : finding.diferencia > 0
+                ? {
+                    bg: 'var(--semantic-success-soft)',
+                    color: 'var(--semantic-success)',
+                    label: 'Positivo'
+                }
+                : {
+                    bg: 'var(--semantic-error-soft)',
+                    color: 'var(--semantic-error)',
+                    label: 'Negativo'
+                };
+
     const copyToClipboard = () => {
         const text = `
 Regla: ${finding.ruleId}
@@ -19,6 +39,8 @@ Hoja: ${finding.rem_sheet || 'N/A'}
 Celda: ${finding.cell || 'N/A'}
 Valor Actual: ${finding.valorActual}
 Valor Esperado: ${finding.valorEsperado}
+Comparacion: ${finding.comparacion || ''}
+Diferencia: ${finding.diferencia ?? ''}
 Mensaje: ${finding.mensaje || ''}
 Eviencia: ${finding.evidence || ''}
         `.trim();
@@ -144,6 +166,26 @@ Eviencia: ${finding.evidence || ''}
                                     </span>
                                 </div>
                             </div>
+
+                            {(finding.comparacion || typeof finding.diferencia === 'number') ? (
+                                <div className="pt-4 space-y-3" style={{ borderTop: '1px solid var(--border-default)' }}>
+                                    <div>
+                                        <span className="text-[10px] font-medium uppercase block mb-1 font-sans" style={{ color: 'var(--text-muted)' }}>Comparación Evaluada</span>
+                                        <span className="font-medium text-xs" style={{ color: 'var(--text-primary)' }}>
+                                            {finding.comparacion || 'No disponible'}
+                                        </span>
+                                    </div>
+                                    {deltaTone ? (
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-[10px] font-medium uppercase font-sans" style={{ color: 'var(--text-muted)' }}>Diferencia</span>
+                                            <span className="px-2 py-1 rounded-full text-xs font-semibold"
+                                                style={{ backgroundColor: deltaTone.bg, color: deltaTone.color }}>
+                                                {deltaTone.label}: {finding.diferencia! > 0 ? '+' : ''}{finding.diferencia}
+                                            </span>
+                                        </div>
+                                    ) : null}
+                                </div>
+                            ) : null}
                         </div>
                     </div>
 

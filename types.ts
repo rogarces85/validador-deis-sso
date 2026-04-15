@@ -60,6 +60,10 @@ export interface ValidationResult {
   resultado: boolean;
   valorActual: any;
   valorEsperado: any;
+  operador?: string;
+  valorReferencia?: any;
+  comparacion?: string;
+  diferencia?: number;
   mensaje?: string;
   rem_sheet?: string;
   cell?: string;

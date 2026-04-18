@@ -91,3 +91,29 @@ export interface AppState {
   error: string | null;
   versionError?: string | null;
 }
+
+export interface CellCatalogEntry {
+  codigo: string;
+  severidad: string;
+  hojaRem: string;
+  seccion: string;
+  validacion: string;
+  celda: string;
+}
+
+export interface CellCatalogData {
+  generatedAt: string;
+  sourceFile: string;
+  totalRows: number;
+  entries: CellCatalogEntry[];
+}
+
+export type CellReadStatus = 'OK' | 'CELDA_VACIA' | 'CELDA_INVALIDA' | 'HOJA_NO_EXISTE';
+
+export interface CellReadResult extends CellCatalogEntry {
+  indice: number;
+  hojaSistema: string;
+  valor: string | number | boolean | null;
+  tipoValor: string;
+  estado: CellReadStatus;
+}

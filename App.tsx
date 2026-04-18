@@ -10,8 +10,9 @@ import { ValidationResult } from './types';
 // bundle-dynamic-imports: lazy-load components not needed on initial render
 const FindingDrawer = lazy(() => import('./components/FindingDrawer'));
 const ExportPanel = lazy(() => import('./components/ExportPanel'));
+const CeldasReview = lazy(() => import('./components/CeldasReview'));
 
-type Page = 'home' | 'results';
+type Page = 'home' | 'results' | 'cells';
 type AppStatus = 'idle' | 'loading' | 'success' | 'error';
 
 const App: React.FC = () => {
@@ -165,6 +166,18 @@ const App: React.FC = () => {
               findings={state.results}
               onSelectFinding={handleSelectFinding}
             />
+          </div>
+        ) : null}
+
+        {currentPage === 'cells' && state.file ? (
+          <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <h2 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>
+              Revision de celdas para reglas
+            </h2>
+
+            <Suspense fallback={null}>
+              <CeldasReview fileName={state.file.name} />
+            </Suspense>
           </div>
         ) : null}
       </main>

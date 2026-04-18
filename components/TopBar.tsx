@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useTheme } from './ThemeContext';
 
-type Page = 'home' | 'results';
+type Page = 'home' | 'results' | 'cells';
 
 interface TopBarProps {
     currentPage: Page;
@@ -19,6 +19,12 @@ const ICON_UPLOAD = (
 const ICON_RESULTS = (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+    </svg>
+);
+
+const ICON_CELLS = (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 7h18M3 12h18M3 17h18M7 3v18M12 3v18M17 3v18" />
     </svg>
 );
 
@@ -41,6 +47,7 @@ const TopBar: React.FC<TopBarProps> = ({ currentPage, onNavigate, hasResults }) 
     const navItems = useMemo(() => [
         { key: 'home' as Page, label: 'Cargar Archivo', icon: ICON_UPLOAD, disabled: false },
         { key: 'results' as Page, label: 'Resultados', icon: ICON_RESULTS, disabled: !hasResults },
+        { key: 'cells' as Page, label: 'Celdas', icon: ICON_CELLS, disabled: !hasResults },
     ], [hasResults]);
 
     return (

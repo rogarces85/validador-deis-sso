@@ -9,6 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run --reporter=verbose",
+    "build:celdas-catalog": "node scripts/build_celdas_catalog.mjs celdas.xlsx data/celdas.catalog.json",
     "sync-rules": "node .agents/skills/sincronizador-reglas/scripts/sync_rules.cjs",
     "sync-rules:check": "node .agents/skills/sincronizador-reglas/scripts/sync_rules.cjs --check"
   },

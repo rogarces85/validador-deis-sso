@@ -6,7 +6,7 @@
     "establecimientos": [
         {
             "codigo": "123000",
-            "nombre": "DEMO",
+            "nombre": "PRUEBA",
             "comuna": "10301",
             "tipo": "OTROS",
             "activo": true

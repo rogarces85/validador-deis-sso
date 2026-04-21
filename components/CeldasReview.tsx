@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { ExcelReaderService } from '../services/excelService';
 import celdasCatalogRaw from '../data/celdas.catalog.json';
-import ruleDictionary from '../data/rules';
+import reglasFinalesRaw from '../data/reglas_finales.json';
 import { CellCatalogData, CellReadResult, CellReadStatus, ValidationRule } from '../types';
 
 interface CeldasReviewProps {
@@ -193,8 +193,9 @@ const getRuleTone = (ruleCode: string): RuleTone => {
 
 const normalizeCatalogRuleCode = (ruleCode: string): string => ruleCode.replace(/[^A-Z0-9]/gi, '').toUpperCase();
 
-const allRules = Object.values(ruleDictionary)
-  .flatMap((ruleSet) => Object.values(ruleSet.validaciones || {}).flat()) as ValidationRule[];
+const reglasFinales = reglasFinalesRaw as Record<string, ValidationRule[]>;
+
+const allRules = Object.values(reglasFinales).flat() as ValidationRule[];
 
 const rulesBySheetAndCode = new Map(
   allRules.map((rule) => {
@@ -207,7 +208,8 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<'ALL' | CellReadStatus>('ALL');
   const [sheetFilter, setSheetFilter] = useState<string>('ALL');
-  const [selectedRow, setSelectedRow] = useState<CellReadResult | null>(null);
+  const [ruleFilter, setRuleFilter] = useState<string>('ALL');
+  const [popoverState, setPopoverState] = useState<{ row: CellReadResult; top: number; left: number } | null>(null);
 
   const rows = useMemo<CellReadResult[]>(() => {
     const excelService = ExcelReaderService.getInstance();
@@ -278,6 +280,7 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
     return rows.filter((row) => {
       if (statusFilter !== 'ALL' && row.estado !== statusFilter) return false;
       if (sheetFilter !== 'ALL' && row.hojaRem !== sheetFilter) return false;
+      if (ruleFilter !== 'ALL' && row.codigo !== ruleFilter) return false;
 
       if (!searchTerm) return true;
       const term = searchTerm.toLowerCase();
@@ -288,7 +291,7 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
         row.validacion.toLowerCase().includes(term)
       );
     });
-  }, [rows, searchTerm, statusFilter, sheetFilter]);
+  }, [rows, searchTerm, statusFilter, sheetFilter, ruleFilter]);
 
   const handleExportJson = useCallback(() => {
     const payload = {
@@ -309,14 +312,45 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
     URL.revokeObjectURL(url);
   }, [fileName, rows, summary]);
 
+  const selectedRow = popoverState?.row ?? null;
+
   const handleCloseModal = useCallback(() => {
-    setSelectedRow(null);
+    setPopoverState(null);
+  }, []);
+
+  const openRulePopover = useCallback((row: CellReadResult, element: HTMLElement) => {
+    const rect = element.getBoundingClientRect();
+    const popoverWidth = 360;
+    const margin = 16;
+    const left = Math.min(
+      Math.max(margin, rect.left),
+      Math.max(margin, window.innerWidth - popoverWidth - margin),
+    );
+
+    setPopoverState({
+      row,
+      top: Math.min(rect.bottom + 10, window.innerHeight - 220),
+      left,
+    });
+  }, []);
+
+  const handleFilterByRule = useCallback((ruleCode: string) => {
+    setRuleFilter(ruleCode);
+    setPopoverState(null);
+  }, []);
+
+  const clearRuleFilter = useCallback(() => {
+    setRuleFilter('ALL');
   }, []);
 
   const selectedRule = useMemo(() => {
     if (!selectedRow) return null;
     const normalizedCode = normalizeCatalogRuleCode(selectedRow.codigo);
-    return rulesBySheetAndCode.get(`${selectedRow.hojaSistema}|${normalizedCode}`) || null;
+    return (
+      rulesBySheetAndCode.get(`${selectedRow.hojaSistema}|${normalizedCode}`) ||
+      rulesBySheetAndCode.get(`${selectedRow.hojaSistema.replace('AR', 'R')}|${normalizedCode}`) ||
+      null
+    );
   }, [selectedRow]);
 
   const selectedRuleRows = useMemo(() => {
@@ -338,6 +372,20 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
               <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
                 Catalogo fuente: {celdasCatalog.sourceFile} ({celdasCatalog.totalRows} filas)
               </p>
+              {ruleFilter !== 'ALL' ? (
+                <div className="mt-3 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium" style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-default)' }}>
+                  <span>Filtro activo:</span>
+                  <span className="font-mono font-semibold" style={{ color: 'var(--text-primary)' }}>{ruleFilter}</span>
+                  <button
+                    type="button"
+                    onClick={clearRuleFilter}
+                    className="rounded-full px-2 py-0.5"
+                    style={{ backgroundColor: 'var(--bg-surface)', color: 'var(--text-primary)', border: '1px solid var(--border-default)' }}
+                  >
+                    Quitar
+                  </button>
+                </div>
+              ) : null}
             </div>
 
             <button
@@ -449,9 +497,9 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
                 return (
                   <tr
                     key={`${row.codigo}-${row.hojaRem}-${row.celda}-${row.indice}`}
-                    onClick={() => setSelectedRow(row)}
                     className="cursor-pointer transition-colors"
                     style={groupRowStyle}
+                    onClick={(event) => openRulePopover(row, event.currentTarget)}
                     onMouseEnter={(event) => {
                       Object.assign(event.currentTarget.style, groupHoverStyle);
                     }}
@@ -464,7 +512,7 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
                         type="button"
                         onClick={(event) => {
                           event.stopPropagation();
-                          setSelectedRow(row);
+                          openRulePopover(row, event.currentTarget);
                         }}
                         className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold font-mono transition-transform hover:scale-[1.02]"
                         style={{ ...ruleTone.badge, opacity: isGroupStart ? 1 : 0.72 }}
@@ -494,38 +542,38 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
       </div>
 
       {selectedRow ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50">
           <button
             type="button"
-            aria-label="Cerrar detalle de regla"
+            aria-label="Cerrar popover de regla"
             className="absolute inset-0"
-            style={{ backgroundColor: 'rgba(15, 23, 42, 0.55)' }}
+            style={{ backgroundColor: 'transparent' }}
             onClick={handleCloseModal}
           />
 
           <div
-            className="relative w-full max-w-2xl rounded-3xl p-6 sm:p-7"
+            className="absolute w-[min(360px,calc(100vw-32px))] rounded-2xl p-4"
             style={{
+              top: `${popoverState?.top ?? 0}px`,
+              left: `${popoverState?.left ?? 0}px`,
               backgroundColor: 'var(--bg-surface)',
               border: '1px solid var(--border-default)',
               boxShadow: 'var(--shadow-lg)',
             }}
+            onClick={(event) => event.stopPropagation()}
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-3">
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold font-mono" style={getRuleTone(selectedRow.codigo).badge}>
                   <span>{selectedRow.codigo}</span>
                 </div>
-                <h3 className="mt-3 text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Detalle de la regla de celda</h3>
-                <p className="mt-1 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                  Explicacion detallada de la validacion asociada a la regla seleccionada.
-                </p>
+                <p className="mt-2 text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>Explicacion de la validacion</p>
               </div>
 
               <button
                 type="button"
                 onClick={handleCloseModal}
-                className="rounded-full p-2"
+                className="rounded-full p-1.5"
                 style={{ color: 'var(--text-muted)' }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -534,109 +582,41 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
               </button>
             </div>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Hoja REM</p>
-                <p className="mt-1 text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>{selectedRule?.rem_sheet || selectedRow.hojaSistema}</p>
-              </div>
-              <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Tipo</p>
-                <p className="mt-1 text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>{selectedRule?.tipo || 'No disponible'}</p>
-              </div>
-              <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Seccion</p>
-                <p className="mt-1 text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>{selectedRule?.seccion_expresion_1 || selectedRow.seccion || '—'}</p>
-              </div>
-              <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Severidad</p>
-                <p className="mt-1 text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>{selectedRule?.severidad || selectedRow.severidad}</p>
-              </div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <span className="text-xs px-2.5 py-1 rounded-full font-medium" style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-default)' }}>
+                Hoja: {selectedRule?.rem_sheet || selectedRow.hojaSistema}
+              </span>
+              <span className="text-xs px-2.5 py-1 rounded-full font-medium" style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-default)' }}>
+                Celda: {selectedRow.celda}
+              </span>
+              <span className="text-xs px-2.5 py-1 rounded-full font-medium" style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-default)' }}>
+                Severidad: {selectedRule?.severidad || selectedRow.severidad}
+              </span>
             </div>
 
-            <div className="mt-4 rounded-2xl p-5" style={{ backgroundColor: 'var(--bg-canvas)', border: '1px solid var(--border-default)' }}>
-              <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Explicacion detallada</p>
+            <div className="mt-3 rounded-2xl p-4" style={{ backgroundColor: 'var(--bg-canvas)', border: '1px solid var(--border-default)' }}>
+              <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Explicacion</p>
               <div className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-primary)' }}>
                 {selectedRule?.mensaje ? renderFormattedMessage(selectedRule.mensaje) : selectedRow.validacion}
               </div>
             </div>
 
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Expresion 1</p>
-                <p className="mt-1 text-sm font-semibold font-mono" style={{ color: 'var(--text-primary)' }}>{selectedRule?.expresion_1 || selectedRow.celda}</p>
+            <div className="mt-3 flex items-center justify-between gap-3">
+              <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                {selectedRuleRows.length} celdas asociadas
               </div>
-              <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Operador</p>
-                <p className="mt-1 text-sm font-semibold font-mono" style={{ color: 'var(--text-primary)' }}>{selectedRule?.operador || '—'}</p>
-              </div>
-              <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Expresion 2</p>
-                <p className="mt-1 text-sm font-semibold font-mono" style={{ color: 'var(--text-primary)' }}>{selectedRule ? String(selectedRule.expresion_2) : '—'}</p>
-              </div>
-              <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Celda seleccionada</p>
-                <p className="mt-1 text-sm font-semibold font-mono" style={{ color: 'var(--text-primary)' }}>{selectedRow.celda}</p>
-              </div>
-            </div>
-
-            <div className="mt-4 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Hoja sistema</p>
-                <p className="mt-1 text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>{selectedRow.hojaSistema}</p>
-              </div>
-              <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Valor leido</p>
-                <p className="mt-1 text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>{selectedRow.valor === null ? '—' : String(selectedRow.valor)}</p>
-              </div>
-              <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Estado</p>
-                <div className="mt-2">
-                  <span className="text-xs px-2 py-1 rounded-full font-medium" style={statusStyle[selectedRow.estado]}>
-                    {statusLabel[selectedRow.estado]}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-4 rounded-2xl p-5" style={{ backgroundColor: 'var(--bg-canvas)', border: '1px solid var(--border-default)' }}>
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Celdas asociadas a la regla</p>
-                  <p className="mt-1 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                    {selectedRuleRows.length} celdas de {selectedRow.codigo} en {selectedRow.hojaSistema}
-                  </p>
-                </div>
-                <span className="text-xs px-2 py-1 rounded-full font-medium" style={getRuleTone(selectedRow.codigo).badge}>
-                  {selectedRuleRows.length} celdas
-                </span>
-              </div>
-
-              <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-                {selectedRuleRows
-                  .slice()
-                  .sort((a, b) => a.celda.localeCompare(b.celda, undefined, { numeric: true }))
-                  .map((row) => (
-                    <div
-                      key={`${row.codigo}-${row.hojaSistema}-${row.celda}-${row.indice}`}
-                      className="rounded-2xl px-3 py-3"
-                      style={{ backgroundColor: 'var(--control-bg)', border: '1px solid var(--border-default)' }}
-                    >
-                      <p className="text-[11px] font-mono font-semibold" style={{ color: 'var(--text-primary)' }}>{row.celda}</p>
-                      <p className="mt-1 text-xs" style={{ color: 'var(--text-secondary)' }}>
-                        {row.valor === null ? 'Sin dato' : `Valor: ${String(row.valor)}`}
-                      </p>
-                      <div className="mt-2">
-                        <span className="text-[11px] px-2 py-1 rounded-full font-medium" style={statusStyle[row.estado]}>
-                          {statusLabel[row.estado]}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-              </div>
+              <button
+                type="button"
+                onClick={() => handleFilterByRule(selectedRow.codigo)}
+                className="px-3 py-1.5 rounded-full text-xs font-medium"
+                style={{ backgroundColor: 'var(--brand-accent)', color: 'var(--text-on-brand)' }}
+              >
+                Ver solo esta regla
+              </button>
             </div>
 
             {!selectedRule ? (
-              <div className="mt-4 rounded-2xl p-4 text-sm" style={{ backgroundColor: 'var(--semantic-warning-soft)', color: 'var(--semantic-warning)', border: '1px solid var(--semantic-warning-border)' }}>
+              <div className="mt-3 rounded-2xl p-3 text-sm" style={{ backgroundColor: 'var(--semantic-warning-soft)', color: 'var(--semantic-warning)', border: '1px solid var(--semantic-warning-border)' }}>
                 No se encontro el detalle completo de la regla en el diccionario. Se muestra la validacion del catalogo de celdas.
               </div>
             ) : null}

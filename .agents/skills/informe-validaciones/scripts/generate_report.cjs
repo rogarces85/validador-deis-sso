@@ -1,7 +1,7 @@
 /**
  * generate_report.cjs
  * Genera un informe completo de TODAS las validaciones del Validador DEIS SSO.
- * Incluye: reglas JSON (Rules_nuevas.json) + validaciones hoja NOMBRE (hardcoded).
+ * Incluye: reglas JSON (reglas_finales.json) + validaciones hoja NOMBRE (hardcoded).
  * Exporta a Markdown (.md) y Excel (.xlsx).
  */
 const fs = require('fs');
@@ -9,9 +9,9 @@ const path = require('path');
 
 // ── Configuración de rutas ──
 const ROOT = process.cwd();
-const RULES_PATH = path.join(ROOT, 'data', 'Rules_nuevas.json');
-const OUTPUT_MD = path.join(ROOT, 'validador_registro.md');
-const OUTPUT_XLSX = path.join(ROOT, 'Validador_Registro.xlsx');
+const RULES_PATH = path.join(ROOT, 'data', 'reglas_finales.json');
+const OUTPUT_MD = path.join(ROOT, 'docs', 'validador_registro.md');
+const OUTPUT_XLSX = path.join(ROOT, 'docs', 'Validador_Registro.xlsx');
 
 // ── 1. Validaciones de la hoja NOMBRE (extraídas de nombreSheetValidator.ts) ──
 const NOMBRE_VALIDATIONS = [
@@ -177,7 +177,7 @@ function translateOp(op) {
     return ops[op] || op;
 }
 
-// ── 3. Leer y procesar Rules_nuevas.json ──
+// ── 3. Leer y procesar reglas_finales.json ──
 const rulesData = JSON.parse(fs.readFileSync(RULES_PATH, 'utf8'));
 
 // Construir lista plana de todas las validaciones
@@ -202,7 +202,7 @@ for (const v of NOMBRE_VALIDATIONS) {
 }
 
 // Agregar reglas JSON
-for (const [sheet, rules] of Object.entries(rulesData.validaciones)) {
+for (const [sheet, rules] of Object.entries(rulesData)) {
     for (const rule of rules) {
         const aplicaA = [];
         if (rule.aplicar_a_tipo && rule.aplicar_a_tipo.length) aplicaA.push(`Tipo: ${rule.aplicar_a_tipo.join(', ')}`);

@@ -1,19 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 
-const sourcePath = path.join(process.cwd(), 'data', 'Rules_nuevas.json');
+const sourcePath = path.join(process.cwd(), 'data', 'reglas_finales.json');
 const targetsDir = path.join(process.cwd(), 'data', 'rules');
 const targetFiles = ['base.json', 'hospital.json', 'posta.json', 'samu.json'];
 
 async function syncMessages() {
     try {
-        console.log('📖 Cargando mensajes de origen desde Rules_nuevas.json...');
+        console.log('📖 Cargando mensajes de origen desde reglas_finales.json...');
         const sourceData = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
 
         // Crear mapa de mensajes por ID
         const messageMap = new Map();
-        for (const sheet in sourceData.validaciones) {
-            sourceData.validaciones[sheet].forEach(rule => {
+        for (const sheet in sourceData) {
+            sourceData[sheet].forEach(rule => {
                 messageMap.set(rule.id, rule.mensaje);
             });
         }

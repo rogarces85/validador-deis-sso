@@ -5,7 +5,7 @@ Build ✅ | Tests ✅
 
 ## ¿Dónde están las reglas?
 Las reglas base están unificadas y documentadas en:
-📁 `data/Rules_nuevas.json`
+📁 `data/reglas_finales.json`
 
 Sin embargo, para la ejecución se distribuyen en archivos por tipo de establecimiento dentro de la carpeta:
 📁 `data/rules/`
@@ -14,19 +14,17 @@ Sin embargo, para la ejecución se distribuyen en archivos por tipo de estableci
 - `posta.json`
 - `samu.json`
 
-### Estructura base en `Rules_nuevas.json`:
+### Estructura base en `reglas_finales.json`:
 ```json
 {
-  "validaciones": {
-    "A01": [ ...reglas para REM A01... ],
-    "A02": [ ...reglas para REM A02... ],
-    "A03": [ ...reglas... ],
-    ...
-    "A30": [ ...reglas... ]
-  }
+  "A01": [ ...reglas para REM A01... ],
+  "A02": [ ...reglas para REM A02... ],
+  "A03": [ ...reglas... ],
+  ...
+  "A30": [ ...reglas... ]
 }
 ```
-> Actualmente hay **81 reglas** distribuidas en **16 series** en `Rules_nuevas.json`. Estas se traspasan luego a `data/rules/*.json` automáticamente usando la habilidad `sincronizador-reglas`.
+> `reglas_finales.json` es la fuente de verdad actual. Desde ahi se distribuyen las reglas a `data/rules/*.json` usando la habilidad `sincronizador-reglas`.
 
 ## ¿Cómo se cargan en la aplicación?
 En `hooks/useValidationPipeline.ts`, la aplicación consume dinámicamente el archivo en `data/rules/` que corresponda al tipo de establecimiento logueado o, por defecto, `base.json`.
@@ -83,10 +81,10 @@ Cada regla JSON tiene la siguiente configuración:
 
 ## Mantenimiento
 Para agregar una nueva regla:
-1. Agrégala en `data/Rules_nuevas.json` (manteniendo control de IDs como `AXX-VALYYY`).
+1. Agrégala en `data/reglas_finales.json` (manteniendo control de IDs como `AXX-VALYYY`).
 2. Usa opcionalmente la habilidad `mejora-mensajes-errores` si deseas autocompletar o formalizar la estructura descriptiva.
 3. Al terminar de probar o agregar, corre el siguiente comando NodeJS en la raíz para esparcirlas a los archivos de ejecución:
 ```bash
-node sync_rules.cjs
+node .agents/skills/sincronizador-reglas/scripts/sync_rules.cjs
 ```
 Los archivos base.json, hospital.json, posta.json, samu.json se autogenerarán y estarán listos en el build.

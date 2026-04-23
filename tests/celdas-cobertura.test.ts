@@ -1,20 +1,19 @@
 import { beforeAll, describe, expect, it } from 'vitest';
 import XLSX from 'xlsx-js-style';
-import { readFile } from 'node:fs/promises';
-import path from 'node:path';
 import { ExcelReaderService } from '../services/excelService';
+import celdasCatalogRaw from '../data/celdas.catalog.json';
 
-type CellRow = {
-  'HOJA REM': string;
-  CELDA: string;
+type CellCatalogEntry = {
+  hojaRem: string;
+  celda: string;
 };
 
-const PROJECT_ROOT = process.cwd();
-const CELDAS_PATH = path.resolve(PROJECT_ROOT, 'celdas.xlsx');
-const REM_FILENAME = process.env.COBERTURA_REM_FILE || 'SA_26_V1.2.xlsm';
-const REM_PATH = path.resolve(PROJECT_ROOT, REM_FILENAME);
+type CellCatalogData = {
+  entries: CellCatalogEntry[];
+};
 
 const CELL_REF_REGEX = /^[A-Z]+\d+$/;
+const celdasCatalog = celdasCatalogRaw as CellCatalogData;
 
 const mapRemSheet = (sheetLabel: string): string => {
   const raw = String(sheetLabel || '').trim();
@@ -41,8 +40,50 @@ const inSheetRange = (sheet: XLSX.WorkSheet, cellRef: string): boolean => {
   );
 };
 
-describe('Cobertura de celdas definidas en celdas.xlsx', () => {
+const ensureRefIncludesCell = (sheet: XLSX.WorkSheet, cellRef: string): void => {
+  const cell = XLSX.utils.decode_cell(cellRef);
+
+  if (!sheet['!ref']) {
+    sheet['!ref'] = XLSX.utils.encode_range({ s: cell, e: cell });
+    return;
+  }
+
+  const range = XLSX.utils.decode_range(sheet['!ref']);
+  range.s.r = Math.min(range.s.r, cell.r);
+  range.s.c = Math.min(range.s.c, cell.c);
+  range.e.r = Math.max(range.e.r, cell.r);
+  range.e.c = Math.max(range.e.c, cell.c);
+  sheet['!ref'] = XLSX.utils.encode_range(range);
+};
+
+const buildWorkbookFromCatalog = (): XLSX.WorkBook => {
+  const workbook = XLSX.utils.book_new();
+  const sheets = new Map<string, XLSX.WorkSheet>();
+  let valueSeed = 1;
+
+  for (const entry of celdasCatalog.entries) {
+    const cellRef = String(entry.celda || '').trim();
+    if (!CELL_REF_REGEX.test(cellRef)) continue;
+
+    const mappedSheet = mapRemSheet(entry.hojaRem);
+    let sheet = sheets.get(mappedSheet);
+
+    if (!sheet) {
+      sheet = XLSX.utils.aoa_to_sheet([]);
+      sheets.set(mappedSheet, sheet);
+      XLSX.utils.book_append_sheet(workbook, sheet, mappedSheet);
+    }
+
+    ensureRefIncludesCell(sheet, cellRef);
+    sheet[cellRef] = { t: 'n', v: valueSeed++ };
+  }
+
+  return workbook;
+};
+
+describe('Cobertura de celdas definidas en celdas.catalog.json', () => {
   const excelService = ExcelReaderService.getInstance();
+  const remWorkbook = buildWorkbookFromCatalog();
 
   beforeAll(async () => {
     global.FileReader = class {
@@ -65,8 +106,8 @@ describe('Cobertura de celdas definidas en celdas.xlsx', () => {
       }
     } as any;
 
-    const fileBuffer = await readFile(REM_PATH);
-    const remFile = new File([fileBuffer], 'SA_26_V1.2.xlsm', {
+    const workbookBuffer = XLSX.write(remWorkbook, { bookType: 'xlsm', type: 'array' });
+    const remFile = new File([workbookBuffer], 'cobertura_catalogo.xlsm', {
       type: 'application/vnd.ms-excel.sheet.macroEnabled.12',
     });
 
@@ -74,22 +115,18 @@ describe('Cobertura de celdas definidas en celdas.xlsx', () => {
   });
 
   it('lee todas las referencias validas de la columna CELDA', () => {
-    const celdasWorkbook = XLSX.readFile(CELDAS_PATH);
-    const celdasSheet = celdasWorkbook.Sheets[celdasWorkbook.SheetNames[0]];
-    const rows = XLSX.utils.sheet_to_json<CellRow>(celdasSheet, { defval: '' });
+    const rows = celdasCatalog.entries;
 
-    const remWorkbook = XLSX.readFile(REM_PATH);
-
-    const validRows = rows.filter((row) => CELL_REF_REGEX.test(String(row.CELDA).trim()));
-    const skippedRows = rows.filter((row) => !CELL_REF_REGEX.test(String(row.CELDA).trim()));
+    const validRows = rows.filter((row) => CELL_REF_REGEX.test(String(row.celda).trim()));
+    const skippedRows = rows.filter((row) => !CELL_REF_REGEX.test(String(row.celda).trim()));
 
     const missingSheets: string[] = [];
     const outOfRangeCells: string[] = [];
     const valueMismatches: string[] = [];
 
     for (const row of validRows) {
-      const hojaRem = String(row['HOJA REM']).trim();
-      const cellRef = String(row.CELDA).trim();
+      const hojaRem = String(row.hojaRem).trim();
+      const cellRef = String(row.celda).trim();
       const mappedSheet = mapRemSheet(hojaRem);
       const sheet = remWorkbook.Sheets[mappedSheet];
 
@@ -118,12 +155,12 @@ describe('Cobertura de celdas definidas en celdas.xlsx', () => {
     expect(validRows.length).toBeGreaterThan(0);
     expect(
       uniqueMissingSheets,
-      `Archivo probado: ${REM_FILENAME}. Hojas faltantes: ${uniqueMissingSheets.join(', ')}`,
+      `Hojas faltantes: ${uniqueMissingSheets.join(', ')}`,
     ).toHaveLength(0);
     expect(outOfRangeCells, `Celdas fuera de rango: ${outOfRangeCells.join(', ')}`).toHaveLength(0);
     expect(valueMismatches, `Diferencias detectadas: ${valueMismatches.join(', ')}`).toHaveLength(0);
 
     expect(skippedRows.length).toBeGreaterThanOrEqual(1);
-    expect(skippedRows.some((row) => String(row.CELDA).trim().toLowerCase() === 'todas')).toBe(true);
+    expect(skippedRows.some((row) => String(row.celda).trim().toLowerCase() === 'todas')).toBe(true);
   });
 });

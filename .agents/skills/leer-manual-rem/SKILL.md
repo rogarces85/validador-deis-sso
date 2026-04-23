@@ -10,7 +10,7 @@ Esta habilidad procesa el PDF del **Manual Resumen Estadístico Mensual (REM) 20
 ## Prerrequisitos
 - Node.js instalado.
 - El paquete `pdf-parse` debe estar instalado (`npm install pdf-parse`).
-- El archivo PDF del manual debe estar en la raíz del proyecto: `Manual Series REM 2026  SERIE A BS BM DV1.1.pdf`.
+- Debes contar con el PDF del manual REM disponible localmente al ejecutar el script.
 
 ## Instrucciones
 
@@ -36,7 +36,7 @@ El archivo `Informe_Manual_REM.md` contendrá:
 
 ### Paso 3 — Derivar Nuevas Validaciones (Opcional)
 
-A partir del informe, el agente o el usuario puede identificar reglas de validación adicionales que no estén actualmente implementadas en `data/Rules_nuevas.json`.
+A partir del informe, el agente o el usuario puede identificar reglas de validación adicionales que no estén actualmente implementadas en `data/reglas_finales.json`.
 
 ## Convenciones
 - El PDF se procesa con `pdfjs-dist` (build legacy para compatibilidad Node.js).

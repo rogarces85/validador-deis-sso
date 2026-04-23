@@ -2,9 +2,9 @@ const XLSX = require('xlsx');
 const fs = require('fs');
 const path = require('path');
 
-const rulesPath = path.join(process.cwd(), 'data', 'Rules_nuevas.json');
-const glosaPath = path.join(process.cwd(), 'glosa Serie a.xlsx');
-const outputPath = path.join(process.cwd(), 'informe_prestaciones_validador.md');
+const rulesPath = path.join(process.cwd(), 'data', 'reglas_finales.json');
+const glosaPath = process.argv[2] || path.join(process.cwd(), 'glosa Serie a.xlsx');
+const outputPath = process.argv[3] || path.join(process.cwd(), 'docs', 'informe_prestaciones_validador.md');
 
 function cleanGlosa(glosa) {
     if (!glosa) return 'Sin descripción';
@@ -23,6 +23,10 @@ async function generateReport() {
         console.log('Cargando reglas...');
         const rulesData = JSON.parse(fs.readFileSync(rulesPath, 'utf8'));
 
+        if (!fs.existsSync(glosaPath)) {
+            throw new Error(`No se encontro el archivo de glosas: ${glosaPath}`);
+        }
+
         console.log('Cargando glosas de Excel...');
         const workbook = XLSX.readFile(glosaPath);
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
@@ -37,8 +41,8 @@ async function generateReport() {
 
         const report = {};
 
-        for (const sheetName in rulesData.validaciones) {
-            rulesData.validaciones[sheetName].forEach(rule => {
+        for (const sheetName in rulesData) {
+            rulesData[sheetName].forEach(rule => {
                 const cells = [];
                 if (rule.expresion_1) {
                     const match = rule.expresion_1.match(/[A-Z]+\d+/g);

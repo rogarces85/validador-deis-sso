@@ -5,11 +5,11 @@ description: Lee glosas de Excel, las limpia (dejando solo el texto post último
 
 # Identificador de Prestaciones
 
-Esta habilidad permite vincular las reglas técnicas definidas en `Rules_nuevas.json` con las descripciones humanas (glosas) contenidas en archivos Excel de referencia (como `glosa Serie a.xlsx`).
+Esta habilidad permite vincular las reglas técnicas definidas en `reglas_finales.json` con las descripciones humanas (glosas) contenidas en archivos Excel de referencia.
 
 ## Prerrequisitos
 - Archivo Excel de glosas con columnas: `Código`, `Glosa`, `Hoja`, `Linea`.
-- Archivo `data/Rules_nuevas.json` actualizado.
+- Archivo `data/reglas_finales.json` actualizado.
 - Librería `xlsx` instalada.
 
 ## Instrucciones

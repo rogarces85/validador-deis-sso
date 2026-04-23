@@ -1,20 +1,20 @@
 ---
 name: Sincronizador de Mensajes Global
-description: Sincroniza los mensajes de validación desde Rules_nuevas.json hacia los archivos específicos de establecimientos (base, hospital, posta, samu).
+description: Sincroniza los mensajes de validación desde reglas_finales.json hacia los archivos específicos de establecimientos (base, hospital, posta, samu).
 ---
 
 # Sincronizador de Mensajes Global
 
-Esta habilidad asegura que las mejoras en la redacción de los mensajes (mensajes humanos e inversos) realizadas en `data/Rules_nuevas.json` se repliquen en todos los archivos de reglas por establecimiento.
+Esta habilidad asegura que las mejoras en la redacción de los mensajes realizadas en `data/reglas_finales.json` se repliquen en todos los archivos de reglas por establecimiento.
 
 ## Prerrequisitos
-- El archivo `data/Rules_nuevas.json` debe estar actualizado con los nuevos mensajes.
+- El archivo `data/reglas_finales.json` debe estar actualizado con los nuevos mensajes.
 - Deben existir los archivos en `data/rules/`: `base.json`, `hospital.json`, `posta.json`, `samu.json`.
 
 ## Instrucciones
 
 ### 1. Lectura de Origen
-- Carga el objeto `validaciones` de `data/Rules_nuevas.json`.
+- Carga las reglas desde `data/reglas_finales.json`.
 - Crea un mapa indexado por el `ID` de la regla para una búsqueda rápida.
 
 ### 2. Actualización de Destinos

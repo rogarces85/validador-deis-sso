@@ -1,4 +1,4 @@
-# Secciones extraídas de SA_26_V1.2.xlsm
+# Secciones extraídas de un archivo REM de referencia
 
 ## Hoja: A01
 - 📋 **Fila 8**: SECCIÓN A: CONTROLES DE SALUD SEXUAL Y REPRODUCTIVA

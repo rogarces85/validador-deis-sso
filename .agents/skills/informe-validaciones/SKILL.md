@@ -7,17 +7,17 @@ description: Genera un informe detallado y completo de todas las validaciones de
 
 Esta habilidad genera un registro/informe exhaustivo de **todas las validaciones** que maneja el Validador DEIS SSO, incluyendo:
 
-1. **Reglas JSON** definidas en `data/Rules_nuevas.json` (reglas de comparación por celdas/rangos).
+1. **Reglas JSON** definidas en `data/reglas_finales.json` (reglas de comparación por celdas/rangos).
 2. **Validaciones de la hoja NOMBRE** definidas en `services/nombreSheetValidator.ts` (versión del archivo, códigos de comuna, establecimiento, mes, responsable, jefe de estadística).
 
 El informe se entrega en dos formatos:
-- **Markdown**: `validador_registro.md` (para lectura y documentación rápida).
-- **Excel**: `Validador_Registro.xlsx` (para uso en reuniones, impresión y gestión documental).
+- **Markdown**: `docs/validador_registro.md` (para lectura y documentación rápida).
+- **Excel**: `docs/Validador_Registro.xlsx` (para uso en reuniones, impresión y gestión documental).
 
 ## Prerrequisitos
 - Node.js instalado.
 - El paquete `xlsx` (SheetJS) debe estar disponible. Si no lo está, ejecutar `npm install xlsx` previamente.
-- El archivo `data/Rules_nuevas.json` debe estar actualizado.
+- El archivo `data/reglas_finales.json` debe estar actualizado.
 - El archivo `data/secciones.md` debe existir para enriquecer la información de secciones.
 
 ## Instrucciones
@@ -29,7 +29,7 @@ node .agents/skills/informe-validaciones/scripts/generate_report.cjs
 ```
 
 El script:
-1. Lee `data/Rules_nuevas.json` y extrae todas las validaciones agrupadas por hoja REM.
+1. Lee `data/reglas_finales.json` y extrae todas las validaciones agrupadas por hoja REM.
 2. Extrae las validaciones de la hoja NOMBRE desde `services/nombreSheetValidator.ts` (hardcodeadas en el script como fuente de verdad).
 3. Ordena todo por Hoja REM (NOMBRE primero, luego A01, A02, ..., A30) y por ID.
 4. Para cada validación genera:
@@ -48,8 +48,8 @@ El script:
 
 ### Paso 2 — Verificar los Archivos Generados
 
-- `validador_registro.md` — Archivo Markdown con tabla completa.
-- `Validador_Registro.xlsx` — Archivo Excel con una hoja por cada REM y una hoja resumen.
+- `docs/validador_registro.md` — Archivo Markdown con tabla completa.
+- `docs/Validador_Registro.xlsx` — Archivo Excel con una hoja por cada REM y una hoja resumen.
 
 ### Paso 3 — Actualización Continua
 

@@ -7,10 +7,14 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = process.cwd();
-const PDF_PATH = path.join(ROOT, 'Manual Series REM 2026  SERIE A BS BM DV1.1.pdf');
-const OUTPUT_MD = path.join(ROOT, 'Informe_Manual_REM.md');
+const PDF_PATH = process.argv[2] || path.join(ROOT, 'Manual Series REM 2026  SERIE A BS BM DV1.1.pdf');
+const OUTPUT_MD = process.argv[3] || path.join(ROOT, 'docs', 'Informe_Manual_REM.md');
 
 async function main() {
+    if (!fs.existsSync(PDF_PATH)) {
+        throw new Error(`No se encontro el PDF del manual: ${PDF_PATH}`);
+    }
+
     console.log('📖 Leyendo Manual REM 2026...');
     const pdfjsLib = await import('pdfjs-dist/legacy/build/pdf.mjs');
 
@@ -105,7 +109,7 @@ async function main() {
     const lines = [];
     lines.push('# 📘 Informe del Manual REM 2026 — Definiciones Operacionales');
     lines.push('');
-    lines.push(`> **Fuente:** Manual Series REM 2026 SERIE A BS BM DV1.1.pdf`);
+    lines.push(`> **Fuente:** ${path.basename(PDF_PATH)}`);
     lines.push(`> **Generado:** ${new Date().toLocaleString('es-CL')}`);
     lines.push(`> **Total páginas procesadas:** ${doc.numPages}`);
     lines.push(`> **Hojas REM encontradas con definiciones:** ${sortedSheets.length}`);

@@ -26,10 +26,10 @@ Puedes ejecutar el script desde el CLI de la siguiente manera:
 node .agents/skills/exce-seccion/scripts/extract_sections.cjs <ruta_absoluta_excel> <ruta_absoluta_markdown>
 ```
 
-Por ejemplo, si el Excel se llama `SA_26_V1.2.xlsm` en la raíz y la salida es `data/secciones.md`:
+Por ejemplo, si el Excel se llama `archivo_rem.xlsm` y la salida es `data/secciones.md`:
 
 ```bash
-node .agents/skills/exce-seccion/scripts/extract_sections.cjs "$(pwd)/SA_26_V1.2.xlsm" "$(pwd)/data/secciones.md"
+node .agents/skills/exce-seccion/scripts/extract_sections.cjs "$(pwd)/archivo_rem.xlsm" "$(pwd)/data/secciones.md"
 ```
 
 ### Paso 2 — Validar los Resultados

@@ -1,6 +1,6 @@
 ---
 name: Refactorizador de Mensajes
-description: Actualiza los mensajes de validación en Rules_nuevas.json usando lógica inversa (explica el error) y descripciones humanas de glosas Excel.
+description: Actualiza los mensajes de validación en reglas_finales.json usando lógica inversa (explica el error) y descripciones humanas de glosas Excel.
 ---
 
 # Refactorizador de Mensajes
@@ -8,8 +8,8 @@ description: Actualiza los mensajes de validación en Rules_nuevas.json usando l
 Esta habilidad automatiza la humanización de los mensajes de error del validador. Transforma mensajes técnicos en descripciones claras para los usuarios finales del REM.
 
 ## Prerrequisitos
-- `Rules_nuevas.json` en la carpeta `data/`.
-- `glosa Serie a.xlsx` en la raíz del proyecto.
+- `reglas_finales.json` en la carpeta `data/`.
+- Un Excel de glosas disponible localmente si deseas enriquecer mensajes automaticamente.
 - Habilidad `identificador-prestaciones` instalada para la lógica de limpieza de glosas.
 
 ## Instrucciones

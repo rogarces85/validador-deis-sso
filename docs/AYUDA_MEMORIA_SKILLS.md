@@ -8,18 +8,18 @@ Este documento sirve como referencia rápida para entender qué hace cada "Skill
 
 ### 1. `rem-validation-rules`
 *   **Propósito**: Crear y validar reglas de validación REM.
-*   **Uso**: Cuando necesites definir la lógica técnica de una nueva validación en `Rules_nuevas.json`.
+*   **Uso**: Cuando necesites definir la lógica técnica de una nueva validación en `reglas_finales.json`.
 
 ### 2. `agrupador-validaciones`
-*   **Propósito**: Reestructura y agrupa las reglas de `Rules_nuevas.json` discriminando por tipo de establecimiento (Hospital, CESFAM, etc.).
+*   **Propósito**: Reestructura y agrupa las reglas de `reglas_finales.json` discriminando por tipo de establecimiento (Hospital, CESFAM, etc.).
 *   **Uso**: Para mantener la jerarquía correcta en los archivos de reglas por establecimiento.
 
 ### 3. `sincronizador-reglas`
-*   **Propósito**: Sincroniza los cambios de `Rules_nuevas.json` hacia los archivos específicos de cada establecimiento.
-*   **Uso**: Después de editar la "fuente de verdad" (`Rules_nuevas.json`) para propagar los cambios.
+*   **Propósito**: Sincroniza los cambios de `reglas_finales.json` hacia los archivos específicos de cada establecimiento.
+*   **Uso**: Después de editar la "fuente de verdad" (`reglas_finales.json`) para propagar los cambios.
 
 ### 4. `mejora-mensajes-errores`
-*   **Propósito**: Enriquece los mensajes de error en `Rules_nuevas.json` usando información de `secciones.md`.
+*   **Propósito**: Enriquece los mensajes de error en `reglas_finales.json` usando información de `secciones.md`.
 *   **Uso**: Para que el usuario final entienda exactamente qué falló y por qué (lógica explicada).
 
 ---

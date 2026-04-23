@@ -2,8 +2,8 @@ const XLSX = require('xlsx');
 const fs = require('fs');
 const path = require('path');
 
-const rulesPath = path.join(process.cwd(), 'data', 'Rules_nuevas.json');
-const glosaPath = path.join(process.cwd(), 'glosa Serie a.xlsx');
+const rulesPath = path.join(process.cwd(), 'data', 'reglas_finales.json');
+const glosaPath = process.argv[2] || path.join(process.cwd(), 'glosa Serie a.xlsx');
 
 /**
  * Filtro de caracteres ultra-restrictivo.
@@ -107,8 +107,8 @@ async function refactorAllMessages() {
 
         let total = 0;
 
-        for (const sheetName in rulesData.validaciones) {
-            rulesData.validaciones[sheetName].forEach(rule => {
+        for (const sheetName in rulesData) {
+            rulesData[sheetName].forEach(rule => {
                 // Buscar glosa para exp1
                 const match = String(rule.expresion_1).match(/\d+/);
                 const line = match ? match[0] : null;

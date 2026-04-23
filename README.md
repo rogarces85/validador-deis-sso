@@ -9,7 +9,7 @@ Plataforma avanzada de validación y aseguramiento de calidad para archivos **RE
 - Flujo de metadata optimizado: `establishments.catalog.json` indexado en Map para lookups O(1), inferencia automática del tipo de recinto para seleccionar el set de reglas correcto.
 - Exportación premium: reporte XLSX con 3 hojas (Resumen, Hallazgos, Solo Errores) y estilos DEIS; exportación JSON y CSV lista para SIGGES/analytics.
 - Experiencia renovada: dropzone con pre-chequeo de nombre, banner de error de versión, ring de aprobación y resumen por severidad, tabla con filtros (severidad/hoja/estado), búsqueda y drawer de detalle.
-- Documentación operativa: `validador_registro.md` autogenerado con las 91 validaciones, guía rápida en la home con capturas y ajustes visuales responsivos.
+- Documentación operativa: guía rápida en la home con capturas y documentación técnica en `docs/`.
 
 ## 📌 Parámetros solicitados
 
@@ -66,7 +66,7 @@ npm run dev
 Validador2026/
 ├── .agents/          # Skills y configuración de inteligencia artificial
 ├── components/       # Componentes UI (FindingsTable, FileDropzone, etc.)
-├── data/             # Reglas de validación (Rules_nuevas.json) y catálogos
+├── data/             # Reglas de validación (reglas_finales.json) y catálogos
 ├── docs/             # Manuales, documentación técnica y flujos de datos
 ├── hooks/            # Lógica de estado y efectos (useValidationPipeline)
 ├── scripts/          # Scripts utilitarios del sistema

@@ -1,14 +1,14 @@
 ---
 name: Sincronizador de Reglas
-description: Sincroniza los cambios de Rules_nuevas.json hacia los archivos por establecimiento usando la skill agrupador-validaciones.
+description: Sincroniza los cambios de reglas_finales.json hacia los archivos por establecimiento usando la skill agrupador-validaciones.
 ---
 
 # Sincronizador de Reglas
 
-Esta habilidad instruye al agente para que revise las modificaciones realizadas en el archivo principal `data/Rules_nuevas.json` y distribuya automáticamente estas reglas en los archivos específicos correspondientes (`base.json`, `hospital.json`, `posta.json`, `samu.json`), utilizando la lógica de la habilidad **Agrupador de Validaciones por Establecimiento**.
+Esta habilidad instruye al agente para que revise las modificaciones realizadas en el archivo principal `data/reglas_finales.json` y distribuya automáticamente estas reglas en los archivos específicos correspondientes (`base.json`, `hospital.json`, `posta.json`, `samu.json`), utilizando la lógica de la habilidad **Agrupador de Validaciones por Establecimiento**.
 
 ## Prerrequisitos
-- Archivo origen de reglas: `data/Rules_nuevas.json`
+- Archivo origen de reglas: `data/reglas_finales.json`
 - Archivos destino: 
   - `data/rules/base.json`
   - `data/rules/hospital.json`
@@ -18,15 +18,15 @@ Esta habilidad instruye al agente para que revise las modificaciones realizadas 
 
 ## Instrucciones
 
-Cuando el usuario indique que ha hecho cambios en `Rules_nuevas.json` o pida ejecutar la sincronización de reglas, sigue estos pasos:
+Cuando el usuario indique que ha hecho cambios en `reglas_finales.json` o pida ejecutar la sincronización de reglas, sigue estos pasos:
 
 ### Paso 1 — Lectura de Cambios
-1. Analiza el contenido de `data/Rules_nuevas.json`.
+1. Analiza el contenido de `data/reglas_finales.json`.
 2. Identifica las reglas que han sido agregadas, modificadas o eliminadas recientemente.
 
 ### Paso 2 — Aplicación de la Habilidad Agrupador
 1. Lee y aplica mentalmente las instrucciones de la habilidad **Agrupador de Validaciones por Establecimiento** (`.agents/skills/agrupador-validaciones/SKILL.md`).
-2. Para cada regla de `Rules_nuevas.json`, evalúa a qué tipo de establecimiento corresponde utilizando su estructura de `establecimientos_excluidos`, `mensaje` y cruza esto con el catálogo `establishments.catalog.json`.
+2. Para cada regla de `reglas_finales.json`, evalúa a qué tipo de establecimiento corresponde utilizando su estructura de `establecimientos_excluidos`, `mensaje` y cruza esto con el catálogo `establishments.catalog.json`.
 3. Etiqueta cada regla determinando si pertenece a hospitales, postas, SAMU, o si es una regla transversal.
 
 ### Paso 3 — Distribución en Archivos Específicos

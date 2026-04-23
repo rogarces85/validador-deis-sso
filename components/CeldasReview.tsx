@@ -204,6 +204,25 @@ const rulesBySheetAndCode = new Map(
   }),
 );
 
+const findRuleForRow = (row: Pick<CellReadResult, 'codigo' | 'hojaSistema'>): ValidationRule | null => {
+  const normalizedCode = normalizeCatalogRuleCode(row.codigo);
+  return (
+    rulesBySheetAndCode.get(`${row.hojaSistema}|${normalizedCode}`) ||
+    rulesBySheetAndCode.get(`${row.hojaSistema.replace('AR', 'R')}|${normalizedCode}`) ||
+    null
+  );
+};
+
+const getRowTooltip = (row: CellReadResult, rule: ValidationRule | null): string => {
+  const message = String(rule?.mensaje || row.validacion || '').trim();
+  return [
+    `Regla: ${row.codigo}`,
+    `Hoja: ${rule?.rem_sheet || row.hojaSistema}`,
+    `Celda: ${row.celda}`,
+    message ? `Detalle: ${message}` : '',
+  ].filter(Boolean).join('\n');
+};
+
 const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<'ALL' | CellReadStatus>('ALL');
@@ -318,20 +337,21 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
     setPopoverState(null);
   }, []);
 
-  const openRulePopover = useCallback((row: CellReadResult, element: HTMLElement) => {
-    const rect = element.getBoundingClientRect();
+  const openRulePopover = useCallback((row: CellReadResult, event: React.MouseEvent<HTMLElement>) => {
     const popoverWidth = 360;
+    const popoverHeight = 340;
     const margin = 16;
+    const offset = 12;
     const left = Math.min(
-      Math.max(margin, rect.left),
+      Math.max(margin, event.clientX + offset),
       Math.max(margin, window.innerWidth - popoverWidth - margin),
     );
+    const top = Math.min(
+      Math.max(margin, event.clientY + offset),
+      Math.max(margin, window.innerHeight - popoverHeight - margin),
+    );
 
-    setPopoverState({
-      row,
-      top: Math.min(rect.bottom + 10, window.innerHeight - 220),
-      left,
-    });
+    setPopoverState({ row, top, left });
   }, []);
 
   const handleFilterByRule = useCallback((ruleCode: string) => {
@@ -345,12 +365,7 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
 
   const selectedRule = useMemo(() => {
     if (!selectedRow) return null;
-    const normalizedCode = normalizeCatalogRuleCode(selectedRow.codigo);
-    return (
-      rulesBySheetAndCode.get(`${selectedRow.hojaSistema}|${normalizedCode}`) ||
-      rulesBySheetAndCode.get(`${selectedRow.hojaSistema.replace('AR', 'R')}|${normalizedCode}`) ||
-      null
-    );
+    return findRuleForRow(selectedRow);
   }, [selectedRow]);
 
   const selectedRuleRows = useMemo(() => {
@@ -476,6 +491,8 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
             <tbody>
               {filteredRows.map((row) => {
                 const ruleTone = getRuleTone(row.codigo);
+                const linkedRule = findRuleForRow(row);
+                const rowTooltip = getRowTooltip(row, linkedRule);
                 const rowIndex = filteredRows.findIndex((candidate) => candidate.indice === row.indice);
                 const previousRow = rowIndex > 0 ? filteredRows[rowIndex - 1] : null;
                 const nextRow = rowIndex < filteredRows.length - 1 ? filteredRows[rowIndex + 1] : null;
@@ -499,7 +516,7 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
                     key={`${row.codigo}-${row.hojaRem}-${row.celda}-${row.indice}`}
                     className="cursor-pointer transition-colors"
                     style={groupRowStyle}
-                    onClick={(event) => openRulePopover(row, event.currentTarget)}
+                    onClick={(event) => openRulePopover(row, event)}
                     onMouseEnter={(event) => {
                       Object.assign(event.currentTarget.style, groupHoverStyle);
                     }}
@@ -512,18 +529,19 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
                         type="button"
                         onClick={(event) => {
                           event.stopPropagation();
-                          openRulePopover(row, event.currentTarget);
+                          openRulePopover(row, event);
                         }}
                         className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold font-mono transition-transform hover:scale-[1.02]"
                         style={{ ...ruleTone.badge, opacity: isGroupStart ? 1 : 0.72 }}
                         aria-label={`Ver detalle de la regla ${row.codigo}`}
+                        title={rowTooltip}
                       >
                         <span>{isGroupStart ? row.codigo : `↳ ${row.codigo}`}</span>
                       </button>
                     </td>
                     <td className="px-4 py-3 text-sm" style={{ color: 'var(--text-secondary)' }}>{row.hojaRem}</td>
                     <td className="px-4 py-3 text-sm" style={{ color: 'var(--text-secondary)' }}>{row.hojaSistema}</td>
-                    <td className="px-4 py-3 text-sm font-mono" style={{ color: 'var(--text-primary)' }}>{row.celda}</td>
+                    <td className="px-4 py-3 text-sm font-mono" style={{ color: 'var(--text-primary)' }} title={rowTooltip}>{row.celda}</td>
                     <td className="px-4 py-3 text-sm" style={{ color: 'var(--text-primary)' }}>
                       {row.valor === null ? '—' : String(row.valor)}
                     </td>
@@ -586,7 +604,11 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
               <span className="text-xs px-2.5 py-1 rounded-full font-medium" style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-default)' }}>
                 Hoja: {selectedRule?.rem_sheet || selectedRow.hojaSistema}
               </span>
-              <span className="text-xs px-2.5 py-1 rounded-full font-medium" style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-default)' }}>
+              <span
+                className="text-xs px-2.5 py-1 rounded-full font-medium"
+                style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-default)' }}
+                title={getRowTooltip(selectedRow, selectedRule)}
+              >
                 Celda: {selectedRow.celda}
               </span>
               <span className="text-xs px-2.5 py-1 rounded-full font-medium" style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-default)' }}>

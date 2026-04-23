@@ -74,7 +74,7 @@ Semantica resultante:
 Motivo:
 
 1. Es la unica regla de `A08` donde el propio texto de seccion ya declaraba con claridad el universo funcional.
-2. La documentacion historica en `docs/Simulation_Results.md` ya reflejaba este comportamiento exclusivo.
+2. La documentacion historica de simulaciones ya reflejaba este comportamiento exclusivo.
 
 ### Reglas A08 aun pendientes de criterio funcional fino
 

@@ -12,6 +12,14 @@ dist
 dist-ssr
 *.local
 
+# Generated reports and exports
+Simulation_Results.*
+reporte_omision_*.md
+reporte_omision_*.xlsx
+reporte_celdas_*.csv
+reporte_celdas_*.json
+informe_prestaciones_validador.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

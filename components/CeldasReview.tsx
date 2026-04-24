@@ -291,8 +291,9 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
     return counts;
   }, [rows]);
 
-  const sheets = useMemo(() => {
-    return Array.from(new Set(rows.map((row) => row.hojaRem))).sort((a, b) => a.localeCompare(b));
+  const sheets = useMemo<string[]>(() => {
+    const uniqueSheets = Array.from(new Set<string>(rows.map((row) => String(row.hojaRem))));
+    return uniqueSheets.sort((a, b) => a.localeCompare(b));
   }, [rows]);
 
   const filteredRows = useMemo(() => {
@@ -342,13 +343,23 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
     const popoverHeight = 340;
     const margin = 16;
     const offset = 12;
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const anchor = event.currentTarget.closest('tr') ?? event.currentTarget;
+    const anchorRect = anchor.getBoundingClientRect();
+
+    const fitsRight = anchorRect.right + offset + popoverWidth <= viewportWidth - margin;
+    const preferredLeft = fitsRight
+      ? anchorRect.right + offset
+      : anchorRect.left - popoverWidth - offset;
+
     const left = Math.min(
-      Math.max(margin, event.clientX + offset),
-      Math.max(margin, window.innerWidth - popoverWidth - margin),
+      Math.max(margin, preferredLeft),
+      viewportWidth - popoverWidth - margin,
     );
     const top = Math.min(
-      Math.max(margin, event.clientY + offset),
-      Math.max(margin, window.innerHeight - popoverHeight - margin),
+      Math.max(margin, anchorRect.top),
+      viewportHeight - popoverHeight - margin,
     );
 
     setPopoverState({ row, top, left });

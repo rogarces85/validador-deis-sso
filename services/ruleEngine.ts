@@ -73,16 +73,16 @@ export class RuleEngineService {
       const normalizedType = this.normalizeEstablishmentType(metadata.tipoEstablecimiento);
 
       // Validación exclusiva: la regla aplica a TODOS los establecimientos.
-      // Para los de aplicar_a (objetivo): se INVIERTE el operador (ej: == se vuelve !=)
+      // Para los de aplicar_a (objetivo): se MANTIENE el operador original
       //   → Deben tener datos, error si NO los tienen.
-      // Para el resto (no objetivo): se mantiene el operador original
+      // Para el resto (no objetivo): se INVIERTE el operador (ej: == se vuelve !=)
       //   → No deben tener datos, error si SÍ los tienen.
       if (rule.validacion_exclusiva && rule.aplicar_a) {
         const targetSet = new Set(rule.aplicar_a);
-        invertirOperador = targetSet.has(metadata.codigoEstablecimiento);
+        invertirOperador = !targetSet.has(metadata.codigoEstablecimiento);
       } else if (rule.validacion_exclusiva && rule.aplicar_a_tipo?.length) {
         const targetTypes = new Set(rule.aplicar_a_tipo.map(type => this.normalizeEstablishmentType(type)));
-        invertirOperador = !!normalizedType && targetTypes.has(normalizedType);
+        invertirOperador = !normalizedType || !targetTypes.has(normalizedType);
       }
 
       try {

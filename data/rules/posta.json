@@ -14,7 +14,8 @@
                 "rem_sheet_2": "A02",
                 "aplicar_a_tipo": [
                     "POSTA"
-                ]
+                ],
+                "validacion_exclusiva": true
             }
         ]
     }

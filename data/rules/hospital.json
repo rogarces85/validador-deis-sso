@@ -17,7 +17,8 @@
                 ],
                 "aplicar_a": [
                     "123100"
-                ]
+                ],
+                "validacion_exclusiva": true
             }
         ],
         "A08": [
@@ -38,7 +39,8 @@
                 "aplicar_a": [
                     "123100",
                     "123101"
-                ]
+                ],
+                "validacion_exclusiva": true
             }
         ],
         "A09": [
@@ -60,7 +62,8 @@
                     "123100",
                     "123101",
                     "123102"
-                ]
+                ],
+                "validacion_exclusiva": true
             }
         ],
         "A11": [
@@ -80,7 +83,8 @@
                 ],
                 "aplicar_a": [
                     "123100"
-                ]
+                ],
+                "validacion_exclusiva": true
             }
         ]
     }

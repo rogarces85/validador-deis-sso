@@ -168,7 +168,9 @@
             "expresion_2": "SOLO POSTAS",
             "severidad": "ERROR",
             "mensaje": "ERROR | REM02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | EMP Técnico Enfermería corresponde solo a Postas | B17",
-            "rem_sheet_2": "A02"
+            "rem_sheet_2": "A02",
+            "aplicar_a_tipo": ["POSTA"],
+            "validacion_exclusiva": true
         },
         {
             "id": "A02-VAL004",
@@ -390,7 +392,10 @@
             "expresion_2": "SOLO HBSJO",
             "severidad": "REVISAR",
             "mensaje": "REVISAR | REM05 | SECCIÓN R: INGRESOS Y EGRESOS DEL PROGRAMA DE VIH/SIDA (Uso exclusivo Centros de Atención VIH-SIDA) | Ingreso y Egreso corresponde solo al HBSJO | C329:E339",
-            "rem_sheet_2": "A05"
+            "rem_sheet_2": "A05",
+            "aplicar_a_tipo": ["HOSPITAL"],
+            "aplicar_a": ["123100"],
+            "validacion_exclusiva": true
         }
     ],
     "A08": [
@@ -404,7 +409,10 @@
             "expresion_2": "SOLO HBSJO, HPU",
             "severidad": "ERROR",
             "mensaje": "ERROR | REM08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA (Establecimientos de alta y mediana complejidad) | Atenciones Alta Complejidad solo HBSJO y HPU | E12:AL15",
-            "rem_sheet_2": "A08"
+            "rem_sheet_2": "A08",
+            "aplicar_a_tipo": ["HOSPITAL"],
+            "aplicar_a": ["123100", "123101"],
+            "validacion_exclusiva": true
         },
         {
             "id": "A08-VAL002",
@@ -454,7 +462,10 @@
             "expresion_2": "SOLO HBSJO, HPU, HRN",
             "severidad": "ERROR",
             "mensaje": "ERROR | REM09 | SECCIÓN A: CONSULTAS Y CONTROLES DE ODONTOLOGÍA GENERAL EN  NIVEL PRIMARIO Y SECUNDARIO DE SALUD | Consultas y Controles Odontologia general solo HBSJO, HPU y HRN | D16:D17",
-            "rem_sheet_2": "A09"
+            "rem_sheet_2": "A09",
+            "aplicar_a_tipo": ["HOSPITAL"],
+            "aplicar_a": ["123100", "123101", "123102"],
+            "validacion_exclusiva": true
         }
     ],
     "A11": [
@@ -468,7 +479,10 @@
             "expresion_2": "SOLO HBSJO",
             "severidad": "ERROR",
             "mensaje": "ERROR | REM11 | SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS (USO EXCLUSIVO DE ESTABLECIMIENTOS CON LABORATORIO QUE PROCESAN) | Examen VDRL corresponde solo a HBSJO | B13:C30",
-            "rem_sheet_2": "A11"
+            "rem_sheet_2": "A11",
+            "aplicar_a_tipo": ["HOSPITAL"],
+            "aplicar_a": ["123100"],
+            "validacion_exclusiva": true
         }
     ],
     "A19a": [

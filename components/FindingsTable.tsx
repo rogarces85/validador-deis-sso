@@ -118,6 +118,8 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
 
     const filteredFindings = useMemo(() => {
         return findings.filter(f => {
+            if (f.valorActual === 0 || f.valorActual === '0') return false;
+            if (f.valorActual === null || f.valorActual === undefined || f.valorActual === '') return false;
             if (severityFilter !== 'ALL' && f.severidad !== severityFilter) return false;
             if (sheetFilter !== 'ALL' && (f.rem_sheet || 'N/A') !== sheetFilter) return false;
             if (statusFilter === 'PASS' && !f.resultado) return false;

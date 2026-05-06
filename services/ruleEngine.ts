@@ -73,9 +73,9 @@ export class RuleEngineService {
       const normalizedType = this.normalizeEstablishmentType(metadata.tipoEstablecimiento);
 
       // Validación exclusiva: la regla aplica a TODOS los establecimientos.
-      // Para los de aplicar_a: se INVIERTE el operador (ej: == se vuelve !=)
+      // Para los de aplicar_a (objetivo): se INVIERTE el operador (ej: == se vuelve !=)
       //   → Deben tener datos, error si NO los tienen.
-      // Para el resto: se mantiene el operador original
+      // Para el resto (no objetivo): se mantiene el operador original
       //   → No deben tener datos, error si SÍ los tienen.
       if (rule.validacion_exclusiva && rule.aplicar_a) {
         const targetSet = new Set(rule.aplicar_a);
@@ -113,6 +113,44 @@ export class RuleEngineService {
     const v1 = val1 === null || val1 === undefined ? 0 : val1;
     const v2 = val2 === null || val2 === undefined ? 0 : val2;
 
+    // Omitir validación si ambos valores son nulos/vacíos (sin datos).
+    if ((val1 === null || val1 === undefined || val1 === '') && (val2 === null || val2 === undefined || val2 === '')) {
+      return {
+        ruleId: rule.id,
+        descripcion: rule.mensaje,
+        severidad: rule.severidad,
+        resultado: true,
+        valorActual: val1,
+        valorEsperado: val2,
+        operador: rule.operador,
+        valorReferencia: val2,
+        comparacion: `${this.formatValue(v1)} ${rule.operador} ${this.formatValue(v2)}`,
+        diferencia: 0,
+        rem_sheet: rule.rem_sheet,
+        id: generateUUID(),
+        evidence: 'Omitida: ambos valores son nulos o vacíos (sin datos para comparar).'
+      };
+    }
+
+    // Omitir validación si la primera expresión es nula/vacía y la regla lo indica.
+    if (rule.omitir_si_v1_es_cero && (val1 === null || val1 === undefined || val1 === '' || val1 === 0)) {
+      return {
+        ruleId: rule.id,
+        descripcion: rule.mensaje,
+        severidad: rule.severidad,
+        resultado: true,
+        valorActual: val1,
+        valorEsperado: val2,
+        operador: rule.operador,
+        valorReferencia: val2,
+        comparacion: `${this.formatValue(v1)} ${rule.operador} ${this.formatValue(v2)}`,
+        diferencia: typeof v2 === 'number' ? -v2 : undefined,
+        rem_sheet: rule.rem_sheet,
+        id: generateUUID(),
+        evidence: 'Omitida: valor actual de la expresión 1 es nulo, vacío o cero.'
+      };
+    }
+
     // Omitir validación si ambos valores son 0 y la regla lo indica.
     // Esto evita falsos positivos cuando no hay datos (ej: 0 > 0 = false).
     if (rule.omitir_si_ambos_cero && v1 === 0 && v2 === 0) {
@@ -120,9 +158,9 @@ export class RuleEngineService {
         ruleId: rule.id,
         descripcion: rule.mensaje,
         severidad: rule.severidad,
-        resultado: true, // Se da por válida (sin datos, no aplica)
+        resultado: true,
         valorActual: 0,
-        valorEsperado: `${rule.operador} 0`,
+        valorEsperado: val2,
         operador: rule.operador,
         valorReferencia: 0,
         comparacion: `${this.formatValue(v1)} ${rule.operador} ${this.formatValue(v2)}`,
@@ -130,25 +168,6 @@ export class RuleEngineService {
         rem_sheet: rule.rem_sheet,
         id: generateUUID(),
         evidence: 'Omitida: ambos valores son 0 (sin datos para comparar).'
-      };
-    }
-
-    // Omitir validación si la primera expresión es 0 y la regla lo indica.
-    if (rule.omitir_si_v1_es_cero && v1 === 0) {
-      return {
-        ruleId: rule.id,
-        descripcion: rule.mensaje,
-        severidad: rule.severidad,
-        resultado: true,
-        valorActual: 0,
-        valorEsperado: `${rule.operador} ${val2}`,
-        operador: rule.operador,
-        valorReferencia: val2,
-        comparacion: `${this.formatValue(v1)} ${rule.operador} ${this.formatValue(v2)}`,
-        diferencia: typeof v2 === 'number' ? -v2 : undefined,
-        rem_sheet: rule.rem_sheet,
-        id: generateUUID(),
-        evidence: 'Omitida: valor actual de la expresión 1 es 0.'
       };
     }
 
@@ -188,7 +207,7 @@ export class RuleEngineService {
       severidad: rule.severidad,
       resultado: passed,
       valorActual: val1,
-      valorEsperado: `${operador} ${val2}`,
+      valorEsperado: val2,
       operador,
       valorReferencia: val2,
       comparacion,

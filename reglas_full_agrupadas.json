@@ -1,0 +1,664 @@
+{
+  "generatedAt": "2026-05-15T00:00:00.000Z",
+  "version": "1.0.0",
+  "totalRules": 62,
+  "rules": [
+    {
+      "codigo": "VAL-001",
+      "severidad": "REVISAR",
+      "hojaRem": "REM01",
+      "secciones": ["A"],
+      "validacion": ">0",
+      "celdas": ["F11", "F12"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en F11 o F12. Verifique que los datos estén completos."
+    },
+    {
+      "codigo": "VAL-002",
+      "severidad": "REVISAR",
+      "hojaRem": "REM01",
+      "secciones": ["A"],
+      "validacion": ">0",
+      "celdas": ["M11", "M12", "N11", "N12"],
+      "mensaje": "Se encontraron celdas vacías o con valor cero en M11-M12 o N11-N12. Complete la información requerida."
+    },
+    {
+      "codigo": "VAL-003",
+      "severidad": "REVISAR",
+      "hojaRem": "REM01",
+      "secciones": ["A"],
+      "validacion": ">0",
+      "celdas": ["N13", "N14"],
+      "mensaje": "Se detectaron valores faltantes en N13 o N14. Ingrese los datos correspondientes."
+    },
+    {
+      "codigo": "VAL-004",
+      "severidad": "REVISAR",
+      "hojaRem": "REM01",
+      "secciones": ["A"],
+      "validacion": ">0",
+      "celdas": ["N15", "N16"],
+      "mensaje": "Se encontraron celdas sin datos en N15 o N16. Complete la información requerida."
+    },
+    {
+      "codigo": "VAL-005",
+      "severidad": "REVISAR",
+      "hojaRem": "REM01",
+      "secciones": ["A"],
+      "validacion": ">0",
+      "celdas": ["O31", "O32", "P31", "P32", "Q31", "Q32", "R31", "R32", "S31", "S32", "T31", "T32"],
+      "mensaje": "Se detectaron celdas vacías en el rango O31-S32. Verifique que todos los campos estén completos."
+    },
+    {
+      "codigo": "VAL-006",
+      "severidad": "ERROR",
+      "hojaRem": "REM01",
+      "secciones": ["A", "B"],
+      "validacion": "SUMA(C19:C26)+SUMA(F36:F38)=C89",
+      "celdas": ["C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "F36", "F37", "F38", "C89"],
+      "mensaje": "El total en C89 no corresponde a la suma de las partidas C19-C26 y F36-F38. Verifique los valores y corrija la diferencia."
+    },
+    {
+      "codigo": "VAL-007",
+      "severidad": "ERROR",
+      "hojaRem": "REM01",
+      "secciones": ["B", "D"],
+      "validacion": "SUMA(T36:T38)>=C74",
+      "celdas": ["T36", "T37", "T38", "C74"],
+      "mensaje": "La suma de T36 a T38 debe ser mayor o igual a C74."
+    },
+    {
+      "codigo": "VAL-008",
+      "severidad": "ERROR",
+      "hojaRem": "REM01",
+      "secciones": ["B", "D"],
+      "validacion": "SUMA(U36:U38)>=F74",
+      "celdas": ["U36", "U37", "U38", "F74"],
+      "mensaje": "La suma de U36 a U38 debe ser mayor o igual a F74."
+    },
+    {
+      "codigo": "VAL-009",
+      "severidad": "REVISAR",
+      "hojaRem": "REM01",
+      "secciones": ["B"],
+      "validacion": ">0",
+      "celdas": ["F36"],
+      "mensaje": "Se detectó que F36 está vacía o con valor cero. Verifique el dato correspondiente."
+    },
+    {
+      "codigo": "VAL-010",
+      "severidad": "REVISAR",
+      "hojaRem": "REM01",
+      "secciones": ["B"],
+      "validacion": "SUMA(O36:O37)>=L20+M20",
+      "celdas": ["O36", "O37", "L20", "M20"],
+      "mensaje": "Los valores en O36 y O37 deben cubrir al menos la suma de L20 y M20. Revise los datos en ambas hojas."
+    },
+    {
+      "codigo": "VAL-011",
+      "severidad": "REVISAR",
+      "hojaRem": "REM01",
+      "secciones": ["B"],
+      "validacion": "SUMA(P36:P37)>=N20+O20",
+      "celdas": ["P36", "P37", "N20", "O20"],
+      "mensaje": "La suma de P36 y P37 debe ser mayor o igual a la suma de N20 y O20."
+    },
+    {
+      "codigo": "VAL-012",
+      "severidad": "ERROR",
+      "hojaRem": "REM02",
+      "secciones": ["A", "B"],
+      "validacion": "B11=B21",
+      "celdas": ["B11", "B21"],
+      "mensaje": "Inconsistencia entre secciones: el dato en B11 (sección A) no coincide con B21 (sección B)."
+    },
+    {
+      "codigo": "VAL-013",
+      "severidad": "ERROR",
+      "hojaRem": "REM02",
+      "secciones": ["A", "B"],
+      "validacion": "C11=C21",
+      "celdas": ["C11", "C21"],
+      "mensaje": "Inconsistencia entre secciones: el dato en C11 (sección A) no coincide con C21 (sección B)."
+    },
+    {
+      "codigo": "VAL-014",
+      "severidad": "REVISAR",
+      "hojaRem": "REM02",
+      "secciones": ["A"],
+      "validacion": ">0",
+      "celdas": ["B17"],
+      "mensaje": "Se detectó que B17 está vacía o con valor cero. Verifique el dato correspondiente."
+    },
+    {
+      "codigo": "VAL-015",
+      "severidad": "ERROR",
+      "hojaRem": "REM02",
+      "secciones": ["A"],
+      "validacion": "B11=C108+C110",
+      "celdas": ["B11", "C108", "C110"],
+      "mensaje": "Inconsistencia: B11 no corresponde a la suma de C108 y C110 registrados en la sección D.1."
+    },
+    {
+      "codigo": "VAL-016",
+      "severidad": "ERROR",
+      "hojaRem": "REM02",
+      "secciones": ["A"],
+      "validacion": "E11+F11=C113",
+      "celdas": ["E11", "F11", "C113"],
+      "mensaje": "Inconsistencia: la suma de E11 y F11 no coincide con el valor registrado en C113."
+    },
+    {
+      "codigo": "VAL-017",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["A.2"],
+      "validacion": "C20=SUMA(C21:C36)",
+      "celdas": ["C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C32", "C33", "C34", "C35", "C36"],
+      "mensaje": "Inconsistencia: el total en C20 no corresponde a la suma de las partidas C21-C36."
+    },
+    {
+      "codigo": "VAL-018",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["A1"],
+      "validacion": "C13=C14+C15",
+      "celdas": ["C13", "C14", "C15"],
+      "mensaje": "El total en C13 debe igualar la suma de C14 + C15. Revise los valores en la sección A1."
+    },
+    {
+      "codigo": "VAL-019",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["A4"],
+      "validacion": "C54=SUMA(C55:C57)",
+      "celdas": ["C54", "C55", "C56", "C57"],
+      "mensaje": "El valor en C54 debe ser igual a la suma de C55 a C57."
+    },
+    {
+      "codigo": "VAL-020",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["A2", "A3"],
+      "validacion": "C22=B46",
+      "celdas": ["C22", "B46"],
+      "mensaje": "El valor en C22 debe ser igual al valor en B46."
+    },
+    {
+      "codigo": "VAL-021",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["A2", "A3"],
+      "validacion": "C23=B47",
+      "celdas": ["C23", "B47"],
+      "mensaje": "El valor en C23 debe ser igual al valor en B47."
+    },
+    {
+      "codigo": "VAL-022",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["A2", "A3"],
+      "validacion": "C24=B48",
+      "celdas": ["C24", "B48"],
+      "mensaje": "El valor en C24 debe ser igual al valor en B48."
+    },
+    {
+      "codigo": "VAL-023",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["B.2"],
+      "validacion": "B86=C11",
+      "celdas": ["B86", "C11"],
+      "mensaje": "Inconsistencia entre hojas: B86 (REM03 sección B.2) no coincide con C11 (REM05 sección A)."
+    },
+    {
+      "codigo": "VAL-024",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["B3"],
+      "validacion": "C92<=H36+H37",
+      "celdas": ["C92", "H36", "H37"],
+      "mensaje": "El total en C92 no puede exceder la suma de H36 + H37. Verifique los valores entre REM03 sección B3 y REM01 sección B."
+    },
+    {
+      "codigo": "VAL-025",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["B3"],
+      "validacion": "C93<=L36+L37",
+      "celdas": ["C93", "L36", "L37"],
+      "mensaje": "El total en C93 no puede exceder la suma de L36 + L37. Verifique los valores entre REM03 sección B3 y REM01 sección B."
+    },
+    {
+      "codigo": "VAL-026",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["C"],
+      "validacion": "C97=SUMA(T36:U38)",
+      "celdas": ["C97", "T36", "T37", "T38", "U36", "U37", "U38"],
+      "mensaje": "C97 debe igualar la suma de todas las celdas en el rango T36 a U38. Verifique entre REM03 sección C y REM01 sección B."
+    },
+    {
+      "codigo": "VAL-027",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["D.1"],
+      "validacion": "SUMA(C108:C114)=SUMA(C115:C117)",
+      "celdas": ["C108", "C109", "C110", "C111", "C112", "C113", "C114", "C115", "C116", "C117"],
+      "mensaje": "La suma de C108 a C114 debe ser igual a la suma de C115 a C117."
+    },
+    {
+      "codigo": "VAL-028",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["E"],
+      "validacion": "C213=C214+C215",
+      "celdas": ["C213", "C214", "C215"],
+      "mensaje": "El total en C213 debe igualar la suma de C214 + C215. Revise los valores en la sección E."
+    },
+    {
+      "codigo": "VAL-029",
+      "severidad": "ERROR",
+      "hojaRem": "REM03",
+      "secciones": ["A.5"],
+      "validacion": "SUMA(C61:C66)=C67",
+      "celdas": ["C61", "C62", "C63", "C64", "C65", "C66", "C67"],
+      "mensaje": "El total en C67 debe corresponder a la suma de los componentes C61 hasta C66. Verifique la sección A.5."
+    },
+    {
+      "codigo": "VAL-030",
+      "severidad": "ERROR",
+      "hojaRem": "REM04",
+      "secciones": ["B", "K"],
+      "validacion": "SUMA(B39:B41)=SUMA(B135:B137)",
+      "celdas": ["B39", "B40", "B41", "B135", "B136", "B137"],
+      "mensaje": "La suma de B39 a B41 debe ser igual a la suma de B135 a B137."
+    },
+    {
+      "codigo": "VAL-031",
+      "severidad": "ERROR",
+      "hojaRem": "REM04",
+      "secciones": ["L"],
+      "validacion": "SUMA(C141:C143)=SUMA(C146:C149)",
+      "celdas": ["C141", "C142", "C143", "C146", "C147", "C148", "C149"],
+      "mensaje": "La suma de C141 a C143 debe ser igual a la suma de C146 a C149."
+    },
+    {
+      "codigo": "VAL-032",
+      "severidad": "ERROR",
+      "hojaRem": "REM04",
+      "secciones": ["I.1"],
+      "validacion": "C114+D114=E114+F114",
+      "celdas": ["C114", "D114", "E114", "F114"],
+      "mensaje": "La suma de C114 y D114 debe ser igual a la suma de E114 y F114."
+    },
+    {
+      "codigo": "VAL-033",
+      "severidad": "ERROR",
+      "hojaRem": "REM04",
+      "secciones": ["I.1"],
+      "validacion": "C115+D115=E115+F115",
+      "celdas": ["C115", "D115", "E115", "F115"],
+      "mensaje": "La suma de C115 y D115 debe ser igual a la suma de E115 y F115."
+    },
+    {
+      "codigo": "VAL-034",
+      "severidad": "ERROR",
+      "hojaRem": "REM04",
+      "secciones": ["I.1"],
+      "validacion": "C116+D116=E116+F116",
+      "celdas": ["C116", "D116", "E116", "F116"],
+      "mensaje": "La suma de C116 y D116 debe ser igual a la suma de E116 y F116."
+    },
+    {
+      "codigo": "VAL-035",
+      "severidad": "ERROR",
+      "hojaRem": "REM04",
+      "secciones": ["I.1"],
+      "validacion": "M114>=L114",
+      "celdas": ["M114", "L114"],
+      "mensaje": "El valor en M114 debe ser mayor o igual al valor en L114."
+    },
+    {
+      "codigo": "VAL-036",
+      "severidad": "REVISAR",
+      "hojaRem": "REM05",
+      "secciones": ["A"],
+      "validacion": ">0",
+      "celdas": ["L11", "M11", "N11", "L12", "M12", "N12", "L13", "M13", "N13", "L14", "M14", "N14"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en el rango L11-N14. Verifique que los datos estén completos."
+    },
+    {
+      "codigo": "VAL-037",
+      "severidad": "ERROR",
+      "hojaRem": "REM05",
+      "secciones": ["H"],
+      "validacion": "C119<=SUMA(C120:C127)",
+      "celdas": ["C119", "C120", "C121", "C122", "C123", "C124", "C125", "C126", "C127"],
+      "mensaje": "El valor en C119 debe ser menor o igual a la suma de C120 a C127."
+    },
+    {
+      "codigo": "VAL-038",
+      "severidad": "ERROR",
+      "hojaRem": "REM05",
+      "secciones": ["J", "K"],
+      "validacion": "SUMA(AF146:AM150)>=C162",
+      "celdas": ["AF146", "AG146", "AH146", "AI146", "AJ146", "AK146", "AL146", "AM146", "AF147", "AG147", "AH147", "AI147", "AJ147", "AK147", "AL147", "AM147", "AF148", "AG148", "AH148", "AI148", "AJ148", "AK148", "AL148", "AM148", "AF149", "AG149", "AH149", "AI149", "AJ149", "AK149", "AL149", "AM149", "AF150", "AG150", "AH150", "AI150", "AJ150", "AK150", "AL150", "AM150", "C162"],
+      "mensaje": "La suma del rango AF146 a AM150 debe ser mayor o igual a C162."
+    },
+    {
+      "codigo": "VAL-039",
+      "severidad": "REVISAR",
+      "hojaRem": "REM05",
+      "secciones": ["N"],
+      "validacion": "C193=C204",
+      "celdas": ["C193", "C204"],
+      "mensaje": "Los valores de C193 y C204 deben ser idénticos. Verifique la sección N del REM05."
+    },
+    {
+      "codigo": "VAL-040",
+      "severidad": "ERROR",
+      "hojaRem": "REM05",
+      "secciones": ["N"],
+      "validacion": "C204<=SUMA(C205:C241)",
+      "celdas": ["C204", "C205", "C206", "C207", "C208", "C209", "C210", "C211", "C212", "C213", "C214", "C215", "C216", "C217", "C218", "C219", "C220", "C221", "C222", "C223", "C224", "C225", "C226", "C227", "C228", "C229", "C230", "C231", "C232", "C233", "C234", "C235", "C236", "C237", "C238", "C239", "C240", "C241"],
+      "mensaje": "El total en C204 no puede exceder la suma de C205 hasta C241. Verifique la sección N."
+    },
+    {
+      "codigo": "VAL-041",
+      "severidad": "REVISAR",
+      "hojaRem": "REM05",
+      "secciones": ["R"],
+      "validacion": ">0",
+      "celdas": ["C329", "D329", "E329", "C330", "D330", "E330", "C331", "D331", "E331", "C332", "D332", "E332", "C333", "D333", "E333", "C334", "D334", "E334", "C335", "D335", "E335", "C336", "D336", "E336", "C337", "D337", "E337", "C338", "D338", "E338", "C339", "D339", "E339"],
+      "mensaje": "Las celdas C329 a E339 deben contener valores mayores a cero."
+    },
+    {
+      "codigo": "VAL-042",
+      "severidad": "REVISAR",
+      "hojaRem": "REM05",
+      "secciones": ["S"],
+      "validacion": ">0",
+      "celdas": ["C344", "D344", "E344", "C345", "D345", "E345", "C346", "D346", "E346"],
+      "mensaje": "Las celdas C344 a E346 deben contener valores mayores a cero."
+    },
+    {
+      "codigo": "VAL-043",
+      "severidad": "REVISAR",
+      "hojaRem": "REM08",
+      "secciones": ["A"],
+      "validacion": ">0",
+      "celdas": ["D16", "D17"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en D16 o D17. Verifique los datos correspondientes."
+    },
+    {
+      "codigo": "VAL-044",
+      "severidad": "REVISAR",
+      "hojaRem": "REM08",
+      "secciones": ["A.1"],
+      "validacion": ">0",
+      "celdas": ["E12", "F12", "G12", "H12", "I12", "J12", "K12", "L12", "M12", "N12", "O12", "P12", "Q12", "R12", "S12", "T12", "U12", "V12", "W12", "X12", "Y12", "Z12", "AA12", "AB12", "AC12", "AD12", "AE12", "AF12", "AG12", "AH12", "AI12", "AJ12", "AK12", "AL12", "E13", "F13", "G13", "H13", "I13", "J13", "K13", "L13", "M13", "N13", "O13", "P13", "Q13", "R13", "S13", "T13", "U13", "V13", "W13", "X13", "Y13", "Z13", "AA13", "AB13", "AC13", "AD13", "AE13", "AF13", "AG13", "AH13", "AI13", "AJ13", "AK13", "AL13", "E14", "F14", "G14", "H14", "I14", "J14", "K14", "L14", "M14", "N14", "O14", "P14", "Q14", "R14", "S14", "T14", "U14", "V14", "W14", "X14", "Y14", "Z14", "AA14", "AB14", "AC14", "AD14", "AE14", "AF14", "AG14", "AH14", "AI14", "AJ14", "AK14", "AL14", "E15", "F15", "G15", "H15", "I15", "J15", "K15", "L15", "M15", "N15", "O15", "P15", "Q15", "R15", "S15", "T15", "U15", "V15", "W15", "X15", "Y15", "Z15", "AA15", "AB15", "AC15", "AD15", "AE15", "AF15", "AG15", "AH15", "AI15", "AJ15", "AK15", "AL15"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en el rango E12-AL15. Verifique que los datos estén completos."
+    },
+    {
+      "codigo": "VAL-045",
+      "severidad": "ERROR",
+      "hojaRem": "REM08",
+      "secciones": ["A.1", "B"],
+      "validacion": "B12=B67",
+      "celdas": ["B12", "B67"],
+      "mensaje": "Los valores de B12 y B67 deben ser idénticos. Verifique la consistencia entre ambas secciones."
+    },
+    {
+      "codigo": "VAL-046",
+      "severidad": "REVISAR",
+      "hojaRem": "REM08",
+      "secciones": ["B"],
+      "validacion": ">0",
+      "celdas": ["C61", "D61", "E61", "F61", "G61", "H61", "I61", "J61", "K61", "L61", "M61", "N61", "O61", "P61", "Q61", "R61", "S61", "T61", "U61", "V61", "W61", "X61", "Y61", "Z61", "AA61", "AB61", "AC61", "AD61", "AE61", "AF61", "AG61", "AH61", "AI61", "AJ61", "AK61", "AL61", "C62", "D62", "E62", "F62", "G62", "H62", "I62", "J62", "K62", "L62", "M62", "N62", "O62", "P62", "Q62", "R62", "S62", "T62", "U62", "V62", "W62", "X62", "Y62", "Z62", "AA62", "AB62", "AC62", "AD62", "AE62", "AF62", "AG62", "AH62", "AI62", "AJ62", "AK62", "AL62", "C63", "D63", "E63", "F63", "G63", "H63", "I63", "J63", "K63", "L63", "M63", "N63", "O63", "P63", "Q63", "R63", "S63", "T63", "U63", "V63", "W63", "X63", "Y63", "Z63", "AA63", "AB63", "AC63", "AD63", "AE63", "AF63", "AG63", "AH63", "AI63", "AJ63", "AK63", "AL63", "C64", "D64", "E64", "F64", "G64", "H64", "I64", "J64", "K64", "L64", "M64", "N64", "O64", "P64", "Q64", "R64", "S64", "T64", "U64", "V64", "W64", "X64", "Y64", "Z64", "AA64", "AB64", "AC64", "AD64", "AE64", "AF64", "AG64", "AH64", "AI64", "AJ64", "AK64", "AL64", "C65", "D65", "E65", "F65", "G65", "H65", "I65", "J65", "K65", "L65", "M65", "N65", "O65", "P65", "Q65", "R65", "S65", "T65", "U65", "V65", "W65", "X65", "Y65", "Z65", "AA65", "AB65", "AC65", "AD65", "AE65", "AF65", "AG65", "AH65", "AI65", "AJ65", "AK65", "AL65", "C66", "D66", "E66", "F66", "G66", "H66", "I66", "J66", "K66", "L66", "M66", "N66", "O66", "P66", "Q66", "R66", "S66", "T66", "U66", "V66", "W66", "X66", "Y66", "Z66", "AA66", "AB66", "AC66", "AD66", "AE66", "AF66", "AG66", "AH66", "AI66", "AJ66", "AK66", "AL66"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en el rango C61-AL66. Verifique que los datos estén completos."
+    },
+    {
+      "codigo": "VAL-047",
+      "severidad": "ERROR",
+      "hojaRem": "REM08",
+      "secciones": ["A.1", "B.1"],
+      "validacion": "B13+B14=B78",
+      "celdas": ["B13", "B14", "B78"],
+      "mensaje": "La suma de B13 y B14 debe ser igual a B78."
+    },
+    {
+      "codigo": "VAL-048",
+      "severidad": "REVISAR",
+      "hojaRem": "REM08",
+      "secciones": ["A.3"],
+      "validacion": ">0",
+      "celdas": ["E31", "F31", "G31", "H31", "I31", "J31", "K31", "L31", "M31", "N31", "O31", "P31", "Q31", "R31", "S31", "T31", "U31", "V31", "W31", "X31", "Y31", "Z31", "AA31", "AB31", "AC31", "AD31", "AE31", "AF31", "AG31", "AH31", "AI31", "AJ31", "AK31", "AL31", "E32", "F32", "G32", "H32", "I32", "J32", "K32", "L32", "M32", "N32", "O32", "P32", "Q32", "R32", "S32", "T32", "U32", "V32", "W32", "X32", "Y32", "Z32", "AA32", "AB32", "AC32", "AD32", "AE32", "AF32", "AG32", "AH32", "AI32", "AJ32", "AK32", "AL32", "E33", "F33", "G33", "H33", "I33", "J33", "K33", "L33", "M33", "N33", "O33", "P33", "Q33", "R33", "S33", "T33", "U33", "V33", "W33", "X33", "Y33", "Z33", "AA33", "AB33", "AC33", "AD33", "AE33", "AF33", "AG33", "AH33", "AI33", "AJ33", "AK33", "AL33", "E34", "F34", "G34", "H34", "I34", "J34", "K34", "L34", "M34", "N34", "O34", "P34", "Q34", "R34", "S34", "T34", "U34", "V34", "W34", "X34", "Y34", "Z34", "AA34", "AB34", "AC34", "AD34", "AE34", "AF34", "AG34", "AH34", "AI34", "AJ34", "AK34", "AL34", "E35", "F35", "G35", "H35", "I35", "J35", "K35", "L35", "M35", "N35", "O35", "P35", "Q35", "R35", "S35", "T35", "U35", "V35", "W35", "X35", "Y35", "Z35", "AA35", "AB35", "AC35", "AD35", "AE35", "AF35", "AG35", "AH35", "AI35", "AJ35", "AK35", "AL35", "E36", "F36", "G36", "H36", "I36", "J36", "K36", "L36", "M36", "N36", "O36", "P36", "Q36", "R36", "S36", "T36", "U36", "V36", "W36", "X36", "Y36", "Z36", "AA36", "AB36", "AC36", "AD36", "AE36", "AF36", "AG36", "AH36", "AI36", "AJ36", "AK36", "AL36"],
+      "mensaje": "Las celdas E31 a AL36 deben contener valores mayores a cero."
+    },
+    {
+      "codigo": "VAL-049",
+      "severidad": "ERROR",
+      "hojaRem": "REM08",
+      "secciones": ["A.3", "B"],
+      "validacion": "B31=B67",
+      "celdas": ["B31", "B67"],
+      "mensaje": "El valor en B31 debe ser igual al valor en B67."
+    },
+    {
+      "codigo": "VAL-050",
+      "severidad": "REVISAR",
+      "hojaRem": "REM08",
+      "secciones": ["L"],
+      "validacion": ">0",
+      "celdas": ["C169", "D169", "E169", "F169", "C170", "D170", "E170", "F170"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en el rango C169-F170. Complete la información requerida."
+    },
+    {
+      "codigo": "VAL-051",
+      "severidad": "REVISAR",
+      "hojaRem": "REM08",
+      "secciones": ["L"],
+      "validacion": ">0",
+      "celdas": ["C171", "D171", "E171", "F171"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en C171-F171. Complete la información requerida."
+    },
+    {
+      "codigo": "VAL-052",
+      "severidad": "REVISAR",
+      "hojaRem": "REM08",
+      "secciones": ["L"],
+      "validacion": ">0",
+      "celdas": ["C172", "D172", "E172", "F172", "C173", "D173", "E173", "F173", "C174", "D174", "E174", "F174"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en el rango C172-F174. Complete la información requerida."
+    },
+    {
+      "codigo": "VAL-053",
+      "severidad": "REVISAR",
+      "hojaRem": "REM08",
+      "secciones": ["M"],
+      "validacion": ">0",
+      "celdas": ["E178", "E179", "E180", "E181", "E182", "E183"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en E178-E183. Complete la información requerida."
+    },
+    {
+      "codigo": "VAL-054",
+      "severidad": "REVISAR",
+      "hojaRem": "REM08",
+      "secciones": ["J"],
+      "validacion": "=0",
+      "celdas": ["C161", "D161"],
+      "mensaje": "C161 y D161 deben ser cero. Verifique que no se hayan ingresado datos en estas celdas."
+    },
+    {
+      "codigo": "VAL-055",
+      "severidad": "ERROR",
+      "hojaRem": "REM08",
+      "secciones": ["A.1"],
+      "validacion": "B13>=AS13",
+      "celdas": ["B13", "AS13"],
+      "mensaje": "El valor en B13 debe ser mayor o igual al valor en AS13."
+    },
+    {
+      "codigo": "VAL-056",
+      "severidad": "REVISAR",
+      "hojaRem": "REM11",
+      "secciones": ["A.1"],
+      "validacion": ">0",
+      "celdas": ["B13", "C13", "B14", "C14", "B15", "C15", "B16", "C16", "B17", "C17", "B18", "C18", "B19", "C19", "B20", "C20", "B21", "C21", "B22", "C22", "B23", "C23", "B24", "C24", "B25", "C25", "B26", "C26", "B27", "C27", "B28", "C28", "B29", "C29", "B30", "C30"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en el rango B13-C30. Verifique que los datos estén completos."
+    },
+    {
+      "codigo": "VAL-057",
+      "severidad": "REVISAR",
+      "hojaRem": "REM11",
+      "secciones": ["B.1"],
+      "validacion": ">0",
+      "celdas": ["C144", "D144", "E144", "F144", "G144", "H144", "I144", "J144", "K144", "L144", "M144", "N144", "O144", "P144", "C145", "D145", "E145", "F145", "G145", "H145", "I145", "J145", "K145", "L145", "M145", "N145", "O145", "P145", "C146", "D146", "E146", "F146", "G146", "H146", "I146", "J146", "K146", "L146", "M146", "N146", "O146", "P146", "C147", "D147", "E147", "F147", "G147", "H147", "I147", "J147", "K147", "L147", "M147", "N147", "O147", "P147", "C148", "D148", "E148", "F148", "G148", "H148", "I148", "J148", "K148", "L148", "M148", "N148", "O148", "P148"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en el rango C144-P148. Verifique que los datos estén completos."
+    },
+    {
+      "codigo": "VAL-058",
+      "severidad": "REVISAR",
+      "hojaRem": "REM11",
+      "secciones": ["B.2"],
+      "validacion": ">0",
+      "celdas": ["C152", "D152", "E152", "F152", "G152", "H152", "I152", "J152", "K152", "L152", "M152", "N152", "O152", "P152", "C153", "D153", "E153", "F153", "G153", "H153", "I153", "J153", "K153", "L153", "M153", "N153", "O153", "P153", "C154", "D154", "E154", "F154", "G154", "H154", "I154", "J154", "K154", "L154", "M154", "N154", "O154", "P154", "C155", "D155", "E155", "F155", "G155", "H155", "I155", "J155", "K155", "L155", "M155", "N155", "O155", "P155", "C156", "D156", "E156", "F156", "G156", "H156", "I156", "J156", "K156", "L156", "M156", "N156", "O156", "P156"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en el rango C152-P156. Verifique que los datos estén completos."
+    },
+    {
+      "codigo": "VAL-059",
+      "severidad": "REVISAR",
+      "hojaRem": "REM11",
+      "secciones": ["C1"],
+      "validacion": ">0",
+      "celdas": ["C161", "D161", "C162", "D162", "C163", "D163", "C164", "D164", "C165", "D165", "C166", "D166", "C167", "D167", "C168", "D168", "C169", "D169", "C170", "D170", "C171", "D171", "C172", "D172", "C173", "D173", "C174", "D174", "C175", "D175", "C176", "D176", "C177", "D177", "C178", "D178", "C179", "D179", "C180", "D180", "C181", "D181", "C182", "D182", "C183", "D183"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en el rango C161-D183. Verifique que los datos estén completos."
+    },
+    {
+      "codigo": "VAL-060",
+      "severidad": "ERROR",
+      "hojaRem": "REM19a",
+      "secciones": ["B.1"],
+      "validacion": "Si C129:C148>0 entonces O129:O148>0",
+      "celdas": ["C129", "C130", "C131", "C132", "C133", "C134", "C135", "C136", "C137", "C138", "C139", "C140", "C141", "C142", "C143", "C144", "C145", "C146", "C147", "C148", "O129", "O130", "O131", "O132", "O133", "O134", "O135", "O136", "O137", "O138", "O139", "O140", "O141", "O142", "O143", "O144", "O145", "O146", "O147", "O148"],
+      "mensaje": "Cuando se ingresan datos en el rango C129-C148, es obligatorio completar también O129-O148. Verifique la sección B.1."
+    },
+    {
+      "codigo": "VAL-061",
+      "severidad": "REVISAR",
+      "hojaRem": "REM19b",
+      "secciones": ["A"],
+      "validacion": "Si B11>0 entonces E11:I11>0",
+      "celdas": ["B11", "E11", "F11", "G11", "H11", "I11"],
+      "mensaje": "Cuando se registra un valor en B11, es obligatorio completar E11 a I11. Verifique la sección A del REM19b."
+    },
+    {
+      "codigo": "VAL-062",
+      "severidad": "REVISAR",
+      "hojaRem": "REM21",
+      "secciones": ["C.1"],
+      "validacion": "Si C32>0 entonces revisar ingresos",
+      "celdas": ["C32"],
+      "mensaje": "Cuando C32 es mayor a cero, es necesario revisar y confirmar los datos de ingresos en la sección C.1."
+    },
+    {
+      "codigo": "VAL-063",
+      "severidad": "REVISAR",
+      "hojaRem": "REM27",
+      "secciones": ["A", "B"],
+      "validacion": "Si D53>0 entonces D98>0",
+      "celdas": ["D53", "D98"],
+      "mensaje": "Cuando se registra un valor en D53, es obligatorio completar D98. Verifique las secciones A y B del REM27."
+    },
+    {
+      "codigo": "VAL-064",
+      "severidad": "REVISAR",
+      "hojaRem": "REM27",
+      "secciones": ["A"],
+      "validacion": "Si D23>0 entonces Y23:AA23>0",
+      "celdas": ["D23", "Y23", "Z23", "AA23"],
+      "mensaje": "Cuando se registra un valor en D23, es obligatorio completar Y23 a AA23. Verifique la sección A del REM27."
+    },
+    {
+      "codigo": "VAL-065",
+      "severidad": "ERROR",
+      "hojaRem": "REM28",
+      "secciones": ["A.1", "A.2"],
+      "validacion": "B13<=B61",
+      "celdas": ["B13", "B61"],
+      "mensaje": "B13 no puede exceder a B61. Verifique la consistencia entre las secciones A.1 y A.2."
+    },
+    {
+      "codigo": "VAL-066",
+      "severidad": "ERROR",
+      "hojaRem": "REM28",
+      "secciones": ["A.1"],
+      "validacion": "B13>=B14",
+      "celdas": ["B13", "B14"],
+      "mensaje": "B13 debe ser al menos igual a B14. Verifique los valores en la sección A.1."
+    },
+    {
+      "codigo": "VAL-067",
+      "severidad": "ERROR",
+      "hojaRem": "REM28",
+      "secciones": ["A.1"],
+      "validacion": "B13>=B15",
+      "celdas": ["B13", "B15"],
+      "mensaje": "B13 debe ser al menos igual a B15. Verifique los valores en la sección A.1."
+    },
+    {
+      "codigo": "VAL-068",
+      "severidad": "ERROR",
+      "hojaRem": "REM28",
+      "secciones": ["A.2"],
+      "validacion": "B29<=SUMA(B30:B52)",
+      "celdas": ["B29", "B30", "B31", "B32", "B33", "B34", "B35", "B36", "B37", "B38", "B39", "B40", "B41", "B42", "B43", "B44", "B45", "B46", "B47", "B48", "B49", "B50", "B51", "B52"],
+      "mensaje": "El total en B29 no puede exceder la suma de B30 hasta B52. Verifique la sección A.2."
+    },
+    {
+      "codigo": "VAL-069",
+      "severidad": "ERROR",
+      "hojaRem": "REM28",
+      "secciones": ["B.1"],
+      "validacion": "B149<=SUMA(B150:B177)",
+      "celdas": ["B149", "B150", "B151", "B152", "B153", "B154", "B155", "B156", "B157", "B158", "B159", "B160", "B161", "B162", "B163", "B164", "B165", "B166", "B167", "B168", "B169", "B170", "B171", "B172", "B173", "B174", "B175", "B176", "B177"],
+      "mensaje": "El total en B149 no puede exceder la suma de B150 hasta B177. Verifique la sección B.1."
+    },
+    {
+      "codigo": "VAL-070",
+      "severidad": "REVISAR",
+      "hojaRem": "REM28",
+      "secciones": ["B.1"],
+      "validacion": ">0",
+      "celdas": ["AM150", "AM151", "AM152", "AM153", "AM154", "AM155", "AM156", "AM157", "AM158", "AM159", "AM160", "AM161", "AM162", "AM163", "AM164", "AM165", "AM166", "AM167", "AM168", "AM169", "AM170", "AM171", "AM172", "AM173", "AM174", "AM175", "AM176", "AM177", "AM178"],
+      "mensaje": "Se detectaron celdas vacías o con valor cero en el rango AM150-AM178. Verifique que los datos estén completos."
+    },
+    {
+      "codigo": "VAL-071",
+      "severidad": "REVISAR",
+      "hojaRem": "REM29",
+      "secciones": ["A"],
+      "validacion": "M12:N12>0 y O12:P12=0",
+      "celdas": ["M12", "N12", "O12", "P12"],
+      "mensaje": "Cuando M12 y N12 tienen datos, O12 y P12 deben permanecer en cero. Verifique la sección A del REM29."
+    },
+    {
+      "codigo": "VAL-072",
+      "severidad": "REVISAR",
+      "hojaRem": "REM29",
+      "secciones": ["A"],
+      "validacion": "O13:P13>0 y M13:N13=0",
+      "celdas": ["O13", "P13", "M13", "N13"],
+      "mensaje": "Cuando O13 y P13 tienen datos, M13 y N13 deben permanecer en cero. Verifique la sección A del REM29."
+    },
+    {
+      "codigo": "VAL-073",
+      "severidad": "ERROR",
+      "hojaRem": "REM30R",
+      "secciones": ["Todas"],
+      "validacion": "=0",
+      "celdas": ["Todas"],
+      "mensaje": "La hoja REM30R debe estar completamente vacía o con valores cero. Si hay datos, elimínelos."
+    }
+  ]
+}

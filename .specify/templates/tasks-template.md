@@ -63,12 +63,12 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T004 Verify local-only browser processing remains unchanged
+- [ ] T005 [P] Identify impacted REM rules, catalogs, validators, or export paths
+- [ ] T006 [P] Define Spanish validation messages and report labels
+- [ ] T007 Create or update shared types/services that all stories depend on
+- [ ] T008 Configure error handling and traceable finding output
+- [ ] T009 Setup environment/configuration changes without introducing backend storage
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -94,7 +94,7 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
 - [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
 - [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T017 [US1] Add traceable Spanish findings for user story 1 operations
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -156,6 +156,9 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX Performance optimization across all stories
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
+- [ ] TXXX Verify all UI, messages, docs, and export labels are in Spanish
+- [ ] TXXX Run `npm run build`
+- [ ] TXXX Run `npm run test` or document why automated tests do not apply
 - [ ] TXXX Run quickstart.md validation
 
 ---

@@ -40,7 +40,17 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Local-only privacy: confirm the feature does not add backend, API, external upload,
+  database storage, or persistent validation history unless documented as a constitutional
+  violation with justification.
+- REM validation scope: document impact on filename validation, workbook metadata,
+  establishments catalog, NOMBRE sheet validation, rules JSON, severities, and export.
+- Traceability: confirm every new or changed finding includes severity, location, values,
+  source rule/validator, human Spanish message, and correction evidence when applicable.
+- Quality gates: identify required Vitest coverage or documented justification, and include
+  `npm run build` as a pre-delivery verification.
+- Spanish language: confirm all user-facing UI, validation messages, docs, and exported
+  report labels remain in Spanish.
 
 ## Project Structure
 

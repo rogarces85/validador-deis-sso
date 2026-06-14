@@ -88,6 +88,7 @@ El proyecto cuenta con un sistema de **Skills** que automatizan tareas complejas
 
 - **Convención de Nombres:** `CodEstab(6)Serie(1-2)Mes(2)` + extensión (ej: `123207A01.xlsm`).
 - **Privacidad:** Operación 100% en el cliente (navegador). No se envían datos sensibles a servidores externos.
+- **Idioma:** El sistema, mensajes, documentación y reportes se mantienen siempre en español.
 
 ---
 **Desarrollado con Estándares de Ingeniería Senior - 2026**

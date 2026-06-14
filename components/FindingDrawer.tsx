@@ -1,6 +1,7 @@
 import React from 'react';
 import { ValidationResult } from '../types';
 import { SeverityBadge } from './SeverityChips';
+import { cleanFindingDescription, getReferenceLabel } from '../utils/findingDisplay';
 
 interface FindingDrawerProps {
     finding: ValidationResult | null;
@@ -31,14 +32,16 @@ const FindingDrawer: React.FC<FindingDrawerProps> = ({ finding, onClose }) => {
                 };
 
     const copyToClipboard = () => {
+        const descripcionLimpia = cleanFindingDescription(finding.descripcion, { removeRem: true });
+        const referencia = getReferenceLabel(finding);
         const text = `
 Regla: ${finding.ruleId}
 Severidad: ${finding.severidad}
-Descripción: ${finding.descripcion}
+Descripción: ${descripcionLimpia}
 Hoja: ${finding.rem_sheet || 'N/A'}
 Celda: ${finding.cell || 'N/A'}
 Valor Actual: ${finding.valorActual}
-Valor Esperado: ${finding.valorEsperado}
+Referencia: ${referencia}
 Comparacion: ${finding.comparacion || ''}
 Diferencia: ${finding.diferencia ?? ''}
 Mensaje: ${finding.mensaje || ''}
@@ -123,7 +126,7 @@ Eviencia: ${finding.evidence || ''}
                     <div>
                         <h3 className="text-[11px] font-medium uppercase tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>Descripción</h3>
                         <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                            {finding.descripcion}
+                            {cleanFindingDescription(finding.descripcion, { removeRem: true })}
                         </p>
                     </div>
 
@@ -156,13 +159,13 @@ Eviencia: ${finding.evidence || ''}
                                     </span>
                                 </div>
                                 <div>
-                                    <span className="text-[10px] font-medium uppercase block mb-1 font-sans" style={{ color: 'var(--text-muted)' }}>Valor Esperado</span>
+                                    <span className="text-[10px] font-medium uppercase block mb-1 font-sans" style={{ color: 'var(--text-muted)' }}>Referencia</span>
                                     <span className="font-semibold px-2 py-1 rounded-lg inline-block min-w-[3rem] text-center text-xs"
                                         style={{
                                             color: 'var(--semantic-success)',
                                             backgroundColor: 'var(--semantic-success-soft)',
                                         }}>
-                                        {String(finding.valorEsperado)}
+                                        {getReferenceLabel(finding)}
                                     </span>
                                 </div>
                             </div>
@@ -198,7 +201,7 @@ Eviencia: ${finding.evidence || ''}
                                     backgroundColor: 'var(--semantic-info-soft)',
                                     color: 'var(--semantic-info)',
                                 }}>
-                                {finding.mensaje && <p className="mb-2">{finding.mensaje}</p>}
+                                {finding.mensaje && <p className="mb-2">{cleanFindingDescription(finding.mensaje)}</p>}
                                 {finding.evidence && (
                                     <p className="mt-2 text-xs font-mono pt-2" style={{ borderTop: '1px solid var(--semantic-info-border)', opacity: 0.8 }}>
                                         Evidencia: {finding.evidence}

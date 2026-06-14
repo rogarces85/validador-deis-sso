@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Severity, ValidationResult } from '../types';
 import { SeverityBadge } from './SeverityChips';
+import { cleanFindingDescription, getReferenceLabel } from '../utils/findingDisplay';
 
 interface FindingsTableProps {
     findings: ValidationResult[];
@@ -221,7 +222,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                 </div>
             </div>
 
-            {/* Table — Estado → Validación → Regla → Hoja → Valor → Esperado → Comparación → Acciones */}
+            {/* Table — Estado → Validación → Regla → Hoja → Valor → Referencia → Comparación → Acciones */}
             <div className="overflow-x-auto">
                 <table className="w-full text-left" style={{ minWidth: '860px' }}>
                     <thead style={{ backgroundColor: 'var(--bg-canvas)', borderBottom: '1px solid var(--border-default)' }}>
@@ -231,7 +232,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                             <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Regla</th>
                             <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Hoja</th>
                             <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Valor</th>
-                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Esperado</th>
+                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Referencia</th>
                             <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Comparación</th>
                             <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider text-center" style={{ color: 'var(--text-muted)' }}>Acciones</th>
                         </tr>
@@ -268,7 +269,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                 {/* Regla */}
                                 <td className="px-4 sm:px-6 py-3">
                                     <p className="text-sm leading-tight" style={{ color: 'var(--text-primary)' }}>
-                                        {renderDescripcionFormatted(finding.descripcion)}
+                                        {renderDescripcionFormatted(cleanFindingDescription(finding.descripcion))}
                                     </p>
                                     <p className="text-[11px] font-mono mt-0.5" style={{ color: 'var(--text-muted)' }}>{finding.ruleId} {finding.cell ? `· ${finding.cell}` : ''}</p>
                                 </td>
@@ -289,9 +290,9 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                         {String(finding.valorActual)}
                                     </span>
                                 </td>
-                                {/* Esperado */}
+                                {/* Referencia */}
                                 <td className="px-4 sm:px-6 py-3">
-                                    <span className="text-xs font-mono" style={{ color: 'var(--text-muted)' }}>{String(finding.valorEsperado)}</span>
+                                    <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{getReferenceLabel(finding)}</span>
                                 </td>
                                 <td className="px-4 sm:px-6 py-3">
                                     <div className="space-y-1">

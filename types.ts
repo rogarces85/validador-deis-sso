@@ -41,6 +41,13 @@ export interface ValidationRule {
   expresion_2: any;
   severidad: Severity;
   mensaje: string;
+  rem_sheet_2?: string;
+  condicion_previa?: {
+    expresion: string;
+    operador: string;
+    valor: number;
+  };
+  omitir_si_condicion_no_cumple?: boolean;
   serie?: string;
   rem_sheet_ext?: string;
   aplicar_a?: string[];
@@ -60,6 +67,7 @@ export interface ValidationResult {
   resultado: boolean;
   valorActual: any;
   valorEsperado: any;
+  referenciaLabel?: string;
   operador?: string;
   valorReferencia?: any;
   comparacion?: string;

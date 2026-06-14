@@ -26,6 +26,34 @@ export class RuleEngineService {
     return normalized === 'OTRO' ? 'OTROS' : normalized as EstablishmentType;
   }
 
+  private compareValues(v1: unknown, operador: string, v2: unknown): boolean {
+    switch (operador) {
+      case '==': return v1 === v2;
+      case '!=': return v1 !== v2;
+      case '>': return Number(v1) > Number(v2);
+      case '<': return Number(v1) < Number(v2);
+      case '>=': return Number(v1) >= Number(v2);
+      case '<=': return Number(v1) <= Number(v2);
+      default: return false;
+    }
+  }
+
+  private getReferenceLabel(rule: ValidationRule, value: unknown, omittedByCondition: boolean = false): string {
+    if (omittedByCondition) {
+      return 'No aplica: sin datos previos';
+    }
+
+    const isNoDataRule = rule.tipo === 'SIMPLE'
+      && rule.operador === '=='
+      && Number(rule.expresion_2) === 0;
+
+    if (isNoDataRule) {
+      return 'Sin registro esperado';
+    }
+
+    return `Referencia evaluada: ${this.formatValue(value)}`;
+  }
+
   private ruleAppliesToMetadata(rule: ValidationRule, metadata: FileMetadata): boolean {
     const establishmentCode = metadata.codigoEstablecimiento;
     const establishmentType = this.normalizeEstablishmentType(metadata.tipoEstablecimiento);
@@ -72,17 +100,15 @@ export class RuleEngineService {
       let invertirOperador = false;
       const normalizedType = this.normalizeEstablishmentType(metadata.tipoEstablecimiento);
 
-      // Validación exclusiva: la regla aplica a TODOS los establecimientos.
-      // Para los de aplicar_a (objetivo): se MANTIENE el operador original
-      //   → Deben tener datos, error si NO los tienen.
-      // Para el resto (no objetivo): se INVIERTE el operador (ej: == se vuelve !=)
-      //   → No deben tener datos, error si SÍ los tienen.
+      // Validación exclusiva: solo los establecimientos objetivo pueden tener datos.
+      // Para objetivos se invierte el operador base == 0, permitiendo registro.
+      // Para no objetivos se mantiene == 0, generando hallazgo si registran datos.
       if (rule.validacion_exclusiva && rule.aplicar_a) {
         const targetSet = new Set(rule.aplicar_a);
-        invertirOperador = !targetSet.has(metadata.codigoEstablecimiento);
+        invertirOperador = targetSet.has(metadata.codigoEstablecimiento);
       } else if (rule.validacion_exclusiva && rule.aplicar_a_tipo?.length) {
         const targetTypes = new Set(rule.aplicar_a_tipo.map(type => this.normalizeEstablishmentType(type)));
-        invertirOperador = !normalizedType || !targetTypes.has(normalizedType);
+        invertirOperador = !!normalizedType && targetTypes.has(normalizedType);
       }
 
       try {
@@ -107,11 +133,40 @@ export class RuleEngineService {
 
   private async evaluateSingleRule(rule: ValidationRule, invertirOperador: boolean = false): Promise<ValidationResult> {
     const val1 = this.resolveExpression(rule.expresion_1, rule.rem_sheet);
-    const val2 = this.resolveExpression(rule.expresion_2, rule.rem_sheet);
+    const val2 = this.resolveExpression(rule.expresion_2, rule.rem_sheet_2 || rule.rem_sheet);
 
     // Para comparaciones lógicas tratamos null como 0
     const v1 = val1 === null || val1 === undefined ? 0 : val1;
     const v2 = val2 === null || val2 === undefined ? 0 : val2;
+
+    if (rule.condicion_previa) {
+      const conditionalValue = this.resolveExpression(rule.condicion_previa.expresion, rule.rem_sheet);
+      const normalizedConditionalValue = conditionalValue === null || conditionalValue === undefined ? 0 : conditionalValue;
+      const conditionPassed = this.compareValues(
+        normalizedConditionalValue,
+        rule.condicion_previa.operador,
+        rule.condicion_previa.valor
+      );
+
+      if (!conditionPassed && rule.omitir_si_condicion_no_cumple) {
+        return {
+          ruleId: rule.id,
+          descripcion: rule.mensaje,
+          severidad: rule.severidad,
+          resultado: true,
+          valorActual: val1,
+          valorEsperado: val2,
+          referenciaLabel: this.getReferenceLabel(rule, val2, true),
+          operador: rule.operador,
+          valorReferencia: val2,
+          comparacion: `${this.formatValue(normalizedConditionalValue)} ${rule.condicion_previa.operador} ${this.formatValue(rule.condicion_previa.valor)}`,
+          diferencia: 0,
+          rem_sheet: rule.rem_sheet,
+          id: generateUUID(),
+          evidence: 'Omitida: la condición previa no se cumple, no existen datos para comparar.'
+        };
+      }
+    }
 
     // Omitir validación si ambos valores son nulos/vacíos (sin datos).
     if ((val1 === null || val1 === undefined || val1 === '') && (val2 === null || val2 === undefined || val2 === '')) {
@@ -122,6 +177,7 @@ export class RuleEngineService {
         resultado: true,
         valorActual: val1,
         valorEsperado: val2,
+        referenciaLabel: this.getReferenceLabel(rule, val2),
         operador: rule.operador,
         valorReferencia: val2,
         comparacion: `${this.formatValue(v1)} ${rule.operador} ${this.formatValue(v2)}`,
@@ -141,6 +197,7 @@ export class RuleEngineService {
         resultado: true,
         valorActual: val1,
         valorEsperado: val2,
+        referenciaLabel: this.getReferenceLabel(rule, val2),
         operador: rule.operador,
         valorReferencia: val2,
         comparacion: `${this.formatValue(v1)} ${rule.operador} ${this.formatValue(v2)}`,
@@ -161,6 +218,7 @@ export class RuleEngineService {
         resultado: true,
         valorActual: 0,
         valorEsperado: val2,
+        referenciaLabel: this.getReferenceLabel(rule, val2),
         operador: rule.operador,
         valorReferencia: 0,
         comparacion: `${this.formatValue(v1)} ${rule.operador} ${this.formatValue(v2)}`,
@@ -184,16 +242,7 @@ export class RuleEngineService {
       }
     }
 
-    let passed = false;
-    switch (operador) {
-      case '==': passed = v1 === v2; break;
-      case '!=': passed = v1 !== v2; break;
-      case '>': passed = v1 > v2; break;
-      case '<': passed = v1 < v2; break;
-      case '>=': passed = v1 >= v2; break;
-      case '<=': passed = v1 <= v2; break;
-      default: passed = false;
-    }
+    const passed = this.compareValues(v1, operador, v2);
 
     const operadorEfectivo = invertirOperador ? `${operador} (invertido de ${rule.operador})` : operador;
     const comparacion = `${this.formatValue(v1)} ${operador} ${this.formatValue(v2)}`;
@@ -208,6 +257,7 @@ export class RuleEngineService {
       resultado: passed,
       valorActual: val1,
       valorEsperado: val2,
+      referenciaLabel: this.getReferenceLabel(rule, val2),
       operador,
       valorReferencia: val2,
       comparacion,

@@ -23,7 +23,15 @@ export class RuleEngineService {
     if (!type) return undefined;
 
     const normalized = type.trim().toUpperCase();
-    return normalized === 'OTRO' ? 'OTROS' : normalized as EstablishmentType;
+    if (normalized === 'OTRO') {
+      return 'OTROS';
+    }
+
+    if (normalized === 'POSTAS') {
+      return 'POSTA';
+    }
+
+    return normalized as EstablishmentType;
   }
 
   private compareValues(v1: unknown, operador: string, v2: unknown): boolean {

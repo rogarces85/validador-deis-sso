@@ -71,7 +71,7 @@ Reducir errores de estructura, consistencia y digitación en archivos REM median
 - `components/FindingDrawer.tsx`: detalle técnico del hallazgo.
 - `components/ExportPanel.tsx`: botón de exportación Excel.
 - `components/CeldasReview.tsx`: vista de revisión de celdas declaradas en catálogo.
-- `data/rules/*.json`: reglas agrupadas por conjunto.
+- `data/reglas_finales.json`: fuente unica de verdad para reglas de validacion.
 - `data/establishments.catalog.json`: catálogo oficial de establecimientos.
 - `data/celdas.catalog.json`: catálogo de celdas para revisión auxiliar.
 
@@ -79,11 +79,7 @@ Reducir errores de estructura, consistencia y digitación en archivos REM median
 
 - Catálogo de establecimientos: versión `2026.1.0`, con 77 establecimientos.
 - Catálogo de celdas: 1269 entradas.
-- Reglas base: 41 reglas distribuidas en 11 hojas REM.
-- Reglas hospital: 4 reglas.
-- Reglas posta: 1 regla.
-- Reglas SAMU/MOVIL: archivo disponible, sin reglas activas actualmente.
-- Las reglas se cargan desde `data/rules/index.ts`, que expone los conjuntos `BASE`, `HOSPITAL`, `POSTA`, `MOVIL` y `SAMU`.
+- Las reglas se cargan desde `data/rules/index.ts`, que resuelve `data/reglas_finales.json` como origen unico.
 
 ## 8. Formato de Archivo Esperado
 
@@ -128,7 +124,7 @@ Reglas de validación del nombre:
 5. Se busca el establecimiento por código en un `Map` derivado de `establishments.catalog.json`.
 6. Se normaliza el tipo de establecimiento. Si el tipo es `OTRO`, se convierte a `OTROS`.
 7. `NombreSheetValidator` valida la hoja `NOMBRE`.
-8. Se cargan reglas `BASE` y reglas específicas según tipo de establecimiento.
+8. Se cargan reglas desde la fuente central y se filtran segun serie y alcance de establecimiento.
 9. Se filtran reglas cuyo `rem_sheet` comienza con la serie del archivo.
 10. `RuleEngineService.evaluate` evalúa cada regla aplicable.
 11. Se combinan primero los hallazgos de `NOMBRE` y luego los resultados del motor de reglas.
@@ -214,9 +210,8 @@ Validacion_[Codigo]_[Serie]_[MesNombre]_[Periodo].xlsx
 - Un archivo con nombre inválido no puede iniciar la validación.
 - Un archivo de serie reconocida pero distinta de `A` se bloquea por no estar liberada.
 - La hoja `NOMBRE` es validada antes de las reglas normativas.
-- Las reglas base siempre se consideran junto con reglas específicas del tipo de establecimiento.
-- Si no existe conjunto específico para el tipo detectado, solo aplican reglas base.
-- Los establecimientos `MOVIL` y `SAMU` usan el mismo archivo de reglas `samu.json`.
+- Todas las reglas nacen desde `data/reglas_finales.json`.
+- El alcance por establecimiento se resuelve con campos como `aplicar_a`, `aplicar_a_tipo`, `excluir_tipo` y `establecimientos_excluidos`.
 - El sistema identifica establecimientos desconocidos, pero la metadata igual conserva el código del nombre.
 - Las reglas con valores vacíos pueden retornar aprobadas por omisión para evitar falsos positivos.
 - La exportación incluye todos los resultados, no solo los visibles en la tabla filtrada.
@@ -259,7 +254,7 @@ La navegación `Resultados` y `Celdas` permanece deshabilitada hasta que se vali
 
 ## 16. Riesgos y Limitaciones Detectadas
 
-- La documentación menciona 91 validaciones activas, pero los archivos actuales de `data/rules` suman 46 reglas activas entre base, hospital y posta; `samu.json` no contiene reglas activas.
+- Si alguna documentacion menciona archivos derivados de reglas por establecimiento, debe considerarse obsoleta.
 - La tabla de hallazgos filtra automáticamente resultados con valor actual `0` o vacío, por lo que el conteo visible puede no coincidir con el total del resumen.
 - `NombreSheetValidator` concatena códigos convirtiéndolos a número; si un código válido dependiera de ceros iniciales, podría perderlos.
 - La validación carga el Excel antes de validar formalmente el nombre dentro del pipeline, aunque la UI ya hace prevalidación antes de permitir continuar.
@@ -274,8 +269,6 @@ npm install
 npm run dev
 npm run build
 npm run test
-npm run sync-rules
-npm run sync-rules:check
 ```
 
 ## 18. Indicadores de Calidad Recomendados

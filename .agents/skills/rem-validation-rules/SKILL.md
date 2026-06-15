@@ -14,7 +14,7 @@ El Validador DEIS SSO valida archivos Excel REM (Registro Estadístico Mensual) 
 
 | Archivo | Propósito |
 |---|---|
-| `data/rules.json` | **Todas las reglas de validación** — es el único archivo que se edita |
+| `data/reglas_finales.json` | **Todas las reglas de validacion** — es el unico archivo que se edita |
 | `services/ruleEngine.ts` | Motor que ejecuta las reglas (NO modificar para agregar reglas) |
 | `hooks/useValidationPipeline.ts` | Pipeline que carga y filtra reglas por serie |
 | `types.ts` | Tipos TypeScript (`ValidationRule`, `Severity`) |
@@ -23,15 +23,13 @@ El Validador DEIS SSO valida archivos Excel REM (Registro Estadístico Mensual) 
 
 ```json
 {
-  "validaciones": {
-    "A01": [ /* array de reglas para hoja A01 */ ],
-    "A02": [ /* array de reglas para hoja A02 */ ],
-    "A03": [ /* ... */ ]
-  }
+  "A01": [ /* array de reglas para hoja A01 */ ],
+  "A02": [ /* array de reglas para hoja A02 */ ],
+  "A03": [ /* ... */ ]
 }
 ```
 
-Cada serie (A01, A02, ..., A30) es una clave del objeto `validaciones` que contiene un array de reglas.
+Cada serie (A01, A02, ..., A30) es una clave del objeto raiz que contiene un array de reglas.
 
 ## Anatomía de una Regla
 
@@ -242,7 +240,7 @@ Determinar:
 Seguir la estructura de los patrones anteriores. Elegir un `id` secuencial (ej: si la última es VAL66, usar VAL67).
 
 ### Paso 3: Agregar al array correcto
-En `data/rules.json`, ubicar la serie correspondiente y agregar la regla al array. Si la serie no existe, crear una nueva clave.
+En `data/reglas_finales.json`, ubicar la serie correspondiente y agregar la regla al array. Si la serie no existe, crear una nueva clave.
 
 ### Paso 4: Escribir el mensaje
 El mensaje debe ser claro e incluir:

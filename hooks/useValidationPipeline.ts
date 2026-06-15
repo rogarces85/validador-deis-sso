@@ -69,9 +69,12 @@ export const useValidationPipeline = () => {
 
             // js-set-map-lookups: O(1) lookup via pre-built Map
             const establishment = establishmentByCode.get(metadata.codigoEstablecimiento) || null;
-            const normalizedEstablishmentType = establishment?.tipo?.toUpperCase() === 'OTRO'
+            const rawEstablishmentType = establishment?.tipo?.toUpperCase();
+            const normalizedEstablishmentType = rawEstablishmentType === 'OTRO'
                 ? 'OTROS'
-                : establishment?.tipo;
+                : rawEstablishmentType === 'POSTAS'
+                    ? 'POSTA'
+                    : establishment?.tipo;
 
             metadata.tipoEstablecimiento = normalizedEstablishmentType;
 

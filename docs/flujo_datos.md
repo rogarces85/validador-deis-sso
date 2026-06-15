@@ -38,7 +38,7 @@ El flujo comienza completamente del lado del cliente sin enviar datos a un servi
   3. Se extrae el contenido celdas en objetos o matrices JSON para una fácil manipulación en JavaScript/TypeScript.
 
 ## 3. Motor de Validación (Rule Engine en TypeScript)
-Las reglas están separadas de la lógica, definidas en archivos de tipo diccionario (`base.json`, `hospital.json`, `posta.json`, `samu.json`).
+Las reglas estan separadas de la logica y centralizadas en `data/reglas_finales.json`, que actua como unica fuente de verdad.
 - **Filtros por Tipo de Establecimiento (`aplicar_a_tipo` y `establecimientos_excluidos`):** Las reglas que se cargan dependen directamente del tipo detectado en el nombre del archivo cruzado con el catálogo.
 - **Tipos de Transformación y Evaluación:**
   - **Identificación:** Se parsean referencias como `"A02!D53"`.

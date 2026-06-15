@@ -144,6 +144,34 @@ const buildRuleExplanation = (rule: ManualRule): string => {
     return `Compara ${rule.rem_sheet}!${rule.expresion_1} ${rule.operador} ${rightSheet}. Si la referencia no trae datos, el sistema la interpreta como 0 o vacio segun corresponda.`;
 };
 
+const buildOperationalInterpretation = (rule: ManualRule): string => {
+    if (rule.operador === '==') {
+        return 'La validacion espera igualdad exacta entre el dato informado y su referencia. Si no coinciden, normalmente hay una inconsistencia de totalizacion o de traspaso entre secciones.';
+    }
+
+    if (rule.operador === '>=' || rule.operador === '>') {
+        return 'La validacion espera que el numerador sea mayor que la referencia. Si falla, puede indicar subregistro en la expresion_1 o sobredeclaracion en la expresion_2.';
+    }
+
+    if (rule.operador === '<=' || rule.operador === '<') {
+        return 'La validacion espera que el numerador no supere la referencia. Si falla, suele indicar un valor incompatible con el limite o total declarado.';
+    }
+
+    if (rule.operador === '!=') {
+        return 'La validacion espera que ambos lados no sean iguales. Si coinciden, el sistema lo marca para revisar porque puede existir un registro no esperado.';
+    }
+
+    return 'La validacion compara el dato observado con una referencia tecnica y debe revisarse segun el contexto de la hoja REM.';
+};
+
+const buildPracticalExample = (rule: ManualRule): string => {
+    const rightSide = rule.rem_sheet_2 && rule.rem_sheet_2 !== rule.rem_sheet
+        ? `${rule.rem_sheet_2}!${String(rule.expresion_2)}`
+        : `${rule.rem_sheet}!${String(rule.expresion_2)}`;
+
+    return `Ejemplo: si ${rule.rem_sheet}!${rule.expresion_1} trae un valor y la referencia ${rightSide} esta vacia, el sistema compara contra 0 o vacio segun el tipo de regla. Luego determina si la relacion ${rule.operador} se cumple o no.`;
+};
+
 const UserManual: React.FC = () => {
     const sheetTabs = useMemo(
         () => Object.keys(reglasFinales).sort((a, b) => a.localeCompare(b, 'es', { numeric: true })),
@@ -152,6 +180,7 @@ const UserManual: React.FC = () => {
     const [activeSheet, setActiveSheet] = useState<string>(sheetTabs[0] || 'A01');
     const [searchTerm, setSearchTerm] = useState('');
     const [severityFilter, setSeverityFilter] = useState<'TODAS' | 'ERROR' | 'REVISAR' | 'INDICADOR'>('TODAS');
+    const [expandedRuleId, setExpandedRuleId] = useState<string | null>(null);
     const activeRules = useMemo(() => reglasFinales[activeSheet] || [], [activeSheet]);
     const activeSheetCounts = useMemo(() => ({
         total: activeRules.length,
@@ -382,7 +411,10 @@ const UserManual: React.FC = () => {
                         <button
                             key={sheet}
                             type="button"
-                            onClick={() => setActiveSheet(sheet)}
+                            onClick={() => {
+                                setActiveSheet(sheet);
+                                setExpandedRuleId(null);
+                            }}
                             className="shrink-0 rounded-full px-4 py-2 text-sm font-semibold transition-colors"
                             style={activeSheet === sheet
                                 ? { backgroundColor: 'var(--brand-accent)', color: '#fff' }
@@ -516,6 +548,54 @@ const UserManual: React.FC = () => {
                                     </p>
                                 </div>
                             </div>
+
+                            <div className="flex items-center justify-between gap-3 pt-1">
+                                <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                                    Consulta el detalle operativo para entender como leer esta validacion en terreno.
+                                </p>
+                                <button
+                                    type="button"
+                                    onClick={() => setExpandedRuleId(expandedRuleId === rule.id ? null : rule.id)}
+                                    className="shrink-0 rounded-full px-4 py-2 text-sm font-semibold transition-colors"
+                                    style={{ backgroundColor: 'var(--brand-accent)', color: '#fff' }}
+                                >
+                                    {expandedRuleId === rule.id ? 'Ocultar detalle' : 'Ver detalle operativo'}
+                                </button>
+                            </div>
+
+                            {expandedRuleId === rule.id ? (
+                                <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 pt-2">
+                                    <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--bg-surface)' }}>
+                                        <p className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>
+                                            Interpretacion operativa
+                                        </p>
+                                        <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                                            {buildOperationalInterpretation(rule)}
+                                        </p>
+                                    </div>
+
+                                    <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--bg-surface)' }}>
+                                        <p className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>
+                                            Ejemplo practico
+                                        </p>
+                                        <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                                            {buildPracticalExample(rule)}
+                                        </p>
+                                    </div>
+
+                                    <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--bg-surface)' }}>
+                                        <p className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>
+                                            Que revisar en el Excel
+                                        </p>
+                                        <ul className="space-y-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                                            <li>Numerador: <code>{rule.rem_sheet}!{rule.expresion_1}</code></li>
+                                            <li>Denominador o referencia: <code>{rule.rem_sheet_2 && rule.rem_sheet_2 !== rule.rem_sheet ? `${rule.rem_sheet_2}!` : ''}{String(rule.expresion_2)}</code></li>
+                                            <li>Seccion principal: {rule.seccion_expresion_1 || 'No informada'}</li>
+                                            <li>Descripcion principal: {rule.descripcion_expresion_1 || 'No informada'}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            ) : null}
                         </article>
                     ))}
 

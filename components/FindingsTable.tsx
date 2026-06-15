@@ -155,7 +155,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                     </h3>
 
                     {/* Search */}
-                    <div className="relative">
+                    <div className="relative w-full sm:w-auto">
                         <svg xmlns="http://www.w3.org/2000/svg" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4" style={{ color: 'var(--text-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
@@ -164,7 +164,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                             placeholder="Buscar regla o descripción..."
                             value={searchTerm}
                             onChange={e => setSearchTerm(e.target.value)}
-                            className="pl-10 pr-4 py-2.5 text-base rounded-xl w-full sm:w-80 transition-all focus:outline-none"
+                            className="pl-10 pr-4 py-2.5 text-sm rounded-xl w-full sm:w-72 md:w-80 transition-all focus:outline-none"
                             style={{
                                 backgroundColor: 'var(--control-bg)',
                                 border: 'none',
@@ -224,15 +224,15 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
 
             {/* Table — Estado → Validación → Regla → Hoja → Valor → Referencia → Comparación → Acciones */}
             <div className="overflow-auto" style={{ maxHeight: 'min(72vh, 880px)' }}>
-                <table className="w-full text-left table-fixed" style={{ minWidth: '1280px' }}>
+                <table className="w-full text-left table-fixed" style={{ minWidth: '1140px' }}>
                     <colgroup>
-                        <col style={{ width: '120px' }} />
-                        <col style={{ width: '105px' }} />
-                        <col style={{ width: '520px' }} />
-                        <col style={{ width: '90px' }} />
-                        <col style={{ width: '120px' }} />
-                        <col style={{ width: '190px' }} />
-                        <col style={{ width: '210px' }} />
+                        <col style={{ width: '112px' }} />
+                        <col style={{ width: '92px' }} />
+                        <col style={{ width: '430px' }} />
+                        <col style={{ width: '82px' }} />
+                        <col style={{ width: '112px' }} />
+                        <col style={{ width: '170px' }} />
+                        <col style={{ width: '170px' }} />
                         <col style={{ width: '110px' }} />
                     </colgroup>
                     <thead className="sticky top-0 z-10" style={{ backgroundColor: 'var(--bg-canvas)', borderBottom: '1px solid var(--border-default)' }}>
@@ -278,10 +278,10 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                 </td>
                                 {/* Regla */}
                                 <td className="px-5 py-4 align-top">
-                                    <p className="text-base leading-relaxed whitespace-normal break-words" style={{ color: 'var(--text-primary)' }}>
+                                    <p className="text-sm leading-relaxed whitespace-normal break-words" style={{ color: 'var(--text-primary)' }}>
                                         {renderDescripcionFormatted(cleanFindingDescription(finding.descripcion))}
                                     </p>
-                                    <p className="text-xs font-mono mt-2" style={{ color: 'var(--text-muted)' }}>{finding.ruleId} {finding.cell ? `· ${finding.cell}` : ''}</p>
+                                    <p className="text-[11px] font-mono mt-2" style={{ color: 'var(--text-muted)' }}>{finding.ruleId} {finding.cell ? `· ${finding.cell}` : ''}</p>
                                 </td>
                                 {/* Hoja */}
                                 <td className="px-5 py-4 align-top">
@@ -292,7 +292,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                 </td>
                                 {/* Valor Actual */}
                                 <td className="px-5 py-4 align-top">
-                                    <span className="text-base font-mono font-medium px-2.5 py-1.5 rounded-lg inline-block max-w-full break-words"
+                                    <span className="text-sm font-mono font-medium px-2.5 py-1.5 rounded-lg inline-block max-w-full break-words"
                                         style={{
                                             backgroundColor: 'var(--control-bg)',
                                             color: 'var(--text-primary)',

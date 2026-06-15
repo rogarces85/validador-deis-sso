@@ -22,6 +22,25 @@ export default defineConfig(({ mode }) => {
       alias: {
         '@': path.resolve(__dirname, '.'),
       }
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+              return 'react-vendor';
+            }
+
+            if (id.includes('node_modules/xlsx') || id.includes('node_modules/xlsx-js-style')) {
+              return 'excel-vendor';
+            }
+
+            if (id.includes('data/reglas_finales.json') || id.includes('data/celdas.catalog.json')) {
+              return 'validation-data';
+            }
+          }
+        }
+      }
     }
   };
 });

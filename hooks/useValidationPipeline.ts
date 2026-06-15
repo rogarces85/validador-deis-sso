@@ -1,21 +1,5 @@
 import { useState, useCallback } from 'react';
-import { AppState, ValidationResult, FileMetadata, Establishment, EstablishmentCatalog, ValidationRule } from '../types';
-import { ExcelReaderService } from '../services/excelService';
-import { RuleEngineService } from '../services/ruleEngine';
-import { NombreSheetValidator } from '../services/nombreSheetValidator';
-import { FilenameValidatorService } from '../services/filenameValidator';
-import catalogData from '../data/establishments.catalog.json';
-import ruleDictionary from '../data/rules';
-
-const catalog = catalogData as unknown as EstablishmentCatalog;
-
-// js-set-map-lookups: build index once at module level for O(1) lookups
-const establishmentByCode = new Map(
-    catalog.establecimientos.map(e => [e.codigo, e])
-);
-
-// Reuse a single instance instead of creating per-call
-const filenameValidator = new FilenameValidatorService();
+import { AppState, FileMetadata, EstablishmentCatalog, ValidationRule } from '../types';
 
 export const useValidationPipeline = () => {
     const [state, setState] = useState<AppState>({
@@ -44,6 +28,33 @@ export const useValidationPipeline = () => {
         setState(prev => ({ ...prev, isValidating: true, error: null, versionError: null, file }));
 
         try {
+            const [
+                excelServiceModule,
+                ruleEngineModule,
+                nombreSheetValidatorModule,
+                filenameValidatorModule,
+                catalogModule,
+                ruleDictionaryModule,
+            ] = await Promise.all([
+                import('../services/excelService'),
+                import('../services/ruleEngine'),
+                import('../services/nombreSheetValidator'),
+                import('../services/filenameValidator'),
+                import('../data/establishments.catalog.json'),
+                import('../data/rules'),
+            ]);
+
+            const { ExcelReaderService } = excelServiceModule;
+            const { RuleEngineService } = ruleEngineModule;
+            const { NombreSheetValidator } = nombreSheetValidatorModule;
+            const { FilenameValidatorService } = filenameValidatorModule;
+            const catalog = catalogModule.default as unknown as EstablishmentCatalog;
+            const ruleDictionary = ruleDictionaryModule.default;
+            const filenameValidator = new FilenameValidatorService();
+            const establishmentByCode = new Map(
+                catalog.establecimientos.map(e => [e.codigo, e])
+            );
+
             // 1. Read Excel File
             const excelService = ExcelReaderService.getInstance();
             await excelService.loadFile(file);

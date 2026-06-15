@@ -165,6 +165,11 @@ function normalizeOperator(value) {
   return op;
 }
 
+function operatorOverride(ruleId, operator) {
+  if (ruleId === 'A01-VAL029' || ruleId === 'A01-VAL030') return '<';
+  return operator;
+}
+
 function expressionForCells(cells) {
   return normalizeText(cells).replace(/\s+/g, '');
 }
@@ -269,7 +274,7 @@ function main() {
       tipo_validacion: sourceType,
       rem_sheet: sheet,
       expresion_1: expression1,
-      operador: normalizeOperator(operation),
+      operador: operatorOverride(id, normalizeOperator(operation)),
       expresion_2: operation === '>0' || operation === '0' ? 0 : expression2,
       severidad: normalizeText(row.SEVERIDAD).toUpperCase(),
       rem_sheet_2: normalizeText(row.HOJA2) || sheet,
@@ -285,12 +290,13 @@ function main() {
         valor: 0,
       };
       rule.omitir_si_condicion_no_cumple = true;
-    } else if (operation === '>') {
+    } else if (operation === '>' || id === 'A01-VAL029' || id === 'A01-VAL030') {
       rule.omitir_si_ambos_cero = true;
     }
 
     if (restrictionOnly) {
-      rule.establecimientos_excluidos = applyInfo.codes;
+      rule.aplicar_a = applyInfo.codes;
+      rule.validacion_exclusiva = true;
     } else if (apply === 'TODOS EXCEPTO SAMU') {
       rule.aplicar_a = applyInfo.exceptCodes;
     } else if (apply !== 'TODOS') {

@@ -485,7 +485,7 @@
         "tipo_validacion": "COMPUESTA",
         "rem_sheet": "A01",
         "expresion_1": "H36+H37",
-        "operador": ">",
+        "operador": "<",
         "expresion_2": "C92",
         "severidad": "ERROR",
         "rem_sheet_2": "A03",
@@ -493,7 +493,7 @@
         "descripcion_expresion_2": "Evaluación a mujeres/personas post parto síntomas de depresión A los 2 meses",
         "aplica_origen": "TODOS",
         "omitir_si_ambos_cero": true,
-        "mensaje": "ERROR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de salud realizado por Médico/a, Enfermera/o en el rango 2 meses | H36+H37 > REM03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Evaluación a mujeres/personas post parto síntomas de depresión A los 2 meses | C92"
+        "mensaje": "ERROR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de salud realizado por Médico/a, Enfermera/o en el rango 2 meses | H36+H37 < REM03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Evaluación a mujeres/personas post parto síntomas de depresión A los 2 meses | C92"
       },
       {
         "id": "A01-VAL030",
@@ -503,7 +503,7 @@
         "tipo_validacion": "COMPUESTA",
         "rem_sheet": "A01",
         "expresion_1": "L36+L37",
-        "operador": ">",
+        "operador": "<",
         "expresion_2": "C93",
         "severidad": "ERROR",
         "rem_sheet_2": "A03",
@@ -511,7 +511,7 @@
         "descripcion_expresion_2": "Evaluación a mujeres/personas post parto síntomas de depresión A los 6 meses",
         "aplica_origen": "TODOS",
         "omitir_si_ambos_cero": true,
-        "mensaje": "ERROR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de salud realizado por Médico/a, Enfermera/o en el rango 6 meses | L36+L37 > REM03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Evaluación a mujeres/personas post parto síntomas de depresión A los 6 meses | C93"
+        "mensaje": "ERROR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de salud realizado por Médico/a, Enfermera/o en el rango 6 meses | L36+L37 < REM03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Evaluación a mujeres/personas post parto síntomas de depresión A los 6 meses | C93"
       },
       {
         "id": "A01-VAL031",
@@ -598,7 +598,7 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "POSTAS",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123402",
           "123404",
           "123406",
@@ -632,6 +632,7 @@
           "201667",
           "202043"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "ERROR | REM02 | SECCIÓN A: EMP REALIZADO POR PROFESIONAL | Total EMP realizado por Profesional, celda B17 debe corresponder solo a Postas | B17"
       },
       {
@@ -1046,9 +1047,10 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "HBSJO",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123100"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "REVISAR | REM05 | SECCIÓN R: INGRESOS Y EGRESOS DEL PROGRAMA DE VIH/SIDA | Ingresos y Egresos al programa VIH/SIDA (Uso exclusivo Centros de Atención VIH-SIDA) | C329+C330+C331+C332+C333+C334+C335+C336+C337+C338+C339+D329+D330+D331+D332+D333+D334+D335+D336+D337+D338+D339+E329+E330+E331+E332+E333+E334+E335+E336+E337+E338+E339"
       },
       {
@@ -1066,9 +1068,10 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "HBSJO",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123100"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "REVISAR | REM05 | SECCIÓN S: INGRESOS Y EGRESOS POR COMERCIO SEXUAL | Ingresos y Egresos al programa Comercio Sexual (Uso exclusivo de Unidades Control Comercio Sexual) | C344+C345+C346+D344+D345+D346+E344+E345+E346"
       }
     ],
@@ -1088,10 +1091,11 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "HBSJO, HPU",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123100",
           "123101"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "ERROR | REM08 | SECCIÓN A.1: ATENCIONES REALIZADAS EN UNIDADES DE EMERGENCIA HOSPITALARIA | Atenciones en UEH de Alta Complejidad corresponde solo a HOSPITAL BASE SAN JOSE OSORNO y HOSPITAL PURRANQUE | E12+E13+E14+E15+F12+F13+F14+F15+G12+G13+G14+G15+H12+H13+H14+H15+I12+I13+I14+I15+J12+J13+J14+J15+K12+K13+K14+K15+L12+L13+L14+L15+M12+M13+M14+M15+N12+N13+N14+N15+O12+O13+O14+O15+P12+P13+P14+P15+Q12+Q13+Q14+Q15+R12+R13+R14+R15+S12+S13+S14+S15+T12+T13+T14+T15+U12+U13+U14+U15+V12+V13+V14+V15+W12+W13+W14+W15+X12+X13+X14+X15+Y12+Y13+Y14+Y15+Z12+Z13+Z14+Z15+AA12+AA13+AA14+AA15+AB12+AB13+AB14+AB15+AC12+AC13+AC14+AC15+AD12+AD13+AD14+AD15+AE12+AE13+AE14+AE15+AF12+AF13+AF14+AF15+AG12+AG13+AG14+AG15+AH12+AH13+AH14+AH15+AI12+AI13+AI14+AI15+AJ12+AJ13+AJ14+AJ15+AK12+AK13+AK14+AK15+AL12+AL13+AL14+AL15"
       },
       {
@@ -1109,7 +1113,7 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "HOSPITALES, SAPU, SUR",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123030",
           "123100",
           "123101",
@@ -1125,6 +1129,7 @@
           "200749",
           "200750"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "ERROR | REM08 | SECCIÓN B: CATEGORIZACIÓN DE PACIENTES, PREVIA A LA ATENCIÓN MÉDICA U ODONTOLÓGICA | Categoriaziones C1,C2,C3,C4,C5 Corresponde solo a Establecimientos Alta, Mediana, Baja Complejidad, SAPU, SAR, SUR | C61+C62+C63+C64+C65+C66+D61+D62+D63+D64+D65+D66+E61+E62+E63+E64+E65+E66+F61+F62+F63+F64+F65+F66+G61+G62+G63+G64+G65+G66+H61+H62+H63+H64+H65+H66+I61+I62+I63+I64+I65+I66+J61+J62+J63+J64+J65+J66+K61+K62+K63+K64+K65+K66+L61+L62+L63+L64+L65+L66+M61+M62+M63+M64+M65+M66+N61+N62+N63+N64+N65+N66+O61+O62+O63+O64+O65+O66+P61+P62+P63+P64+P65+P66+Q61+Q62+Q63+Q64+Q65+Q66+R61+R62+R63+R64+R65+R66+S61+S62+S63+S64+S65+S66+T61+T62+T63+T64+T65+T66+U61+U62+U63+U64+U65+U66+V61+V62+V63+V64+V65+V66+W61+W62+W63+W64+W65+W66+X61+X62+X63+X64+X65+X66+Y61+Y62+Y63+Y64+Y65+Y66+Z61+Z62+Z63+Z64+Z65+Z66+AA61+AA62+AA63+AA64+AA65+AA66+AB61+AB62+AB63+AB64+AB65+AB66+AC61+AC62+AC63+AC64+AC65+AC66+AD61+AD62+AD63+AD64+AD65+AD66+AE61+AE62+AE63+AE64+AE65+AE66+AF61+AF62+AF63+AF64+AF65+AF66+AG61+AG62+AG63+AG64+AG65+AG66+AH61+AH62+AH63+AH64+AH65+AH66+AI61+AI62+AI63+AI64+AI65+AI66+AJ61+AJ62+AJ63+AJ64+AJ65+AJ66+AK61+AK62+AK63+AK64+AK65+AK66+AL61+AL62+AL63+AL64+AL65+AL66"
       },
       {
@@ -1176,7 +1181,7 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "HQUI,HMSJ,HRN,HPO,SAPU,SUR",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123105",
           "123104",
           "123102",
@@ -1189,6 +1194,7 @@
           "200749",
           "200750"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "ERROR | REM08 | SECCIÓN A.3: ATENCIONES DE URGENCIA REALIZADAS EN ESTABLECIMIENTOS DE BAJA COMPLEJIDAD | Atenciones UEH Baja Complejidad corresponde solo a Hospitales de Baja Complejidad, SUR y SAPU | E31+E32+E33+E34+E35+E36+F31+F32+F33+F34+F35+F36+G31+G32+G33+G34+G35+G36+H31+H32+H33+H34+H35+H36+I31+I32+I33+I34+I35+I36+J31+J32+J33+J34+J35+J36+K31+K32+K33+K34+K35+K36+L31+L32+L33+L34+L35+L36+M31+M32+M33+M34+M35+M36+N31+N32+N33+N34+N35+N36+O31+O32+O33+O34+O35+O36+P31+P32+P33+P34+P35+P36+Q31+Q32+Q33+Q34+Q35+Q36+R31+R32+R33+R34+R35+R36+S31+S32+S33+S34+S35+S36+T31+T32+T33+T34+T35+T36+U31+U32+U33+U34+U35+U36+V31+V32+V33+V34+V35+V36+W31+W32+W33+W34+W35+W36+X31+X32+X33+X34+X35+X36+Y31+Y32+Y33+Y34+Y35+Y36+Z31+Z32+Z33+Z34+Z35+Z36+AA31+AA32+AA33+AA34+AA35+AA36+AB31+AB32+AB33+AB34+AB35+AB36+AC31+AC32+AC33+AC34+AC35+AC36+AD31+AD32+AD33+AD34+AD35+AD36+AE31+AE32+AE33+AE34+AE35+AE36+AF31+AF32+AF33+AF34+AF35+AF36+AG31+AG32+AG33+AG34+AG35+AG36+AH31+AH32+AH33+AH34+AH35+AH36+AI31+AI32+AI33+AI34+AI35+AI36+AJ31+AJ32+AJ33+AJ34+AJ35+AJ36+AK31+AK32+AK33+AK34+AK35+AK36+AL31+AL32+AL33+AL34+AL35+AL36"
       },
       {
@@ -1206,7 +1212,7 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "HQUI,HMSJ,HRN,HPO,SAPU,SUR",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123105",
           "123104",
           "123102",
@@ -1219,6 +1225,7 @@
           "200749",
           "200750"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "ERROR | REM08 | SECCIÓN B.1: CATEGORIZACIÓN DE PACIENTES DE URGENCIA GINECO OBSTÉTRICA PREVIO A LA ATENCIÓN CLÍNICA POR MATRÓN (A) Y/O MÉDICO GINECO-OBSTETRA | Categoriaziones C1,C2,C3,C4,C5 Corresponde solo a Hospitales de Baja Complejidad, SUR y SAPU | B78"
       },
       {
@@ -1236,9 +1243,10 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "SAMU",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123012"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "ERROR | REM08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA | Traslados SAMU (Básico-Avanzado | C169+C170+D169+D170+E169+E170+F169+F170"
       },
       {
@@ -1256,7 +1264,7 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "HRN-HPU-HMSJ-HQUI-CESFAM BAHIA MANSA-SAPU ENTRE LAGOS-SUR PUAUCHO- SUR BAHIA MANSA- SUR SANPABLO",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123102",
           "123101",
           "123104",
@@ -1267,6 +1275,7 @@
           "200749",
           "200748"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "ERROR | REM08 | SECCIÓN L: TRASLADOS PRIMARIOS A UNIDADES DE URGENCIA | Traslados (Enrutado,Basicos) corresponde solo a los siguientes establecimientos | C171+D171+E171+F171"
       },
       {
@@ -1374,9 +1383,10 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "HBSJO",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123100"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "ERROR | REM11 | SECCIÓN A.1: EXAMEN VDRL POR GRUPO DE USUARIOS | Esta sección solo le corresponde a HBSJO | B13+B14+B15+B16+B17+B18+B19+B20+B21+B22+B23+B24+B25+B26+B27+B28+B29+B30+C13+C14+C15+C16+C17+C18+C19+C20+C21+C22+C23+C24+C25+C26+C27+C28+C29+C30"
       },
       {
@@ -1394,9 +1404,10 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "HBSJO",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123100"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "ERROR | REM11 | SECCIÓN B.1: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS | Uso Exclusivo Laboratorio que Procesan, le corresponde solo a HBSJO | C144+C145+C146+C147+C148+D144+D145+D146+D147+D148+E144+E145+E146+E147+E148+F144+F145+F146+F147+F148+G144+G145+G146+G147+G148+H144+H145+H146+H147+H148+I144+I145+I146+I147+I148+J144+J145+J146+J147+J148+K144+K145+K146+K147+K148+L144+L145+L146+L147+L148+M144+M145+M146+M147+M148+N144+N145+N146+N147+N148+O144+O145+O146+O147+O148+P144+P145+P146+P147+P148"
       },
       {
@@ -1414,9 +1425,10 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "HBSJO",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123100"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "ERROR | REM11 | SECCIÓN B.2: EXÁMENES SEGÚN GRUPOS DE USUARIOS POR CONDICIÓN DE HEPATITIS B, HEPATITIS C, CHAGAS, HTLV 1 Y SIFILIS | Uso Exclusivo Compra Servicio, le corresponde solo a HBSJO | C152+C153+C154+C155+C156+D152+D153+D154+D155+D156+E152+E153+E154+E155+E156+F152+F153+F154+F155+F156+G152+G153+G154+G155+G156+H152+H153+H154+H155+H156+I152+I153+I154+I155+I156+J152+J153+J154+J155+J156+K152+K153+K154+K155+K156+L152+L153+L154+L155+L156+M152+M153+M154+M155+M156+N152+N153+N154+N155+N156+O152+O153+O154+O155+O156+P152+P153+P154+P155+P156"
       },
       {
@@ -1434,9 +1446,10 @@
         "seccion_expresion_2": "",
         "descripcion_expresion_2": "",
         "aplica_origen": "HBSJO",
-        "establecimientos_excluidos": [
+        "aplicar_a": [
           "123100"
         ],
+        "validacion_exclusiva": true,
         "mensaje": "ERROR | REM11 | SECCIÓN C.1: EXÁMENES DE VIH POR GRUPOS DE USUARIOS | Esta sección solo le corresponde a HBSJO | C161+C162+C163+C164+C165+C166+C167+C168+C169+C170+C171+C172+C173+C174+C175+C176+C177+C178+C179+C180+C181+C182+C183+D161+D162+D163+D164+D165+D166+D167+D168+D169+D170+D171+D172+D173+D174+D175+D176+D177+D178+D179+D180+D181+D182+D183"
       }
     ],

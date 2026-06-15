@@ -97,22 +97,21 @@ export class RuleEngineService {
         continue;
       }
 
-      let invertirOperador = false;
+      let exclusiveTargetAllowed = false;
       const normalizedType = this.normalizeEstablishmentType(metadata.tipoEstablecimiento);
 
       // Validación exclusiva: solo los establecimientos objetivo pueden tener datos.
-      // Para objetivos se invierte el operador base == 0, permitiendo registro.
-      // Para no objetivos se mantiene == 0, generando hallazgo si registran datos.
+      // Para objetivos se aprueba sin exigir registro; para no objetivos se evalúa == 0.
       if (rule.validacion_exclusiva && rule.aplicar_a) {
         const targetSet = new Set(rule.aplicar_a);
-        invertirOperador = targetSet.has(metadata.codigoEstablecimiento);
+        exclusiveTargetAllowed = targetSet.has(metadata.codigoEstablecimiento);
       } else if (rule.validacion_exclusiva && rule.aplicar_a_tipo?.length) {
         const targetTypes = new Set(rule.aplicar_a_tipo.map(type => this.normalizeEstablishmentType(type)));
-        invertirOperador = !!normalizedType && targetTypes.has(normalizedType);
+        exclusiveTargetAllowed = !!normalizedType && targetTypes.has(normalizedType);
       }
 
       try {
-        const result = await this.evaluateSingleRule(rule, invertirOperador);
+        const result = await this.evaluateSingleRule(rule, false, exclusiveTargetAllowed);
         results.push(result);
       } catch (e) {
         results.push({
@@ -131,13 +130,33 @@ export class RuleEngineService {
     return results;
   }
 
-  private async evaluateSingleRule(rule: ValidationRule, invertirOperador: boolean = false): Promise<ValidationResult> {
+  private async evaluateSingleRule(rule: ValidationRule, invertirOperador: boolean = false, exclusiveTargetAllowed: boolean = false): Promise<ValidationResult> {
     const val1 = this.resolveExpression(rule.expresion_1, rule.rem_sheet);
     const val2 = this.resolveExpression(rule.expresion_2, rule.rem_sheet_2 || rule.rem_sheet);
 
     // Para comparaciones lógicas tratamos null como 0
     const v1 = val1 === null || val1 === undefined ? 0 : val1;
     const v2 = val2 === null || val2 === undefined ? 0 : val2;
+
+    if (exclusiveTargetAllowed) {
+      return {
+        ruleId: rule.id,
+        descripcion: rule.mensaje,
+        severidad: rule.severidad,
+        resultado: true,
+        valorActual: val1,
+        valorEsperado: val2,
+        referenciaLabel: 'Establecimiento autorizado para registrar',
+        operador: rule.operador,
+        valorReferencia: val2,
+        comparacion: 'No aplica: establecimiento autorizado',
+        diferencia: undefined,
+        rem_sheet: rule.rem_sheet,
+        id: generateUUID(),
+        cell: (typeof rule.expresion_1 === 'string' && !rule.expresion_1.includes('SUM') && !rule.expresion_1.includes('+') && !rule.expresion_1.includes(':')) ? rule.expresion_1 : undefined,
+        evidence: 'Omitida: el establecimiento está autorizado para registrar esta sección.'
+      };
+    }
 
     if (rule.condicion_previa) {
       const conditionalValue = this.resolveExpression(rule.condicion_previa.expresion, rule.rem_sheet);

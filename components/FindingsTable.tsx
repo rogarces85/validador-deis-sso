@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Severity, ValidationResult } from '../types';
-import { SeverityBadge } from './SeverityChips';
+import { SeverityBadge, SeverityChip } from './SeverityChips';
 import { cleanFindingDescription, getReferenceLabel } from '../utils/findingDisplay';
 
 interface FindingsTableProps {
@@ -8,8 +8,6 @@ interface FindingsTableProps {
     onSelectFinding: (finding: ValidationResult) => void;
 }
 
-// rendering-hoist-jsx: static arrays hoisted outside component
-const SEVERITY_OPTIONS: (Severity | 'ALL')[] = ['ALL', ...Object.values(Severity)];
 const STATUS_OPTIONS: { key: 'ALL' | 'PASS' | 'FAIL'; label: string }[] = [
     { key: 'ALL', label: 'Todos' },
     { key: 'PASS', label: 'Aprobados' },
@@ -34,11 +32,7 @@ const classifyPart = (part: string): MessagePartType => {
 };
 
 const tokenizePipeMessage = (descripcion: string): MessagePart[] => {
-    const parts = descripcion
-        .split('|')
-        .map(p => p.trim())
-        .filter(Boolean);
-
+    const parts = descripcion.split('|').map(p => p.trim()).filter(Boolean);
     if (parts.length <= 1) return [{ value: descripcion, type: 'text' }];
 
     const tokens: MessagePart[] = [];
@@ -88,19 +82,11 @@ const renderDescripcionFormatted = (descripcion: string) => {
                 }
 
                 if (token.type === 'rem') {
-                    return (
-                        <span key={`rem-${index}`} className="font-bold" style={{ color: 'var(--text-primary)' }}>
-                            {token.value}
-                        </span>
-                    );
+                    return <span key={`rem-${index}`} className="font-bold" style={{ color: 'var(--text-primary)' }}>{token.value}</span>;
                 }
 
                 if (token.type === 'section') {
-                    return (
-                        <span key={`sec-${index}`} className="font-bold" style={{ color: '#10b981' }}>
-                            {token.value}
-                        </span>
-                    );
+                    return <span key={`sec-${index}`} className="font-bold" style={{ color: '#10b981' }}>{token.value}</span>;
                 }
 
                 return <span key={`txt-${index}`}>{token.value}</span>;
@@ -109,13 +95,46 @@ const renderDescripcionFormatted = (descripcion: string) => {
     );
 };
 
+const buildOperationalInterpretation = (finding: ValidationResult): string => {
+    const operador = finding.operador || '';
+
+    if (operador === '==') {
+        return 'Se espera igualdad exacta entre el valor informado y su referencia. Si falla, normalmente hay una inconsistencia de totalizacion o de traspaso entre secciones.';
+    }
+
+    if (operador === '>=' || operador === '>') {
+        return 'Se espera que el valor actual sea mayor que la referencia. Si falla, puede existir subregistro del numerador o una referencia mas alta de lo esperado.';
+    }
+
+    if (operador === '<=' || operador === '<') {
+        return 'Se espera que el valor actual no supere la referencia. Si falla, el dato puede estar fuera del limite permitido o mal totalizado.';
+    }
+
+    if (operador === '!=') {
+        return 'Se espera que ambos lados no coincidan. Si coinciden, el sistema lo marca porque puede existir un registro no esperado.';
+    }
+
+    return 'El sistema compara el dato observado con una referencia tecnica y requiere revision segun el contexto de la hoja REM.';
+};
+
+const buildPracticalExample = (finding: ValidationResult): string => {
+    return `Ejemplo: si el valor actual es ${String(finding.valorActual)} y la referencia evaluada es ${String(finding.valorEsperado ?? 0)}, el sistema verifica si la relacion ${finding.comparacion || finding.operador || 'definida por la regla'} se cumple.`;
+};
+
 const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding }) => {
     const [severityFilter, setSeverityFilter] = useState<Severity | 'ALL'>('ALL');
     const [sheetFilter, setSheetFilter] = useState<string>('ALL');
     const [searchTerm, setSearchTerm] = useState('');
-    const [statusFilter, setStatusFilter] = useState<'ALL' | 'PASS' | 'FAIL'>('ALL');
+    const [statusFilter, setStatusFilter] = useState<'ALL' | 'PASS' | 'FAIL'>('FAIL');
+    const [expandedId, setExpandedId] = useState<string | null>(null);
 
     const sheets = useMemo(() => [...new Set(findings.map(f => f.rem_sheet || 'N/A'))], [findings]);
+
+    const severityCounts = useMemo(() => ({
+        [Severity.ERROR]: findings.filter(f => !f.resultado && f.severidad === Severity.ERROR).length,
+        [Severity.REVISAR]: findings.filter(f => !f.resultado && f.severidad === Severity.REVISAR).length,
+        [Severity.INDICADOR]: findings.filter(f => !f.resultado && f.severidad === Severity.INDICADOR).length,
+    }), [findings]);
 
     const filteredFindings = useMemo(() => {
         return findings.filter(f => {
@@ -130,12 +149,21 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                 return (
                     f.descripcion.toLowerCase().includes(term) ||
                     f.ruleId.toLowerCase().includes(term) ||
-                    (f.mensaje || '').toLowerCase().includes(term)
+                    (f.mensaje || '').toLowerCase().includes(term) ||
+                    (f.cell || '').toLowerCase().includes(term) ||
+                    (f.rem_sheet || '').toLowerCase().includes(term)
                 );
             }
             return true;
         });
     }, [findings, severityFilter, sheetFilter, statusFilter, searchTerm]);
+
+    const resetFilters = () => {
+        setSeverityFilter('ALL');
+        setSheetFilter('ALL');
+        setSearchTerm('');
+        setStatusFilter('ALL');
+    };
 
     const chipStyle = (active: boolean) => ({
         backgroundColor: active ? 'var(--text-primary)' : 'var(--control-bg)',
@@ -144,221 +172,213 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
 
     return (
         <div className="deis-card overflow-hidden w-full">
-            {/* Filters bar */}
-            <div className="p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4" style={{ borderBottom: '1px solid var(--border-default)' }}>
-                <div className="flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
-                    <h3 className="text-lg font-semibold flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
-                        Hallazgos
-                        <span className="text-base font-normal" style={{ color: 'var(--text-muted)' }}>
-                            ({filteredFindings.length} de {findings.length})
-                        </span>
-                    </h3>
+            <div className="sticky top-0 z-20 p-4 sm:p-5 md:p-6 space-y-4" style={{ backgroundColor: 'var(--bg-surface)', borderBottom: '1px solid var(--border-default)' }}>
+                <div className="flex flex-col lg:flex-row gap-3 lg:items-center justify-between">
+                    <div className="space-y-1">
+                        <h3 className="text-lg font-semibold flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
+                            Hallazgos
+                            <span className="text-sm font-normal" style={{ color: 'var(--text-muted)' }}>
+                                {filteredFindings.length} de {findings.length}
+                            </span>
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                            <SeverityChip severity={Severity.ERROR} count={severityCounts[Severity.ERROR]} active={severityFilter === Severity.ERROR} onClick={() => setSeverityFilter(severityFilter === Severity.ERROR ? 'ALL' : Severity.ERROR)} />
+                            <SeverityChip severity={Severity.REVISAR} count={severityCounts[Severity.REVISAR]} active={severityFilter === Severity.REVISAR} onClick={() => setSeverityFilter(severityFilter === Severity.REVISAR ? 'ALL' : Severity.REVISAR)} />
+                            <SeverityChip severity={Severity.INDICADOR} count={severityCounts[Severity.INDICADOR]} active={severityFilter === Severity.INDICADOR} onClick={() => setSeverityFilter(severityFilter === Severity.INDICADOR ? 'ALL' : Severity.INDICADOR)} />
+                        </div>
+                    </div>
 
-                    {/* Search */}
-                    <div className="relative w-full sm:w-auto">
+                    <div className="relative w-full lg:w-auto">
                         <svg xmlns="http://www.w3.org/2000/svg" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4" style={{ color: 'var(--text-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                         <input
                             type="text"
-                            placeholder="Buscar regla o descripción..."
+                            placeholder="Buscar por regla, hoja, celda o mensaje"
                             value={searchTerm}
                             onChange={e => setSearchTerm(e.target.value)}
-                            className="pl-10 pr-4 py-2.5 text-sm rounded-xl w-full sm:w-72 md:w-80 transition-all focus:outline-none"
-                            style={{
-                                backgroundColor: 'var(--control-bg)',
-                                border: 'none',
-                                color: 'var(--text-primary)',
-                            }}
+                            className="pl-10 pr-4 py-2.5 text-sm rounded-xl w-full lg:w-80 transition-all focus:outline-none"
+                            style={{ backgroundColor: 'var(--control-bg)', border: '1px solid var(--border-default)', color: 'var(--text-primary)' }}
                         />
                     </div>
                 </div>
 
-                {/* Filter chips */}
-                <div className="flex flex-wrap gap-1.5 items-center">
-                    <span className="text-xs font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Estado:</span>
-                    {SEVERITY_OPTIONS.map(sev => (
-                        <button
-                            key={sev}
-                            onClick={() => setSeverityFilter(sev)}
-                            className="px-3.5 py-1.5 rounded-full text-sm font-medium transition-all"
-                            style={chipStyle(severityFilter === sev)}
+                <div className="flex flex-col xl:flex-row xl:items-center gap-3 justify-between">
+                    <div className="flex flex-wrap gap-2 items-center">
+                        <span className="text-xs font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Severidad:</span>
+                        <button onClick={() => setSeverityFilter('ALL')} className="px-3 py-1.5 rounded-full text-sm font-medium transition-all" style={chipStyle(severityFilter === 'ALL')}>Todas</button>
+
+                        <span className="w-px h-4 mx-1 hidden sm:block" style={{ backgroundColor: 'var(--border-default)' }} />
+
+                        <span className="text-xs font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Hoja:</span>
+                        <select
+                            value={sheetFilter}
+                            onChange={e => setSheetFilter(e.target.value)}
+                            className="px-3 py-1.5 rounded-full text-sm font-medium cursor-pointer focus:outline-none"
+                            style={{ backgroundColor: 'var(--control-bg)', border: '1px solid var(--border-default)', color: 'var(--text-secondary)' }}
                         >
-                            {sev === 'ALL' ? 'Todas' : sev}
-                        </button>
-                    ))}
+                            <option value="ALL">Todas</option>
+                            {sheets.map(s => <option key={s} value={s}>{s}</option>)}
+                        </select>
 
-                    <span className="w-px h-4 mx-1.5 hidden sm:block" style={{ backgroundColor: 'var(--border-default)' }} />
+                        <span className="w-px h-4 mx-1 hidden sm:block" style={{ backgroundColor: 'var(--border-default)' }} />
 
-                    <span className="text-xs font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Hoja:</span>
-                    <select
-                        value={sheetFilter}
-                        onChange={e => setSheetFilter(e.target.value)}
-                        className="px-3.5 py-1.5 rounded-full text-sm font-medium cursor-pointer focus:outline-none"
-                        style={{
-                            backgroundColor: 'var(--control-bg)',
-                            border: 'none',
-                            color: 'var(--text-secondary)',
-                        }}
-                    >
-                        <option value="ALL">Todas</option>
-                        {sheets.map(s => (
-                            <option key={s} value={s}>{s}</option>
+                        <span className="text-xs font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Estado:</span>
+                        {STATUS_OPTIONS.map(opt => (
+                            <button key={opt.key} onClick={() => setStatusFilter(opt.key)} className="px-3 py-1.5 rounded-full text-sm font-medium transition-all" style={chipStyle(statusFilter === opt.key)}>
+                                {opt.label}
+                            </button>
                         ))}
-                    </select>
+                    </div>
 
-                    <span className="w-px h-4 mx-1.5 hidden sm:block" style={{ backgroundColor: 'var(--border-default)' }} />
-
-                    {STATUS_OPTIONS.map(opt => (
-                        <button
-                            key={opt.key}
-                            onClick={() => setStatusFilter(opt.key)}
-                            className="px-3.5 py-1.5 rounded-full text-sm font-medium transition-all"
-                            style={chipStyle(statusFilter === opt.key)}
-                        >
-                            {opt.label}
-                        </button>
-                    ))}
+                    <button
+                        onClick={resetFilters}
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all"
+                        style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-default)' }}
+                    >
+                        Limpiar filtros
+                    </button>
                 </div>
             </div>
 
-            {/* Table — Estado → Validación → Regla → Hoja → Valor → Referencia → Comparación → Acciones */}
-            <div className="overflow-auto" style={{ maxHeight: 'min(72vh, 880px)' }}>
-                <table className="w-full text-left table-fixed" style={{ minWidth: '1140px' }}>
-                    <colgroup>
-                        <col style={{ width: '112px' }} />
-                        <col style={{ width: '92px' }} />
-                        <col style={{ width: '430px' }} />
-                        <col style={{ width: '82px' }} />
-                        <col style={{ width: '112px' }} />
-                        <col style={{ width: '170px' }} />
-                        <col style={{ width: '170px' }} />
-                        <col style={{ width: '110px' }} />
-                    </colgroup>
-                    <thead className="sticky top-0 z-10" style={{ backgroundColor: 'var(--bg-canvas)', borderBottom: '1px solid var(--border-default)' }}>
-                        <tr>
-                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Estado</th>
-                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider text-center" style={{ color: 'var(--text-muted)' }}>Validación</th>
-                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Regla</th>
-                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Hoja</th>
-                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Valor</th>
-                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Referencia</th>
-                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Comparación</th>
-                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider text-center" style={{ color: 'var(--text-muted)' }}>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredFindings.map(finding => (
-                            <tr
-                                key={finding.id}
-                                className="transition-colors group"
-                                style={{ borderBottom: '1px solid var(--border-subtle)' }}
-                                onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--control-bg)'}
-                                onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
-                            >
-                                {/* Estado (antes Severidad) — SeverityBadge */}
-                                <td className="px-5 py-4 align-top">
-                                    <SeverityBadge severity={finding.severidad} />
-                                </td>
-                                {/* Validación (antes Estado) — icon only */}
-                                <td className="px-5 py-4 text-center align-top">
-                                    {finding.resultado ? (
-                                        <span title="Aprobado" className="inline-flex items-center justify-center" style={{ color: 'var(--semantic-success)' }}>
-                                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                            </svg>
-                                        </span>
-                                    ) : (
-                                        <span title="Fallido" className="inline-flex items-center justify-center" style={{ color: 'var(--semantic-error)' }}>
-                                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                                            </svg>
-                                        </span>
-                                    )}
-                                </td>
-                                {/* Regla */}
-                                <td className="px-5 py-4 align-top">
-                                    <p className="text-sm leading-relaxed whitespace-normal break-words" style={{ color: 'var(--text-primary)' }}>
-                                        {renderDescripcionFormatted(cleanFindingDescription(finding.descripcion))}
-                                    </p>
-                                    <p className="text-[11px] font-mono mt-2" style={{ color: 'var(--text-muted)' }}>{finding.ruleId} {finding.cell ? `· ${finding.cell}` : ''}</p>
-                                </td>
-                                {/* Hoja */}
-                                <td className="px-5 py-4 align-top">
-                                    <span className="px-2.5 py-1.5 text-sm font-medium rounded-full"
-                                        style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)' }}>
-                                        {finding.rem_sheet || 'N/A'}
-                                    </span>
-                                </td>
-                                {/* Valor Actual */}
-                                <td className="px-5 py-4 align-top">
-                                    <span className="text-sm font-mono font-medium px-2.5 py-1.5 rounded-lg inline-block max-w-full break-words"
-                                        style={{
-                                            backgroundColor: 'var(--control-bg)',
-                                            color: 'var(--text-primary)',
-                                        }}>
-                                        {String(finding.valorActual)}
-                                    </span>
-                                </td>
-                                {/* Referencia */}
-                                <td className="px-5 py-4 align-top">
-                                    <span className="text-sm leading-relaxed block whitespace-normal break-words" style={{ color: 'var(--text-muted)' }}>{getReferenceLabel(finding)}</span>
-                                </td>
-                                <td className="px-5 py-4 align-top">
-                                    <div className="space-y-1">
-                                        <span className="text-sm font-mono leading-relaxed block whitespace-normal break-words" style={{ color: 'var(--text-secondary)' }}>
-                                            {finding.comparacion || 'N/A'}
-                                        </span>
-                                        {typeof finding.diferencia === 'number' ? (
-                                            <span className="inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold"
-                                                style={{
-                                                    backgroundColor: finding.diferencia === 0
-                                                        ? 'var(--control-bg)'
-                                                        : finding.diferencia > 0
-                                                            ? 'var(--semantic-success-soft)'
-                                                            : 'var(--semantic-error-soft)',
-                                                    color: finding.diferencia === 0
-                                                        ? 'var(--text-secondary)'
-                                                        : finding.diferencia > 0
-                                                            ? 'var(--semantic-success)'
-                                                            : 'var(--semantic-error)',
-                                                }}>
-                                                {finding.diferencia > 0 ? '+' : ''}{finding.diferencia}
+            <div className="overflow-y-auto p-4 sm:p-5 md:p-6 space-y-4" style={{ maxHeight: 'min(72vh, 920px)' }}>
+                {filteredFindings.map((finding) => {
+                    const isExpanded = expandedId === finding.id;
+                    const referenceLabel = getReferenceLabel(finding);
+                    const differenceTone = typeof finding.diferencia !== 'number'
+                        ? null
+                        : finding.diferencia === 0
+                            ? { bg: 'var(--control-bg)', color: 'var(--text-secondary)' }
+                            : finding.diferencia > 0
+                                ? { bg: 'var(--semantic-success-soft)', color: 'var(--semantic-success)' }
+                                : { bg: 'var(--semantic-error-soft)', color: 'var(--semantic-error)' };
+
+                    return (
+                        <article key={finding.id} className="rounded-[24px] border border-default overflow-hidden" style={{ backgroundColor: 'var(--bg-surface)' }}>
+                            <div className="p-4 md:p-5">
+                                <div className="grid grid-cols-1 xl:grid-cols-[auto_auto_1.4fr_0.9fr_auto] gap-4 items-start">
+                                    <div className="space-y-2 min-w-[7rem]">
+                                        <p className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Severidad</p>
+                                        <SeverityBadge severity={finding.severidad} />
+                                    </div>
+
+                                    <div className="space-y-2 min-w-[6rem]">
+                                        <p className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Estado</p>
+                                        {finding.resultado ? (
+                                            <span className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: 'var(--semantic-success)' }}>
+                                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                                                OK
+                                            </span>
+                                        ) : (
+                                            <span className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: 'var(--semantic-error)' }}>
+                                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" /></svg>
+                                                Falla
+                                            </span>
+                                        )}
+                                    </div>
+
+                                    <div className="space-y-2 min-w-0">
+                                        <p className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Hallazgo</p>
+                                        <div className="text-sm leading-relaxed break-words" style={{ color: 'var(--text-primary)' }}>
+                                            {renderDescripcionFormatted(cleanFindingDescription(finding.descripcion))}
+                                        </div>
+                                        <div className="flex flex-wrap gap-2 text-[11px] font-mono" style={{ color: 'var(--text-muted)' }}>
+                                            <span>{finding.ruleId}</span>
+                                            <span>{finding.rem_sheet || 'N/A'}</span>
+                                            {finding.cell ? <span>{finding.cell}</span> : null}
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-3 min-w-0">
+                                        <p className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Resumen tecnico</p>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                            <div className="rounded-2xl p-3" style={{ backgroundColor: 'var(--control-bg)' }}>
+                                                <p className="text-[10px] uppercase tracking-wider mb-1" style={{ color: 'var(--text-muted)' }}>Valor</p>
+                                                <p className="text-sm font-mono break-words" style={{ color: 'var(--text-primary)' }}>{String(finding.valorActual)}</p>
+                                            </div>
+                                            <div className="rounded-2xl p-3" style={{ backgroundColor: 'var(--control-bg)' }}>
+                                                <p className="text-[10px] uppercase tracking-wider mb-1" style={{ color: 'var(--text-muted)' }}>Referencia</p>
+                                                <p className="text-sm break-words" style={{ color: 'var(--text-secondary)' }}>{referenceLabel}</p>
+                                            </div>
+                                        </div>
+                                        {differenceTone && typeof finding.diferencia === 'number' ? (
+                                            <span className="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold" style={{ backgroundColor: differenceTone.bg, color: differenceTone.color }}>
+                                                Diferencia: {finding.diferencia > 0 ? '+' : ''}{finding.diferencia}
                                             </span>
                                         ) : null}
                                     </div>
-                                </td>
-                                {/* Acciones — Detalle */}
-                                <td className="px-5 py-4 text-center align-top">
-                                    <button
-                                        onClick={(e) => { e.stopPropagation(); onSelectFinding(finding); }}
-                                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-150 hover:shadow-sm"
-                                        style={{
-                                            backgroundColor: 'var(--brand-accent)',
-                                            color: '#FFFFFF',
-                                        }}
-                                        title="Ver detalle de esta validación"
-                                    >
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        Detalle
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                        {filteredFindings.length === 0 && (
-                            <tr>
-                                <td colSpan={8} className="px-6 py-20 text-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto mb-3" style={{ color: 'var(--text-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                    <p className="text-sm font-medium" style={{ color: 'var(--text-muted)' }}>No se encontraron hallazgos con estos filtros</p>
-                                </td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
+
+                                    <div className="flex flex-row xl:flex-col gap-2 justify-end min-w-[11rem]">
+                                        <button
+                                            onClick={() => setExpandedId(isExpanded ? null : finding.id)}
+                                            className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all"
+                                            style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-primary)', border: '1px solid var(--border-default)' }}
+                                        >
+                                            {isExpanded ? 'Ocultar' : 'Expandir'}
+                                        </button>
+                                        <button
+                                            onClick={() => onSelectFinding(finding)}
+                                            className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all"
+                                            style={{ backgroundColor: 'var(--brand-accent)', color: '#fff' }}
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            Detalle
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {isExpanded ? (
+                                <div className="px-4 pb-4 md:px-5 md:pb-5">
+                                    <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 rounded-[22px] p-4 md:p-5" style={{ backgroundColor: 'var(--control-bg)', borderTop: '1px solid var(--border-default)' }}>
+                                        <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--bg-surface)' }}>
+                                            <p className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>Explicacion de la validacion</p>
+                                            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                                                {finding.comparacion || 'La comparacion tecnica no viene informada explicitamente, pero la regla fue evaluada segun el motor de validacion.'}
+                                            </p>
+                                        </div>
+
+                                        <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--bg-surface)' }}>
+                                            <p className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>Interpretacion operativa</p>
+                                            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                                                {buildOperationalInterpretation(finding)}
+                                            </p>
+                                            <p className="text-sm leading-relaxed mt-3" style={{ color: 'var(--text-secondary)' }}>
+                                                {buildPracticalExample(finding)}
+                                            </p>
+                                        </div>
+
+                                        <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--bg-surface)' }}>
+                                            <p className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>Que revisar en el Excel</p>
+                                            <ul className="space-y-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                                                <li>Hoja: <code>{finding.rem_sheet || 'N/A'}</code></li>
+                                                <li>Celda o rango: <code>{finding.cell || 'No especificado'}</code></li>
+                                                <li>Valor encontrado: <code>{String(finding.valorActual)}</code></li>
+                                                <li>Referencia: {referenceLabel}</li>
+                                            </ul>
+                                            {finding.mensaje ? (
+                                                <p className="text-sm leading-relaxed mt-3" style={{ color: 'var(--text-secondary)' }}>
+                                                    Mensaje del sistema: {cleanFindingDescription(finding.mensaje)}
+                                                </p>
+                                            ) : null}
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : null}
+                        </article>
+                    );
+                })}
+
+                {filteredFindings.length === 0 ? (
+                    <div className="rounded-[24px] border border-default px-6 py-20 text-center" style={{ backgroundColor: 'var(--bg-surface)' }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto mb-3" style={{ color: 'var(--text-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p className="text-sm font-medium" style={{ color: 'var(--text-muted)' }}>No se encontraron hallazgos con estos filtros</p>
+                    </div>
+                ) : null}
             </div>
         </div>
     );

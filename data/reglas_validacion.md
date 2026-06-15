@@ -1,6 +1,13 @@
 # Reglas de Validación Validador DEIS SSO
 
 Las validaciones están diseñadas bajo un esquema flexible.
+## Lógica de Comparación (Numerador vs Denominador)
+La idea principal de las validaciones es tratarlas conceptualmente como una relación entre un **Numerador** y un **Denominador**:
+- **`expresion_1`**: Actúa como el Numerador.
+- **`expresion_2`**: Actúa como el Denominador.
+
+Si `expresion_2` no trae datos o está vacía, debe interpretarse como el valor `0` o vacío para efectos de la comparación.
+
 Build ✅ | Tests ✅
 
 ## ¿Dónde están las reglas?

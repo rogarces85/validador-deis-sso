@@ -143,13 +143,13 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
     });
 
     return (
-        <div className="deis-card overflow-hidden">
+        <div className="deis-card overflow-hidden w-full">
             {/* Filters bar */}
             <div className="p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4" style={{ borderBottom: '1px solid var(--border-default)' }}>
                 <div className="flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
-                    <h3 className="text-base font-semibold flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
+                    <h3 className="text-lg font-semibold flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                         Hallazgos
-                        <span className="text-sm font-normal" style={{ color: 'var(--text-muted)' }}>
+                        <span className="text-base font-normal" style={{ color: 'var(--text-muted)' }}>
                             ({filteredFindings.length} de {findings.length})
                         </span>
                     </h3>
@@ -164,7 +164,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                             placeholder="Buscar regla o descripción..."
                             value={searchTerm}
                             onChange={e => setSearchTerm(e.target.value)}
-                            className="pl-10 pr-4 py-2 text-sm rounded-xl w-full sm:w-60 transition-all focus:outline-none"
+                            className="pl-10 pr-4 py-2.5 text-base rounded-xl w-full sm:w-80 transition-all focus:outline-none"
                             style={{
                                 backgroundColor: 'var(--control-bg)',
                                 border: 'none',
@@ -176,12 +176,12 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
 
                 {/* Filter chips */}
                 <div className="flex flex-wrap gap-1.5 items-center">
-                    <span className="text-[10px] font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Estado:</span>
+                    <span className="text-xs font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Estado:</span>
                     {SEVERITY_OPTIONS.map(sev => (
                         <button
                             key={sev}
                             onClick={() => setSeverityFilter(sev)}
-                            className="px-3 py-1 rounded-full text-xs font-medium transition-all"
+                            className="px-3.5 py-1.5 rounded-full text-sm font-medium transition-all"
                             style={chipStyle(severityFilter === sev)}
                         >
                             {sev === 'ALL' ? 'Todas' : sev}
@@ -190,11 +190,11 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
 
                     <span className="w-px h-4 mx-1.5 hidden sm:block" style={{ backgroundColor: 'var(--border-default)' }} />
 
-                    <span className="text-[10px] font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Hoja:</span>
+                    <span className="text-xs font-medium uppercase tracking-wider mr-1" style={{ color: 'var(--text-muted)' }}>Hoja:</span>
                     <select
                         value={sheetFilter}
                         onChange={e => setSheetFilter(e.target.value)}
-                        className="px-3 py-1 rounded-full text-xs font-medium cursor-pointer focus:outline-none"
+                        className="px-3.5 py-1.5 rounded-full text-sm font-medium cursor-pointer focus:outline-none"
                         style={{
                             backgroundColor: 'var(--control-bg)',
                             border: 'none',
@@ -213,7 +213,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                         <button
                             key={opt.key}
                             onClick={() => setStatusFilter(opt.key)}
-                            className="px-3 py-1 rounded-full text-xs font-medium transition-all"
+                            className="px-3.5 py-1.5 rounded-full text-sm font-medium transition-all"
                             style={chipStyle(statusFilter === opt.key)}
                         >
                             {opt.label}
@@ -223,18 +223,28 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
             </div>
 
             {/* Table — Estado → Validación → Regla → Hoja → Valor → Referencia → Comparación → Acciones */}
-            <div className="overflow-x-auto">
-                <table className="w-full text-left" style={{ minWidth: '860px' }}>
-                    <thead style={{ backgroundColor: 'var(--bg-canvas)', borderBottom: '1px solid var(--border-default)' }}>
+            <div className="overflow-auto" style={{ maxHeight: 'min(72vh, 880px)' }}>
+                <table className="w-full text-left table-fixed" style={{ minWidth: '1280px' }}>
+                    <colgroup>
+                        <col style={{ width: '120px' }} />
+                        <col style={{ width: '105px' }} />
+                        <col style={{ width: '520px' }} />
+                        <col style={{ width: '90px' }} />
+                        <col style={{ width: '120px' }} />
+                        <col style={{ width: '190px' }} />
+                        <col style={{ width: '210px' }} />
+                        <col style={{ width: '110px' }} />
+                    </colgroup>
+                    <thead className="sticky top-0 z-10" style={{ backgroundColor: 'var(--bg-canvas)', borderBottom: '1px solid var(--border-default)' }}>
                         <tr>
-                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Estado</th>
-                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider text-center" style={{ color: 'var(--text-muted)' }}>Validación</th>
-                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Regla</th>
-                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Hoja</th>
-                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Valor</th>
-                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Referencia</th>
-                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Comparación</th>
-                            <th className="px-4 sm:px-6 py-3 text-[10px] font-medium uppercase tracking-wider text-center" style={{ color: 'var(--text-muted)' }}>Acciones</th>
+                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Estado</th>
+                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider text-center" style={{ color: 'var(--text-muted)' }}>Validación</th>
+                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Regla</th>
+                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Hoja</th>
+                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Valor</th>
+                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Referencia</th>
+                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Comparación</th>
+                            <th className="px-5 py-4 text-xs font-semibold uppercase tracking-wider text-center" style={{ color: 'var(--text-muted)' }}>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -247,42 +257,42 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                 onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
                             >
                                 {/* Estado (antes Severidad) — SeverityBadge */}
-                                <td className="px-4 sm:px-6 py-3">
+                                <td className="px-5 py-4 align-top">
                                     <SeverityBadge severity={finding.severidad} />
                                 </td>
                                 {/* Validación (antes Estado) — icon only */}
-                                <td className="px-4 sm:px-6 py-3 text-center">
+                                <td className="px-5 py-4 text-center align-top">
                                     {finding.resultado ? (
                                         <span title="Aprobado" className="inline-flex items-center justify-center" style={{ color: 'var(--semantic-success)' }}>
-                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                             </svg>
                                         </span>
                                     ) : (
                                         <span title="Fallido" className="inline-flex items-center justify-center" style={{ color: 'var(--semantic-error)' }}>
-                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                                             </svg>
                                         </span>
                                     )}
                                 </td>
                                 {/* Regla */}
-                                <td className="px-4 sm:px-6 py-3">
-                                    <p className="text-sm leading-tight" style={{ color: 'var(--text-primary)' }}>
+                                <td className="px-5 py-4 align-top">
+                                    <p className="text-base leading-relaxed whitespace-normal break-words" style={{ color: 'var(--text-primary)' }}>
                                         {renderDescripcionFormatted(cleanFindingDescription(finding.descripcion))}
                                     </p>
-                                    <p className="text-[11px] font-mono mt-0.5" style={{ color: 'var(--text-muted)' }}>{finding.ruleId} {finding.cell ? `· ${finding.cell}` : ''}</p>
+                                    <p className="text-xs font-mono mt-2" style={{ color: 'var(--text-muted)' }}>{finding.ruleId} {finding.cell ? `· ${finding.cell}` : ''}</p>
                                 </td>
                                 {/* Hoja */}
-                                <td className="px-4 sm:px-6 py-3">
-                                    <span className="px-2 py-1 text-[11px] font-medium rounded-full"
+                                <td className="px-5 py-4 align-top">
+                                    <span className="px-2.5 py-1.5 text-sm font-medium rounded-full"
                                         style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)' }}>
                                         {finding.rem_sheet || 'N/A'}
                                     </span>
                                 </td>
                                 {/* Valor Actual */}
-                                <td className="px-4 sm:px-6 py-3">
-                                    <span className="text-sm font-mono font-medium px-2 py-1 rounded-lg"
+                                <td className="px-5 py-4 align-top">
+                                    <span className="text-base font-mono font-medium px-2.5 py-1.5 rounded-lg inline-block max-w-full break-words"
                                         style={{
                                             backgroundColor: 'var(--control-bg)',
                                             color: 'var(--text-primary)',
@@ -291,12 +301,12 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                     </span>
                                 </td>
                                 {/* Referencia */}
-                                <td className="px-4 sm:px-6 py-3">
-                                    <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{getReferenceLabel(finding)}</span>
+                                <td className="px-5 py-4 align-top">
+                                    <span className="text-sm leading-relaxed block whitespace-normal break-words" style={{ color: 'var(--text-muted)' }}>{getReferenceLabel(finding)}</span>
                                 </td>
-                                <td className="px-4 sm:px-6 py-3">
+                                <td className="px-5 py-4 align-top">
                                     <div className="space-y-1">
-                                        <span className="text-xs font-mono" style={{ color: 'var(--text-secondary)' }}>
+                                        <span className="text-sm font-mono leading-relaxed block whitespace-normal break-words" style={{ color: 'var(--text-secondary)' }}>
                                             {finding.comparacion || 'N/A'}
                                         </span>
                                         {typeof finding.diferencia === 'number' ? (
@@ -319,10 +329,10 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                                     </div>
                                 </td>
                                 {/* Acciones — Detalle */}
-                                <td className="px-4 sm:px-6 py-3 text-center">
+                                <td className="px-5 py-4 text-center align-top">
                                     <button
                                         onClick={(e) => { e.stopPropagation(); onSelectFinding(finding); }}
-                                        className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-150 hover:shadow-sm"
+                                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-150 hover:shadow-sm"
                                         style={{
                                             backgroundColor: 'var(--brand-accent)',
                                             color: '#FFFFFF',

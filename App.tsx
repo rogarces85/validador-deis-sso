@@ -64,7 +64,7 @@ const App: React.FC = () => {
         hasResults={hasResults}
       />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 pb-24">
+      <main className={`${currentPage === 'results' ? 'max-w-[96rem]' : 'max-w-7xl'} mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 pb-24`}>
 
         {/* rendering-conditional-render: explicit ternary */}
         {state.error ? (

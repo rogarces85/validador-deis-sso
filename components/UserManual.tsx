@@ -150,7 +150,43 @@ const UserManual: React.FC = () => {
         []
     );
     const [activeSheet, setActiveSheet] = useState<string>(sheetTabs[0] || 'A01');
+    const [searchTerm, setSearchTerm] = useState('');
+    const [severityFilter, setSeverityFilter] = useState<'TODAS' | 'ERROR' | 'REVISAR' | 'INDICADOR'>('TODAS');
     const activeRules = useMemo(() => reglasFinales[activeSheet] || [], [activeSheet]);
+    const activeSheetCounts = useMemo(() => ({
+        total: activeRules.length,
+        error: activeRules.filter(rule => rule.severidad === 'ERROR').length,
+        revisar: activeRules.filter(rule => rule.severidad === 'REVISAR').length,
+        indicador: activeRules.filter(rule => rule.severidad === 'INDICADOR').length,
+    }), [activeRules]);
+    const filteredRules = useMemo(() => {
+        const normalizedSearch = searchTerm.trim().toLowerCase();
+
+        return activeRules.filter((rule) => {
+            const matchesSeverity = severityFilter === 'TODAS' || rule.severidad === severityFilter;
+            if (!matchesSeverity) {
+                return false;
+            }
+
+            if (!normalizedSearch) {
+                return true;
+            }
+
+            const searchableText = [
+                rule.id,
+                rule.rem_sheet,
+                rule.seccion_expresion_1,
+                rule.descripcion_expresion_1,
+                rule.descripcion_expresion_2,
+                rule.mensaje,
+                rule.expresion_1,
+                String(rule.expresion_2),
+                rule.severidad,
+            ].join(' ').toLowerCase();
+
+            return searchableText.includes(normalizedSearch);
+        });
+    }, [activeRules, searchTerm, severityFilter]);
 
     return (
         <section className="mt-24 space-y-10 animate-in fade-in slide-in-from-bottom-6 duration-1000">
@@ -352,18 +388,74 @@ const UserManual: React.FC = () => {
                                 ? { backgroundColor: 'var(--brand-accent)', color: '#fff' }
                                 : { backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)' }}
                         >
-                            {sheet}
+                            <span>{sheet}</span>
+                            <span className="ml-2 rounded-full px-2 py-0.5 text-[11px] font-bold"
+                                style={activeSheet === sheet
+                                    ? { backgroundColor: 'rgba(255,255,255,0.18)', color: '#fff' }
+                                    : { backgroundColor: 'var(--bg-surface)', color: 'var(--text-secondary)' }}>
+                                {(reglasFinales[sheet] || []).length}
+                            </span>
                         </button>
                     ))}
                 </div>
 
                 <div className="flex flex-wrap gap-3 text-xs" style={{ color: 'var(--text-muted)' }}>
                     <span>Hoja activa: <strong style={{ color: 'var(--text-primary)' }}>{activeSheet}</strong></span>
-                    <span>Validaciones: <strong style={{ color: 'var(--text-primary)' }}>{activeRules.length}</strong></span>
+                    <span>Validaciones: <strong style={{ color: 'var(--text-primary)' }}>{activeSheetCounts.total}</strong></span>
+                    <span>ERROR: <strong style={{ color: 'var(--semantic-error)' }}>{activeSheetCounts.error}</strong></span>
+                    <span>REVISAR: <strong style={{ color: 'var(--semantic-warning)' }}>{activeSheetCounts.revisar}</strong></span>
+                    <span>INDICADOR: <strong style={{ color: 'var(--semantic-info)' }}>{activeSheetCounts.indicador}</strong></span>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-4 items-start">
+                    <label className="block">
+                        <span className="text-[11px] font-semibold uppercase tracking-wider mb-2 block" style={{ color: 'var(--text-muted)' }}>
+                            Buscar validacion
+                        </span>
+                        <input
+                            type="text"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            placeholder="Buscar por ID, seccion, mensaje o celda"
+                            className="w-full rounded-2xl px-4 py-3 text-sm outline-none"
+                            style={{
+                                backgroundColor: 'var(--control-bg)',
+                                color: 'var(--text-primary)',
+                                border: '1px solid var(--border-default)',
+                            }}
+                        />
+                    </label>
+
+                    <label className="block min-w-[13rem]">
+                        <span className="text-[11px] font-semibold uppercase tracking-wider mb-2 block" style={{ color: 'var(--text-muted)' }}>
+                            Filtrar severidad
+                        </span>
+                        <select
+                            value={severityFilter}
+                            onChange={(e) => setSeverityFilter(e.target.value as 'TODAS' | 'ERROR' | 'REVISAR' | 'INDICADOR')}
+                            className="w-full rounded-2xl px-4 py-3 text-sm outline-none"
+                            style={{
+                                backgroundColor: 'var(--control-bg)',
+                                color: 'var(--text-primary)',
+                                border: '1px solid var(--border-default)',
+                            }}
+                        >
+                            <option value="TODAS">Todas</option>
+                            <option value="ERROR">ERROR</option>
+                            <option value="REVISAR">REVISAR</option>
+                            <option value="INDICADOR">INDICADOR</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div className="flex flex-wrap gap-3 text-xs" style={{ color: 'var(--text-muted)' }}>
+                    <span>Mostrando: <strong style={{ color: 'var(--text-primary)' }}>{filteredRules.length}</strong> de <strong style={{ color: 'var(--text-primary)' }}>{activeRules.length}</strong></span>
+                    {searchTerm ? <span>Busqueda: <strong style={{ color: 'var(--text-primary)' }}>{searchTerm}</strong></span> : null}
+                    {severityFilter !== 'TODAS' ? <span>Filtro: <strong style={{ color: 'var(--text-primary)' }}>{severityFilter}</strong></span> : null}
                 </div>
 
                 <div className="space-y-4 max-h-[48rem] overflow-y-auto pr-1">
-                    {activeRules.map((rule) => (
+                    {filteredRules.map((rule) => (
                         <article key={rule.id} className="rounded-3xl border border-default p-5 space-y-4" style={{ backgroundColor: 'var(--control-bg)' }}>
                             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3">
                                 <div className="space-y-2">
@@ -426,6 +518,12 @@ const UserManual: React.FC = () => {
                             </div>
                         </article>
                     ))}
+
+                    {filteredRules.length === 0 ? (
+                        <div className="rounded-3xl border border-default p-6 text-sm" style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)' }}>
+                            No hay validaciones que coincidan con los filtros actuales. Prueba con otra hoja, otra severidad o una busqueda mas general.
+                        </div>
+                    ) : null}
                 </div>
             </div>
         </section>

@@ -484,15 +484,15 @@
       "tipo_validacion": "COMPUESTA",
       "rem_sheet": "A01",
       "expresion_1": "H36+H37",
-      "operador": "<",
+      "operador": "==",
       "expresion_2": "C92",
-      "severidad": "ERROR",
+      "severidad": "REVISAR",
       "rem_sheet_2": "A03",
       "seccion_expresion_2": "SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO",
       "descripcion_expresion_2": "Evaluación a mujeres/personas post parto síntomas de depresión A los 2 meses",
       "aplica_origen": "TODOS",
       "omitir_si_ambos_cero": true,
-      "mensaje": "ERROR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de salud realizado por Médico/a, Enfermera/o en el rango 2 meses | H36+H37 < REM03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Evaluación a mujeres/personas post parto síntomas de depresión A los 2 meses | C92"
+      "mensaje": "REVISAR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de salud realizado por Médico/a, Enfermera/o en el rango 2 meses | H36+H37 == REM03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Evaluación a mujeres/personas post parto síntomas de depresión A los 2 meses | C92"
     },
     {
       "id": "A01-VAL030",
@@ -502,15 +502,15 @@
       "tipo_validacion": "COMPUESTA",
       "rem_sheet": "A01",
       "expresion_1": "L36+L37",
-      "operador": "<",
+      "operador": "==",
       "expresion_2": "C93",
-      "severidad": "ERROR",
+      "severidad": "REVISAR",
       "rem_sheet_2": "A03",
       "seccion_expresion_2": "SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO",
       "descripcion_expresion_2": "Evaluación a mujeres/personas post parto síntomas de depresión A los 6 meses",
       "aplica_origen": "TODOS",
       "omitir_si_ambos_cero": true,
-      "mensaje": "ERROR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de salud realizado por Médico/a, Enfermera/o en el rango 6 meses | L36+L37 < REM03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Evaluación a mujeres/personas post parto síntomas de depresión A los 6 meses | C93"
+      "mensaje": "REVISAR | REM01 | SECCIÓN B: CONTROLES DE SALUD SEGÚN CICLO VITAL | Controles de salud realizado por Médico/a, Enfermera/o en el rango 6 meses | L36+L37 == REM03 | SECCIÓN B.3: APLICACIÓN DE ESCALA DE EDIMBURGO A GESTANTES Y MUJERES POST PARTO | Evaluación a mujeres/personas post parto síntomas de depresión A los 6 meses | C93"
     },
     {
       "id": "A01-VAL031",

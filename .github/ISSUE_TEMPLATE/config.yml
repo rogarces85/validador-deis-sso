@@ -1,0 +1,23 @@
+{
+  "name": "Validador DEIS SSO - Reportes",
+  "url": "https://github.com/rogarces85/validador-deis-sso/issues/new/choose",
+  "description": "Centro de reportes para el Validador REM (Series A y P).",
+  "project_tags": ["validador-rem", "serie-a", "serie-p"],
+  "contact_links": [
+    {
+      "name": "Manual de Usuario",
+      "url": "https://github.com/rogarces85/validador-deis-sso/blob/main/docs/Manual_Usuario.md",
+      "about": "Documentacion oficial del usuario."
+    },
+    {
+      "name": "Reglas de Validacion",
+      "url": "https://github.com/rogarces85/validador-deis-sso/blob/main/data/reglas_validacion.md",
+      "about": "Estructura y semantica de las reglas del validador."
+    },
+    {
+      "name": "Spec Kit - Serie P",
+      "url": "https://github.com/rogarces85/validador-deis-sso/tree/001-serie-p-validacion/specs/001-serie-p-validacion",
+      "about": "Plan y especificaciones de la Serie P."
+    }
+  ]
+}

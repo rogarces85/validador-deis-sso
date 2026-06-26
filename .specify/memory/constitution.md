@@ -1,12 +1,12 @@
 <!--
 Sync Impact Report
-Version change: template -> 1.0.0
-Modified principles: template placeholders -> I. Privacidad Local y Sin Backend; II. Validacion REM Normativa; III. Trazabilidad de Hallazgos; IV. Calidad Verificable; V. Espanol Obligatorio
-Added sections: Restricciones Tecnicas y de Datos; Flujo de Desarrollo y Calidad
+Version change: 1.0.0 -> 1.1.0
+Modified principles: II. Validacion REM Normativa; Restricciones Tecnicas y de Datos
+Added sections: Alcance de Series REM Habilitadas
 Removed sections: none
-Templates requiring updates: ✅ .specify/templates/plan-template.md; ✅ .specify/templates/spec-template.md; ✅ .specify/templates/tasks-template.md; ✅ .specify/templates/commands/*.md (no files found)
-Runtime guidance requiring updates: ✅ README.md
-Follow-up TODOs: none
+Templates requiring updates: ✅ .specify/templates/plan-template.md reviewed; ✅ .specify/templates/spec-template.md reviewed; ✅ .specify/templates/tasks-template.md reviewed
+Runtime guidance requiring updates: ✅ AGENTS.md; pending README/manual in implementation stage
+Follow-up TODOs: Implement Serie P validators, rules, tests and manual updates under specs/001-serie-p-validacion
 -->
 # Validador DEIS SSO 2026 Constitution
 
@@ -26,6 +26,17 @@ reglas especificas por tipo de establecimiento. Las series no liberadas MUST blo
 un mensaje operativo claro. Las reglas, catalogos y severidades MUST mantenerse trazables a
 archivos versionados del repositorio. Rationale: el valor del producto es reducir errores
 antes de la carga oficial DEIS sin alterar el alcance normativo vigente.
+
+### II.a Alcance de Series REM Habilitadas
+Las Series A y P son las unicas series REM habilitadas para validacion operativa. La Serie A
+MUST aceptar meses `01` a `12`. La Serie P MUST tratarse como serie semestral y aceptar solo
+los meses `06` y `12`, tanto en el nombre de archivo como en la hoja NOMBRE. Para Serie P,
+el sistema MUST exigir las hojas `NOMBRE`, `P1`, `P2`, `P3`, `P4`, `P5`, `P6`, `P7`, `P9`,
+`P11`, `P12` y `P13` antes de ejecutar reglas; `P9` y `P13` pueden existir sin reglas JSON
+iniciales, pero siguen siendo obligatorias para aceptar el archivo. Toda serie distinta de A
+o P MUST bloquearse con un mensaje en espanol indicando que la serie no esta realizada.
+Rationale: el alcance productivo queda delimitado por validaciones completas y evita falsos
+resultados para series no implementadas.
 
 ### III. Trazabilidad de Hallazgos
 Todo hallazgo visible o exportado MUST incluir la informacion necesaria para corregirlo:
@@ -55,9 +66,9 @@ equipos estadisticos del Servicio de Salud Osorno y requieren lenguaje consisten
 El producto es una SPA React 19 con TypeScript y Vite. La lectura y generacion de Excel MUST
 mantenerse en cliente usando SheetJS o una alternativa equivalente que no requiera servidor.
 El formato admitido de entrada es `.xlsx` o `.xlsm`, con nombres bajo la estructura
-`CodigoEstablecimiento6 + SerieREM + Mes2`. La Serie A es la unica habilitada mientras no se
-apruebe una ampliacion de alcance; `P`, `D`, `BM` y `BS` pueden reconocerse, pero MUST
-informarse como series en construccion si no tienen validacion completa.
+`CodigoEstablecimiento6 + SerieREM + Mes2`. Las Series A y P son las unicas habilitadas; `D`,
+`BM`, `BS` y cualquier otra serie reconocida o detectada MUST informarse como serie no
+realizada mientras no exista una ampliacion de alcance aprobada.
 
 Los catalogos y reglas MUST residir en archivos versionados del repositorio. La aplicacion
 MUST mantener separacion clara entre componentes de interfaz, hooks de orquestacion,
@@ -91,4 +102,4 @@ MINOR para agregar principios o ampliar obligaciones materiales, y PATCH para ac
 semanticas. Cada plan, especificacion y lista de tareas generados despues de esta ratificacion
 MUST pasar una revision de cumplimiento constitucional antes de implementarse.
 
-**Version**: 1.0.0 | **Ratified**: 2026-06-14 | **Last Amended**: 2026-06-14
+**Version**: 1.1.0 | **Ratified**: 2026-06-14 | **Last Amended**: 2026-06-26

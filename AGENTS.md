@@ -1,5 +1,7 @@
 <!-- SPECKIT START -->
-Para contexto adicional sobre las tecnologías a utilizar, la estructura del proyecto, comandos del shell y otra información importante, lee el plan actual.
+Plan actual Spec Kit: `specs/001-serie-p-validacion/plan.md`.
+
+Feature activa: incorporación de Serie P al validador REM, manteniendo Serie A sin regresiones. La Serie P es semestral y solo acepta meses `06` y `12`; exige hojas `NOMBRE`, `P1`, `P2`, `P3`, `P4`, `P5`, `P6`, `P7`, `P9`, `P11`, `P12` y `P13`. `P9` y `P13` son obligatorias aunque inicialmente no tengan reglas.
 <!-- SPECKIT END -->
 
 # Instrucciones del Agente

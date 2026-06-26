@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { AppState, FileMetadata, EstablishmentCatalog, ValidationRule } from '../types';
+import { getMissingRequiredSheetsForSerie } from '../services/remSeriesConfig';
 
 export const useValidationPipeline = () => {
     const [state, setState] = useState<AppState>({
@@ -78,6 +79,11 @@ export const useValidationPipeline = () => {
                 sheets: excelService.getSheets(),
             };
 
+            const missingRequiredSheets = getMissingRequiredSheetsForSerie(metadata.serieRem, metadata.sheets || []);
+            if (missingRequiredSheets.length > 0) {
+                throw new Error(`El archivo Serie ${metadata.serieRem} no contiene las hojas obligatorias: ${missingRequiredSheets.join(', ')}. No puede validarse.`);
+            }
+
             // js-set-map-lookups: O(1) lookup via pre-built Map
             const establishment = establishmentByCode.get(metadata.codigoEstablecimiento) || null;
             const rawEstablishmentType = establishment?.tipo?.toUpperCase();
@@ -91,7 +97,7 @@ export const useValidationPipeline = () => {
 
             // 3. Run NOMBRE sheet validations (before regular rules)
             const nombreValidator = new NombreSheetValidator();
-            const nombreOutput = nombreValidator.validate(metadata.codigoEstablecimiento, metadata.mes);
+            const nombreOutput = nombreValidator.validate(metadata.codigoEstablecimiento, metadata.mes, metadata.serieRem);
 
             // 4. Run Rules
             const ruleEngine = new RuleEngineService();

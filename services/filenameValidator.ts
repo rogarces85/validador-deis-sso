@@ -1,8 +1,15 @@
 
 import { FileMetadata } from '../types';
+import {
+    ENABLED_SERIES,
+    RECOGNIZED_SERIES,
+    getMonthExpectationLabel,
+    isEnabledSerie,
+    isMonthAllowedForSerie,
+} from './remSeriesConfig';
 
 // Series REM válidas reconocidas por el sistema
-export const VALID_SERIES = ['A', 'P', 'D', 'BM', 'BS'] as const;
+export const VALID_SERIES = RECOGNIZED_SERIES;
 export type ValidSerie = typeof VALID_SERIES[number];
 
 export interface FilenameValidationResult {
@@ -44,14 +51,16 @@ export class FilenameValidatorService {
         const serieUpper = serie.toUpperCase();
         if (!FilenameValidatorService.SERIES_SET.has(serieUpper)) {
             errors.push(`Serie no reconocida: "${serieUpper}". Series válidas: ${VALID_SERIES.join(', ')}`);
-        } else if (serieUpper !== 'A') {
-            errors.push(`⚠️ La Serie "${serieUpper}" aún se encuentra en construcción. Actualmente solo está disponible la validación para la Serie A.`);
+        } else if (!isEnabledSerie(serieUpper)) {
+            errors.push(`La Serie "${serieUpper}" no está realizada en el sistema. Actualmente solo están disponibles las Series ${ENABLED_SERIES.join(' y ')}.`);
         }
 
         // Validate Month
         const mesNum = parseInt(mes, 10);
         if (mesNum < 1 || mesNum > 12) {
             errors.push(`Mes inválido: ${mes}. Debe ser entre 01 y 12.`);
+        } else if (isEnabledSerie(serieUpper) && !isMonthAllowedForSerie(serieUpper, mes)) {
+            errors.push(`Mes inválido para Serie ${serieUpper}: ${mes}. Debe ser ${getMonthExpectationLabel(serieUpper)}.`);
         }
 
         if (errors.length > 0) {

@@ -2,6 +2,7 @@
 import { ExcelReaderService } from './excelService';
 import { ValidationResult, Severity, EstablishmentCatalog } from '../types';
 import catalogData from '../data/establishments.catalog.json';
+import { getMonthExpectationLabel, isMonthAllowedForSerie } from './remSeriesConfig';
 
 const catalog = catalogData as unknown as EstablishmentCatalog;
 
@@ -53,7 +54,7 @@ export class NombreSheetValidator {
      * @param fileEstablishmentCode El código de establecimiento extraído del nombre del archivo.
      * @param fileMonth El mes extraído del nombre del archivo (ej. "03").
      */
-    public validate(fileEstablishmentCode?: string, fileMonth?: string): NombreValidationOutput {
+    public validate(fileEstablishmentCode?: string, fileMonth?: string, fileSerie: string = 'A'): NombreValidationOutput {
         const results: ValidationResult[] = [];
         let versionError: string | null = null;
 
@@ -120,7 +121,7 @@ export class NombreSheetValidator {
 
         // ─── 7. MONTH CODE (C6,D6) ───
         const monthCells = ['C6', 'D6'];
-        const monthCodeResult = this.validateMonthCode(monthCells, fileMonth);
+        const monthCodeResult = this.validateMonthCode(monthCells, fileMonth, fileSerie);
         results.push(...monthCodeResult);
 
         // ─── 8. RESPONSIBLE NAME (B11) ───
@@ -205,7 +206,7 @@ export class NombreSheetValidator {
      * Validate month code cells: each not empty, concatenated value is valid month 01-12.
      * Utiliza Skill_Excel_Concatenate
      */
-    private validateMonthCode(cells: string[], fileMonth?: string): ValidationResult[] {
+    private validateMonthCode(cells: string[], fileMonth?: string, fileSerie: string = 'A'): ValidationResult[] {
         const results: ValidationResult[] = [];
         let hasEmpty = false;
 
@@ -231,6 +232,12 @@ export class NombreSheetValidator {
                     'VAL_NOM07', Severity.ERROR,
                     `NOMBRE, ERROR: El código de mes resultante "${monthCode}" (celdas ${cells.join('&')}) no corresponde a un mes válido (01-12).`,
                     monthCode, 'Mes válido (01-12)', cells[0]
+                ));
+            } else if (!isMonthAllowedForSerie(fileSerie, monthCode)) {
+                results.push(this.makeResult(
+                    'VAL_NOM12', Severity.ERROR,
+                    `NOMBRE, ERROR: El código de mes resultante "${monthCode}" no es válido para la Serie ${fileSerie.toUpperCase()}. Debe ser ${getMonthExpectationLabel(fileSerie)}.`,
+                    monthCode, `Mes válido para Serie ${fileSerie.toUpperCase()}: ${getMonthExpectationLabel(fileSerie)}`, cells[0]
                 ));
             }
 

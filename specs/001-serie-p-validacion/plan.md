@@ -123,7 +123,7 @@ tests/
 
 **Entregables**: `ruleEngine.ts` actualizado y pruebas para suma, resta, multiplicacion, parentesis y `SUM` combinado.
 
-**Estado**: Pendiente.
+**Estado**: Completada. `ruleEngine.ts` resuelve aritmetica segura sin ejecutar codigo dinamico y mantiene compatibilidad con celdas, rangos, referencias cross-sheet y `SUM(...)`.
 
 ### Etapa 5 - Importacion de Reglas P
 
@@ -131,7 +131,7 @@ tests/
 
 **Entregables**: Reglas para P disponibles, `P9: []`, `P13: []`, estructura validada.
 
-**Estado**: Pendiente.
+**Estado**: Completada. Se importaron 37 reglas Serie P y se crearon `P9` y `P13` como arrays vacios obligatorios.
 
 ### Etapa 6 - Manual, UI y Mensajes
 
@@ -139,7 +139,7 @@ tests/
 
 **Entregables**: `components/UserManual.tsx`, `components/FileDropzone.tsx`, `docs/Manual_Usuario.md`.
 
-**Estado**: Pendiente.
+**Estado**: Completada. UI, manual de usuario y README documentan Series A/P, meses de Serie P y hojas obligatorias incluyendo `P9` y `P13`.
 
 ### Etapa 7 - Verificacion, Issues y Pull Request
 
@@ -147,7 +147,7 @@ tests/
 
 **Entregables**: Evidencia de `npm run test`, `npm run build`, issues, PR.
 
-**Estado**: Pendiente.
+**Estado**: Verificacion completada. `npm run test` y `npm run build` OK. Issues y PR quedan bloqueados para automatizacion porque `gh` no esta instalado en el entorno; contenidos preparados en `github-issues.md`.
 
 ## Risk Register
 

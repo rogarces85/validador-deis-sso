@@ -5,7 +5,7 @@ const ManualRuleExplorer = lazy(() => import('./ManualRuleExplorer'));
 const setupChecklist = [
     {
         title: 'Nombre correcto del archivo',
-        desc: 'Usa el formato CodigoEstablecimiento + Serie + Mes. Ejemplo: 123100A01.xlsm.'
+        desc: 'Usa el formato CodigoEstablecimiento + Serie + Mes. Ejemplos: 123100A01.xlsm, 123010P06.xlsm o 123010P12.xlsm.'
     },
     {
         title: 'Hoja NOMBRE consistente',
@@ -13,7 +13,22 @@ const setupChecklist = [
     },
     {
         title: 'Reglas centralizadas',
-        desc: 'Todas las validaciones nacen desde data/reglas_finales.json, sin archivos paralelos antiguos.'
+        desc: 'Todas las validaciones de Serie A y Serie P nacen desde data/reglas_finales.json, sin archivos paralelos antiguos.'
+    }
+];
+
+const seriesGuide = [
+    {
+        title: 'Serie A',
+        desc: 'Validacion mensual. Acepta meses 01 a 12 y mantiene el flujo historico del sistema.'
+    },
+    {
+        title: 'Serie P',
+        desc: 'Validacion semestral. Solo acepta meses 06 y 12, tanto en el nombre del archivo como en hoja NOMBRE.'
+    },
+    {
+        title: 'Hojas obligatorias P',
+        desc: 'Debe incluir NOMBRE, P1, P2, P3, P4, P5, P6, P7, P9, P11, P12 y P13. P9 y P13 son obligatorias aunque inicialmente no tengan reglas.'
     }
 ];
 
@@ -99,7 +114,7 @@ const UserManual: React.FC = () => {
                     Manual visual de uso
                 </h2>
                 <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                    Esta guia resume el flujo real del sistema: validar nombre, revisar hoja NOMBRE, aplicar reglas REM y
+                    Esta guia resume el flujo real del sistema para Series A y P: validar nombre, revisar hoja NOMBRE, aplicar reglas REM y
                     corregir con evidencia clara antes de exportar.
                 </p>
             </div>
@@ -119,6 +134,29 @@ const UserManual: React.FC = () => {
                         </p>
                     </div>
                 ))}
+            </div>
+
+            <div className="deis-card p-6 md:p-8 space-y-5" style={{ backgroundColor: 'var(--bg-surface)' }}>
+                <div>
+                    <h3 className="text-2xl font-semibold" style={{ color: 'var(--text-primary)' }}>
+                        Series habilitadas
+                    </h3>
+                    <p className="text-sm mt-2" style={{ color: 'var(--text-secondary)' }}>
+                        Cualquier serie distinta de A o P se bloquea porque aun no esta realizada en el sistema.
+                    </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {seriesGuide.map((item) => (
+                        <div key={item.title} className="rounded-2xl p-4" style={{ backgroundColor: 'var(--control-bg)' }}>
+                            <h4 className="text-sm font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
+                                {item.title}
+                            </h4>
+                            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                                {item.desc}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             <div className="deis-card p-6 md:p-8 space-y-6" style={{ backgroundColor: 'var(--bg-surface)' }}>

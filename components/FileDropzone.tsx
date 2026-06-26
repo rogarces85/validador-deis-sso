@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useRef } from 'react';
 import { useTheme } from './ThemeContext';
-import { FilenameValidatorService, VALID_SERIES } from '../services/filenameValidator';
+import { FilenameValidatorService } from '../services/filenameValidator';
+import { ENABLED_SERIES, SERIE_P_REQUIRED_SHEETS } from '../services/remSeriesConfig';
 
 interface FileDropzoneProps {
     onFileAccepted: (file: File) => void;
@@ -11,7 +12,7 @@ interface FileDropzoneProps {
 const filenameValidator = new FilenameValidatorService();
 
 // rendering-hoist-jsx: static array hoisted outside component
-const FEATURE_BADGES = ['Validación de Nombre', 'Cruces de Información', 'Reporte Automático'] as const;
+const FEATURE_BADGES = ['Serie A y P', 'Cruces de Información', 'Reporte Automático'] as const;
 
 type FileNameStatus = 'idle' | 'valid' | 'invalid';
 
@@ -179,7 +180,7 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
                             <p className="text-sm font-semibold truncate" style={{ color: 'var(--text-primary)' }}>{selectedFile.name}</p>
                             {nameStatus === 'valid' ? (
                                 <p className="text-xs mt-0.5" style={{ color: 'var(--semantic-success)' }}>
-                                    Nombre válido: [Código][Serie][Mes].xlsx
+                                    Nombre válido: [Código][Serie][Mes].xlsx. Serie P solo acepta 06 y 12.
                                 </p>
                             ) : (
                                 <div className="mt-1 space-y-1">
@@ -242,10 +243,23 @@ const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileAccepted, isLoading }
                     color: 'var(--text-secondary)',
                 }}>123100A02.xlsx</code>
                 {' · '}
-                Series válidas: <code className="px-1.5 py-0.5 rounded-md font-mono text-[11px]" style={{
+                Serie P: <code className="px-1.5 py-0.5 rounded-md font-mono text-[11px]" style={{
                     backgroundColor: 'var(--control-bg)',
                     color: 'var(--text-secondary)',
-                }}>{VALID_SERIES.join(', ')}</code>
+                }}>123010P06.xlsm</code> o <code className="px-1.5 py-0.5 rounded-md font-mono text-[11px]" style={{
+                    backgroundColor: 'var(--control-bg)',
+                    color: 'var(--text-secondary)',
+                }}>123010P12.xlsm</code>
+                {' · '}
+                Series habilitadas: <code className="px-1.5 py-0.5 rounded-md font-mono text-[11px]" style={{
+                    backgroundColor: 'var(--control-bg)',
+                    color: 'var(--text-secondary)',
+                }}>{ENABLED_SERIES.join(', ')}</code>
+                {' · '}
+                Hojas P obligatorias: <code className="px-1.5 py-0.5 rounded-md font-mono text-[11px]" style={{
+                    backgroundColor: 'var(--control-bg)',
+                    color: 'var(--text-secondary)',
+                }}>{SERIE_P_REQUIRED_SHEETS.join(', ')}</code>
             </p>
         </div>
     );

@@ -176,6 +176,100 @@ describe('RuleEngineService', () => {
         expect(results[0].resultado).toBe(true);
     });
 
+    it('should resolve cross-sheet ranges with parentheses', async () => {
+        const rule: ValidationRule = {
+            id: 'TEST03B',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A05!(C10:C12)',
+            operador: '==',
+            expresion_2: 15,
+            severidad: Severity.ERROR,
+            mensaje: 'Cross sheet range test',
+            serie: 'A'
+        };
+
+        mockExcel.getRangeSum.mockReturnValue(15);
+
+        const results = await ruleEngine.evaluate([rule], mockMetadata);
+
+        expect(mockExcel.getRangeSum).toHaveBeenCalledWith('A05', 'C10:C12');
+        expect(results[0].resultado).toBe(true);
+    });
+
+    it('should resolve subtraction, multiplication and parentheses for Serie P expressions', async () => {
+        const rules: ValidationRule[] = [
+            {
+                id: 'TEST_P_EXPR_01',
+                tipo: 'CELDA',
+                rem_sheet: 'P2',
+                expresion_1: 'C12+(F12-G12)',
+                operador: '==',
+                expresion_2: 18,
+                severidad: Severity.ERROR,
+                mensaje: 'Serie P arithmetic with parentheses'
+            },
+            {
+                id: 'TEST_P_EXPR_02',
+                tipo: 'CELDA',
+                rem_sheet: 'P1',
+                expresion_1: 'B61*C61',
+                operador: '==',
+                expresion_2: 24,
+                severidad: Severity.ERROR,
+                mensaje: 'Serie P multiplication'
+            }
+        ];
+
+        mockExcel.getCellValue.mockImplementation((_sheet: string, cell: string) => {
+            const values: Record<string, number> = {
+                C12: 20,
+                F12: 5,
+                G12: 7,
+                B61: 6,
+                C61: 4,
+            };
+            return values[cell] ?? 0;
+        });
+
+        const results = await ruleEngine.evaluate(rules, { ...mockMetadata, serieRem: 'P' });
+
+        expect(results).toHaveLength(2);
+        expect(results[0].valorActual).toBe(18);
+        expect(results[0].resultado).toBe(true);
+        expect(results[1].valorActual).toBe(24);
+        expect(results[1].resultado).toBe(true);
+    });
+
+    it('should resolve SUM combined with addition and subtraction', async () => {
+        const rule: ValidationRule = {
+            id: 'TEST_P_EXPR_03',
+            tipo: 'CELDA',
+            rem_sheet: 'P2',
+            expresion_1: 'SUM(H17:U17)+SUM(V22:AG22)-C38',
+            operador: '==',
+            expresion_2: 42,
+            severidad: Severity.ERROR,
+            mensaje: 'Serie P combined SUM arithmetic'
+        };
+
+        mockExcel.getRangeSum.mockImplementation((_sheet: string, range: string) => {
+            if (range === 'H17:U17') return 30;
+            if (range === 'V22:AG22') return 20;
+            return 0;
+        });
+        mockExcel.getCellValue.mockImplementation((_sheet: string, cell: string) => {
+            if (cell === 'C38') return 8;
+            return 0;
+        });
+
+        const results = await ruleEngine.evaluate([rule], { ...mockMetadata, serieRem: 'P' });
+
+        expect(results).toHaveLength(1);
+        expect(results[0].valorActual).toBe(42);
+        expect(results[0].resultado).toBe(true);
+    });
+
     it('should evaluate rules limited by establishment type', async () => {
         const rule: ValidationRule = {
             id: 'TEST04',

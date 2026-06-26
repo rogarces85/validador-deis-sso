@@ -20,9 +20,28 @@ Verifique lo siguiente:
 
 1. El archivo debe tener extension `.xlsx` o `.xlsm`.
 2. El nombre debe respetar el formato `CodigoEstablecimiento + Serie + Mes`.
-3. Ejemplo valido: `123100A01.xlsm`.
-4. La serie actualmente habilitada para validacion completa es **Serie A**.
-5. La hoja `NOMBRE` debe contener la version esperada, el mes correcto y responsables informados.
+3. Ejemplos validos para Serie A: `123100A01.xlsm`, `123100A12.xlsx`.
+4. Ejemplos validos para Serie P: `123010P06.xlsm`, `123010P12.xlsm`.
+5. Las series actualmente habilitadas para validacion son **Serie A** y **Serie P**.
+6. La hoja `NOMBRE` debe contener la version esperada, el mes correcto y responsables informados.
+
+## 2.1 Series habilitadas
+
+| Serie | Periodicidad | Meses aceptados | Ejemplos |
+| --- | --- | --- | --- |
+| `A` | Mensual | `01` a `12` | `123100A01.xlsm`, `123100A12.xlsx` |
+| `P` | Semestral | `06` y `12` | `123010P06.xlsm`, `123010P12.xlsm` |
+
+Cualquier serie distinta de `A` o `P` se bloquea con un mensaje que indica que la serie no esta realizada en el sistema.
+
+## 2.2 Hojas obligatorias para Serie P
+
+Un archivo Serie P solo puede validarse si contiene estas hojas:
+
+`NOMBRE`, `P1`, `P2`, `P3`, `P4`, `P5`, `P6`, `P7`, `P9`, `P11`, `P12`, `P13`.
+
+> [!IMPORTANT]
+> `P9` y `P13` son obligatorias para aceptar el archivo, aunque inicialmente no tengan reglas de validacion configuradas.
 
 <p align="center">
   <img src="images/validador_home.png" alt="Pantalla principal del validador" width="900"/>
@@ -149,7 +168,8 @@ Revise primero:
 
 1. Extension `.xlsx` o `.xlsm`.
 2. Nombre del archivo.
-3. Serie soportada.
+3. Serie soportada. Actualmente solo se validan Series `A` y `P`.
+4. Si es Serie P, el mes debe ser `06` o `12` y deben existir todas las hojas obligatorias.
 
 ### Aparece error de version
 
@@ -166,6 +186,8 @@ Algunas vistas pueden ocultar resultados triviales o sin datos, pero el sistema 
 ## 9. Glosario breve
 
 - **REM**: Resumen Estadistico Mensual.
+- **Serie A**: REM mensual habilitado para meses `01` a `12`.
+- **Serie P**: REM semestral habilitado solo para meses `06` y `12`.
 - **Hoja `NOMBRE`**: hoja de control con metadata del archivo.
 - **Hallazgo**: resultado de una validacion.
 - **`expresion_1`**: valor observado.

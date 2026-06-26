@@ -147,7 +147,7 @@ tests/
 
 **Entregables**: Evidencia de `npm run test`, `npm run build`, issues, PR.
 
-**Estado**: Verificacion completada. `npm run test` y `npm run build` OK. Issues y PR quedan bloqueados para automatizacion porque `gh` no esta instalado en el entorno; contenidos preparados en `github-issues.md`.
+**Estado**: Verificacion completada. `npm run test` y `npm run build` OK. Rama `001-serie-p-validacion` subida a remoto. Issues y PR quedan bloqueados para automatizacion porque `gh` no esta instalado en el entorno; contenidos preparados en `github-issues.md` y PR disponible en `https://github.com/rogarces85/validador-deis-sso/pull/new/001-serie-p-validacion`.
 
 ## Risk Register
 

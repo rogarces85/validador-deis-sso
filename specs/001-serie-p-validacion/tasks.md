@@ -191,7 +191,7 @@
 - [x] T044 Ejecutar `npm run test`. Evidencia: 7 archivos, 30 tests OK.
 - [x] T045 Ejecutar `npm run build`. Evidencia: build Vite OK; warnings no bloqueantes de chunk/import existentes.
 - [x] T046 Revisar `git diff` para confirmar que solo se incluyen cambios intencionales.
-- [ ] T047 Crear Pull Request vinculando issues y evidencia de pruebas. Bloqueado en este entorno: `gh` no esta instalado; rama preparada para push/PR.
+- [ ] T047 Crear Pull Request vinculando issues y evidencia de pruebas. Bloqueado en este entorno: `gh` no esta instalado; rama subida a `origin/001-serie-p-validacion`. URL: `https://github.com/rogarces85/validador-deis-sso/pull/new/001-serie-p-validacion`.
 
 ---
 

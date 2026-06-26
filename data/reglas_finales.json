@@ -2323,6 +2323,7 @@
       "descripcion_expresion_2": "Clasificación de las familias Sector Urbano, N° Familias Evaluadas encuesta familiar",
       "aplica_origen": "TODOS",
       "serie": "P",
+      "omitir_si_ambos_cero": true,
       "mensaje": "ERROR | REM P7 | SECCIÓN A. CLASIFICACIÓN DE LAS FAMILIAS SECTOR URBANO | Clasificación de las familias Sector Urbano, N° Familias Inscritas | B10 | REM P7 | SECCIÓN A. CLASIFICACIÓN DE LAS FAMILIAS SECTOR URBANO | Clasificación de las familias Sector Urbano, N° Familias Evaluadas encuesta familiar | B11"
     },
     {
@@ -2341,6 +2342,7 @@
       "descripcion_expresion_2": "Clasificación de las familias Sector Urbano, N° de Familias en riesgo (Bajo-Medio-Alto)",
       "aplica_origen": "TODOS",
       "serie": "P",
+      "omitir_si_ambos_cero": true,
       "mensaje": "ERROR | REM P7 | SECCIÓN A. CLASIFICACIÓN DE LAS FAMILIAS SECTOR URBANO | Clasificación de las familias Sector Urbano, N° Familias Evaluadas encuesta familiar | B11 | REM P7 | SECCIÓN A. CLASIFICACIÓN DE LAS FAMILIAS SECTOR URBANO | Clasificación de las familias Sector Urbano, N° de Familias en riesgo (Bajo-Medio-Alto) | B12+B13+B14"
     },
     {
@@ -2359,6 +2361,7 @@
       "descripcion_expresion_2": "Clasificación de las familias Sector Urbano, N° Familias Evaluadas encuesta familiar",
       "aplica_origen": "TODOS",
       "serie": "P",
+      "omitir_si_ambos_cero": true,
       "mensaje": "ERROR | REM P7 | SECCIÓN A.1 CLASIFICACIÓN DE LAS FAMILIAS SECTOR RURAL | Clasificación de las familias Sector Urbano, N° familias inscritas | B17 | REM P7 | SECCIÓN A.1 CLASIFICACIÓN DE LAS FAMILIAS SECTOR RURAL | Clasificación de las familias Sector Urbano, N° Familias Evaluadas encuesta familiar | B18"
     },
     {
@@ -2377,6 +2380,7 @@
       "descripcion_expresion_2": "Clasificación de las familias Sector Urbano, N° de Familias en riesgo (Bajo-Medio-Alto)",
       "aplica_origen": "TODOS",
       "serie": "P",
+      "omitir_si_ambos_cero": true,
       "mensaje": "ERROR | REM P7 | SECCIÓN A.1 CLASIFICACIÓN DE LAS FAMILIAS SECTOR RURAL | Clasificación de las familias Sector Urbano, N° Familias Evaluadas encuesta familiar | B18 | REM P7 | SECCIÓN A.1 CLASIFICACIÓN DE LAS FAMILIAS SECTOR RURAL | Clasificación de las familias Sector Urbano, N° de Familias en riesgo (Bajo-Medio-Alto) | B19+B20+B21"
     }
   ],

@@ -241,7 +241,7 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName, metadata }) => {
         const ruleSheet = String(r.rem_sheet || '').toUpperCase();
         return ruleSheet.startsWith('P') || ruleSheet === 'P';
       });
-      const dynamic = buildDynamicCellEntries(pRules, metadata?.remSheetDefault || 'P1');
+      const dynamic = buildDynamicCellEntries(pRules, 'P1');
       return { entries: dynamic, isDynamic: true } as const;
     }
     return { entries: celdasCatalog.entries, isDynamic: false } as const;

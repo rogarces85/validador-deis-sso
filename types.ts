@@ -125,3 +125,12 @@ export interface CellReadResult extends CellCatalogEntry {
   tipoValor: string;
   estado: CellReadStatus;
 }
+
+export interface DynamicCellEntry {
+  codigo: string;
+  severidad: string;
+  hojaRem: string;
+  seccion: string;
+  validacion: string;
+  celda: string;
+}

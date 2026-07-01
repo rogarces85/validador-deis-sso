@@ -30,11 +30,11 @@ require_once __DIR__ . '/models/UsuarioAdmin.php';
 require_once __DIR__ . '/controllers/HealthController.php';
 require_once __DIR__ . '/controllers/AuthController.php';
 
-const DB_HOST = '127.0.0.1';
+const DB_HOST = '10.8.152.199';
 const DB_PORT = '3306';
-const DB_NAME = 'validador_deis_admin';
+const DB_NAME = 'validador_rem';
 const DB_USER = 'root';
-const DB_PASS = '';
+const DB_PASS = ''; // NO hardcodear: configurar via variable de entorno DB_PASS
 const SESSION_NAME = 'deis_admin_session';
 const SESSION_LIFETIME = 1800;
 const CORS_ORIGIN = ''; // vacio = mismo origen (recomendado)

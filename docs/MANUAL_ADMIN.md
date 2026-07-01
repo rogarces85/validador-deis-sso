@@ -17,14 +17,43 @@ Las features 003-B (CRUD de reglas) y 003-C (auditoria no clinica) se entregaran
 
 ## Configuracion inicial
 
+### 0) Configurar credenciales de la base de datos
+
+Los valores por defecto apuntan al servidor MySQL/MariaDB del Servicio de Salud:
+
+- Host: `10.8.152.199`
+- Puerto: `3306`
+- Base de datos: `validador_rem`
+- Usuario: `root`
+
+**Importante: la contrasena NO se guarda en el repositorio.** Configurela mediante la variable de entorno `DB_PASS` antes de cualquier operacion (migracion, siembra, tests, requests al backend).
+
+```bash
+# Opcion A: archivo .env (Apache lo lee automaticamente con SetEnv)
+Copy-Item .env.example .env
+# Edite .env y complete DB_PASS=...
+
+# Opcion B: variable de entorno en la sesion PowerShell
+$env:DB_HOST="10.8.152.199"
+$env:DB_PORT="3306"
+$env:DB_NAME="validador_rem"
+$env:DB_USER="root"
+$env:DB_PASS="su-clave-mysql"
+```
+
+Si la conexion falla, valide primero con un cliente MySQL:
+
+```bash
+mysql -h 10.8.152.199 -P 3306 -u root -p validador_rem
+```
+
 ### 1. Crear la base de datos y las tablas
 
 ```bash
-# desde la raiz del proyecto
 php scripts/migrate.php
 ```
 
-Esto crea (si no existe) la base de datos `validador_deis_admin` y las 5 tablas:
+Crea (si no existe) la base de datos `validador_rem` y las 6 tablas:
 
 - `usuarios_admin`
 - `reglas`
@@ -35,17 +64,7 @@ Esto crea (si no existe) la base de datos `validador_deis_admin` y las 5 tablas:
 
 La migracion es **idempotente**: puede ejecutarse varias veces sin error.
 
-Para apuntar a otra base de datos o credenciales, exporta variables de entorno antes:
-
-```bash
-# PowerShell
-$env:DB_HOST="127.0.0.1"
-$env:DB_PORT="3306"
-$env:DB_NAME="mi_base"
-$env:DB_USER="mi_usuario"
-$env:DB_PASS="mi_clave"
-php scripts/migrate.php
-```
+Si necesita apuntar a otro servidor, exporte las variables de entorno antes de invocar el script (ver seccion 0).
 
 ### 2. Sembrar el primer administrador
 
@@ -156,7 +175,14 @@ Esto crea (si no existe) un admin de pruebas con `email: admin@test.local` y `pa
 
 - Verifica que `php scripts/migrate.php` se haya ejecutado.
 - Verifica que `php scripts/seed-admin.php` haya creado el admin con el correo que usas.
+- Verifica que la variable de entorno `DB_PASS` este definida y sea correcta.
 - Abre `http://localhost/www/validador-deis-sso/api/health` y confirma 200.
+
+### El backend no se conecta a la base de datos remota
+
+- Verifica que el host `10.8.152.199` sea alcanzable desde la maquina donde corre Apache: `Test-NetConnection 10.8.152.199 -Port 3306`.
+- Verifica que el usuario `root` tenga permisos para crear la BD `validador_rem` (la primera ejecucion requiere `CREATE DATABASE`).
+- Verifica que el puerto `3306` no este bloqueado por un firewall.
 
 ### El frontend no se conecta al backend
 

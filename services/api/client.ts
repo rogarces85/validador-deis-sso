@@ -42,7 +42,7 @@ export interface ApiOptions {
   signal?: AbortSignal;
 }
 
-const BASE_URL = '/api';
+const BASE_URL = './api';
 
 export async function apiFetch<T = unknown>(path: string, opts: ApiOptions = {}): Promise<T> {
   const method = opts.method ?? 'GET';

@@ -20,7 +20,7 @@ describe('api client', () => {
     const data = await apiFetch<{ ok: true; user: { id: number } }>('/auth/me');
     expect(data.user.id).toBe(1);
     expect(spy).toHaveBeenCalledWith(
-      '/api/auth/me',
+      './api/auth/me',
       expect.objectContaining({ credentials: 'include' })
     );
   });

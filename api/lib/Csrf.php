@@ -37,23 +37,14 @@ final class Csrf
 
     public static function readJsonBody(): ?array
     {
-        static $cache = false;
-        static $cached = null;
-        if ($cache) {
-            return $cached;
-        }
-        $cache = true;
         $raw = file_get_contents('php://input');
         if (!is_string($raw) || $raw === '') {
-            $cached = null;
             return null;
         }
         $decoded = json_decode($raw, true);
         if (is_array($decoded)) {
-            $cached = $decoded;
-            return $cached;
+            return $decoded;
         }
-        $cached = null;
         return null;
     }
 }

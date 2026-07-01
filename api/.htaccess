@@ -1,17 +1,9 @@
-# Protege el acceso directo a archivos PHP que no sean index.php
-# Cualquier *.php dentro de api/ se redirige al router
+# Protege el acceso directo a archivos PHP dentro de api/ distintos de index.php
 <FilesMatch "\.php$">
     <If "%{REQUEST_URI} !~ m#/api/index\.php$#">
         Require all denied
     </If>
 </FilesMatch>
-
-# Forzar paso por index.php para rutas /api/*
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /www/validador-deis-sso/
-    RewriteRule ^api/(.*)$ api/index.php [QSA,L]
-</IfModule>
 
 # Encabezados de seguridad
 <IfModule mod_headers.c>
@@ -24,4 +16,32 @@
 # Sin cache para endpoints
 <IfModule mod_expires.c>
     ExpiresActive Off
+</IfModule>
+
+# Front controller: enruta cualquier path que no exista como archivo
+# hacia index.php dentro de este mismo directorio (api/).
+# La exclusion de index.php evita el loop de rewrites.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !index\.php$
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+# Variables de entorno para PHP. En produccion real se deben mover a
+# variables de entorno del sistema operativo (Apache las recoge con
+# SetEnv desde httpd.conf o con un wrapper). Mantener vacio por defecto
+# en el repositorio: el operador las completa en su despliegue.
+#   DB_HOST     - host del servidor MySQL/MariaDB
+#   DB_PORT     - puerto (default 3306)
+#   DB_NAME     - nombre de la base de datos
+#   DB_USER     - usuario de la base de datos
+#   DB_PASS     - contrasena del usuario (NUNCA commitear con valor)
+<IfModule mod_env.c>
+    SetEnv DB_HOST "10.8.152.199"
+    SetEnv DB_PORT "3306"
+    SetEnv DB_NAME "validador_rem"
+    SetEnv DB_USER "root"
+    SetEnv DB_PASS "estadi2021"
 </IfModule>

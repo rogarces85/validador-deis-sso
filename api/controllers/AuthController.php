@@ -33,7 +33,12 @@ final class AuthController
             return;
         }
 
-        // Login OK: regenerar id de sesion para evitar fixation
+        // Login OK: regenerar id de sesion para evitar fixation.
+        // session_regenerate_id(true) elimina el archivo de sesion viejo y
+        // emite automaticamente el Set-Cookie con el nuevo session_id.
+        // No enviamos un Set-Cookie 'deleted' porque confunde a clientes
+        // HTTP que colapsan cookies del mismo nombre: el navegador/curl
+        // termina descartando la cookie activa.
         session_regenerate_id(true);
         $_SESSION['admin_id'] = (int) $admin['id'];
         $_SESSION['admin_email'] = (string) $admin['email'];

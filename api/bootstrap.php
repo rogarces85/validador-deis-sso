@@ -49,11 +49,13 @@ const ENV_CORS_ORIGIN = 'CORS_ORIGIN';
 
 function env_or(string $name, string $default): string
 {
+    // getenv() devuelve false si la variable no esta definida.
+    // Si esta definida (incluso como string vacio), se respeta.
     $val = getenv($name);
-    if ($val === false || $val === '') {
+    if ($val === false) {
         return $default;
     }
-    return $val;
+    return (string) $val;
 }
 
 function db(): PDO

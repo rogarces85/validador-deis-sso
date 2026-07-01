@@ -68,8 +68,23 @@ function http(string $method, string $url, ?array $body = null, ?string $cookie 
     $headersOut = substr((string) $raw, 0, $headerSize);
     $bodyOut = substr((string) $raw, $headerSize);
     curl_close($ch);
-    preg_match_all('/^Set-Cookie:\s*([^;]+)/mi', $headersOut, $m);
-    $setCookie = $m[1] ?? [];
+    preg_match_all('/^Set-Cookie:\s*([^=]+)=([^;]*)/mi', $headersOut, $m, PREG_SET_ORDER);
+    $latest = [];
+    foreach ($m as $c) {
+        $name = trim($c[1]);
+        $val = trim($c[2]);
+        // Cuando session_regenerate_id() envia la cookie vieja con valor
+        // 'deleted' o vacia, NO la conservamos: el valor util es la cookie
+        // REGENERADA, que aparece antes en la lista.
+        if ($val === '' || strtolower($val) === 'deleted') {
+            continue;
+        }
+        $latest[$name] = $val;
+    }
+    $setCookie = [];
+    foreach ($latest as $n => $v) {
+        $setCookie[] = $n . '=' . $v;
+    }
     $json = json_decode((string) $bodyOut, true);
     return [
         'status' => (int) $code,
@@ -136,22 +151,30 @@ check('me.user.email === admin', ($r['json']['user']['email'] ?? null) === TEST_
 echo "\n5) POST /api/auth/login (contrasena incorrecta)\n";
 // Resetear rate limit antes para que el test no se acople con el limite
 RateLimiter::reset('login', '127.0.0.1');
-$r = http('POST', $base . '/api/auth/login', ['email' => TEST_EMAIL, 'password' => 'WRONG-PASSWORD']);
+RateLimiter::reset('login', '::1');
+$r = http('POST', $base . '/api/auth/login', ['email' => TEST_EMAIL, 'password' => 'WRONG-PASSWORD-1']);
 check('login bad pass -> 401', $r['status'] === 401, "status={$r['status']}");
 check('mensaje generico', ($r['json']['error'] ?? '') === 'Credenciales invalidas');
 
 echo "\n6) Rate limit (5 intentos fallidos -> 429 en el sexto)\n";
+// Reset exhaustivo: el cliente puede llegar por IPv4 o IPv6, y el rate
+// limit esta indexado por IP. Limpiamos ambas keys para evitar ruido entre
+// tests.
 RateLimiter::reset('login', '127.0.0.1');
+RateLimiter::reset('login', '::1');
 for ($i = 1; $i <= 5; $i++) {
-    $r = http('POST', $base . '/api/auth/login', ['email' => TEST_EMAIL, 'password' => "WRONG-$i"]);
+    $r = http('POST', $base . '/api/auth/login', ['email' => TEST_EMAIL, 'password' => "WRONG-PASSWORD-$i"]);
 }
 check('5to intento fallo -> 401', $r['status'] === 401);
-$r = http('POST', $base . '/api/auth/login', ['email' => TEST_EMAIL, 'password' => "WRONG-6"]);
+$r = http('POST', $base . '/api/auth/login', ['email' => TEST_EMAIL, 'password' => "WRONG-PASSWORD-6"]);
 check('6to intento -> 429', $r['status'] === 429, "status={$r['status']} body={$r['raw']}");
 check('header Retry-After presente', true); // curl no expone headers por defecto, validar logico
 
 echo "\n7) POST /api/auth/logout sin CSRF -> 403\n";
+// El test 6 deja el contador de rate limit al tope; el login siguiente seria
+// rechazado con 429 si no limpiamos ambas keys IPv4/IPv6.
 RateLimiter::reset('login', '127.0.0.1');
+RateLimiter::reset('login', '::1');
 // Necesitamos un login valido para tener sesion
 $r = http('POST', $base . '/api/auth/login', ['email' => TEST_EMAIL, 'password' => TEST_PASSWORD]);
 $sessionCookie = implode('; ', $r['cookies']);
@@ -159,6 +182,8 @@ $r = http('POST', $base . '/api/auth/logout', [], $sessionCookie, null);
 check('logout sin csrf -> 403', $r['status'] === 403, "status={$r['status']} body={$r['raw']}");
 
 echo "\n8) POST /api/auth/logout con CSRF -> 200\n";
+RateLimiter::reset('login', '127.0.0.1');
+RateLimiter::reset('login', '::1');
 $r = http('POST', $base . '/api/auth/login', ['email' => TEST_EMAIL, 'password' => TEST_PASSWORD]);
 $sessionCookie = implode('; ', $r['cookies']);
 $csrf = $r['json']['csrf_token'] ?? null;

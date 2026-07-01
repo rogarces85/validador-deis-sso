@@ -80,7 +80,7 @@ contrasena) con un unico rol `admin` para el MVP. El admin MAY crear, leer, actu
 desactivar reglas en una base de datos MySQL/MariaDB servida por PHP sobre XAMPP. Toda
 modificacion sobre reglas MUST auditarse con timestamp, autor y diff antes/despues. El
 modulo admin es responsabilidad del mismo repositorio y se sirve como rutas adicionales
-dentro del bundle de la aplicacion. La sesion admin MUST expirar al cerrar el navegador y
+dentro del bundle de la aplicacion. La sesion admin MUST expirar por inactividad en el servidor o al cerrar el navegador, y
 los endpoints no-idempotentes MUST requerir token CSRF. Rationale: el ciclo de vida de las
 reglas debe ser operable por un administrador del Servicio de Salud sin editar JSON a mano,
 manteniendo trazabilidad de cambios.

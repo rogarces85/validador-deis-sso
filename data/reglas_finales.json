@@ -2333,7 +2333,7 @@
       "tipo": "COMPUESTA",
       "tipo_validacion": "COMPUESTA",
       "rem_sheet": "P7",
-      "expresion_1": "B11",
+      "operador": ">=",
       "operador": ">",
       "expresion_2": "B12+B13+B14",
       "severidad": "ERROR",

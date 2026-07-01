@@ -1,0 +1,76 @@
+---
+name: Nueva regla de validacion
+description: Proponer una nueva regla de validacion para el motor (Serie A o P).
+title: "[Regla] "
+labels: ["rule", "needs-triage"]
+assignees: []
+---
+
+## Identificacion
+
+- **ID tentativo**: ____ (ej. P05-VAL003)
+- **Hoja REM**: [ ] A1  [ ] A2  [ ] ... [ ] P1 [ ] P2 [ ] ... [ ] otra: ____
+- **Linea / fila**: ____
+- **Tipo de regla**:
+  - [ ] SIMPLE (numerador vs denominador)
+  - [ ] SIMPLE con `> 0` (modelado como `== 0`)
+  - [ ] Expresion aritmetica (SUM, +, -, *, parentesis)
+  - [ ] Validacion exclusiva (HBSJO, CESFAM, etc.)
+
+## Definicion operacional
+
+<!-- Texto literal del Manual REM o resumen del criterio. -->
+
+## Expresiones
+
+- **Numerador (expresion_1)**: ____
+- **Denominador (expresion_2)**: ____
+- **Operador**: [ ] ==  [ ] !=  [ ] >=  [ ] <=  [ ] >  [ ] <
+- **Severidad**: [ ] ERROR  [ ] REVISAR  [ ] INFO
+
+## Mensaje esperado
+
+<!-- Como se mostrara al usuario, idealmente con logica inversa. -->
+
+## Ejemplos
+
+### Caso OK
+
+| Campo | Valor |
+|---|---|
+| expresion_1 | __ |
+| expresion_2 | __ |
+| Resultado | Aprobada |
+
+### Caso FALLA
+
+| Campo | Valor |
+|---|---|
+| expresion_1 | __ |
+| expresion_2 | __ |
+| Resultado | Hallazgo |
+
+## Restricciones
+
+- [ ] Requiere `omitir_si_ambos_cero: true`
+- [ ] Aplica solo a establecimiento: ____
+- [ ] Aplica solo a tipo: ____
+- [ ] Solo si denominador > 0
+
+## Pruebas requeridas
+
+- [ ] Caso OK con datos reales
+- [ ] Caso FALLA con datos reales
+- [ ] Caso omision (denominador = 0)
+- [ ] Caso exclusivo (codigo o tipo no aplica)
+
+## Referencias
+
+- Manual REM pagina: ____
+- Regla similar existente: ____
+
+## Lista de verificacion
+
+- [ ] La regla no existe ya en `data/reglas_finales.json`
+- [ ] Esta alineada con `data/reglas_validacion.md`
+- [ ] Se probara con archivo de prueba dedicado

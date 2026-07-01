@@ -22,7 +22,7 @@ describe('NombreSheetValidator', () => {
                 if (sheet !== 'NOMBRE') return null;
 
                 const values: Record<string, string> = {
-                    A9: 'Versión 1.2: Febrero 2026',
+                    A9: 'Versión 1.2: Junio 2026',
                     B2: 'OSORNO',
                     B3: 'Hospital Base San José de Osorno',
                     B6: 'JUNIO',
@@ -80,6 +80,33 @@ describe('NombreSheetValidator', () => {
     });
 
     it('mantiene mes 05 valido para Serie A en hoja NOMBRE', () => {
+        mockExcel.getCellValue.mockImplementation((sheet: string, cell: string) => {
+            if (sheet !== 'NOMBRE') return null;
+
+            const values: Record<string, string> = {
+                A9: 'Versión 1.2: Febrero 2026',
+                B2: 'OSORNO',
+                B3: 'Hospital Base San José de Osorno',
+                B6: 'MAYO',
+                B11: 'Responsable',
+                B12: 'Jefe Estadística',
+                C2: '1',
+                D2: '0',
+                E2: '3',
+                F2: '0',
+                G2: '1',
+                C3: '1',
+                D3: '2',
+                E3: '3',
+                F3: '1',
+                G3: '0',
+                H3: '0',
+                C6: '0',
+                D6: '5',
+            };
+
+            return values[cell] ?? null;
+        });
         mockExcel.concatenateToNumber.mockImplementation((_sheet: string, cells: string[]) => {
             const key = cells.join(',');
             if (key === 'C2,D2,E2,F2,G2') return 10301;
@@ -92,5 +119,42 @@ describe('NombreSheetValidator', () => {
 
         expect(output.results.map(result => result.ruleId)).not.toContain('VAL_NOM12');
         expect(output.results).toHaveLength(0);
+    });
+
+    it('acepta versión Junio 2026 solo para Serie P', () => {
+        mockExcel.getCellValue.mockImplementation((sheet: string, cell: string) => {
+            if (sheet !== 'NOMBRE') return null;
+
+            const values: Record<string, string> = {
+                A9: 'Versión 1.2: Junio 2026',
+                B2: 'OSORNO',
+                B3: 'Hospital Base San José de Osorno',
+                B6: 'JUNIO',
+                B11: 'Responsable',
+                B12: 'Jefe Estadística',
+                C2: '1',
+                D2: '0',
+                E2: '3',
+                F2: '0',
+                G2: '1',
+                C3: '1',
+                D3: '2',
+                E3: '3',
+                F3: '1',
+                G3: '0',
+                H3: '0',
+                C6: '0',
+                D6: '6',
+            };
+
+            return values[cell] ?? null;
+        });
+
+        const seriePOutput = new NombreSheetValidator().validate('123100', '06', 'P');
+        const serieAOutput = new NombreSheetValidator().validate('123100', '06', 'A');
+
+        expect(seriePOutput.results.map(result => result.ruleId)).not.toContain('VAL_NOM01');
+        expect(serieAOutput.results.some(result => result.ruleId === 'VAL_NOM01')).toBe(true);
+        expect(serieAOutput.results.find(result => result.ruleId === 'VAL_NOM01')?.mensaje).toContain('Serie A');
     });
 });

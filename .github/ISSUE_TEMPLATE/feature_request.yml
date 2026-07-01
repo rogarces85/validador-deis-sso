@@ -1,0 +1,50 @@
+---
+name: Solicitud de funcionalidad
+description: Proponer una nueva funcionalidad o mejora al Validador REM.
+title: "[Feature] "
+labels: ["enhancement", "needs-triage"]
+assignees: []
+---
+
+## Resumen
+
+<!-- Describe la funcionalidad solicitada en 1-2 parrafos. -->
+
+## Motivacion
+
+<!-- Que problema resuelve? Quien se beneficia? -->
+
+## Alternativas consideradas
+
+<!-- Que alternativas evaluaste? Por que esta es mejor? -->
+
+## Solucion propuesta
+
+<!-- Como se implementaria. Detalla componentes afectados. -->
+
+## Criterios de aceptacion
+
+- [ ] ...
+- [ ] ...
+- [ ] ...
+
+## Impacto
+
+- **Serie A**: [ ] rompe  [ ] no afecta  [ ] mejora
+- **Serie P**: [ ] rompe  [ ] no afecta  [ ] mejora
+- **UI**:    [ ] rompe  [ ] no afecta  [ ] mejora
+- **Datos / reglas**: [ ] requiere nueva regla  [ ] sin cambios
+
+## Dependencias
+
+<!-- Issues, PRs, docs o servicios externos. -->
+
+## Estimacion tentativa
+
+<!-- S / M / L o dias-persona. -->
+
+## Lista de verificacion
+
+- [ ] La funcionalidad no existe ya en el codigo
+- [ ] Esta alineada con la constitucion del proyecto
+- [ ] Inclui criterios de aceptacion medibles

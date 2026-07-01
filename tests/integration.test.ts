@@ -96,4 +96,50 @@ describe('Integration: Excel Reader -> Rule Engine', () => {
         expect(results[0].resultado).toBe(true);
         expect(results[0].valorActual).toBe(10);
     });
+
+    it('should keep Serie P failed findings when valorActual is 0', async () => {
+        const wb = XLSX.utils.book_new();
+        const ws = XLSX.utils.aoa_to_sheet([
+            ['', '', ''],
+            ['', 0, ''], // B2 = 0
+        ]);
+        XLSX.utils.book_append_sheet(wb, ws, 'P12');
+
+        mockRead.mockReturnValue(wb);
+
+        const file = new File(['dummy'], '123010P06.xlsm', {
+            type: 'application/vnd.ms-excel.sheet.macroEnabled.12',
+        });
+        await excelService.loadFile(file);
+
+        const rules: ValidationRule[] = [
+            {
+                id: 'P12-VAL-ZERO',
+                tipo: 'SIMPLE',
+                rem_sheet: 'P12',
+                expresion_1: 'B2',
+                operador: '==',
+                expresion_2: 13,
+                severidad: 'ERROR' as Severity,
+                mensaje: 'Serie P zero value must be visible as finding',
+                serie: 'P',
+            },
+        ];
+
+        const metadata: FileMetadata = {
+            codigoEstablecimiento: '123010',
+            serieRem: 'P',
+            mes: '06',
+            extension: 'xlsm',
+            nombreOriginal: '123010P06.xlsm',
+        };
+
+        const results = await ruleEngine.evaluate(rules, metadata);
+
+        expect(results).toHaveLength(1);
+        expect(results[0].resultado).toBe(false);
+        expect(results[0].valorActual).toBe(0);
+        expect(results[0].valorEsperado).toBe(13);
+        expect(results[0].rem_sheet).toBe('P12');
+    });
 });

@@ -1,0 +1,56 @@
+---
+name: Reporte de bug
+description: Reportar un error o comportamiento inesperado del Validador REM.
+title: "[Bug] "
+labels: ["bug", "needs-triage"]
+assignees: []
+---
+
+## Resumen del problema
+
+<!-- Una descripcion breve y clara del bug. -->
+
+## Pasos para reproducir
+
+1. Cargar el archivo `XXXXXXA06.xlsm` (o `XXXXXXP06.xlsm`)
+2. ...
+3. ...
+
+## Comportamiento esperado
+
+<!-- Que deberia haber ocurrido. -->
+
+## Comportamiento actual
+
+<!-- Que ocurre realmente. Pega el mensaje de error si aplica. -->
+
+## Capturas / Logs
+
+<!-- Si tienes screenshots o logs, agregarlos aqui. -->
+
+## Entorno
+
+- **Serie REM**: [ ] A   [ ] P   [ ] otra: ____
+- **Mes**: ___
+- **Codigo establecimiento**: ___
+- **Navegador y version**: ___
+- **Version de la app**: ___
+
+## Archivos relacionados
+
+- Archivo Excel: ____
+- Regla implicada (ID): ____
+- Spec: ____
+
+## Severidad
+
+- [ ] Critico (bloquea operacion)
+- [ ] Alto (falla funcionalidad principal)
+- [ ] Medio (falla secundaria, hay workaround)
+- [ ] Bajo (cosmetic o mejora)
+
+## Lista de verificacion
+
+- [ ] Reproduje el bug con la ultima version
+- [ ] Adjunte el archivo Excel o un ejemplo que lo reproduce
+- [ ] Revise issues abiertos para evitar duplicados

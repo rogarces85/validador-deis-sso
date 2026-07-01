@@ -136,14 +136,21 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
         [Severity.INDICADOR]: findings.filter(f => !f.resultado && f.severidad === Severity.INDICADOR).length,
     }), [findings]);
 
+    const failedCount = useMemo(() =>
+        findings.filter(f => !f.resultado).length,
+    [findings]);
+
+    const totalRules = findings.length;
+
     const filteredFindings = useMemo(() => {
         return findings.filter(f => {
-            if (f.valorActual === 0 || f.valorActual === '0') return false;
-            if (f.valorActual === null || f.valorActual === undefined || f.valorActual === '') return false;
             if (severityFilter !== 'ALL' && f.severidad !== severityFilter) return false;
             if (sheetFilter !== 'ALL' && (f.rem_sheet || 'N/A') !== sheetFilter) return false;
             if (statusFilter === 'PASS' && !f.resultado) return false;
             if (statusFilter === 'FAIL' && f.resultado) return false;
+            if (f.valorActual === null || f.valorActual === undefined || f.valorActual === '') {
+                if (f.resultado) return false;
+            }
             if (searchTerm) {
                 const term = searchTerm.toLowerCase();
                 return (
@@ -178,7 +185,7 @@ const FindingsTable: React.FC<FindingsTableProps> = ({ findings, onSelectFinding
                         <h3 className="text-lg font-semibold flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                             Hallazgos
                             <span className="text-sm font-normal" style={{ color: 'var(--text-muted)' }}>
-                                {filteredFindings.length} de {findings.length}
+                                {statusFilter === 'FAIL' ? failedCount : filteredFindings.length} de {totalRules}
                             </span>
                         </h3>
                         <div className="flex flex-wrap gap-2">

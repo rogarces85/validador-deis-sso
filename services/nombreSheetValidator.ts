@@ -15,11 +15,20 @@ const VALID_MONTHS = new Set(
     Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, '0'))
 );
 
-// Accepted file versions
-const ACCEPTED_VERSIONS = [
+// Accepted file versions by series. Serie P uses the June 2026 template.
+const DEFAULT_ACCEPTED_VERSIONS = [
     'Versión 1.2: Febrero 2026',
     'Versión 1.1: Febrero 2026'
 ];
+
+const ACCEPTED_VERSIONS_BY_SERIE: Record<string, string[]> = {
+    A: DEFAULT_ACCEPTED_VERSIONS,
+    P: ['Versión 1.2: Junio 2026'],
+};
+
+function getAcceptedVersions(fileSerie: string): string[] {
+    return ACCEPTED_VERSIONS_BY_SERIE[fileSerie.toUpperCase()] || DEFAULT_ACCEPTED_VERSIONS;
+}
 
 function generateUUID(): string {
     if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
@@ -59,16 +68,17 @@ export class NombreSheetValidator {
         let versionError: string | null = null;
 
         // ─── 1. VERSION CHECK (A9) — Highest priority ───
+        const acceptedVersions = getAcceptedVersions(fileSerie);
         const versionVal = this.getCellString('A9');
-        if (!ACCEPTED_VERSIONS.includes(versionVal)) {
+        if (!acceptedVersions.includes(versionVal)) {
             versionError = versionVal
-                ? `Versión de archivo no válida: "${versionVal}". Se acepta: ${ACCEPTED_VERSIONS.map(v => `"${v}"`).join(' o ')}`
-                : `La celda A9 no contiene la versión del archivo. Se acepta: ${ACCEPTED_VERSIONS.map(v => `"${v}"`).join(' o ')}`;
+                ? `Versión de archivo no válida para Serie ${fileSerie.toUpperCase()}: "${versionVal}". Se acepta: ${acceptedVersions.map(v => `"${v}"`).join(' o ')}`
+                : `La celda A9 no contiene la versión del archivo para Serie ${fileSerie.toUpperCase()}. Se acepta: ${acceptedVersions.map(v => `"${v}"`).join(' o ')}`;
 
             results.push(this.makeResult(
                 'VAL_NOM01', Severity.ERROR,
                 `NOMBRE, ERROR: ${versionError}`,
-                versionVal || '(vacío)', ACCEPTED_VERSIONS.join(' | '), 'A9'
+                versionVal || '(vacío)', acceptedVersions.join(' | '), 'A9'
             ));
         }
 

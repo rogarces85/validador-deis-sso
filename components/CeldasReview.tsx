@@ -2,10 +2,12 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { ExcelReaderService } from '../services/excelService';
 import celdasCatalogRaw from '../data/celdas.catalog.json';
 import reglasFinalesRaw from '../data/reglas_finales.json';
-import { CellCatalogData, CellReadResult, CellReadStatus, ValidationRule } from '../types';
+import { CellCatalogData, CellReadResult, CellReadStatus, ValidationRule, FileMetadata, DynamicCellEntry } from '../types';
+import { buildDynamicCellEntries, expandRange, tokenizeExpression } from '../utils/cellReferences';
 
 interface CeldasReviewProps {
   fileName: string;
+  metadata?: FileMetadata | null;
 }
 
 const CELL_REF_REGEX = /^[A-Z]+\d+$/;
@@ -223,23 +225,44 @@ const getRowTooltip = (row: CellReadResult, rule: ValidationRule | null): string
   ].filter(Boolean).join('\n');
 };
 
-const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
+const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName, metadata }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<'ALL' | CellReadStatus>('ALL');
   const [sheetFilter, setSheetFilter] = useState<string>('ALL');
   const [ruleFilter, setRuleFilter] = useState<string>('ALL');
   const [popoverState, setPopoverState] = useState<{ row: CellReadResult; top: number; left: number } | null>(null);
 
+  const serieRem = (metadata?.serieRem || 'A').toUpperCase();
+
+  const sourceEntries = useMemo(() => {
+    if (serieRem === 'P') {
+      const allRules = Object.values(reglasFinales).flat() as ValidationRule[];
+      const pRules = allRules.filter(r => {
+        const ruleSheet = String(r.rem_sheet || '').toUpperCase();
+        return ruleSheet.startsWith('P') || ruleSheet === 'P';
+      });
+      const dynamic = buildDynamicCellEntries(pRules, 'P1');
+      return { entries: dynamic, isDynamic: true } as const;
+    }
+    return { entries: celdasCatalog.entries, isDynamic: false } as const;
+  }, [serieRem, metadata]);
+
   const rows = useMemo<CellReadResult[]>(() => {
     const excelService = ExcelReaderService.getInstance();
 
-    return celdasCatalog.entries.map((entry, index) => {
+    return sourceEntries.entries.map((entry, index) => {
       const celda = String(entry.celda || '').trim();
-      const hojaSistema = mapRemSheet(entry.hojaRem);
+      const hojaRemOriginal = String(entry.hojaRem || '').trim();
+      const hojaSistema = serieRem === 'P' ? hojaRemOriginal : mapRemSheet(hojaRemOriginal);
 
       if (!CELL_REF_REGEX.test(celda)) {
         return {
-          ...entry,
+          codigo: entry.codigo,
+          severidad: entry.severidad,
+          hojaRem: hojaRemOriginal,
+          seccion: entry.seccion,
+          validacion: entry.validacion,
+          celda,
           indice: index + 2,
           hojaSistema,
           valor: null,
@@ -251,7 +274,12 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
       const sheetExists = excelService.getSheets().includes(hojaSistema);
       if (!sheetExists) {
         return {
-          ...entry,
+          codigo: entry.codigo,
+          severidad: entry.severidad,
+          hojaRem: hojaRemOriginal,
+          seccion: entry.seccion,
+          validacion: entry.validacion,
+          celda,
           indice: index + 2,
           hojaSistema,
           valor: null,
@@ -266,7 +294,12 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
         : 'OK';
 
       return {
-        ...entry,
+        codigo: entry.codigo,
+        severidad: entry.severidad,
+        hojaRem: hojaRemOriginal,
+        seccion: entry.seccion,
+        validacion: entry.validacion,
+        celda,
         indice: index + 2,
         hojaSistema,
         valor: normalizeValue(rawValue),
@@ -274,7 +307,7 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
         estado,
       };
     });
-  }, [fileName]);
+  }, [fileName, sourceEntries, serieRem]);
 
   const summary = useMemo(() => {
     const counts: Record<CellReadStatus, number> = {
@@ -317,6 +350,8 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
     const payload = {
       generatedAt: new Date().toISOString(),
       sourceWorkbook: fileName,
+      serieRem,
+      source: serieRem === 'P' ? 'reglas_finales.json (Serie P)' : celdasCatalog.sourceFile,
       totalRows: rows.length,
       summary,
       rows,
@@ -330,7 +365,7 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
     anchor.download = `celdas_leidas_${baseName}.json`;
     anchor.click();
     URL.revokeObjectURL(url);
-  }, [fileName, rows, summary]);
+  }, [fileName, rows, summary, serieRem]);
 
   const selectedRow = popoverState?.row ?? null;
 
@@ -396,7 +431,11 @@ const CeldasReview: React.FC<CeldasReviewProps> = ({ fileName }) => {
                 Archivo: <span className="font-medium" style={{ color: 'var(--text-primary)' }}>{fileName}</span>
               </p>
               <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-                Catalogo fuente: {celdasCatalog.sourceFile} ({celdasCatalog.totalRows} filas)
+                {serieRem === 'P' ? (
+                  <>Catalogo dinamico desde reglas Serie P: {rows.length} celdas detectadas en {Object.keys(reglasFinales).filter(k => k.startsWith('P')).length} hojas</>
+                ) : (
+                  <>Catalogo fuente: {celdasCatalog.sourceFile} ({celdasCatalog.totalRows} filas)</>
+                )}
               </p>
               {ruleFilter !== 'ALL' ? (
                 <div className="mt-3 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium" style={{ backgroundColor: 'var(--control-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-default)' }}>

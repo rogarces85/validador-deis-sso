@@ -1,0 +1,47 @@
+---
+name: Documentacion
+description: Solicitar o proponer una mejora a la documentacion.
+title: "[Docs] "
+labels: ["documentation"]
+assignees: []
+---
+
+## Tipo de documento
+
+- [ ] Manual de usuario (`docs/Manual_Usuario.md`)
+- [ ] Documentacion tecnica (`data/reglas_validacion.md`)
+- [ ] README principal
+- [ ] Spec Kit
+- [ ] Constitucion (`.specify/memory/constitution.md`)
+- [ ] Comentarios en codigo
+- [ ] Otro: ____
+
+## Problema o falta
+
+<!-- Que falta, esta desactualizado, o es incorrecto. -->
+
+## Propuesta
+
+<!-- Como deberia quedar el documento. -->
+
+## Audiencia
+
+- [ ] Usuario final (establecimientos de salud)
+- [ ] Desarrollador
+- [ ] Equipo DEIS interno
+- [ ] Mixto
+
+## Cambios requeridos
+
+- [ ] Agregar nueva seccion
+- [ ] Actualizar seccion existente
+- [ ] Corregir error factual
+- [ ] Agregar ejemplos
+- [ ] Agregar capturas / diagramas
+- [ ] Traducir a otro idioma
+
+## Lista de verificacion
+
+- [ ] Verifique que el contenido no esta ya en otro documento
+- [ ] Mantengo el estilo del documento existente
+- [ ] Inclui ejemplos cuando aplique

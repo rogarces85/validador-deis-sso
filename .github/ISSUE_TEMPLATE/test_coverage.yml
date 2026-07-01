@@ -1,0 +1,59 @@
+---
+name: Archivo de prueba / Cobertura
+description: Solicitar o reportar la creacion de archivos de prueba para el validador.
+title: "[Test] "
+labels: ["testing"]
+assignees: []
+---
+
+## Objetivo
+
+<!-- Que archivo de prueba falta o que cobertura se necesita mejorar. -->
+
+## Tipo de archivo
+
+- [ ] Archivo OK (sin hallazgos)
+- [ ] Archivo FALLA controlada (activa 1 regla especifica)
+- [ ] Archivo HBSJO / CESFAM (regla exclusiva)
+- [ ] Otro: ____
+
+## Datos del archivo
+
+- **Codigo establecimiento**: ____
+- **Serie REM**: [ ] A  [ ] P
+- **Mes**: ____
+- **Hojas a incluir**: ____
+
+## Regla objetivo (si es FALLA)
+
+- **ID de la regla**: ____
+- **Hoja**: ____
+- **Celda o rango a alterar**: ____
+- **Valor antes**: ____
+- **Valor despues**: ____
+
+## Restricciones del archivo
+
+- [ ] Debe pasar nombre estricto `^(\d{6})([A-Z]{1,2})(\d{2})\.(xlsx|xlsm)$`
+- [ ] Debe incluir hoja `NOMBRE` con version correcta
+- [ ] Debe respetar hojas obligatorias por serie
+- [ ] Otro: ____
+
+## Pruebas requeridas
+
+- [ ] Validar con app en navegador
+- [ ] Validar con harness `dist-pipeline/run-app-pipeline.js`
+- [ ] Actualizar `Reporte_Pruebas_Serie_P.xlsx`
+- [ ] Commitear con mensaje claro
+
+## Relacionado con
+
+- Issue / PR: ____
+- Regla: ____
+- Sesion OpenCode: ____
+
+## Lista de verificacion
+
+- [ ] El archivo no existe ya
+- [ ] El nombre respeta la convencion del proyecto
+- [ ] Los datos son coherentes (no contradicen otras reglas)

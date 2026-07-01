@@ -176,7 +176,7 @@ const App: React.FC = () => {
             </h2>
 
             <Suspense fallback={null}>
-              <CeldasReview fileName={state.file.name} />
+              <CeldasReview fileName={state.file.name} metadata={state.metadata} />
             </Suspense>
           </div>
         ) : null}

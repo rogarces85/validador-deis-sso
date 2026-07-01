@@ -73,6 +73,10 @@ Cada regla JSON tiene la siguiente configuracion:
 | Cross-sheet | `A03!C108` | Lee C108 de la hoja A03 |
 | Rango (suma) | `C21:C36` | Suma todas las celdas del rango |
 | Rango multi-seleccion | `SUM(C19:C26, F36:F38)` | Suma multiples rangos |
+| Suma aritmetica | `C15+C16+C17` | Suma celdas o expresiones individuales |
+| Resta aritmetica | `SUM(H17:U17)+SUM(V22:AG22)-C38` | Resta una celda o expresion al total calculado |
+| Multiplicacion | `B61*C61` | Multiplica valores de celdas o expresiones |
+| Parentesis | `C12+(F12-G12)` | Agrupa operaciones aritmeticas simples |
 | Valor nulo/numerico estricto | `0` | Valor literal de comparacion |
 
 ## Parametrizacion para inclusiones y exclusiones
@@ -89,6 +93,6 @@ Cada regla JSON tiene la siguiente configuracion:
 
 Para agregar una nueva regla:
 
-1. Agregala en `data/reglas_finales.json` manteniendo control de IDs como `AXX-VALYYY`.
+1. Agregala en `data/reglas_finales.json` manteniendo control de IDs como `AXX-VALYYY` o `PXX-VALYYY` segun la serie.
 2. Mantiene coherencia con la logica numerador versus denominador.
 3. Verifica que la estructura de la regla siga este documento y que la app la interprete correctamente.

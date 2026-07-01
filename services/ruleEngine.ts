@@ -301,44 +301,140 @@ export class RuleEngineService {
     if (!expr || typeof expr !== 'string') return 0;
 
     const trimmed = expr.trim();
+    let index = 0;
 
-    // Manejar SUM(Rango1, Rango2...)
-    if (trimmed.startsWith('SUM(')) {
-      const inner = trimmed.substring(4, trimmed.length - 1);
-      const parts = inner.split(',').map(p => p.trim());
-      return parts.reduce((acc, part) => {
-        const val = this.resolveExpression(part, defaultSheet);
-        return acc + (typeof val === 'number' ? val : 0);
-      }, 0);
-    }
+    const peek = () => trimmed[index];
+    const consume = () => trimmed[index++];
+    const skipWhitespace = () => {
+      while (index < trimmed.length && /\s/.test(trimmed[index])) index++;
+    };
+    const toNumber = (value: unknown): number => Number(value ?? 0) || 0;
 
-    // Manejar A+B (ej: A03!L20 + A03!M20, C114+D114)
-    if (trimmed.includes('+')) {
-      const parts = trimmed.split('+').map(p => p.trim());
-      return parts.reduce((acc, part) => {
-        const val = this.resolveExpression(part, defaultSheet);
-        return acc + (typeof val === 'number' ? val : 0);
-      }, 0);
-    }
+    const readReference = (): string => {
+      const start = index;
+      let nestedParens = 0;
+      while (index < trimmed.length && !/[+\-*/(),\s]/.test(trimmed[index])) {
+        index++;
 
-    // Extraer hoja si tiene referencia cross-sheet (ej: A01!P36, A01!(H36:H37))
-    let sheet = defaultSheet;
-    let ref = trimmed;
-    if (trimmed.includes('!')) {
-      const bangIdx = trimmed.indexOf('!');
-      sheet = trimmed.substring(0, bangIdx);
-      ref = trimmed.substring(bangIdx + 1);
-    }
+        if (trimmed[index] === '(' && trimmed[index - 1] === '!') {
+          nestedParens = 1;
+          index++;
+          while (index < trimmed.length && nestedParens > 0) {
+            if (trimmed[index] === '(') nestedParens++;
+            if (trimmed[index] === ')') nestedParens--;
+            index++;
+          }
+          break;
+        }
+      }
+      return trimmed.slice(start, index);
+    };
 
-    // Limpiar paréntesis (ej: "(H36:H37)" → "H36:H37")
-    ref = ref.replace(/[()]/g, '');
+    const resolveReference = (rawRef: string): number => {
+      if (!rawRef) return 0;
 
-    // Manejar Rangos (ej: C21:C36, H36:H37)
-    if (ref.includes(':')) {
-      return this.excel.getRangeSum(sheet, ref);
-    }
+      let sheet = defaultSheet;
+      let ref = rawRef;
+      if (rawRef.includes('!')) {
+        const bangIdx = rawRef.indexOf('!');
+        sheet = rawRef.substring(0, bangIdx);
+        ref = rawRef.substring(bangIdx + 1);
+      }
 
-    // Celda Individual (ej: F11, C89)
-    return this.excel.getCellValue(sheet, ref);
+      ref = ref.replace(/[()]/g, '');
+
+      if (ref.includes(':')) {
+        return toNumber(this.excel.getRangeSum(sheet, ref));
+      }
+
+      return toNumber(this.excel.getCellValue(sheet, ref));
+    };
+
+    const parseExpression = (): number => {
+      let value = parseTerm();
+      skipWhitespace();
+
+      while (peek() === '+' || peek() === '-') {
+        const operator = consume();
+        const right = parseTerm();
+        value = operator === '+' ? value + right : value - right;
+        skipWhitespace();
+      }
+
+      return value;
+    };
+
+    const parseTerm = (): number => {
+      let value = parseFactor();
+      skipWhitespace();
+
+      while (peek() === '*' || peek() === '/') {
+        const operator = consume();
+        const right = parseFactor();
+        value = operator === '*' ? value * right : right === 0 ? 0 : value / right;
+        skipWhitespace();
+      }
+
+      return value;
+    };
+
+    const parseSum = (): number => {
+      index += 3;
+      skipWhitespace();
+      if (peek() !== '(') return 0;
+      consume();
+
+      let total = 0;
+      skipWhitespace();
+      while (index < trimmed.length && peek() !== ')') {
+        total += parseExpression();
+        skipWhitespace();
+        if (peek() === ',') {
+          consume();
+          skipWhitespace();
+        }
+      }
+
+      if (peek() === ')') consume();
+      return total;
+    };
+
+    const parseFactor = (): number => {
+      skipWhitespace();
+
+      if (peek() === '+') {
+        consume();
+        return parseFactor();
+      }
+
+      if (peek() === '-') {
+        consume();
+        return -parseFactor();
+      }
+
+      if (peek() === '(') {
+        consume();
+        const value = parseExpression();
+        skipWhitespace();
+        if (peek() === ')') consume();
+        return value;
+      }
+
+      if (trimmed.slice(index, index + 3).toUpperCase() === 'SUM') {
+        return parseSum();
+      }
+
+      if (/\d/.test(peek())) {
+        const numericMatch = trimmed.slice(index).match(/^\d+(?:\.\d+)?/);
+        if (numericMatch) {
+          index += numericMatch[0].length;
+          return Number(numericMatch[0]);
+        }
+      }
+
+      return resolveReference(readReference());
+    };
+
+    return parseExpression();
   }
 }

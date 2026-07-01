@@ -37,7 +37,7 @@
 - [x] T008 [P] Agregar pruebas de nombre de archivo para Serie A, Serie P y series no realizadas en `services/filenameValidator.test.ts`.
 - [x] T009 [P] Agregar pruebas de hoja NOMBRE para meses permitidos por serie en `services/nombreSheetValidator.test.ts`.
 - [x] T010 [P] Agregar pruebas de hojas obligatorias Serie P en `hooks/useValidationPipeline.test.ts` o en un helper testeable si se extrae.
-- [ ] T011 [P] Agregar pruebas del motor para resta, multiplicacion, parentesis y `SUM(...)` combinado en `services/ruleEngine.test.ts`.
+- [x] T011 [P] Agregar pruebas del motor para resta, multiplicacion, parentesis y `SUM(...)` combinado en `services/ruleEngine.test.ts`.
 
 **Checkpoint**: Pruebas esperadas listas para fallar antes de implementar cambios funcionales.
 
@@ -133,13 +133,13 @@
 
 ### Tests
 
-- [ ] T030 [P] Agregar casos de resta, multiplicacion y parentesis en `services/ruleEngine.test.ts`.
-- [ ] T031 [P] Agregar caso combinado con `SUM(...)` y resta en `services/ruleEngine.test.ts`.
+- [x] T030 [P] Agregar casos de resta, multiplicacion y parentesis en `services/ruleEngine.test.ts`.
+- [x] T031 [P] Agregar caso combinado con `SUM(...)` y resta en `services/ruleEngine.test.ts`.
 
 ### Implementation
 
-- [ ] T032 Cambiar `services/ruleEngine.ts` para resolver aritmetica segura sin ejecutar codigo dinamico.
-- [ ] T033 Confirmar que valores nulos o vacios sigan tratandose como `0` para denominador y expresiones sin datos.
+- [x] T032 Cambiar `services/ruleEngine.ts` para resolver aritmetica segura sin ejecutar codigo dinamico.
+- [x] T033 Confirmar que valores nulos o vacios sigan tratandose como `0` para denominador y expresiones sin datos.
 
 **Checkpoint**: El motor puede evaluar reglas P antes de importarlas masivamente.
 
@@ -153,15 +153,15 @@
 
 ### Tests
 
-- [ ] T034 [P] Crear verificacion JSON de claves `P1`, `P2`, `P3`, `P4`, `P5`, `P6`, `P7`, `P9`, `P11`, `P12`, `P13`.
-- [ ] T035 [P] Verificar que `P9` y `P13` existan como arrays vacios.
+- [x] T034 [P] Crear verificacion JSON de claves `P1`, `P2`, `P3`, `P4`, `P5`, `P6`, `P7`, `P9`, `P11`, `P12`, `P13`.
+- [x] T035 [P] Verificar que `P9` y `P13` existan como arrays vacios.
 
 ### Implementation
 
-- [ ] T036 Importar reglas P desde `Reestructuracion_Expandido.xlsx` hacia `data/reglas_finales.json`.
-- [ ] T037 Normalizar IDs como `P01-VAL001`, `P02-VAL001`, etc.
-- [ ] T038 Redactar mensajes de reglas P en espanol con hoja, seccion, celdas y condicion.
-- [ ] T039 Actualizar `data/reglas_validacion.md` si se documenta soporte nuevo de expresiones.
+- [x] T036 Importar reglas P desde `Reestructuracion_Expandido.xlsx` hacia `data/reglas_finales.json`.
+- [x] T037 Normalizar IDs como `P01-VAL001`, `P02-VAL001`, etc.
+- [x] T038 Redactar mensajes de reglas P en espanol con hoja, seccion, celdas y condicion.
+- [x] T039 Actualizar `data/reglas_validacion.md` si se documenta soporte nuevo de expresiones.
 
 **Checkpoint**: Reglas P viven en la unica fuente de verdad.
 
@@ -175,9 +175,9 @@
 
 ### Implementation
 
-- [ ] T040 [P] Actualizar `components/UserManual.tsx` con Serie P, meses y hojas obligatorias.
-- [ ] T041 [P] Actualizar `docs/Manual_Usuario.md` con Serie P y nota `P9`/`P13`.
-- [ ] T042 [P] Actualizar `components/FileDropzone.tsx` con ejemplos y series habilitadas.
+- [x] T040 [P] Actualizar `components/UserManual.tsx` con Serie P, meses y hojas obligatorias.
+- [x] T041 [P] Actualizar `docs/Manual_Usuario.md` con Serie P y nota `P9`/`P13`.
+- [x] T042 [P] Actualizar `components/FileDropzone.tsx` con ejemplos y series habilitadas.
 
 **Checkpoint**: Documentacion operativa lista.
 
@@ -187,11 +187,11 @@
 
 **Goal**: Dejar evidencia, issues y PR cuando el entorno GitHub lo permita.
 
-- [ ] T043 Crear issues desde `specs/001-serie-p-validacion/github-issues.md` cuando `gh` este disponible o desde GitHub web.
-- [ ] T044 Ejecutar `npm run test`.
-- [ ] T045 Ejecutar `npm run build`.
-- [ ] T046 Revisar `git diff` para confirmar que solo se incluyen cambios intencionales.
-- [ ] T047 Crear Pull Request vinculando issues y evidencia de pruebas.
+- [ ] T043 Crear issues desde `specs/001-serie-p-validacion/github-issues.md` cuando `gh` este disponible o desde GitHub web. Bloqueado en este entorno: `gh` no esta instalado.
+- [x] T044 Ejecutar `npm run test`. Evidencia: 7 archivos, 30 tests OK.
+- [x] T045 Ejecutar `npm run build`. Evidencia: build Vite OK; warnings no bloqueantes de chunk/import existentes.
+- [x] T046 Revisar `git diff` para confirmar que solo se incluyen cambios intencionales.
+- [ ] T047 Crear Pull Request vinculando issues y evidencia de pruebas. Bloqueado en este entorno: `gh` no esta instalado; rama subida a `origin/001-serie-p-validacion`. URL: `https://github.com/rogarces85/validador-deis-sso/pull/new/001-serie-p-validacion`.
 
 ---
 

@@ -1,0 +1,2029 @@
+{
+  "generatedAt": "2026-06-30T14:08:52.091Z",
+  "sourceWorkbook": "123010P06.xlsm",
+  "serieRem": "P",
+  "source": "reglas_finales.json (Serie P)",
+  "totalRows": 224,
+  "summary": {
+    "CELDA_VACIA": 100,
+    "OK": 124
+  },
+  "rows": [
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "H34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "I34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "J34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "K34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "L34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "M34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "N34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "O34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "P34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "Q34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "R34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "S34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "T34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "U34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "V34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "W34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "X34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "Y34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "Z34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "AA34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "AB34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "AC34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "AD34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "AE34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "AF34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL002",
+      "hojaRem": "P2",
+      "celda": "AG34",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C21 | C21 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H34 a AG34 | SUM(H34:AG34)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "H35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "I35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "J35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "K35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "L35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "M35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "N35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "O35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "P35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "Q35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "R35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "S35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "T35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "U35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "V35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "W35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "X35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "Y35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "Z35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "AA35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "AB35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "AC35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "AD35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "AE35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "AF35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL003",
+      "hojaRem": "P2",
+      "celda": "AG35",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C19 | C19 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H35 a AG35 | SUM(H35:AG35)"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "H17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "I17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "J17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "K17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "L17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "M17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "N17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "O17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "P17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "Q17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "R17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "S17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "T17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "U17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "V22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "W22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "X22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "Y22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "Z22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "AA22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "AB22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "AC22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "AD22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "AE22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "AF22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P02-VAL004",
+      "hojaRem": "P2",
+      "celda": "AG22",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, celda C33 | C33 | REM P2 | SECCION A: POBLACIÓN EN CONTROL, SEGÚN ESTADO NUTRICIONAL PARA NIÑOS MENOR DE UN MES- 59 MESES | Población en Control, suma de H17 a U17 + V22 a AG22 menos C38 | SUM(H17:U17)+SUM(V22:AG22)-C38"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "B21",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "C21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "D21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "E21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "F21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "G21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "H21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "I21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "J21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "K21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "L21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "M21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "N21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "O21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "P21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "Q21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "R21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "S21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "T21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "U21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "V21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "W21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "X21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "Y21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "Z21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AA21",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AB21",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AC21",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AD21",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AE21",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AF21",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AG21",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "B38",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "C38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "D38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "E38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "F38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "G38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "H38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "I38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "J38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "K38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "L38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "M38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "N38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "O38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "P38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "Q38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "R38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "S38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "T38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "U38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "V38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "W38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "X38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "Y38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "Z38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AA38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AB38",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AC38",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AD38",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AE38",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AF38",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P05-VAL001",
+      "hojaRem": "P5",
+      "celda": "AG38",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P5 | SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD | Población en Control por Condición de Funcionalidad | SUM(B21:AG21) | REM P5 | SECCION B: POBLACIÓN BAJO CONTROL POR ESTADO NUTRICIONAL | Población Bajo Control por Estado Nutricional | SUM(B38:AG38)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C25",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C26",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C27",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C28",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C29",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C30",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C31",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C32",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C33",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C34",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C35",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C36",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C37",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C38",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C39",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C40",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C41",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C42",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C43",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C44",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C45",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C46",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C47",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C48",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C49",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C50",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C51",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C52",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C53",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C54",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C55",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C56",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C57",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL002",
+      "hojaRem": "P6",
+      "celda": "C58",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, celda C24 | C24 | REM P6 | SECCION A.1: POBLACIÓN EN CONTROL EN APS AL CORTE | Población en control al corte, suma de C25:C58 | SUM(C25:C58)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C87",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C88",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C89",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C90",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C91",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C92",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C93",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C94",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C95",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C96",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C97",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C98",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C99",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C100",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C101",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C102",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C103",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C104",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C105",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C106",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C107",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C108",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C109",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C110",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C111",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C112",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C113",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C114",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C115",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C116",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C117",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C118",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C119",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P06-VAL004",
+      "hojaRem": "P6",
+      "celda": "C120",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, celda C75 | C75 | REM P6 | SECCION B.1: POBLACIÓN EN CONTROL EN ESPECIALIDAD AL CORTE | Población en control al corte, suma de C87:C120 | SUM(C87:C120)"
+    },
+    {
+      "codigo": "P11-VAL001",
+      "hojaRem": "P11",
+      "celda": "D12",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P11 | SECCION A: POBLACIÓN EN CONTROL DEL PROGRAMA DE VIH/SIDA | Población en Control del Programa ITS | SUM(D12:D17)"
+    },
+    {
+      "codigo": "P11-VAL001",
+      "hojaRem": "P11",
+      "celda": "D13",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P11 | SECCION A: POBLACIÓN EN CONTROL DEL PROGRAMA DE VIH/SIDA | Población en Control del Programa ITS | SUM(D12:D17)"
+    },
+    {
+      "codigo": "P11-VAL001",
+      "hojaRem": "P11",
+      "celda": "D14",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P11 | SECCION A: POBLACIÓN EN CONTROL DEL PROGRAMA DE VIH/SIDA | Población en Control del Programa ITS | SUM(D12:D17)"
+    },
+    {
+      "codigo": "P11-VAL001",
+      "hojaRem": "P11",
+      "celda": "D15",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P11 | SECCION A: POBLACIÓN EN CONTROL DEL PROGRAMA DE VIH/SIDA | Población en Control del Programa ITS | SUM(D12:D17)"
+    },
+    {
+      "codigo": "P11-VAL001",
+      "hojaRem": "P11",
+      "celda": "D16",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P11 | SECCION A: POBLACIÓN EN CONTROL DEL PROGRAMA DE VIH/SIDA | Población en Control del Programa ITS | SUM(D12:D17)"
+    },
+    {
+      "codigo": "P11-VAL001",
+      "hojaRem": "P11",
+      "celda": "D17",
+      "valor": 0,
+      "tipoValor": "number",
+      "estado": "OK",
+      "validacion": "ERROR | REM P11 | SECCION A: POBLACIÓN EN CONTROL DEL PROGRAMA DE VIH/SIDA | Población en Control del Programa ITS | SUM(D12:D17)"
+    },
+    {
+      "codigo": "P12-VAL001",
+      "hojaRem": "P12",
+      "celda": "B12",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P12 | SECCIÓN A: PROGRAMA DE CANCER DE CUELLO UTERINO | Población Femenina con PAP vigente (grupo-etario 25 a 64 años) | SUM(B12:B19)"
+    },
+    {
+      "codigo": "P12-VAL001",
+      "hojaRem": "P12",
+      "celda": "B13",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P12 | SECCIÓN A: PROGRAMA DE CANCER DE CUELLO UTERINO | Población Femenina con PAP vigente (grupo-etario 25 a 64 años) | SUM(B12:B19)"
+    },
+    {
+      "codigo": "P12-VAL001",
+      "hojaRem": "P12",
+      "celda": "B14",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P12 | SECCIÓN A: PROGRAMA DE CANCER DE CUELLO UTERINO | Población Femenina con PAP vigente (grupo-etario 25 a 64 años) | SUM(B12:B19)"
+    },
+    {
+      "codigo": "P12-VAL001",
+      "hojaRem": "P12",
+      "celda": "B15",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P12 | SECCIÓN A: PROGRAMA DE CANCER DE CUELLO UTERINO | Población Femenina con PAP vigente (grupo-etario 25 a 64 años) | SUM(B12:B19)"
+    },
+    {
+      "codigo": "P12-VAL001",
+      "hojaRem": "P12",
+      "celda": "B16",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P12 | SECCIÓN A: PROGRAMA DE CANCER DE CUELLO UTERINO | Población Femenina con PAP vigente (grupo-etario 25 a 64 años) | SUM(B12:B19)"
+    },
+    {
+      "codigo": "P12-VAL001",
+      "hojaRem": "P12",
+      "celda": "B17",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P12 | SECCIÓN A: PROGRAMA DE CANCER DE CUELLO UTERINO | Población Femenina con PAP vigente (grupo-etario 25 a 64 años) | SUM(B12:B19)"
+    },
+    {
+      "codigo": "P12-VAL001",
+      "hojaRem": "P12",
+      "celda": "B18",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P12 | SECCIÓN A: PROGRAMA DE CANCER DE CUELLO UTERINO | Población Femenina con PAP vigente (grupo-etario 25 a 64 años) | SUM(B12:B19)"
+    },
+    {
+      "codigo": "P12-VAL001",
+      "hojaRem": "P12",
+      "celda": "B19",
+      "valor": null,
+      "tipoValor": "",
+      "estado": "CELDA_VACIA",
+      "validacion": "ERROR | REM P12 | SECCIÓN A: PROGRAMA DE CANCER DE CUELLO UTERINO | Población Femenina con PAP vigente (grupo-etario 25 a 64 años) | SUM(B12:B19)"
+    }
+  ]
+}

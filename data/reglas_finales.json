@@ -2315,7 +2315,7 @@
       "tipo_validacion": "DOBLE",
       "rem_sheet": "P7",
       "expresion_1": "B10",
-      "operador": ">",
+      "operador": ">=",
       "expresion_2": "B11",
       "severidad": "ERROR",
       "rem_sheet_2": "P7",

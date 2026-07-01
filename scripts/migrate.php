@@ -84,7 +84,7 @@ $statements = [
         id              BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         regla_pk        BIGINT UNSIGNED NULL,
         regla_id        VARCHAR(40) NOT NULL,
-        accion          ENUM("CREATE","UPDATE","DELETE","DEACTIVATE","PUBLISH") NOT NULL,
+        accion          ENUM("CREATE","UPDATE","DELETE","DEACTIVATE","ACTIVATE","PUBLISH") NOT NULL,
         diff_json       JSON NULL,
         autor           INT UNSIGNED NOT NULL,
         timestamp       DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),

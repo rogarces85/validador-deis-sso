@@ -57,6 +57,52 @@ try {
         AuthController::me();
         exit;
     }
+
+    // Endpoints publicos de reglas (sin auth)
+    if ($path === '/api/reglas/actual' && $method === 'GET') {
+        ReglasVersionesController::actual();
+        exit;
+    }
+
+    // CRUD de reglas (RequireAuth, opcionalmente RequireCsrf)
+    if ($path === '/api/reglas' && $method === 'GET') {
+        ReglasController::list();
+        exit;
+    }
+    if ($path === '/api/reglas' && $method === 'POST') {
+        ReglasController::create();
+        exit;
+    }
+    if ($path === '/api/reglas/publicar' && $method === 'POST') {
+        ReglasVersionesController::publicar();
+        exit;
+    }
+    if ($path === '/api/reglas/versiones' && $method === 'GET') {
+        ReglasVersionesController::versiones();
+        exit;
+    }
+    if (preg_match('#^/api/reglas/([^/]+)$#', $path, $m)) {
+        $reglaId = urldecode($m[1]);
+        if ($method === 'GET') {
+            ReglasController::get(['regla_id' => $reglaId]);
+            exit;
+        }
+        if ($method === 'PUT') {
+            ReglasController::update(['regla_id' => $reglaId]);
+            exit;
+        }
+        if ($method === 'DELETE') {
+            ReglasController::deactivate(['regla_id' => $reglaId]);
+            exit;
+        }
+    }
+    if (preg_match('#^/api/reglas/([^/]+)/activar$#', $path, $m)) {
+        if ($method === 'POST') {
+            ReglasController::activate(['regla_id' => urldecode($m[1])]);
+            exit;
+        }
+    }
+
     Response::not_found();
 } catch (Throwable $e) {
     error_log('[api] ' . $e->getMessage() . ' @ ' . $path);

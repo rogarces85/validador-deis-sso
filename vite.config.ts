@@ -10,6 +10,16 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3000,
       host: '0.0.0.0',
+      proxy: {
+        // Reenvia /api/* a Apache (XAMPP) en localhost:80.
+        // Importante: las cookies de sesion se conservan porque el navegador
+        // ve un mismo origen (localhost:3000) y Vite las reenvia transparentemente.
+        '/api': {
+          target: 'http://localhost',
+          changeOrigin: true,
+          secure: false,
+        },
+      },
     },
     plugins: [react()],
     define: {

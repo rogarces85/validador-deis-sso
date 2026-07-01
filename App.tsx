@@ -11,6 +11,7 @@ import { ValidationResult } from './types';
 const FindingDrawer = lazy(() => import('./components/FindingDrawer'));
 const ExportPanel = lazy(() => import('./components/ExportPanel'));
 const CeldasReview = lazy(() => import('./components/CeldasReview'));
+const AdminApp = lazy(() => import('./admin/AdminApp').then(m => ({ default: m.AdminApp })));
 
 type Page = 'home' | 'results' | 'cells';
 type AppStatus = 'idle' | 'loading' | 'success' | 'error';
@@ -18,6 +19,7 @@ type AppStatus = 'idle' | 'loading' | 'success' | 'error';
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [selectedFinding, setSelectedFinding] = useState<ValidationResult | null>(null);
+  const isAdminRoute = typeof window !== 'undefined' && window.location.pathname.startsWith('/admin');
 
   const { state, validateFile, resetState } = useValidationPipeline();
 
@@ -55,6 +57,14 @@ const App: React.FC = () => {
   }, []);
 
   const hasResults = status === 'success';
+
+  if (isAdminRoute) {
+    return (
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--bg-canvas)' }}><span style={{ color: 'var(--text-secondary)' }}>Cargando panel...</span></div>}>
+        <AdminApp />
+      </Suspense>
+    );
+  }
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-canvas)', color: 'var(--text-primary)' }}>

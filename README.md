@@ -4,6 +4,19 @@ Plataforma avanzada de validación y aseguramiento de calidad para archivos **RE
 
 ## 📝 Informe de Cambios y Mejoras Recientes (Mar 2026)
 
+## 🛡️ Panel de Administración (003-A)
+
+- Backend PHP+MySQL nativo sobre XAMPP: `/api/health`, `/api/auth/{login,logout,me,csrf}`.
+- Sesión PHP con cookie `HttpOnly`, `SameSite=Strict` y expiración al cerrar el navegador.
+- CSRF token por sesión en endpoints no-idempotentes y rate limit (5/15 min) en login.
+- Página `/admin/login` con formulario en español y `AdminAuthContext` + `RequireAdmin`.
+- Script CLI `scripts/seed-admin.php` para crear el primer admin con contraseña robusta (bcrypt cost 12).
+- La validación REM sigue siendo 100% local; el contenido del archivo nunca sale del navegador.
+
+**Detalle completo:** [`docs/MANUAL_ADMIN.md`](docs/MANUAL_ADMIN.md). Spec: `specs/003-a-infra-backend-auth/`.
+
+## 📝 Informe de Cambios y Mejoras Recientes (Mar 2026)
+
 - Validación integral de la hoja **NOMBRE**: versión obligatoria (A9) 1.2/1.1, códigos de comuna y establecimiento concatenados contra catálogo, consistencia con el nombre del archivo, mes y responsables informados.
 - Motor de reglas 2026 reforzado: reglas centralizadas en `data/reglas_finales.json`, con soporte para SUM, rangos cruzados, omitir si valor=0, exclusiones (`establecimientos_excluidos`) y validaciones exclusivas con inversión de operador.
 - Flujo de metadata optimizado: `establishments.catalog.json` indexado en Map para lookups O(1), inferencia automática del tipo de recinto y filtrado consistente de reglas por serie REM.
@@ -68,6 +81,20 @@ npm run dev
 ```
 Validador2026/
 ├── .agents/              # Skills y configuración de inteligencia artificial
+├── admin/                # Sub-app React del panel admin (003-A en adelante)
+│   ├── AdminApp.tsx
+│   ├── AdminAuthContext.tsx
+│   ├── RequireAdmin.tsx
+│   └── pages/
+│       └── LoginPage.tsx
+├── api/                  # Backend PHP nativo (003-A en adelante)
+│   ├── index.php                   # router
+│   ├── bootstrap.php               # PDO, sesión, helpers
+│   ├── .htaccess                   # protege acceso directo
+│   ├── lib/                        # Response, Validator, Csrf
+│   ├── middleware/                 # auth, ratelimit, cors
+│   ├── controllers/                # AuthController, HealthController
+│   └── models/                     # UsuarioAdmin
 ├── components/           # UI: App, TopBar, FileDropzone, RulesSummary,
 │                         # FindingsTable, FindingDrawer, CeldasReview,
 │                         # ExportPanel, UserManual, ManualRuleExplorer,
@@ -80,14 +107,20 @@ Validador2026/
 │   ├── secciones.md                 # Glosas de secciones
 │   └── rules/index.ts               # Diccionario de reglas por tipo
 ├── docs/                 # Manuales, documentación técnica y flujos
+│   └── MANUAL_ADMIN.md              # Guía operativa del panel admin
 ├── hooks/                # useValidationPipeline (único hook orquestador)
+├── scripts/              # Scripts PHP de operación
+│   ├── migrate.php                  # crea las 5 tablas (idempotente)
+│   ├── seed-admin.php               # siembra el primer admin
+│   └── test-auth.php                # 8 escenarios de auth
 ├── services/             # Servicios de dominio
 │   ├── excelService.ts              # Singleton ExcelReaderService
 │   ├── ruleEngine.ts                # RuleEngineService + parser embebido
 │   ├── filenameValidator.ts         # Regex nombre + extracción metadata
 │   ├── nombreSheetValidator.ts      # 9 chequeos hoja NOMBRE
 │   ├── remSeriesConfig.ts           # Series, meses y hojas permitidas
-│   └── exportService.ts             # XLSX/CSV/JSON con estilos DEIS
+│   ├── exportService.ts             # XLSX/CSV/JSON con estilos DEIS
+│   └── api/                         # Cliente HTTP del panel admin
 ├── utils/                # Utilidades puras
 │   ├── cellReferences.ts            # Parser A1/rangos/SUM → tokens
 │   └── findingDisplay.ts            # Formateo y referencia de hallazgos

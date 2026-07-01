@@ -2372,7 +2372,7 @@
       "tipo_validacion": "COMPUESTA",
       "rem_sheet": "P7",
       "expresion_1": "B18",
-      "operador": ">",
+      "operador": ">=",
       "expresion_2": "B19+B20+B21",
       "severidad": "ERROR",
       "rem_sheet_2": "P7",

@@ -88,7 +88,7 @@ manteniendo trazabilidad de cambios.
 ### VII. Registro de Auditoria No Clinica
 Cada finalizacion de validacion MAY emitir un evento al backend con los campos listados en
 el principio I.a. La aplicacion cliente SHOULD registrar el evento en cola local
-(IndexedDB) y reintentar cuando la red este disponible. La falla del endpoint de auditoria
+(IndexedDB, con manejo de excepciones si no esta disponible) y reintentar cuando la red este disponible. La falla del endpoint de auditoria
 MUST NOT impedir ni retrasar la validacion local visible para el usuario. El backend MUST
 rechazar payloads que contengan campos no listados en I.a o que excedan longitudes
 razonables. Rationale: la trazabilidad operativa no debe degradar la experiencia del usuario

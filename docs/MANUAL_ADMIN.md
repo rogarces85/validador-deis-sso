@@ -4,9 +4,11 @@
 
 ## Alcance
 
-Esta guia cubre la **Feature 003-A**: backend PHP+MySQL, autenticacion con email y contrasena, unico rol `admin`, ruta `/admin/login` y proteccion CSRF.
+Esta guia cubre las **Features 003-A y 003-B**:
+- 003-A: backend PHP+MySQL, autenticacion con email y contrasena, unico rol `admin`, ruta `/admin/login` y proteccion CSRF.
+- 003-B: CRUD de reglas (lista paginada, formulario con preview, publicacion de versiones).
 
-Las features 003-B (CRUD de reglas) y 003-C (auditoria no clinica) se entregaran en PRs separados y se documentaran aqui cuando corresponda.
+La feature 003-C (auditoria no clinica y estadisticas) se entregara en un PR posterior y se documentara aqui cuando corresponda.
 
 ## Requisitos
 
@@ -165,9 +167,79 @@ curl -b jar.txt -X POST http://localhost/www/validador-deis-sso/api/auth/logout 
 ```bash
 # Ejecuta los 8 escenarios del script de pruebas PHP
 npm run test:auth
+
+# Ejecuta los 12 escenarios del CRUD de reglas + publicacion
+npm run test:reglas
+
+# Sembrar las reglas desde data/reglas_finales.json a la BD
+npm run import:reglas
 ```
 
-Esto crea (si no existe) un admin de pruebas con `email: admin@test.local` y `password: test1234` y valida los endpoints via HTTP.
+`test:auth` crea (si no existe) un admin de pruebas con `email: admin@test.local` y `password: test1234` y valida los endpoints via HTTP.
+
+`test:reglas` valida 12 escenarios end-to-end: login, listar reglas, GET publico, crear, duplicado -> 409, validacion -> 400, editar, desactivar, activar, publicar, historial de versiones y reflejo publico.
+
+## CRUD de Reglas (Feature 003-B)
+
+### Importar reglas iniciales
+
+Tras mergear 003-B, las reglas aun no estan en la BD. Para cargarlas desde `data/reglas_finales.json`:
+
+```bash
+npm run import:reglas          # carga si la BD esta vacia
+npm run import:reglas -- --reset   # limpia y reimporta
+```
+
+Esto crea las reglas en la tabla `reglas` con `activo=1` y publica la primera version `1.0.0-reglas`.
+
+### Pantallas disponibles
+
+| URL | Proposito |
+|---|---|
+| `/admin` | Dashboard con conteos y accesos rapidos |
+| `/admin/reglas` | Listado paginado con filtros (serie, severidad, busqueda) |
+| `/admin/reglas/nueva` | Formulario de creacion con preview de expresiones |
+| `/admin/reglas/:regla_id` | Formulario de edicion con preview de expresiones |
+| `/admin/publicar` | Publicar nueva version + historial |
+
+### Formulario de regla
+
+El formulario se divide en 4 secciones colapsables:
+
+1. **Identidad** - `regla_id` (unico, no editable en update), `serie` (A/P), `rem_sheet`, `tipo`.
+2. **Expresion de comparacion** - `expresion_1`, `operador` (chips), `expresion_2`. La vista previa muestra una descripcion humana (ej. "Suma el rango C21:C36").
+3. **Severidad y mensaje** - `severidad` (chips), `mensaje` humano.
+4. **Alcance y flags** (avanzado, contraido por defecto) - `aplicar_a_tipo`, `excluir_tipo`, `aplicar_a`, `establecimientos_excluidos`, toggles para `omitir_si_*` y `validacion_exclusiva`.
+
+### Publicar una version
+
+1. Ve a `/admin/publicar`.
+2. Escribe una nota de release (opcional, max 1000 chars).
+3. Pulsa "Publicar nueva version".
+4. El sistema crea una fila en `reglas_versiones` con un semver autoincrementado (ej. `1.0.0-reglas`, `1.0.1-reglas`).
+
+Tras publicar, `GET /api/reglas/actual` (publico) refleja la nueva version. La sincronizacion con el validador (banner de "Hay nuevas reglas") se implementa en 003-C.
+
+## Endpoints de la API
+
+| Metodo | Path | Auth | Descripcion |
+|---|---|---|---|
+| GET | `/api/health` | publico | Health check (verifica BD) |
+| GET | `/api/auth/csrf` | publico | Devuelve token CSRF actual |
+| POST | `/api/auth/login` | publico | Login (rate-limited) |
+| GET | `/api/auth/me` | sesion | Datos del admin actual |
+| POST | `/api/auth/logout` | sesion + CSRF | Cierra sesion |
+| GET | `/api/reglas` | sesion | Lista reglas (filtros: `serie`, `severidad`, `q`, `incluir_desactivadas`, `page`, `perPage`) |
+| GET | `/api/reglas/:regla_id` | sesion | Detalle de una regla |
+| POST | `/api/reglas` | sesion + CSRF | Crear regla |
+| PUT | `/api/reglas/:regla_id` | sesion + CSRF | Editar regla |
+| DELETE | `/api/reglas/:regla_id` | sesion + CSRF | Soft-delete (desactivar) |
+| POST | `/api/reglas/:regla_id/activar` | sesion + CSRF | Reactivar regla |
+| GET | `/api/reglas/versiones` | sesion | Historial de publicaciones |
+| POST | `/api/reglas/publicar` | sesion + CSRF | Publicar nueva version |
+| GET | `/api/reglas/actual` | **publico** | Bundle de la ultima publicacion |
+
+## Solucion de problemas
 
 ## Solucion de problemas
 
@@ -183,6 +255,14 @@ Esto crea (si no existe) un admin de pruebas con `email: admin@test.local` y `pa
 - Verifica que el host `10.8.152.199` sea alcanzable desde la maquina donde corre Apache: `Test-NetConnection 10.8.152.199 -Port 3306`.
 - Verifica que el usuario `root` tenga permisos para crear la BD `validador_rem` (la primera ejecucion requiere `CREATE DATABASE`).
 - Verifica que el puerto `3306` no este bloqueado por un firewall.
+
+### La importacion de reglas falla con "Data too long"
+
+`expresion_1` esta limitada a 255 chars. Algunas reglas del JSON de origen tienen expresiones compuestas muy largas; el script las trunca con un warning y el admin debe revisarlas en el panel antes de publicar.
+
+### El listado de reglas aparece vacio tras mergear 003-B
+
+Ejecuta `npm run import:reglas` para cargar las reglas desde `data/reglas_finales.json` a la BD. El bundle `data/reglas_finales.json` sigue siendo la fuente canonica para la primera importacion; cambios posteriores van por el panel.
 
 ### El frontend no se conecta al backend
 

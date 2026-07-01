@@ -4,16 +4,29 @@ Plataforma avanzada de validación y aseguramiento de calidad para archivos **RE
 
 ## 📝 Informe de Cambios y Mejoras Recientes (Mar 2026)
 
-## 🛡️ Panel de Administración (003-A)
+## 🛡️ Panel de Administración (003-A + 003-B)
+
+### 003-A · Backend y autenticación
 
 - Backend PHP+MySQL nativo sobre XAMPP: `/api/health`, `/api/auth/{login,logout,me,csrf}`.
 - Sesión PHP con cookie `HttpOnly`, `SameSite=Strict` y expiración al cerrar el navegador.
 - CSRF token por sesión en endpoints no-idempotentes y rate limit (5/15 min) en login.
 - Página `/admin/login` con formulario en español y `AdminAuthContext` + `RequireAdmin`.
 - Script CLI `scripts/seed-admin.php` para crear el primer admin con contraseña robusta (bcrypt cost 12).
-- La validación REM sigue siendo 100% local; el contenido del archivo nunca sale del navegador.
 
-**Detalle completo:** [`docs/MANUAL_ADMIN.md`](docs/MANUAL_ADMIN.md). Spec: `specs/003-a-infra-backend-auth/`.
+### 003-B · CRUD de reglas y publicación
+
+- Listado paginado con filtros (serie, severidad, búsqueda) y badges de estado.
+- Formulario de regla con 4 secciones colapsables: Identidad, Expresión, Severidad, Alcance.
+- Vista previa humana de la expresión ("Suma el rango C21:C36", "Lee la celda F11").
+- Publicación de versiones inmutables con semver (`1.0.X-reglas`).
+- Endpoint público `GET /api/reglas/actual` con la última versión publicada.
+- Auditoría completa de cambios en `reglas_audit` con diff antes/después.
+- Script `scripts/import-reglas-initial.php` que carga `data/reglas_finales.json` a la BD.
+
+**La validación REM sigue siendo 100% local; el contenido del archivo nunca sale del navegador.**
+
+**Detalle completo:** [`docs/MANUAL_ADMIN.md`](docs/MANUAL_ADMIN.md). Specs: `specs/003-a-infra-backend-auth/`, `specs/003-b-crud-reglas/`.
 
 ## 📝 Informe de Cambios y Mejoras Recientes (Mar 2026)
 

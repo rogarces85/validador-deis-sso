@@ -23,12 +23,18 @@ declare(strict_types=1);
 require_once __DIR__ . '/lib/Response.php';
 require_once __DIR__ . '/lib/Validator.php';
 require_once __DIR__ . '/lib/Csrf.php';
+require_once __DIR__ . '/lib/RuleValidator.php';
 require_once __DIR__ . '/middleware/cors.php';
 require_once __DIR__ . '/middleware/ratelimit.php';
 require_once __DIR__ . '/middleware/auth.php';
 require_once __DIR__ . '/models/UsuarioAdmin.php';
+require_once __DIR__ . '/models/Regla.php';
+require_once __DIR__ . '/models/ReglaVersion.php';
+require_once __DIR__ . '/models/ReglasAudit.php';
 require_once __DIR__ . '/controllers/HealthController.php';
 require_once __DIR__ . '/controllers/AuthController.php';
+require_once __DIR__ . '/controllers/ReglasController.php';
+require_once __DIR__ . '/controllers/ReglasVersionesController.php';
 
 const DB_HOST = '10.8.152.199';
 const DB_PORT = '3306';

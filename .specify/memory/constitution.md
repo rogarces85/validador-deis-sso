@@ -115,8 +115,8 @@ I.a.
 Cuando el backend este disponible, la aplicacion cliente:
 
 1. Envia un evento por cada validacion finalizada a `POST /api/audit` con los campos
-   listados en I.a. El envio es fire-and-forget con cola de reintentos en IndexedDB; nunca
-   bloquea la validacion local.
+   listados en I.a. El envio es fire-and-forget con cola de reintentos en IndexedDB (con
+   retroceso exponencial y limite de intentos); nunca bloquea la validacion local.
 2. Consulta `GET /api/reglas/actual` al iniciar la aplicacion. Si la `version_semver`
    devuelta es mayor que la local cacheada en IndexedDB, MUST mostrar un banner
    `Hay nuevas reglas disponibles` con boton para actualizar.

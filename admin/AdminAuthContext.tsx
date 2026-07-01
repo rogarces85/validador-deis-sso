@@ -109,7 +109,8 @@ export const AdminAuthProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       setStatus('idle');
     }
     return () => setOnUnauthorized(null);
-  }, [refresh, user]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [refresh]);
 
   const value = useMemo<AdminAuthState>(
     () => ({ user, status, error, login, logout, refresh }),

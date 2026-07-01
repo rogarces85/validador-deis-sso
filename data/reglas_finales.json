@@ -2352,7 +2352,7 @@
       "tipo": "DOBLE",
       "tipo_validacion": "DOBLE",
       "rem_sheet": "P7",
-      "expresion_1": "B17",
+      "operador": ">=",
       "operador": ">",
       "expresion_2": "B18",
       "severidad": "ERROR",

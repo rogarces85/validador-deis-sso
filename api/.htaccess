@@ -1,0 +1,27 @@
+# Protege el acceso directo a archivos PHP que no sean index.php
+# Cualquier *.php dentro de api/ se redirige al router
+<FilesMatch "\.php$">
+    <If "%{REQUEST_URI} !~ m#/api/index\.php$#">
+        Require all denied
+    </If>
+</FilesMatch>
+
+# Forzar paso por index.php para rutas /api/*
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /www/validador-deis-sso/
+    RewriteRule ^api/(.*)$ api/index.php [QSA,L]
+</IfModule>
+
+# Encabezados de seguridad
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "same-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Sin cache para endpoints
+<IfModule mod_expires.c>
+    ExpiresActive Off
+</IfModule>

@@ -1,11 +1,19 @@
 <!-- SPECKIT START -->
-Plan actual Spec Kit: `specs/001-serie-p-validacion/plan.md`.
+Plan actual Spec Kit: `specs/003-a-infra-backend-auth/plan.md` (Feature 003-A: backend PHP+MySQL + auth admin). Siguiente entrega planificada: 003-B (CRUD reglas + publicacion) y 003-C (auditoria no clinica + estadisticas), todas en `specs/003-*/`.
 
-Feature activa: incorporación de Serie P al validador REM, manteniendo Serie A sin regresiones. La Serie P es semestral y solo acepta meses `06` y `12`; exige hojas `NOMBRE`, `P1`, `P2`, `P3`, `P4`, `P5`, `P6`, `P7`, `P9`, `P11`, `P12` y `P13`. `P9` y `P13` son obligatorias aunque inicialmente no tengan reglas.
+Contexto constitucional: `constitucion v1.2.0` habilita modulo admin (Principio VI) y registro de auditoria no clinica (Principio VII) sobre backend PHP+MySQL, manteniendo la promesa de procesamiento local del contenido del archivo REM.
 <!-- SPECKIT END -->
 
 # Instrucciones del Agente
 - **Idioma**: El sistema y todas las interacciones deben ser siempre en **español**.
-- **Fuente de Verdad de Reglas**: El archivo `data/reglas_finales.json` es la única fuente de verdad para las reglas de validación. Cualquier modificación debe iniciar en este archivo.
-- **Lógica de Validación**: Las reglas se basan en una relación de **Numerador (`expresion_1`)** vs **Denominador (`expresion_2`)**. Si el denominador está vacío o no trae datos, se debe tratar como `0` o vacío.
+- **Fuente de Verdad de Reglas**: El archivo `data/reglas_finales.json` sigue siendo la unica fuente canonica para las reglas que se distribuyen con el bundle del validador. En paralelo, la tabla `reglas` del backend (carpeta `api/`) actua como **borrador editable**; el admin publica una version con un boton "Publicar" y la version publicada pasa a `reglas_versiones`. Esto se implementa en la Feature 003-B.
+- **Logica de Validacion**: Las reglas se basan en una relacion de **Numerador (`expresion_1`)** vs **Denominador (`expresion_2`)**. Si el denominador esta vacio o no trae datos, se debe tratar como `0` o vacio.
 - **Estructura de Reglas**: Seguir estrictamente la estructura definida en `data/reglas_validacion.md`.
+- **Backend y Auditoria**: Toda interaccion con el backend (auth, CRUD reglas, auditoria) se hace via la API REST bajo `/api/*` descrita en `docs/MANUAL_ADMIN.md`. El contenido del archivo REM **nunca** se envia al backend; solo metadatos no clinicos (nombre, codigo, serie, mes, comuna, conteo por severidad, IP, UA).
+- **Convencion de carpetas**:
+  - `api/` - Backend PHP nativo (router, controllers, models, middleware, lib).
+  - `services/` - Servicios TypeScript del validador (incluye `services/api/` para el cliente HTTP del panel admin).
+  - `admin/` - Sub-app React del panel admin (AuthContext, RequireAdmin, pages).
+  - `scripts/` - Scripts PHP de operacion (migrate, seed-admin, test-auth).
+  - `specs/` - Documentacion Spec Kit por feature.
+- **Skills disponibles**: ver `.agents/skills/`. Para este modulo admin, las skills criticas son `speckit-git-feature`, `speckit-git-commit` y `speckit-agent-context-update`.

@@ -56,24 +56,84 @@ npm run dev
 |:---|:---|
 | **React 19** | Frontend SPA |
 | **TypeScript** | Tipado estricto |
-| **Vite** | Build tool & dev server |
+| **Vite 6** | Build tool & dev server |
 | **SheetJS (XLSX)** | Lectura de archivos Excel en cliente |
-| **Tailwind CSS** | Estilos y UI |
+| **xlsx-js-style** | Escritura XLSX con estilos DEIS (Resumen/Hallazgos) |
+| **Tailwind CSS** | Estilos y design tokens vía variables CSS |
+| **Vitest** | Tests unitarios e integración (`npm test`) |
+| **Spec Kit** | Flujo `specs/001-...` para features (ej. Serie P) |
 
 ## 📂 Estructura del Proyecto (Limpia)
 
 ```
 Validador2026/
-├── .agents/          # Skills y configuración de inteligencia artificial
-├── components/       # Componentes UI (FindingsTable, FileDropzone, etc.)
-├── data/             # Reglas de validación (reglas_finales.json) y catálogos
-├── docs/             # Manuales, documentación técnica y flujos de datos
-├── hooks/            # Lógica de estado y efectos (useValidationPipeline)
-├── scripts/          # Scripts utilitarios del sistema
-├── services/         # Servicios core (ExcelService, RuleEngine)
-├── tests/            # Tests de integración y calidad
-└── [archivos de configuración: Vite, TS, Tailwind, Package.json]
+├── .agents/              # Skills y configuración de inteligencia artificial
+├── components/           # UI: App, TopBar, FileDropzone, RulesSummary,
+│                         # FindingsTable, FindingDrawer, CeldasReview,
+│                         # ExportPanel, UserManual, ManualRuleExplorer,
+│                         # SeverityChips, ThemeContext
+├── data/                 # Fuente de verdad
+│   ├── reglas_finales.json          # Reglas de validación (Series A y P)
+│   ├── reglas_validacion.md         # Estructura documental de las reglas
+│   ├── establishments.catalog.json  # Catálogo de establecimientos
+│   ├── celdas.catalog.json          # Catálogo de celdas a revisar
+│   ├── secciones.md                 # Glosas de secciones
+│   └── rules/index.ts               # Diccionario de reglas por tipo
+├── docs/                 # Manuales, documentación técnica y flujos
+├── hooks/                # useValidationPipeline (único hook orquestador)
+├── services/             # Servicios de dominio
+│   ├── excelService.ts              # Singleton ExcelReaderService
+│   ├── ruleEngine.ts                # RuleEngineService + parser embebido
+│   ├── filenameValidator.ts         # Regex nombre + extracción metadata
+│   ├── nombreSheetValidator.ts      # 9 chequeos hoja NOMBRE
+│   ├── remSeriesConfig.ts           # Series, meses y hojas permitidas
+│   └── exportService.ts             # XLSX/CSV/JSON con estilos DEIS
+├── utils/                # Utilidades puras
+│   ├── cellReferences.ts            # Parser A1/rangos/SUM → tokens
+│   └── findingDisplay.ts            # Formateo y referencia de hallazgos
+├── tests/                # Tests Vitest
+└── [config: Vite, TS, Tailwind, package.json]
 ```
+
+## 🧬 Arquitectura y Flujo del Pipeline
+
+**Tipo:** SPA 100% client-side. No hay backend ni rutas HTTP — el routeo interno es por estado en `App.tsx` (`home` | `results` | `cells`). XAMPP sólo sirve los estáticos.
+
+### Capas (de abajo hacia arriba)
+
+1. **Datos** — `data/reglas_finales.json` es la **única fuente de verdad** de las reglas; cualquier modificación parte desde ahí.
+2. **Utilidades puras** — parsers y formateadores sin estado.
+3. **Servicios de dominio** — encapsulan lectura Excel, motor de reglas, validadores.
+4. **Hook orquestador** — `useValidationPipeline` coordina el pipeline con `Promise.all` + `import()` dinámicos para code-splitting.
+5. **UI** — componentes con carga diferida (`FindingDrawer`, `ExportPanel`, `CeldasReview` son `lazy()`).
+
+### Flujo del pipeline (`hooks/useValidationPipeline.ts`)
+
+1. `FilenameValidator` valida el nombre (`[Codigo6][Serie][Mes].xlsm/xlsx`) y extrae metadata.
+2. `ExcelReaderService.getInstance()` carga el workbook (Singleton).
+3. `remSeriesConfig.getMissingRequiredSheetsForSerie` valida hojas obligatorias (Serie P exige `NOMBRE` + P1–P7, P9, P11–P13).
+4. `NombreSheetValidator` corre primero (9 chequeos; sus hallazgos van al inicio de la lista).
+5. `RuleEngine.evaluate` corre las reglas filtradas por serie y tipo de establecimiento.
+6. Combinación `nombreOutput + ruleResults` → `AppState` → UI.
+
+### Reglas: numerador vs denominador
+
+Conceptualmente, **`expresion_1` es el numerador** y **`expresion_2` es el denominador o referencia**. Si `expresion_2` viene vacía o sin datos, se trata como `0`. Reglas disponibles:
+
+- Expresiones con `SUM` y rangos cruzados entre hojas (`A1:B10`, `Hoja!A1+B2`).
+- Operadores: `==`, `!=`, `>`, `<`, `>=`, `<=`.
+- Flags por regla: `validacion_exclusiva` (invierte operador y aprueba al objetivo), `omitir_si_ambos_cero`, `omitir_si_v1_es_cero`, `omitir_si_condicion_no_cumple`, `condicion_previa`.
+- Filtros por scope: `aplicar_a` (códigos), `aplicar_a_tipo` (tipos de establecimiento), `excluir_tipo`, `establecimientos_excluidos`.
+- El parser de expresiones vive embebido en `services/ruleEngine.ts:299` (descenso recursivo: `parseExpression → parseTerm → parseFactor → parseSum`).
+
+## 🔥 Puntos Críticos (alto impacto ante cambios)
+
+- **`services/ruleEngine.ts`** — núcleo de toda la validación. Cualquier cambio impacta todas las series. Embebe el parser de expresiones y la lógica de inversión de operador.
+- **`utils/cellReferences.ts`** — `expandRange` + `tokenizeExpression` + `buildDynamicCellEntries` iteran reglas × celdas. Cuello de botella potencial para archivos grandes.
+- **`hooks/useValidationPipeline.ts`** — orquesta 6 `import()` dinámicos; un error en cualquiera aborta el pipeline completo.
+- **`services/excelService.ts`** — Singleton con fan-in 12; concentra `getCellValue` y `getRangeSum` para todo el sistema.
+- **`data/reglas_finales.json` + `data/rules/index.ts`** — fuente de verdad. Cambios aquí deben propagarse vía skill `sincronizador-reglas` (`npm run sync-rules` / `npm run sync-rules:check`).
+- **`dist-pipeline/` y `tests-pipeline/`** — bundles pre-construidos de un pipeline Node histórico; no son código de runtime de la app.
 
 ## 🧠 Sistema de Habilidades (Skills)
 

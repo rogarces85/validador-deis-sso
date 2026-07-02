@@ -88,6 +88,7 @@ Cada regla JSON tiene la siguiente configuracion:
 | `aplicar_a` | Array de codigos DEIS directos. Ej: `["123100"]`. |
 | `establecimientos_excluidos` | Array de codigos DEIS que ignoran la evaluacion. |
 | `omitir_si_v1_es_cero` | Si `expresion_1` esta vacia o es `0`, la validacion no se dispara. |
+| `omitir_si_ambos_cero` (automatico por tipo desde 003-D) | Para reglas tipo DOBLE (CELDA con `expresion_2` como celda) y COMPUESTA (tipo `CRUCE`), el motor omite automaticamente el chequeo si AMBAS celdas son 0/vacias o si el resultado combinado es 0. Se activa por defecto; el flag explicito `false` desactiva el comportamiento automatico (override manual del operador del panel). |
 
 ## Mantenimiento
 

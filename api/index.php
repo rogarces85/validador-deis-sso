@@ -64,6 +64,20 @@ try {
         exit;
     }
 
+    // Auditoria no clinica (POST publico, GET admin)
+    if ($path === '/api/audit' && $method === 'POST') {
+        AuditController::create();
+        exit;
+    }
+    if ($path === '/api/audit' && $method === 'GET') {
+        AuditController::list();
+        exit;
+    }
+    if ($path === '/api/audit/estadisticas' && $method === 'GET') {
+        AuditController::stats();
+        exit;
+    }
+
     // CRUD de reglas (RequireAuth, opcionalmente RequireCsrf)
     if ($path === '/api/reglas' && $method === 'GET') {
         ReglasController::list();

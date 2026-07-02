@@ -6,9 +6,9 @@ import { DashboardPage } from './pages/DashboardPage';
 import { ReglasListPage } from './pages/ReglasListPage';
 import { ReglaEditPage } from './pages/ReglaEditPage';
 import { PublicarPage } from './pages/PublicarPage';
+import { AuditoriaPage } from './pages/AuditoriaPage';
 
 const AdminRouter: React.FC = () => {
-  const { user } = useAdminAuth();
   const path = typeof window !== 'undefined' ? window.location.pathname : '/admin';
 
   if (path.startsWith('/admin/login')) {
@@ -47,6 +47,13 @@ const AdminRouter: React.FC = () => {
     return (
       <RequireAdmin>
         <PublicarPage />
+      </RequireAdmin>
+    );
+  }
+  if (path === '/admin/auditoria') {
+    return (
+      <RequireAdmin>
+        <AuditoriaPage />
       </RequireAdmin>
     );
   }

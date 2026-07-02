@@ -10,6 +10,7 @@ const NAV: { href: string; label: string }[] = [
   { href: '/admin', label: 'Dashboard' },
   { href: '/admin/reglas', label: 'Reglas' },
   { href: '/admin/publicar', label: 'Publicar' },
+  { href: '/admin/auditoria', label: 'Auditoria' },
 ];
 
 export const AdminLayout: React.FC<Props> = ({ user, children }) => {

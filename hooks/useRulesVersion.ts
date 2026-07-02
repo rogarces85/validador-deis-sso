@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { actual } from '../services/api/reglas';
 
-const DB_NAME = 'validador_deis';
+const DB_NAME = 'validador_deis_rules';
 const STORE_NAME = 'rules_version';
 const KEY_CURRENT = 'current';
 

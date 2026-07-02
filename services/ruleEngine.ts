@@ -46,6 +46,19 @@ export class RuleEngineService {
     }
   }
 
+  /**
+   * Determina si un valor leido del Excel representa "ausencia de dato":
+   * null, undefined, string vacio, string '0', o numero 0.
+   * Es la condicion que activa la omision automatica para reglas tipo
+   * DOBLE (dos celdas independientes) y COMPUESTA (resultado combinado 0).
+   */
+  private isZeroLike(v: unknown): boolean {
+    if (v === null || v === undefined) return true;
+    if (typeof v === 'string') return v === '' || v === '0';
+    if (typeof v === 'number') return v === 0;
+    return false;
+  }
+
   private getReferenceLabel(rule: ValidationRule, value: unknown, omittedByCondition: boolean = false): string {
     if (omittedByCondition) {
       return 'No aplica: sin datos previos';
@@ -233,6 +246,41 @@ export class RuleEngineService {
         id: generateUUID(),
         evidence: 'Omitida: valor actual de la expresión 1 es nulo, vacío o cero.'
       };
+    }
+
+    // Omision automatica por tipo de regla (003-D):
+    //   - DOBLE: regla CELDA cuyo expresion_2 es una celda (no un numero).
+    //     Si AMBAS celdas son 0/vacias, no hay datos que comparar.
+    //   - COMPUESTA: regla tipo CRUCE (expresion combinada).
+    //     Si el resultado de la expresion es 0, no hay datos.
+    // El flag omitir_si_ambos_cero === false desactiva este comportamiento
+    // automatico (override manual del operador del panel).
+    if (rule.omitir_si_ambos_cero !== false) {
+      const isDoble = rule.tipo === 'CELDA'
+        && typeof rule.expresion_2 === 'string'
+        && /^[A-Z]+(\d+(!|\$))?\d+$/i.test(rule.expresion_2);
+      const isCompuesta = rule.tipo === 'CRUCE';
+      if ((isDoble && this.isZeroLike(val1) && this.isZeroLike(val2))
+          || (isCompuesta && v1 === 0)) {
+        return {
+          ruleId: rule.id,
+          descripcion: rule.mensaje,
+          severidad: rule.severidad,
+          resultado: true,
+          valorActual: val1,
+          valorEsperado: val2,
+          referenciaLabel: this.getReferenceLabel(rule, val2),
+          operador: rule.operador,
+          valorReferencia: val2,
+          comparacion: `${this.formatValue(v1)} ${rule.operador} ${this.formatValue(v2)}`,
+          diferencia: 0,
+          rem_sheet: rule.rem_sheet,
+          id: generateUUID(),
+          evidence: isDoble
+            ? 'Omitida: ambas celdas son 0 o vacias (regla tipo DOBLE, sin datos para comparar).'
+            : 'Omitida: resultado combinado es 0 (regla tipo COMPUESTA, sin datos para comparar).'
+        };
+      }
     }
 
     // Omitir validación si ambos valores son 0 y la regla lo indica.

@@ -416,4 +416,121 @@ describe('RuleEngineService', () => {
         expect(nonTargetResults).toHaveLength(1);
         expect(nonTargetResults[0].resultado).toBe(false);
     });
+
+    // 003-D: omision automatica para reglas tipo DOBLE (dos celdas) y COMPUESTA
+
+    it('003-D: omite regla DOBLE (CELDA con v2 como celda) si ambas celdas son 0', async () => {
+        const rule: ValidationRule = {
+            id: 'DOBLE_001',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A1',
+            operador: '>',
+            expresion_2: 'B1',
+            severidad: Severity.ERROR,
+            mensaje: 'Doble test - ambas en 0'
+        };
+
+        mockExcel.getCellValue.mockImplementation((_sheet: string, cell: string) => {
+            if (cell === 'A1') return 0;
+            if (cell === 'B1') return 0;
+            return null;
+        });
+
+        const results = await ruleEngine.evaluate([rule], mockMetadata);
+        expect(results).toHaveLength(1);
+        expect(results[0].resultado).toBe(true);
+        expect(results[0].evidence).toMatch(/DOBLE/);
+    });
+
+    it('003-D: omite regla DOBLE si v1=0 y v2 es null (sin dato)', async () => {
+        const rule: ValidationRule = {
+            id: 'DOBLE_002',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A1',
+            operador: '>',
+            expresion_2: 'B1',
+            severidad: Severity.ERROR,
+            mensaje: 'Doble test - v1 en 0 y v2 null'
+        };
+
+        mockExcel.getCellValue.mockImplementation((_sheet: string, cell: string) => {
+            if (cell === 'A1') return 0;
+            if (cell === 'B1') return null;
+            return 0;
+        });
+
+        const results = await ruleEngine.evaluate([rule], mockMetadata);
+        expect(results).toHaveLength(1);
+        expect(results[0].resultado).toBe(true);
+        expect(results[0].evidence).toMatch(/DOBLE/);
+    });
+
+    it('003-D: omite regla COMPUESTA (CRUCE) si el resultado combinado es 0', async () => {
+        const rule: ValidationRule = {
+            id: 'COMPUESTA_001',
+            tipo: 'CRUCE',
+            rem_sheet: 'P2',
+            expresion_1: 'SUM(H17:U17)+SUM(V22:AG22)-C38',
+            operador: '==',
+            expresion_2: 42,
+            severidad: Severity.ERROR,
+            mensaje: 'Compuesta test - resultado combinado 0'
+        };
+
+        mockExcel.getRangeSum.mockReturnValue(0);
+        mockExcel.getCellValue.mockReturnValue(0);
+
+        const results = await ruleEngine.evaluate([rule], { ...mockMetadata, serieRem: 'P' });
+        expect(results).toHaveLength(1);
+        expect(results[0].resultado).toBe(true);
+        expect(results[0].evidence).toMatch(/COMPUESTA/);
+    });
+
+    it('003-D: NO omite regla SIMPLE con v1=0 si operador es >0', async () => {
+        const rule: ValidationRule = {
+            id: 'SIMPLE_001',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A1',
+            operador: '>',
+            expresion_2: 0,
+            severidad: Severity.ERROR,
+            mensaje: 'Simple test - v1=0 con >0 debe fallar'
+        };
+
+        mockExcel.getCellValue.mockReturnValue(0);
+
+        const results = await ruleEngine.evaluate([rule], mockMetadata);
+        expect(results).toHaveLength(1);
+        // 0 > 0 = false -> debe generar hallazgo
+        expect(results[0].resultado).toBe(false);
+    });
+
+    it('003-D: NO omite regla DOBLE si solo una celda es 0', async () => {
+        const rule: ValidationRule = {
+            id: 'DOBLE_003',
+            tipo: 'CELDA',
+            rem_sheet: 'A01',
+            expresion_1: 'A1',
+            operador: '>',
+            expresion_2: 'B1',
+            severidad: Severity.ERROR,
+            mensaje: 'Doble test - solo v2 es 0'
+        };
+
+        mockExcel.getCellValue.mockImplementation((_sheet: string, cell: string) => {
+            if (cell === 'A1') return 5; // distinto de 0
+            if (cell === 'B1') return 0;
+            return 0;
+        });
+
+        const results = await ruleEngine.evaluate([rule], mockMetadata);
+        expect(results).toHaveLength(1);
+        // 5 > 0 = true -> debe pasar
+        expect(results[0].resultado).toBe(true);
+        // No debe estar omitida por la rama automatica
+        expect(results[0].evidence).not.toMatch(/DOBLE/);
+    });
 });

@@ -258,7 +258,7 @@ export class RuleEngineService {
     if (rule.omitir_si_ambos_cero !== false) {
       const isDoble = rule.tipo === 'CELDA'
         && typeof rule.expresion_2 === 'string'
-        && /^[A-Z]+(\d+(!|\$))?\d+$/i.test(rule.expresion_2);
+        && /^([A-Z0-9_]+!)?\\$?[A-Z]+\\$?\\d+$/i.test(rule.expresion_2);
       const isCompuesta = rule.tipo === 'CRUCE';
       if ((isDoble && this.isZeroLike(val1) && this.isZeroLike(val2))
           || (isCompuesta && v1 === 0)) {

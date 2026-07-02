@@ -48,7 +48,7 @@ function rowToRegla(row, seqInSheet) {
     id,
     tipo: mapTipo(row['TIPO']),
     rem_sheet: remSheet,
-    expresion_1: String(row['CELDAS'] || '').trim(),
+    expresion_1: String(row['CELDAS'] || '').replace(/\s+/g, ''),
     operador,
     expresion_2: valor,
     severidad: String(row['SEVERIDAD'] || 'REVISAR').trim().toUpperCase(),

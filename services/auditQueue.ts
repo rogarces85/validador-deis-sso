@@ -87,6 +87,7 @@ export async function flush(): Promise<{ sent: number; failed: number }> {
       item.last_attempt_at = now;
       try { await txAll('readwrite', store => store.put(item)); } catch { /* ignore */ }
       failed++;
+      break;
     }
   }
   return { sent, failed };

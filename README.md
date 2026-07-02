@@ -2,9 +2,7 @@
 
 Plataforma avanzada de validación y aseguramiento de calidad para archivos **REM (Resumen Estadístico Mensual)** del Servicio de Salud Osorno.
 
-## 📝 Informe de Cambios y Mejoras Recientes (Mar 2026)
-
-## 🛡️ Panel de Administración (003-A + 003-B)
+## 🛡️ Panel de Administración (003-A + 003-B + 003-C)
 
 ### 003-A · Backend y autenticación
 
@@ -24,9 +22,20 @@ Plataforma avanzada de validación y aseguramiento de calidad para archivos **RE
 - Auditoría completa de cambios en `reglas_audit` con diff antes/después.
 - Script `scripts/import-reglas-initial.php` que carga `data/reglas_finales.json` a la BD.
 
+### 003-C · Auditoría no clínica y estadísticas
+
+- El validador envía un evento al backend cada vez que termina una validación con metadatos no clínicos (lista blanca estricta).
+- Cola IndexedDB con TTL 7d y max 500 entradas; fire-and-forget con retry asíncrono. La falla del backend no impide la validación local.
+- Rate limit 1000/h por IP en `POST /api/audit` (público).
+- Página `/admin/auditoria` con 4 StatCards (total, tasa de aprobación, series, top establecimiento) + tabla paginada con filtros (rango fechas, serie, mes, código, resultado).
+- Sincronización automática de reglas: el validador consulta `GET /api/reglas/actual` cada 5 minutos; si hay versión nueva, banner en la home con botón "Actualizar reglas".
+- Implementa los Principios I.a, VI y VII sin exponer contenido del archivo REM.
+
 **La validación REM sigue siendo 100% local; el contenido del archivo nunca sale del navegador.**
 
-**Detalle completo:** [`docs/MANUAL_ADMIN.md`](docs/MANUAL_ADMIN.md). Specs: `specs/003-a-infra-backend-auth/`, `specs/003-b-crud-reglas/`.
+**Detalle completo:** [`docs/MANUAL_ADMIN.md`](docs/MANUAL_ADMIN.md). Specs: `specs/003-a-infra-backend-auth/`, `specs/003-b-crud-reglas/`, `specs/003-c-auditoria-estadisticas/`.
+
+## 📝 Informe de Cambios y Mejoras Recientes (Mar 2026)
 
 ## 📝 Informe de Cambios y Mejoras Recientes (Mar 2026)
 

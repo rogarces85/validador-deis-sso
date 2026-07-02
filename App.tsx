@@ -4,6 +4,7 @@ import FileDropzone from './components/FileDropzone';
 import RulesSummary from './components/RulesSummary';
 import FindingsTable from './components/FindingsTable';
 import UserManual from './components/UserManual';
+import { RulesVersionBanner } from './components/RulesVersionBanner';
 import { useValidationPipeline } from './hooks/useValidationPipeline';
 import { ValidationResult } from './types';
 
@@ -98,6 +99,7 @@ const App: React.FC = () => {
         {/* HOME PAGE — Apple-style hero */}
         {currentPage === 'home' ? (
           <div className="space-y-16 animate-in fade-in duration-500">
+            <RulesVersionBanner />
             <div className="text-center space-y-4 pt-8">
               <h1 className="text-5xl sm:text-6xl font-semibold tracking-tight" style={{ color: 'var(--text-primary)', letterSpacing: '-0.03em' }}>
                 Validador REM.

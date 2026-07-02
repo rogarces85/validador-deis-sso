@@ -1,6 +1,16 @@
 import { useState, useCallback } from 'react';
 import { AppState, FileMetadata, EstablishmentCatalog, ValidationRule } from '../types';
 import { getMissingRequiredSheetsForSerie } from '../services/remSeriesConfig';
+import { enqueue, flush } from '../services/auditQueue';
+import type { AuditEvent } from '../services/api/audit';
+
+function deriveResultado(results: ValidationRule[]): 'APROBADO' | 'CON_OBSERVACIONES' | 'RECHAZADO' {
+    const fallidos = results.filter(r => r.resultado === false);
+    if (fallidos.length === 0) return 'APROBADO';
+    const errores = fallidos.filter(r => r.severidad === 'ERROR');
+    if (errores.length === 0) return 'CON_OBSERVACIONES';
+    return 'RECHAZADO';
+}
 
 export const useValidationPipeline = () => {
     const [state, setState] = useState<AppState>({
@@ -26,7 +36,17 @@ export const useValidationPipeline = () => {
     }, []);
 
     const validateFile = useCallback(async (file: File) => {
+        const t0 = performance.now();
         setState(prev => ({ ...prev, isValidating: true, error: null, versionError: null, file }));
+
+        // Intentar vaciar la cola de auditoria antes de empezar (best-effort).
+        void flush().catch(() => undefined);
+
+        let meta: FileMetadata | null = null;
+        let establishment: any = null;
+        let results: any[] = [];
+        let isError = false;
+        let errorMsg: string | null = null;
 
         try {
             const [
@@ -94,6 +114,10 @@ export const useValidationPipeline = () => {
                     : establishment?.tipo;
 
             metadata.tipoEstablecimiento = normalizedEstablishmentType;
+            meta = metadata;
+            // Capturamos una referencia local para emitir el evento de audit
+            // al final del callback (state no esta actualizado todavia en el closure).
+            const establishmentLocal = establishment;
 
             // 3. Run NOMBRE sheet validations (before regular rules)
             const nombreValidator = new NombreSheetValidator();
@@ -125,7 +149,7 @@ export const useValidationPipeline = () => {
             const ruleResults = await ruleEngine.evaluate(rulesToRun, metadata);
 
             // Combine NOMBRE results (first) + rule engine results
-            const results = [...nombreOutput.results, ...ruleResults];
+            results = [...nombreOutput.results, ...ruleResults];
 
             setState({
                 file,
@@ -138,12 +162,45 @@ export const useValidationPipeline = () => {
             });
 
         } catch (err) {
+            // Asegurar que meta se setea aun cuando ocurra error
             console.error(err);
+            errorMsg = (err as Error).message || 'Error desconocido durante la validación';
+            isError = true;
             setState(prev => ({
                 ...prev,
                 isValidating: false,
-                error: (err as Error).message || 'Error desconocido durante la validación'
+                error: errorMsg
             }));
+        }
+
+        // Emitir evento de auditoria (no clinico) - fire-and-forget.
+        // Si meta no existe (fallo antes de extraer metadata), no emitimos.
+        const duracion = Math.round(performance.now() - t0);
+        if (meta) {
+            const m = meta as FileMetadata;
+            const fallidos = results.filter(r => r.resultado === false);
+            const conteoError = fallidos.filter(r => r.severidad === 'ERROR').length;
+            const conteoRevisar = fallidos.filter(r => r.severidad === 'REVISAR').length;
+            const conteoIndicador = fallidos.filter(r => r.severidad === 'INDICADOR').length;
+            const resultado: 'APROBADO' | 'CON_OBSERVACIONES' | 'RECHAZADO' | 'ERROR' =
+                isError ? 'ERROR' : deriveResultado(results);
+            const event: AuditEvent = {
+                nombre_archivo: m.nombreOriginal,
+                codigo_establecimiento: m.codigoEstablecimiento,
+                nombre_establecimiento: establishmentLocal?.nombre ?? null,
+                comuna: establishmentLocal?.comuna ?? null,
+                tipo_establecimiento: m.tipoEstablecimiento ?? null,
+                serie: m.serieRem,
+                mes: m.mes,
+                periodo: m.periodo,
+                total_hallazgos: results.length,
+                conteo_error: conteoError,
+                conteo_revisar: conteoRevisar,
+                conteo_indicador: conteoIndicador,
+                resultado_final: resultado,
+                duracion_ms: duracion,
+            };
+            void enqueue(event).then(() => flush()).catch(() => undefined);
         }
     }, []);
 

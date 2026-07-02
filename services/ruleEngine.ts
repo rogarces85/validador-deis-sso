@@ -256,9 +256,13 @@ export class RuleEngineService {
     // El flag omitir_si_ambos_cero === false desactiva este comportamiento
     // automatico (override manual del operador del panel).
     if (rule.omitir_si_ambos_cero !== false) {
+      // DOBLE: regla CELDA cuyo expresion_2 es una celda simple (B1, F11) o
+      // una referencia cross-sheet (Hoja!B1, A03!C108). NO matchea rangos,
+      // sumas, ni valores numericos literales.
       const isDoble = rule.tipo === 'CELDA'
         && typeof rule.expresion_2 === 'string'
-        && /^([A-Z0-9_]+!)?\\$?[A-Z]+\\$?\\d+$/i.test(rule.expresion_2);
+        && /^[A-Z][A-Z0-9_]*!?\$?[A-Z]*\$?\d+$/i.test(rule.expresion_2)
+        && !/[:+*()\s]/.test(rule.expresion_2);
       const isCompuesta = rule.tipo === 'CRUCE';
       if ((isDoble && this.isZeroLike(val1) && this.isZeroLike(val2))
           || (isCompuesta && v1 === 0)) {

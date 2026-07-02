@@ -23,7 +23,7 @@ declare(strict_types=1);
 $root = dirname(__DIR__);
 require_once $root . '/api/bootstrap.php';
 
-$base = 'http://localhost/www/validador-deis-sso';
+$base = 'http://localhost/validador-deis-sso';
 foreach ($argv as $a) {
     if (str_starts_with($a, '--base=')) {
         $base = substr($a, 7);

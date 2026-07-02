@@ -54,7 +54,7 @@ function rowToRegla(row, seqInSheet) {
     severidad: String(row['SEVERIDAD'] || 'REVISAR').trim().toUpperCase(),
     mensaje: `REM ${remSheet} | ${mensajeSec} | ${det1}${det2 ? ' | ' + det2 : ''}`.trim(),
   };
-  const celdas2 = String(row['CELDAS2'] || '').trim();
+  const celdas2 = String(row['CELDAS2'] || '').replace(/\s+/g, '');
   if (celdas2) {
     regla.expresion_2 = celdas2;
   }
